@@ -1,0 +1,12 @@
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\bin\Debug\net6.0\Biblioteca.deps.json
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\bin\Debug\net6.0\Biblioteca.dll
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\bin\Debug\net6.0\Biblioteca.pdb
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\Biblioteca.csproj.AssemblyReference.cache
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\Biblioteca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\Biblioteca.AssemblyInfoInputs.cache
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\Biblioteca.AssemblyInfo.cs
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\Biblioteca.dll
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\refint\Biblioteca.dll
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\Biblioteca.pdb
+C:\Users\more\source\repos\Morena.Escudero.PrimerParcial\Biblioteca\obj\Debug\net6.0\ref\Biblioteca.dll
