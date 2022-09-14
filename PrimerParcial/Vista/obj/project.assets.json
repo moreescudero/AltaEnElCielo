@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Vista\\Vista.csproj",
+      "projectUniqueName": "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Vista\\Vista.csproj",
       "projectName": "Vista",
-      "projectPath": "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Vista\\Vista.csproj",
+      "projectPath": "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Vista\\Vista.csproj",
       "packagesPath": "C:\\Users\\more\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Vista\\obj\\",
+      "outputPath": "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Vista\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\more\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Biblioteca\\Biblioteca.csproj": {
-              "projectPath": "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Biblioteca\\Biblioteca.csproj"
+            "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Biblioteca\\Biblioteca.csproj": {
+              "projectPath": "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Biblioteca\\Biblioteca.csproj"
             }
           }
         }

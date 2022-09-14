@@ -8,7 +8,7 @@ namespace Biblioteca
 {
     public static class Hardcodeo
     {
-        public static List<Avion> InicializarAviones(List<Avion> aviones)
+        public static void InicializarAviones(List<Avion> aviones)
         {
             aviones.Add(new Avion("MSDK3278", 529, 11, 15027, true));
             aviones.Add(new Avion("PASD1272", 529, 11, 15027, false));
@@ -18,9 +18,22 @@ namespace Biblioteca
             aviones.Add(new Avion("KCVK0348", 180, 4, 4536, false));
             aviones.Add(new Avion("PÑAS3554", 180, 4, 4536, true));
 
-            return aviones;
         }
 
-        
+        public static void InicializarEmpleados(List<Empleado> empleados)
+        {
+            empleados.Add(new Empleado("more", "escudero", "more", "123"));
+            empleados.Add(new Empleado("mati", "barrozo", "mati", "123"));
+            empleados.Add(new Empleado("nico", "gil", "nico", "123"));
+            empleados.Add(new Empleado("luki", "gaggino", "luki", "123"));
+
+        }
+
+        public static void InicializarVuelos(List<Vuelo> vuelos)
+        {
+            vuelos.Add(new Vuelo());
+            vuelos.Add(new Vuelo());
+            vuelos.Add(new Vuelo());
+        }
     }
 }

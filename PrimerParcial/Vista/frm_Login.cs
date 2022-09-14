@@ -22,10 +22,7 @@ namespace Vista
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            listaEmpleados.Add(new Empleado("more", "escudero","more", "123"));
-            listaEmpleados.Add(new Empleado("mati","barrozo","mati", "123"));
-            listaEmpleados.Add(new Empleado("nico","gil","nico", "123"));
-            listaEmpleados.Add(new Empleado("luki","gaggino","luki", "123"));
+            Hardcodeo.InicializarEmpleados(listaEmpleados);
             tmr_HoraActual.Start();
         }
 
@@ -40,7 +37,6 @@ namespace Vista
                     menu.Close();
                 }
             }
-
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -51,7 +47,7 @@ namespace Vista
         private void btn_Autocompletar_Click(object sender, EventArgs e)
         {
             Random random = new Random();
-            int rnd = random.Next(1, 4);
+            int rnd = random.Next(0, 4);
             txt_Usuario.Text = listaEmpleados[rnd].Usuario;
             txt_Contraseña.Text = "123";
         }

@@ -46,5 +46,13 @@ namespace Biblioteca
         {
             get { return enVuelo; }
         }
+
+        public int CalcularAsientosPremium(int capacidadTotal)
+        {
+            return (int)(capacidadTotal * 0.2);
+        }
+
+
+
     }
 }

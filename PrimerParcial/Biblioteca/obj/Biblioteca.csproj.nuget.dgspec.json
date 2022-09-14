@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Biblioteca\\Biblioteca.csproj": {}
+    "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Biblioteca\\Biblioteca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Biblioteca\\Biblioteca.csproj": {
+    "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Biblioteca\\Biblioteca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Biblioteca\\Biblioteca.csproj",
+        "projectUniqueName": "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Biblioteca\\Biblioteca.csproj",
         "projectName": "Biblioteca",
-        "projectPath": "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Biblioteca\\Biblioteca.csproj",
+        "projectPath": "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Biblioteca\\Biblioteca.csproj",
         "packagesPath": "C:\\Users\\more\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\more\\source\\repos\\Morena.Escudero.PrimerParcial\\Biblioteca\\obj\\",
+        "outputPath": "C:\\Users\\more\\Desktop\\Morena.Escudero.Parcial\\PrimerParcial\\Biblioteca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\more\\AppData\\Roaming\\NuGet\\NuGet.Config",
