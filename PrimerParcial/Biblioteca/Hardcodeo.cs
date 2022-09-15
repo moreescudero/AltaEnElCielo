@@ -29,11 +29,29 @@ namespace Biblioteca
 
         }
 
-        public static void InicializarVuelos(List<Vuelo> vuelos)
+        public static void InicializarPasajeros(List<Pasajero> pasajeros)
         {
-            vuelos.Add(new Vuelo());
-            vuelos.Add(new Vuelo());
-            vuelos.Add(new Vuelo());
+            pasajeros.Add(new Pasajero("Maria","Rodriguez",47,20149213,20,"Turista"));
+            pasajeros.Add(new Pasajero("Damian","Alvarez",26,39198278,42,"Premium"));
+            pasajeros.Add(new Pasajero("Lucia","Petrarca",33,32487938,35, "Premium"));
+            pasajeros.Add(new Pasajero("Santiago","Perez",19,49123039,18,"Turista"));
+            pasajeros.Add(new Pasajero("Mariano","Lopez",22,42983757,20,"Turista"));
+            pasajeros.Add(new Pasajero("Jose","Lopez",88,8239124,38, "Premium"));
+            pasajeros.Add(new Pasajero("Facundo","Zarate",46,25333298,18,"Turista"));
+            pasajeros.Add(new Pasajero("Nicolas","Pezza",15,51892111,19,"Turista"));
+            pasajeros.Add(new Pasajero("Luciana","Fernandez",34,31123908,41, "Premium"));
+            pasajeros.Add(new Pasajero("Florencia","Garcia",61,20123843,42, "Premium"));
+            pasajeros.Add(new Pasajero("Alejandra","Aguilar",60,20003124,41, "Premium"));
+            pasajeros.Add(new Pasajero("Lucio","Alcorta",24,41982898,21,"Turista"));
+            pasajeros.Add(new Pasajero("Lucas","Gimenez",30,38128875,21,"Turista"));
+            pasajeros.Add(new Pasajero("Martina","Cespedes",57,18230499,17,"Turista"));
+        }
+
+        public static void InicializarVuelos(List<Avion> aviones, List<Vuelo> vuelos, List<Pasajero> pasajeros)
+        {
+            vuelos.Add(new Vuelo(aviones[0],false,Destinos.BuenosAires,Destinos.Roma,new DateTime(2022,10,4,19,30,0), new DateTime(2022, 10, 5, 5, 30, 0), 10, pasajeros));
+            vuelos.Add(new Vuelo(aviones[3],true,Destinos.Mendoza,Destinos.Bariloche,new DateTime(2022,10,4,18,0,0), new DateTime(2022, 10, 4, 20, 0, 0), 2, pasajeros));
+            vuelos.Add(new Vuelo(aviones[7],true,Destinos.Posadas,Destinos.PuertoMadryn,new DateTime(2022,10,4,17,15,0), new DateTime(2022, 10, 4, 21, 15, 0), 4, pasajeros));
         }
     }
 }

@@ -25,6 +25,8 @@ namespace Vista
         private void frm_Menu_Load(object sender, EventArgs e)
         {
             tmr_Fondo.Start();
+            SetHora();
+            SetBackgroundImage();
         }
 
         private void btn_Salir_Click(object sender, EventArgs e)
@@ -33,21 +35,25 @@ namespace Vista
             
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void SetHora()
         {
             lbl_HoraActual.Text = DateTime.Now.ToShortTimeString();
+        }
+
+        private void SetBackgroundImage()
+        {
             DateTime tiempo = DateTime.Now;
             //DateTime tiempo = DateTime.Parse("17:00:00");
             DateTime amanecer = DateTime.Parse("06:55:00");
             DateTime tarde = DateTime.Parse("16:30:00");
             DateTime noche = DateTime.Parse("18:30:00");
-            if(tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
+            if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Image.FromFile(@"C:\Users\more\Pictures\Cielo noche.jpg");
             }
             else
             {
-                if(tiempo.CompareTo(tarde) > 0)
+                if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Image.FromFile(@"C:\Users\more\Pictures\Cielo tarde.jpg");
                 }
@@ -56,6 +62,26 @@ namespace Vista
                     this.BackgroundImage = Image.FromFile(@"C:\Users\more\Pictures\Cielo dia.jpg");
                 }
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            SetHora();
+            SetBackgroundImage();
+        }
+
+        private void pic_VisualizarVuelos_Click(object sender, EventArgs e)
+        {
+            frm_VisualizarVuelos formVisualizar = new frm_VisualizarVuelos();
+            formVisualizar.ShowDialog();
+            formVisualizar.Close();
+        }
+
+        private void pic_Vender_Click(object sender, EventArgs e)
+        {
+            frm_VenderVuelos formVender = new frm_VenderVuelos();
+            formVender.ShowDialog();
+            formVender.Close();
         }
     }
 }

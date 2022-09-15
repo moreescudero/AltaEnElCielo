@@ -10,13 +10,14 @@ namespace Biblioteca
     {
         static List<Avion> aviones;
         static List<Vuelo> vuelos;
-        //List<Pasajero> pasajeros;
+        static List<Pasajero> pasajeros;
         //List<Equipaje> equipajes;
 
         public static void InicializarAerolinea()
         {
             Hardcodeo.InicializarAviones(aviones);
-            Hardcodeo.InicializarVuelos(vuelos);
+            Hardcodeo.InicializarPasajeros(pasajeros);
+            Hardcodeo.InicializarVuelos(aviones, vuelos, pasajeros);
         }
     }
 }

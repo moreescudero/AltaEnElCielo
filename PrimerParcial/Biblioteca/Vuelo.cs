@@ -8,6 +8,7 @@ namespace Biblioteca
 {
     public enum Destinos
     {
+        BuenosAires,
         SantaRosa,
         Bariloche,
         Corrientes,
@@ -38,10 +39,11 @@ namespace Biblioteca
         DateTime salida;
         DateTime llegada;
         int duracion;
-        float precio;
+        float recaudado; // recaudacion por pasaje vendido
+        bool hayComida;
         List<Pasajero> listaPasajeros;
 
-        public Vuelo(Avion unAvion,bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float precio, List<Pasajero> listaPasajeros)
+        public Vuelo(Avion unAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, List<Pasajero> listaPasajeros)
         {
             this.unAvion = unAvion;
             this.esNacional = esNacional;
@@ -50,13 +52,28 @@ namespace Biblioteca
             this.salida = salida;
             this.llegada = llegada;
             this.duracion = duracion;
-            this.precio = precio;
             this.listaPasajeros = listaPasajeros;
+        }
+
+        public Vuelo(Avion unAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros) :this(unAvion, esNacional, origen, destino, salida, llegada, duracion, listaPasajeros)
+        {
+            this.recaudado = recaudado;
+            this.hayComida = hayComida;
+        }
+
+        public Avion UnAvion
+        {
+            get { return unAvion; }
+        }
+
+        public bool HayComida
+        {
+            get { return hayComida; }
         }
 
         public bool EsNacional
         {
-            get { return esNacional; }
+            get { return esNacional; } //si es internacional origen solo puede ser bs as
         }
 
         public Destinos Origen
@@ -79,9 +96,10 @@ namespace Biblioteca
             get { return salida; }
         }
 
-        public float Precio
+        public float Recaudado
         {
-            get { return precio; }
+            get { return recaudado; }
+            set { recaudado = value; }
         }
 
         public int Duracion
@@ -89,7 +107,7 @@ namespace Biblioteca
             get { return duracion; }
         }
 
-        public int AsignarDuracion()
+        public int AsignarDuracion()//puedo reutilizar para hacer volver a los aviones
         {
             Random random = new Random();
             int rnd;
@@ -105,7 +123,12 @@ namespace Biblioteca
             return rnd;
         }
 
-        private float CalcularHoraSegunClase(string clase, float precio)
+        public DateTime CalcularLlegada()
+        {
+            return salida.AddHours(AsignarDuracion());
+        }
+
+        private float CalcularPrecioSegunClase(string clase, float precio)
         {
             if(clase == "Premium")
             {
@@ -128,10 +151,15 @@ namespace Biblioteca
                 precioHora = 100f;
             }
 
-            precioTotal = CalcularHoraSegunClase(clase, precioHora);
+            precioTotal = CalcularPrecioSegunClase(clase, precioHora);
             precioTotal *= duracion;
 
             return precioTotal;
+        }
+
+        public float CalcularRecaudacion(float unPasaje)
+        {
+            return recaudado += unPasaje;
         }
         
     }
