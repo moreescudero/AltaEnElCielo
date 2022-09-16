@@ -13,8 +13,9 @@ namespace Vista
 {
     public partial class frm_VenderVuelos : Form
     {
-
+        List<Vuelo>? filtro;
         bool banderaCalendario = false;
+        bool banderaFiltro = false;
         
         public frm_VenderVuelos()
         {
@@ -23,14 +24,12 @@ namespace Vista
 
         private void frm_VenderVuelos_Load(object sender, EventArgs e)
         {
-            tmr_HoraActual.Start();
             cdr_Salida.MinDate = DateTime.Now;
-            SetHora();
             foreach(string destino in Enum.GetNames(typeof(Destinos)))
             {
                 cmb_Origen.Items.Add(destino);
             }
-            cmb_Clase.Items.Add("Turista"); // mejorar
+            cmb_Clase.Items.Add("Turista"); // mejorar 
             cmb_Clase.Items.Add("Premium");
 
             //cmb_IdaVuelta.Items.Add("Solo ida"); // hacerlo bien
@@ -42,16 +41,6 @@ namespace Vista
             this.DialogResult = DialogResult.OK;
         }
 
-        private void SetHora()
-        {
-            lbl_HoraActual.Text = DateTime.Now.ToShortTimeString();
-        }
-
-        private void tmr_HoraActual_Tick(object sender, EventArgs e)
-        {
-            SetHora();
-        }
-
         private void cdr_Salida_DateSelected(object sender, DateRangeEventArgs e)
         {
             banderaCalendario = true;
@@ -59,7 +48,6 @@ namespace Vista
             DateTime vuelta = cdr_Salida.SelectionEnd;
             FormCompleto();
         }
-
 
         private void cmb_Origen_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -97,12 +85,62 @@ namespace Vista
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            
+            nud_CantidadPasajeros.Visible = false; 
+            cmb_Origen.Visible = false;
+            cmb_Destino.Visible = false;
+            cmb_Clase.Visible = false;
+            cdr_Salida.Visible = false;
+            lbl_Origen.Visible = false;
+            lbl_Destino.Visible = false;
+            lbl_CantPasajeros.Visible = false;
+            lbl_Clase.Visible = false;
+            lbl_Fechas.Visible = false;
+
+            if(banderaFiltro)
+            {
+                frm_AltaPasajero altaPasajero = new frm_AltaPasajero((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()), cdr_Salida.SelectionStart, cdr_Salida.SelectionEnd, cmb_Clase.Text);
+            }
+
+            dgv_HayVuelo.Visible = true;
         }
 
         private void cmb_Destino_SelectedIndexChanged(object sender, EventArgs e)
         {
             FormCompleto();
+        }
+
+        private void btn_AgregarVuelo_Click(object sender, EventArgs e)
+        {
+            frm_AgregarVuelo agregarVuelo = new frm_AgregarVuelo((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), cdr_Salida.SelectionStart);
+            agregarVuelo.ShowDialog();
+            agregarVuelo.Close();
+        }
+
+        private void dgv_HayVuelo_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!banderaFiltro)
+            {
+                //usar un trycatch
+                filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()));
+                if (filtro.Count == 0)
+                {
+                    lbl_NoHayVuelos.Text = "No hay vuelos que coincidan con el origen y el destino";
+                }
+                else
+                {
+                    dgv_HayVuelo.DataSource = filtro;
+                }
+                banderaFiltro = true;
+            }
+            
+
+            btn_AgregarVuelo.Visible = true;
+        }
+
+        private void dgv_HayVuelo_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int index = e.RowIndex;
+
         }
     }
 }

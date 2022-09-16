@@ -43,3 +43,5 @@ C:\Users\more\Desktop\Morena.Escudero.Parcial\PrimerParcial\Vista\obj\Debug\net6
 C:\Users\more\Desktop\Morena.Escudero.Parcial\PrimerParcial\Vista\obj\Debug\net6.0-windows\Vista.Properties.Resources.resources
 C:\Users\more\Desktop\Morena.Escudero.Parcial\PrimerParcial\Vista\obj\Debug\net6.0-windows\Vista.frm_VisualizarVuelos.resources
 C:\Users\more\Desktop\Morena.Escudero.Parcial\PrimerParcial\Vista\obj\Debug\net6.0-windows\Vista.frm_VenderVuelos.resources
+C:\Users\more\Desktop\Morena.Escudero.Parcial\PrimerParcial\Vista\obj\Debug\net6.0-windows\Vista.frm_AgregarVuelo.resources
+C:\Users\more\Desktop\Morena.Escudero.Parcial\PrimerParcial\Vista\obj\Debug\net6.0-windows\Vista.frm_AltaPasajero.resources

@@ -12,7 +12,6 @@ namespace Biblioteca
         int dni;
         float equipaje;
         string clase;
-        //atributos cosas q necesita ?? wifi/menu vegano, celiaco, etc/televisor ? 
 
         public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase) : base(nombre, apellido)
         {

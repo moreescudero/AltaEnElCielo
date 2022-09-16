@@ -32,20 +32,22 @@ namespace Biblioteca
 
     public class Vuelo
     {
-        Avion unAvion;
+        string? matriculaAvion;
         bool esNacional;
         Destinos origen;
         Destinos destino;
         DateTime salida;
         DateTime llegada;
         int duracion;
+        int asientosDisponibles;
         float recaudado; // recaudacion por pasaje vendido
         bool hayComida;
+        //atributos cosas extras ?? wifi/menu vegano, celiaco, etc/televisor ? 
         List<Pasajero> listaPasajeros;
 
-        public Vuelo(Avion unAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, List<Pasajero> listaPasajeros)
+        public Vuelo(string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles)
         {
-            this.unAvion = unAvion;
+            this.matriculaAvion = matriculaAvion;
             this.esNacional = esNacional;
             this.origen = origen;
             this.destino = destino;
@@ -53,17 +55,18 @@ namespace Biblioteca
             this.llegada = llegada;
             this.duracion = duracion;
             this.listaPasajeros = listaPasajeros;
+            this.hayComida = hayComida;
+            this.asientosDisponibles = asientosDisponibles;
         }
 
-        public Vuelo(Avion unAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros) :this(unAvion, esNacional, origen, destino, salida, llegada, duracion, listaPasajeros)
+        public Vuelo(string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
         {
             this.recaudado = recaudado;
-            this.hayComida = hayComida;
         }
 
-        public Avion UnAvion
+        public string? MatriculaAvion
         {
-            get { return unAvion; }
+            get { return matriculaAvion; }
         }
 
         public bool HayComida
@@ -105,6 +108,17 @@ namespace Biblioteca
         public int Duracion
         {
             get { return duracion; }
+        }
+
+        public int AsientosDisponibles
+        {
+            get { return asientosDisponibles; }
+            set { asientosDisponibles = value; }
+        }
+
+        public void RestarAsientosDisponibles(int asientosOcupados)
+        {
+            AsientosDisponibles -= asientosOcupados;
         }
 
         public int AsignarDuracion()//puedo reutilizar para hacer volver a los aviones

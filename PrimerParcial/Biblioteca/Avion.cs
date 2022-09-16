@@ -12,15 +12,13 @@ namespace Biblioteca
         int cantAsientos;
         int cantBaños;
         float capacidadBodega;
-        bool enVuelo; //no se puede usar en el momento indicado para comprar un pasaje, se puede usar en otra fecha/hora
 
-        public Avion( string? matricula, int cantAsientos, int cantBaños, float capacidadBodega, bool enVuelo)
+        public Avion( string? matricula, int cantAsientos, int cantBaños, float capacidadBodega)
         {
             this.matricula = matricula;
             this.cantAsientos = cantAsientos;
             this.cantBaños = cantBaños;
             this.capacidadBodega = capacidadBodega;
-            this.enVuelo = enVuelo;
         }
 
         public string? Matricula
@@ -40,12 +38,6 @@ namespace Biblioteca
         public float CapacidadBodega
         {
             get { return capacidadBodega; }
-        }
-
-        public bool EnVuelo
-        {
-            get { return enVuelo; }
-            set { enVuelo = value; }
         }
 
         public int CalcularAsientosPremium()

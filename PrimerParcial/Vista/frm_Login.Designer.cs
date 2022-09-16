@@ -40,7 +40,7 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(241, 289);
+            this.btn_Cancelar.Location = new System.Drawing.Point(123, 255);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Location = new System.Drawing.Point(456, 289);
+            this.btn_Aceptar.Location = new System.Drawing.Point(338, 255);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // txt_Usuario
             // 
-            this.txt_Usuario.Location = new System.Drawing.Point(314, 102);
+            this.txt_Usuario.Location = new System.Drawing.Point(196, 68);
             this.txt_Usuario.Name = "txt_Usuario";
             this.txt_Usuario.PlaceholderText = "Ingrese usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(146, 23);
@@ -68,7 +68,7 @@
             // 
             // txt_Contraseña
             // 
-            this.txt_Contraseña.Location = new System.Drawing.Point(314, 196);
+            this.txt_Contraseña.Location = new System.Drawing.Point(196, 162);
             this.txt_Contraseña.Name = "txt_Contraseña";
             this.txt_Contraseña.PasswordChar = '*';
             this.txt_Contraseña.PlaceholderText = "Ingrese contraseña";
@@ -77,7 +77,7 @@
             // 
             // btn_Autocompletar
             // 
-            this.btn_Autocompletar.Location = new System.Drawing.Point(314, 358);
+            this.btn_Autocompletar.Location = new System.Drawing.Point(196, 324);
             this.btn_Autocompletar.Name = "btn_Autocompletar";
             this.btn_Autocompletar.Size = new System.Drawing.Size(146, 23);
             this.btn_Autocompletar.TabIndex = 4;
@@ -88,7 +88,7 @@
             // lbl_Hora
             // 
             this.lbl_Hora.AutoSize = true;
-            this.lbl_Hora.Location = new System.Drawing.Point(706, 402);
+            this.lbl_Hora.Location = new System.Drawing.Point(472, 386);
             this.lbl_Hora.Name = "lbl_Hora";
             this.lbl_Hora.Size = new System.Drawing.Size(0, 15);
             this.lbl_Hora.TabIndex = 5;
@@ -101,7 +101,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(564, 429);
             this.Controls.Add(this.lbl_Hora);
             this.Controls.Add(this.btn_Autocompletar);
             this.Controls.Add(this.txt_Contraseña);
@@ -109,6 +110,7 @@
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.btn_Cancelar);
             this.Name = "frm_Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);

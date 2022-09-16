@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using Biblioteca;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,9 @@ namespace Vista
 {
     public partial class frm_Menu : Form
     {
+        List<Vuelo> vuelos = new List<Vuelo>();
+        List<Avion> aviones = new List<Avion>();
+        List<Pasajero> pasajeros = new List<Pasajero>();
         public frm_Menu()
         {
             InitializeComponent();
@@ -25,6 +29,7 @@ namespace Vista
         private void frm_Menu_Load(object sender, EventArgs e)
         {
             tmr_Fondo.Start();
+            Aerolinea.InicializarAerolinea(aviones, vuelos, pasajeros);
             SetHora();
             SetBackgroundImage();
         }
@@ -72,7 +77,7 @@ namespace Vista
 
         private void pic_VisualizarVuelos_Click(object sender, EventArgs e)
         {
-            frm_VisualizarVuelos formVisualizar = new frm_VisualizarVuelos();
+            frm_VisualizarVuelos formVisualizar = new frm_VisualizarVuelos(vuelos);
             formVisualizar.ShowDialog();
             formVisualizar.Close();
         }

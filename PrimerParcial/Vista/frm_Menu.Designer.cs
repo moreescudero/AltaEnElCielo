@@ -83,6 +83,7 @@
             // 
             // pic_VisualizarVuelos
             // 
+            this.pic_VisualizarVuelos.Enabled = false;
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
             this.pic_VisualizarVuelos.Location = new System.Drawing.Point(105, 183);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
@@ -167,6 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(804, 363);
             this.Controls.Add(this.lbl_Informacion);

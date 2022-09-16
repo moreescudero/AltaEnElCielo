@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Vista
         public frm_VisualizarVuelos()
         {
             InitializeComponent();
+        }
+        
+        public frm_VisualizarVuelos(List<Vuelo> vuelos) : this()
+        {
+            dgv_VisualizarVuelos.DataSource = vuelos;
         }
 
         private void btn_Salir_Click(object sender, EventArgs e)
