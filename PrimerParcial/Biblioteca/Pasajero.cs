@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,13 +13,15 @@ namespace Biblioteca
         int dni;
         float equipaje;
         string clase;
+        float precioBoleto;
 
-        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase) : base(nombre, apellido)
+        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, float precioBoleto) : base(nombre, apellido)
         {
             this.edad = edad;
             this.dni = dni;
             this.equipaje = equipaje;
             this.clase = clase;
+            this.precioBoleto = precioBoleto;
         }
 
         public string Clase
@@ -41,10 +44,31 @@ namespace Biblioteca
             get { return equipaje; }
         }
 
-
-        public string ElegirMenu()
+        public float PrecioBoleto
         {
-            return "";
+            get { return precioBoleto; }
+        }
+
+
+        public static float CalcularPrecio(int destino, int duracion, string clase)
+        {
+            float precioHora;
+
+            if (destino > 100)
+            {
+                precioHora = 50f;
+            }
+            else
+            {
+                precioHora = 100f;
+            }
+            if (clase == "Premium")
+            {
+                precioHora *= 1.15f;
+            }
+            precioHora *= duracion;
+
+            return precioHora;
         }
 
     }

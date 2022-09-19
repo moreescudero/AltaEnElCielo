@@ -32,6 +32,7 @@ namespace Biblioteca
 
     public class Vuelo
     {
+        string? codigoVuelo;
         string? matriculaAvion;
         bool esNacional;
         Destinos origen;
@@ -40,13 +41,14 @@ namespace Biblioteca
         DateTime llegada;
         int duracion;
         int asientosDisponibles;
-        float recaudado; // recaudacion por pasaje vendido
+        float recaudado; // recaudacion total por pasaje vendido
         bool hayComida;
         //atributos cosas extras ?? wifi/menu vegano, celiaco, etc/televisor ? 
         List<Pasajero> listaPasajeros;
 
-        public Vuelo(string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles)
         {
+            this.codigoVuelo = codigoVuelo;
             this.matriculaAvion = matriculaAvion;
             this.esNacional = esNacional;
             this.origen = origen;
@@ -59,9 +61,14 @@ namespace Biblioteca
             this.asientosDisponibles = asientosDisponibles;
         }
 
-        public Vuelo(string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
         {
             this.recaudado = recaudado;
+        }
+
+        public string? CodigoVuelo
+        {
+            get { return codigoVuelo; }
         }
 
         public string? MatriculaAvion
@@ -76,7 +83,7 @@ namespace Biblioteca
 
         public bool EsNacional
         {
-            get { return esNacional; } //si es internacional origen solo puede ser bs as
+            get { return esNacional; } 
         }
 
         public Destinos Origen
@@ -116,6 +123,25 @@ namespace Biblioteca
             set { asientosDisponibles = value; }
         }
 
+        public static string GeneradorCodigoVuelo()
+        {
+            Random rnd = new Random();
+            StringBuilder codigo = new StringBuilder();
+
+            for(int i = 0; i > 6; i++)
+            {
+                if(i > 3)
+                {
+                    codigo.Insert(codigo.Length,rnd.Next(10));
+                }
+                else
+                {
+                    codigo.Insert(codigo.Length, (char)(((int)'A') + rnd.Next(26)));
+                }
+            }
+            return codigo.ToString();
+        }
+
         public void RestarAsientosDisponibles(int asientosOcupados)
         {
             AsientosDisponibles -= asientosOcupados;
@@ -125,13 +151,13 @@ namespace Biblioteca
         {
             Random random = new Random();
             int rnd;
-            if (((int)destino) > 100)
+            if (esNacional)
             {
-                rnd = random.Next(1,5);
+                rnd = random.Next(2,5);
             }
             else
             {
-                rnd = random.Next(7, 13);
+                rnd = random.Next(8, 13);
             }
 
             return rnd;
@@ -139,41 +165,23 @@ namespace Biblioteca
 
         public DateTime CalcularLlegada()
         {
-            return salida.AddHours(AsignarDuracion());
-        }
+            DateTime llegada = salida.AddHours(AsignarDuracion());
+            int dia = int.Parse(salida.Day.ToString());
+            int mes = int.Parse(salida.Month.ToString());
 
-        private float CalcularPrecioSegunClase(string clase, float precio)
-        {
-            if(clase == "Premium")
+            if (int.Parse(salida.Hour.ToString()) +  int.Parse(llegada.Hour.ToString()) >= 24)
             {
-                precio *= 1.15f;
+                llegada.AddDays(1);
+                if ((dia == 31 && (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10)) || (dia == 30 && (mes == 4 || mes == 6 || mes == 9 || mes == 11)) || (dia == 28 && mes == 2))
+                {
+                    llegada.AddMonths(1);
+                }
+                if (dia == 31 && mes == 12)
+                {
+                    llegada.AddYears(1);
+                }
             }
-            return precio;
-        }
-
-        public float CalcularPrecio(string clase)
-        {
-            float precioTotal;
-            float precioHora;
-            
-            if(((int)destino) > 100)
-            {
-                precioHora = 50f;
-            }
-            else
-            {
-                precioHora = 100f;
-            }
-
-            precioTotal = CalcularPrecioSegunClase(clase, precioHora);
-            precioTotal *= duracion;
-
-            return precioTotal;
-        }
-
-        public float CalcularRecaudacion(float unPasaje)
-        {
-            return recaudado += unPasaje;
+            return llegada;
         }
         
     }

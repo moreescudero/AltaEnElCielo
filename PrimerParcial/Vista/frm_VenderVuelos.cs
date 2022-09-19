@@ -15,8 +15,8 @@ namespace Vista
     {
         List<Vuelo>? filtro;
         bool banderaCalendario = false;
-        bool banderaFiltro = false;
-        
+        string? codVuelo;
+
         public frm_VenderVuelos()
         {
             InitializeComponent();
@@ -35,10 +35,6 @@ namespace Vista
             //cmb_IdaVuelta.Items.Add("Solo ida"); // hacerlo bien
             //cmb_IdaVuelta.Items.Add("Ida y vuelta"); 
 
-        }
-        private void btn_Cancelar_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
         }
 
         private void cdr_Salida_DateSelected(object sender, DateRangeEventArgs e)
@@ -67,7 +63,6 @@ namespace Vista
                 }
             }
         }
-
           
         private void nud_CantidadPasajeros_ValueChanged(object sender, EventArgs e)
         {
@@ -79,29 +74,21 @@ namespace Vista
         {
             if(nud_CantidadPasajeros.Value > 0 && banderaCalendario && cmb_Origen.Text != String.Empty && cmb_Destino.Text != String.Empty && cmb_Clase.Text != String.Empty)
             {
-                btn_Aceptar.Enabled = true;
+                btn_Continuar.Enabled = true;
             }
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            nud_CantidadPasajeros.Visible = false; 
-            cmb_Origen.Visible = false;
-            cmb_Destino.Visible = false;
-            cmb_Clase.Visible = false;
-            cdr_Salida.Visible = false;
-            lbl_Origen.Visible = false;
-            lbl_Destino.Visible = false;
-            lbl_CantPasajeros.Visible = false;
-            lbl_Clase.Visible = false;
-            lbl_Fechas.Visible = false;
-
-            if(banderaFiltro)
+            frm_AltaPasajero altaPasajero = new frm_AltaPasajero(codVuelo, int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text);
+            if(altaPasajero.ShowDialog() == DialogResult.OK)
             {
-                frm_AltaPasajero altaPasajero = new frm_AltaPasajero((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()), cdr_Salida.SelectionStart, cdr_Salida.SelectionEnd, cmb_Clase.Text);
+                this.Close(); // alta pasajero se va a encargar de terminar de cargar todo
             }
-
-            dgv_HayVuelo.Visible = true;
+            else
+            {
+                //informar que ocurrio un error en alta pasajeros SIN message box
+            }
         }
 
         private void cmb_Destino_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,29 +105,44 @@ namespace Vista
 
         private void dgv_HayVuelo_VisibleChanged(object sender, EventArgs e)
         {
-            if (!banderaFiltro)
-            {
                 //usar un trycatch
-                filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()));
-                if (filtro.Count == 0)
-                {
-                    lbl_NoHayVuelos.Text = "No hay vuelos que coincidan con el origen y el destino";
-                }
-                else
-                {
-                    dgv_HayVuelo.DataSource = filtro;
-                }
-                banderaFiltro = true;
+            filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()));
+            if (filtro.Count == 0)
+            {
+                lbl_NoHayVuelos.Text = "No hay vuelos que coincidan con el origen y el destino deseado";
+            }
+            else
+            {
+                dgv_HayVuelo.DataSource = filtro;
             }
             
-
+            btn_Continuar.Enabled = false;
+            btn_Aceptar.Enabled = true;
             btn_AgregarVuelo.Visible = true;
         }
 
         private void dgv_HayVuelo_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int index = e.RowIndex;
+            codVuelo = dgv_HayVuelo[0, index].Value.ToString(); 
+        }
+
+        private void btn_Continuar_Click(object sender, EventArgs e)
+        {
+            nud_CantidadPasajeros.Visible = false;
+            cmb_Origen.Visible = false;
+            cmb_Destino.Visible = false;
+            cmb_Clase.Visible = false;
+            cdr_Salida.Visible = false;
+            lbl_Origen.Visible = false;
+            lbl_Destino.Visible = false;
+            lbl_CantPasajeros.Visible = false;
+            lbl_Clase.Visible = false;
+            lbl_Fechas.Visible = false;
+
+            dgv_HayVuelo.Visible = true;
 
         }
+
     }
 }

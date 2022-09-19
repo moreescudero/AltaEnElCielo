@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_AltaPasajero));
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_Equipaje = new System.Windows.Forms.Label();
             this.lbl_Edad = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.txt_Apellido = new System.Windows.Forms.TextBox();
             this.txt_Dni = new System.Windows.Forms.TextBox();
             this.txt_Edad = new System.Windows.Forms.TextBox();
-            this.txt_Equipaje = new System.Windows.Forms.TextBox();
             this.lbl_CantEquipaje = new System.Windows.Forms.Label();
             this.nud_CantEquipaje = new System.Windows.Forms.NumericUpDown();
             this.lbl_Clase = new System.Windows.Forms.Label();
@@ -52,14 +52,37 @@
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lbl_Subtotal = new System.Windows.Forms.Label();
             this.lbl_Total = new System.Windows.Forms.Label();
+            this.nud_Equipaje = new System.Windows.Forms.NumericUpDown();
+            this.pic_PasajeroUno = new System.Windows.Forms.PictureBox();
+            this.pic_PasajeroCuatro = new System.Windows.Forms.PictureBox();
+            this.pic_PasajeroTres = new System.Windows.Forms.PictureBox();
+            this.pic_PasajeroDos = new System.Windows.Forms.PictureBox();
+            this.lbl_Extras = new System.Windows.Forms.Label();
+            this.lbl_ComoGuardar = new System.Windows.Forms.Label();
+            this.pic_ElegirUno = new System.Windows.Forms.PictureBox();
+            this.pic_ElegirDos = new System.Windows.Forms.PictureBox();
+            this.pic_ElegirTres = new System.Windows.Forms.PictureBox();
+            this.pic_ElegirCuatro = new System.Windows.Forms.PictureBox();
+            this.btn_CargarPasajero = new System.Windows.Forms.Button();
+            this.lbl_EstadoCargaPasajero = new System.Windows.Forms.Label();
+            this.lbl_ErrorAlAceptar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroUno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroCuatro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroTres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroDos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirUno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirDos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirTres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirCuatro)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_Nombre
             // 
             this.lbl_Nombre.AutoSize = true;
             this.lbl_Nombre.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Nombre.Location = new System.Drawing.Point(237, 93);
+            this.lbl_Nombre.Location = new System.Drawing.Point(236, 74);
             this.lbl_Nombre.Name = "lbl_Nombre";
             this.lbl_Nombre.Size = new System.Drawing.Size(54, 15);
             this.lbl_Nombre.TabIndex = 0;
@@ -68,7 +91,7 @@
             // lbl_Equipaje
             // 
             this.lbl_Equipaje.AutoSize = true;
-            this.lbl_Equipaje.Location = new System.Drawing.Point(516, 137);
+            this.lbl_Equipaje.Location = new System.Drawing.Point(515, 118);
             this.lbl_Equipaje.Name = "lbl_Equipaje";
             this.lbl_Equipaje.Size = new System.Drawing.Size(55, 15);
             this.lbl_Equipaje.TabIndex = 1;
@@ -77,7 +100,7 @@
             // lbl_Edad
             // 
             this.lbl_Edad.AutoSize = true;
-            this.lbl_Edad.Location = new System.Drawing.Point(237, 222);
+            this.lbl_Edad.Location = new System.Drawing.Point(236, 203);
             this.lbl_Edad.Name = "lbl_Edad";
             this.lbl_Edad.Size = new System.Drawing.Size(36, 15);
             this.lbl_Edad.TabIndex = 2;
@@ -87,7 +110,7 @@
             // 
             this.lbl_Apellido.AutoSize = true;
             this.lbl_Apellido.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Apellido.Location = new System.Drawing.Point(237, 137);
+            this.lbl_Apellido.Location = new System.Drawing.Point(236, 118);
             this.lbl_Apellido.Name = "lbl_Apellido";
             this.lbl_Apellido.Size = new System.Drawing.Size(54, 15);
             this.lbl_Apellido.TabIndex = 3;
@@ -97,7 +120,7 @@
             // 
             this.lbl_Kilos.AutoSize = true;
             this.lbl_Kilos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Kilos.Location = new System.Drawing.Point(736, 137);
+            this.lbl_Kilos.Location = new System.Drawing.Point(735, 118);
             this.lbl_Kilos.Name = "lbl_Kilos";
             this.lbl_Kilos.Size = new System.Drawing.Size(20, 15);
             this.lbl_Kilos.TabIndex = 4;
@@ -107,7 +130,7 @@
             // 
             this.lbl_Dni.AutoSize = true;
             this.lbl_Dni.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Dni.Location = new System.Drawing.Point(237, 178);
+            this.lbl_Dni.Location = new System.Drawing.Point(236, 159);
             this.lbl_Dni.Name = "lbl_Dni";
             this.lbl_Dni.Size = new System.Drawing.Size(33, 15);
             this.lbl_Dni.TabIndex = 5;
@@ -115,44 +138,40 @@
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(350, 90);
+            this.txt_Nombre.Location = new System.Drawing.Point(349, 71);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(100, 23);
             this.txt_Nombre.TabIndex = 6;
+            this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
             // txt_Apellido
             // 
-            this.txt_Apellido.Location = new System.Drawing.Point(350, 134);
+            this.txt_Apellido.Location = new System.Drawing.Point(349, 115);
             this.txt_Apellido.Name = "txt_Apellido";
             this.txt_Apellido.Size = new System.Drawing.Size(100, 23);
             this.txt_Apellido.TabIndex = 7;
+            this.txt_Apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Apellido_KeyPress);
             // 
             // txt_Dni
             // 
-            this.txt_Dni.Location = new System.Drawing.Point(350, 175);
+            this.txt_Dni.Location = new System.Drawing.Point(349, 156);
             this.txt_Dni.Name = "txt_Dni";
             this.txt_Dni.Size = new System.Drawing.Size(100, 23);
             this.txt_Dni.TabIndex = 8;
+            this.txt_Dni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Dni_KeyPress);
             // 
             // txt_Edad
             // 
-            this.txt_Edad.Location = new System.Drawing.Point(350, 219);
+            this.txt_Edad.Location = new System.Drawing.Point(349, 200);
             this.txt_Edad.Name = "txt_Edad";
             this.txt_Edad.Size = new System.Drawing.Size(100, 23);
             this.txt_Edad.TabIndex = 9;
-            // 
-            // txt_Equipaje
-            // 
-            this.txt_Equipaje.Enabled = false;
-            this.txt_Equipaje.Location = new System.Drawing.Point(629, 134);
-            this.txt_Equipaje.Name = "txt_Equipaje";
-            this.txt_Equipaje.Size = new System.Drawing.Size(100, 23);
-            this.txt_Equipaje.TabIndex = 10;
+            this.txt_Edad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Edad_KeyPress);
             // 
             // lbl_CantEquipaje
             // 
             this.lbl_CantEquipaje.AutoSize = true;
-            this.lbl_CantEquipaje.Location = new System.Drawing.Point(516, 93);
+            this.lbl_CantEquipaje.Location = new System.Drawing.Point(515, 74);
             this.lbl_CantEquipaje.Name = "lbl_CantEquipaje";
             this.lbl_CantEquipaje.Size = new System.Drawing.Size(106, 15);
             this.lbl_CantEquipaje.TabIndex = 11;
@@ -160,7 +179,7 @@
             // 
             // nud_CantEquipaje
             // 
-            this.nud_CantEquipaje.Location = new System.Drawing.Point(629, 91);
+            this.nud_CantEquipaje.Location = new System.Drawing.Point(628, 72);
             this.nud_CantEquipaje.Maximum = new decimal(new int[] {
             1,
             0,
@@ -185,7 +204,7 @@
             // chk_MenuComun
             // 
             this.chk_MenuComun.AutoSize = true;
-            this.chk_MenuComun.Location = new System.Drawing.Point(237, 316);
+            this.chk_MenuComun.Location = new System.Drawing.Point(237, 288);
             this.chk_MenuComun.Name = "chk_MenuComun";
             this.chk_MenuComun.Size = new System.Drawing.Size(66, 19);
             this.chk_MenuComun.TabIndex = 14;
@@ -195,7 +214,7 @@
             // chk_MenuVegano
             // 
             this.chk_MenuVegano.AutoSize = true;
-            this.chk_MenuVegano.Location = new System.Drawing.Point(386, 316);
+            this.chk_MenuVegano.Location = new System.Drawing.Point(373, 288);
             this.chk_MenuVegano.Name = "chk_MenuVegano";
             this.chk_MenuVegano.Size = new System.Drawing.Size(65, 19);
             this.chk_MenuVegano.TabIndex = 15;
@@ -205,7 +224,7 @@
             // chk_MenuCeliaco
             // 
             this.chk_MenuCeliaco.AutoSize = true;
-            this.chk_MenuCeliaco.Location = new System.Drawing.Point(516, 316);
+            this.chk_MenuCeliaco.Location = new System.Drawing.Point(505, 288);
             this.chk_MenuCeliaco.Name = "chk_MenuCeliaco";
             this.chk_MenuCeliaco.Size = new System.Drawing.Size(65, 19);
             this.chk_MenuCeliaco.TabIndex = 16;
@@ -215,7 +234,7 @@
             // chk_MenuVegetariano
             // 
             this.chk_MenuVegetariano.AutoSize = true;
-            this.chk_MenuVegetariano.Location = new System.Drawing.Point(641, 316);
+            this.chk_MenuVegetariano.Location = new System.Drawing.Point(641, 288);
             this.chk_MenuVegetariano.Name = "chk_MenuVegetariano";
             this.chk_MenuVegetariano.Size = new System.Drawing.Size(88, 19);
             this.chk_MenuVegetariano.TabIndex = 17;
@@ -225,7 +244,7 @@
             // lbl_Menu
             // 
             this.lbl_Menu.AutoSize = true;
-            this.lbl_Menu.Location = new System.Drawing.Point(237, 281);
+            this.lbl_Menu.Location = new System.Drawing.Point(237, 253);
             this.lbl_Menu.Name = "lbl_Menu";
             this.lbl_Menu.Size = new System.Drawing.Size(99, 15);
             this.lbl_Menu.TabIndex = 18;
@@ -234,22 +253,24 @@
             // lbl_SinMenu
             // 
             this.lbl_SinMenu.AutoSize = true;
-            this.lbl_SinMenu.Location = new System.Drawing.Point(350, 281);
+            this.lbl_SinMenu.Location = new System.Drawing.Point(350, 253);
             this.lbl_SinMenu.Name = "lbl_SinMenu";
             this.lbl_SinMenu.Size = new System.Drawing.Size(88, 15);
             this.lbl_SinMenu.TabIndex = 19;
             this.lbl_SinMenu.Text = "vuelo sin menu";
             this.lbl_SinMenu.Visible = false;
-            this.lbl_SinMenu.VisibleChanged += new System.EventHandler(this.label1_VisibleChanged);
+            this.lbl_SinMenu.VisibleChanged += new System.EventHandler(this.lbl_SinMenu_VisibleChanged);
             // 
             // btn_Aceptar
             // 
+            this.btn_Aceptar.Enabled = false;
             this.btn_Aceptar.Location = new System.Drawing.Point(654, 398);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 20;
             this.btn_Aceptar.Text = "Aceptar";
             this.btn_Aceptar.UseVisualStyleBackColor = true;
+            this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
             // btn_Cancelar
             // 
@@ -278,12 +299,193 @@
             this.lbl_Total.TabIndex = 23;
             this.lbl_Total.Text = "Total:";
             // 
+            // nud_Equipaje
+            // 
+            this.nud_Equipaje.Enabled = false;
+            this.nud_Equipaje.Location = new System.Drawing.Point(628, 118);
+            this.nud_Equipaje.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.nud_Equipaje.Name = "nud_Equipaje";
+            this.nud_Equipaje.Size = new System.Drawing.Size(101, 23);
+            this.nud_Equipaje.TabIndex = 24;
+            // 
+            // pic_PasajeroUno
+            // 
+            this.pic_PasajeroUno.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pic_PasajeroUno.Enabled = false;
+            this.pic_PasajeroUno.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroUno.Image")));
+            this.pic_PasajeroUno.InitialImage = null;
+            this.pic_PasajeroUno.Location = new System.Drawing.Point(34, 51);
+            this.pic_PasajeroUno.Name = "pic_PasajeroUno";
+            this.pic_PasajeroUno.Size = new System.Drawing.Size(61, 57);
+            this.pic_PasajeroUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_PasajeroUno.TabIndex = 25;
+            this.pic_PasajeroUno.TabStop = false;
+            this.pic_PasajeroUno.Click += new System.EventHandler(this.pic_PasajeroUno_Click);
+            // 
+            // pic_PasajeroCuatro
+            // 
+            this.pic_PasajeroCuatro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pic_PasajeroCuatro.Enabled = false;
+            this.pic_PasajeroCuatro.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroCuatro.Image")));
+            this.pic_PasajeroCuatro.InitialImage = null;
+            this.pic_PasajeroCuatro.Location = new System.Drawing.Point(34, 307);
+            this.pic_PasajeroCuatro.Name = "pic_PasajeroCuatro";
+            this.pic_PasajeroCuatro.Size = new System.Drawing.Size(61, 57);
+            this.pic_PasajeroCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_PasajeroCuatro.TabIndex = 26;
+            this.pic_PasajeroCuatro.TabStop = false;
+            this.pic_PasajeroCuatro.Visible = false;
+            this.pic_PasajeroCuatro.Click += new System.EventHandler(this.pic_PasajeroCuatro_Click);
+            // 
+            // pic_PasajeroTres
+            // 
+            this.pic_PasajeroTres.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pic_PasajeroTres.Enabled = false;
+            this.pic_PasajeroTres.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroTres.Image")));
+            this.pic_PasajeroTres.InitialImage = null;
+            this.pic_PasajeroTres.Location = new System.Drawing.Point(34, 222);
+            this.pic_PasajeroTres.Name = "pic_PasajeroTres";
+            this.pic_PasajeroTres.Size = new System.Drawing.Size(61, 57);
+            this.pic_PasajeroTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_PasajeroTres.TabIndex = 27;
+            this.pic_PasajeroTres.TabStop = false;
+            this.pic_PasajeroTres.Visible = false;
+            this.pic_PasajeroTres.VisibleChanged += new System.EventHandler(this.pic_PasasjeroTres_VisibleChanged);
+            this.pic_PasajeroTres.Click += new System.EventHandler(this.pic_PasajeroTres_Click);
+            // 
+            // pic_PasajeroDos
+            // 
+            this.pic_PasajeroDos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pic_PasajeroDos.Enabled = false;
+            this.pic_PasajeroDos.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroDos.Image")));
+            this.pic_PasajeroDos.InitialImage = null;
+            this.pic_PasajeroDos.Location = new System.Drawing.Point(34, 137);
+            this.pic_PasajeroDos.Name = "pic_PasajeroDos";
+            this.pic_PasajeroDos.Size = new System.Drawing.Size(61, 57);
+            this.pic_PasajeroDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_PasajeroDos.TabIndex = 28;
+            this.pic_PasajeroDos.TabStop = false;
+            this.pic_PasajeroDos.Visible = false;
+            this.pic_PasajeroDos.VisibleChanged += new System.EventHandler(this.pic_PasajeroDos_VisibleChanged);
+            this.pic_PasajeroDos.Click += new System.EventHandler(this.pic_PasajeroDos_Click);
+            // 
+            // lbl_Extras
+            // 
+            this.lbl_Extras.AutoSize = true;
+            this.lbl_Extras.Location = new System.Drawing.Point(237, 334);
+            this.lbl_Extras.Name = "lbl_Extras";
+            this.lbl_Extras.Size = new System.Drawing.Size(71, 15);
+            this.lbl_Extras.TabIndex = 29;
+            this.lbl_Extras.Text = "Extras $$$$$";
+            // 
+            // lbl_ComoGuardar
+            // 
+            this.lbl_ComoGuardar.AutoSize = true;
+            this.lbl_ComoGuardar.Location = new System.Drawing.Point(12, 9);
+            this.lbl_ComoGuardar.Name = "lbl_ComoGuardar";
+            this.lbl_ComoGuardar.Size = new System.Drawing.Size(0, 15);
+            this.lbl_ComoGuardar.TabIndex = 30;
+            // 
+            // pic_ElegirUno
+            // 
+            this.pic_ElegirUno.BackColor = System.Drawing.Color.Transparent;
+            this.pic_ElegirUno.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirUno.Image")));
+            this.pic_ElegirUno.Location = new System.Drawing.Point(114, 70);
+            this.pic_ElegirUno.Name = "pic_ElegirUno";
+            this.pic_ElegirUno.Size = new System.Drawing.Size(20, 24);
+            this.pic_ElegirUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_ElegirUno.TabIndex = 31;
+            this.pic_ElegirUno.TabStop = false;
+            // 
+            // pic_ElegirDos
+            // 
+            this.pic_ElegirDos.BackColor = System.Drawing.Color.Transparent;
+            this.pic_ElegirDos.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirDos.Image")));
+            this.pic_ElegirDos.Location = new System.Drawing.Point(114, 155);
+            this.pic_ElegirDos.Name = "pic_ElegirDos";
+            this.pic_ElegirDos.Size = new System.Drawing.Size(20, 24);
+            this.pic_ElegirDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_ElegirDos.TabIndex = 32;
+            this.pic_ElegirDos.TabStop = false;
+            this.pic_ElegirDos.Visible = false;
+            // 
+            // pic_ElegirTres
+            // 
+            this.pic_ElegirTres.BackColor = System.Drawing.Color.Transparent;
+            this.pic_ElegirTres.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirTres.Image")));
+            this.pic_ElegirTres.Location = new System.Drawing.Point(114, 235);
+            this.pic_ElegirTres.Name = "pic_ElegirTres";
+            this.pic_ElegirTres.Size = new System.Drawing.Size(20, 24);
+            this.pic_ElegirTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_ElegirTres.TabIndex = 33;
+            this.pic_ElegirTres.TabStop = false;
+            this.pic_ElegirTres.Visible = false;
+            // 
+            // pic_ElegirCuatro
+            // 
+            this.pic_ElegirCuatro.BackColor = System.Drawing.Color.Transparent;
+            this.pic_ElegirCuatro.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirCuatro.Image")));
+            this.pic_ElegirCuatro.Location = new System.Drawing.Point(114, 325);
+            this.pic_ElegirCuatro.Name = "pic_ElegirCuatro";
+            this.pic_ElegirCuatro.Size = new System.Drawing.Size(20, 24);
+            this.pic_ElegirCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_ElegirCuatro.TabIndex = 34;
+            this.pic_ElegirCuatro.TabStop = false;
+            this.pic_ElegirCuatro.Visible = false;
+            // 
+            // btn_CargarPasajero
+            // 
+            this.btn_CargarPasajero.Enabled = false;
+            this.btn_CargarPasajero.Location = new System.Drawing.Point(575, 369);
+            this.btn_CargarPasajero.Name = "btn_CargarPasajero";
+            this.btn_CargarPasajero.Size = new System.Drawing.Size(116, 23);
+            this.btn_CargarPasajero.TabIndex = 35;
+            this.btn_CargarPasajero.Text = "Cargar Pasajero 1";
+            this.btn_CargarPasajero.UseVisualStyleBackColor = true;
+            this.btn_CargarPasajero.Click += new System.EventHandler(this.btn_CargarPasajero_Click);
+            // 
+            // lbl_EstadoCargaPasajero
+            // 
+            this.lbl_EstadoCargaPasajero.AutoSize = true;
+            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(583, 349);
+            this.lbl_EstadoCargaPasajero.Name = "lbl_EstadoCargaPasajero";
+            this.lbl_EstadoCargaPasajero.Size = new System.Drawing.Size(0, 15);
+            this.lbl_EstadoCargaPasajero.TabIndex = 36;
+            // 
+            // lbl_ErrorAlAceptar
+            // 
+            this.lbl_ErrorAlAceptar.AutoSize = true;
+            this.lbl_ErrorAlAceptar.Location = new System.Drawing.Point(530, 426);
+            this.lbl_ErrorAlAceptar.Name = "lbl_ErrorAlAceptar";
+            this.lbl_ErrorAlAceptar.Size = new System.Drawing.Size(0, 15);
+            this.lbl_ErrorAlAceptar.TabIndex = 37;
+            // 
             // frm_AltaPasajero
             // 
+            this.AcceptButton = this.btn_Aceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_ErrorAlAceptar);
+            this.Controls.Add(this.lbl_EstadoCargaPasajero);
+            this.Controls.Add(this.btn_CargarPasajero);
+            this.Controls.Add(this.pic_ElegirCuatro);
+            this.Controls.Add(this.pic_ElegirTres);
+            this.Controls.Add(this.pic_ElegirDos);
+            this.Controls.Add(this.pic_ElegirUno);
+            this.Controls.Add(this.lbl_ComoGuardar);
+            this.Controls.Add(this.lbl_Extras);
+            this.Controls.Add(this.pic_PasajeroDos);
+            this.Controls.Add(this.pic_PasajeroTres);
+            this.Controls.Add(this.pic_PasajeroCuatro);
+            this.Controls.Add(this.pic_PasajeroUno);
+            this.Controls.Add(this.nud_Equipaje);
             this.Controls.Add(this.lbl_Total);
             this.Controls.Add(this.lbl_Subtotal);
             this.Controls.Add(this.btn_Cancelar);
@@ -297,7 +499,6 @@
             this.Controls.Add(this.lbl_Clase);
             this.Controls.Add(this.nud_CantEquipaje);
             this.Controls.Add(this.lbl_CantEquipaje);
-            this.Controls.Add(this.txt_Equipaje);
             this.Controls.Add(this.txt_Edad);
             this.Controls.Add(this.txt_Dni);
             this.Controls.Add(this.txt_Apellido);
@@ -308,10 +509,21 @@
             this.Controls.Add(this.lbl_Edad);
             this.Controls.Add(this.lbl_Equipaje);
             this.Controls.Add(this.lbl_Nombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_AltaPasajero";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta Pasajero";
             this.Load += new System.EventHandler(this.frm_AltaPasajero_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroUno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroCuatro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroTres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroDos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirUno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirDos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirTres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ElegirCuatro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,7 +541,6 @@
         private TextBox txt_Apellido;
         private TextBox txt_Dni;
         private TextBox txt_Edad;
-        private TextBox txt_Equipaje;
         private Label lbl_CantEquipaje;
         private NumericUpDown nud_CantEquipaje;
         private Label lbl_Clase;
@@ -343,5 +554,19 @@
         private Button btn_Cancelar;
         private Label lbl_Subtotal;
         private Label lbl_Total;
+        private NumericUpDown nud_Equipaje;
+        private PictureBox pic_PasajeroUno;
+        private PictureBox pic_PasajeroCuatro;
+        private PictureBox pic_PasajeroTres;
+        private PictureBox pic_PasajeroDos;
+        private Label lbl_Extras;
+        private Label lbl_ComoGuardar;
+        private PictureBox pic_ElegirUno;
+        private PictureBox pic_ElegirDos;
+        private PictureBox pic_ElegirTres;
+        private PictureBox pic_ElegirCuatro;
+        private Button btn_CargarPasajero;
+        private Label lbl_EstadoCargaPasajero;
+        private Label lbl_ErrorAlAceptar;
     }
 }

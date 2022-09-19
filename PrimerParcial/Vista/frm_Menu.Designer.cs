@@ -182,6 +182,7 @@
             this.Controls.Add(this.lbl_HoraActual);
             this.Controls.Add(this.lbl_Bienvenido);
             this.Controls.Add(this.btn_Salir);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";

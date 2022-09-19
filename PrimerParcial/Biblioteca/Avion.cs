@@ -13,6 +13,7 @@ namespace Biblioteca
         int cantBaños;
         float capacidadBodega;
 
+
         public Avion( string? matricula, int cantAsientos, int cantBaños, float capacidadBodega)
         {
             this.matricula = matricula;

@@ -48,7 +48,7 @@ namespace Vista
         private void SetBackgroundImage()
         {
             DateTime tiempo = DateTime.Now;
-            //DateTime tiempo = DateTime.Parse("17:00:00");
+            //DateTime tiempo = DateTime.Parse("23:00:00");
             DateTime amanecer = DateTime.Parse("06:55:00");
             DateTime tarde = DateTime.Parse("16:30:00");
             DateTime noche = DateTime.Parse("18:30:00");

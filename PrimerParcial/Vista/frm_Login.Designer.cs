@@ -109,6 +109,7 @@
             this.Controls.Add(this.txt_Usuario);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.btn_Cancelar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";

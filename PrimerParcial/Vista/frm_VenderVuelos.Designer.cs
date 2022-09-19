@@ -41,36 +41,40 @@
             this.cmb_Destino = new System.Windows.Forms.ComboBox();
             this.lbl_Origen = new System.Windows.Forms.Label();
             this.cmb_Origen = new System.Windows.Forms.ComboBox();
-            this.dgv_HayVuelo = new System.Windows.Forms.DataGridView();
-            this.origenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.llegadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duracionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AsientosDisponibles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.vueloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_AgregarVuelo = new System.Windows.Forms.Button();
             this.lbl_NoHayVuelos = new System.Windows.Forms.Label();
+            this.btn_Continuar = new System.Windows.Forms.Button();
+            this.vueloBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dgv_HayVuelo = new System.Windows.Forms.DataGridView();
+            this.Colum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.origenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.llegadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duracionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asientosDisponiblesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadPasajeros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_HayVuelo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HayVuelo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(317, 379);
+            this.btn_Cancelar.Location = new System.Drawing.Point(276, 379);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 29;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
-            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Aceptar
             // 
             this.btn_Aceptar.Enabled = false;
-            this.btn_Aceptar.Location = new System.Drawing.Point(413, 379);
+            this.btn_Aceptar.Location = new System.Drawing.Point(455, 379);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 28;
@@ -183,89 +187,6 @@
             this.cmb_Origen.TabIndex = 15;
             this.cmb_Origen.SelectedIndexChanged += new System.EventHandler(this.cmb_Origen_SelectedIndexChanged);
             // 
-            // dgv_HayVuelo
-            // 
-            this.dgv_HayVuelo.AllowUserToAddRows = false;
-            this.dgv_HayVuelo.AllowUserToDeleteRows = false;
-            this.dgv_HayVuelo.AllowUserToResizeRows = false;
-            this.dgv_HayVuelo.AutoGenerateColumns = false;
-            this.dgv_HayVuelo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_HayVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_HayVuelo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.origenDataGridViewTextBoxColumn,
-            this.destinoDataGridViewTextBoxColumn,
-            this.salidaDataGridViewTextBoxColumn,
-            this.llegadaDataGridViewTextBoxColumn,
-            this.duracionDataGridViewTextBoxColumn,
-            this.AsientosDisponibles,
-            this.hayComidaDataGridViewCheckBoxColumn});
-            this.dgv_HayVuelo.DataSource = this.vueloBindingSource;
-            this.dgv_HayVuelo.Location = new System.Drawing.Point(44, 38);
-            this.dgv_HayVuelo.Name = "dgv_HayVuelo";
-            this.dgv_HayVuelo.ReadOnly = true;
-            this.dgv_HayVuelo.RowTemplate.Height = 25;
-            this.dgv_HayVuelo.Size = new System.Drawing.Size(718, 225);
-            this.dgv_HayVuelo.TabIndex = 30;
-            this.dgv_HayVuelo.Visible = false;
-            this.dgv_HayVuelo.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_HayVuelo_RowHeaderMouseClick);
-            this.dgv_HayVuelo.VisibleChanged += new System.EventHandler(this.dgv_HayVuelo_VisibleChanged);
-            // 
-            // origenDataGridViewTextBoxColumn
-            // 
-            this.origenDataGridViewTextBoxColumn.DataPropertyName = "Origen";
-            this.origenDataGridViewTextBoxColumn.HeaderText = "Origen";
-            this.origenDataGridViewTextBoxColumn.Name = "origenDataGridViewTextBoxColumn";
-            this.origenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.origenDataGridViewTextBoxColumn.Width = 68;
-            // 
-            // destinoDataGridViewTextBoxColumn
-            // 
-            this.destinoDataGridViewTextBoxColumn.DataPropertyName = "Destino";
-            this.destinoDataGridViewTextBoxColumn.HeaderText = "Destino";
-            this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
-            this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.destinoDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // salidaDataGridViewTextBoxColumn
-            // 
-            this.salidaDataGridViewTextBoxColumn.DataPropertyName = "Salida";
-            this.salidaDataGridViewTextBoxColumn.HeaderText = "Salida";
-            this.salidaDataGridViewTextBoxColumn.Name = "salidaDataGridViewTextBoxColumn";
-            this.salidaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.salidaDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // llegadaDataGridViewTextBoxColumn
-            // 
-            this.llegadaDataGridViewTextBoxColumn.DataPropertyName = "Llegada";
-            this.llegadaDataGridViewTextBoxColumn.HeaderText = "Llegada";
-            this.llegadaDataGridViewTextBoxColumn.Name = "llegadaDataGridViewTextBoxColumn";
-            this.llegadaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.llegadaDataGridViewTextBoxColumn.Width = 73;
-            // 
-            // duracionDataGridViewTextBoxColumn
-            // 
-            this.duracionDataGridViewTextBoxColumn.DataPropertyName = "Duracion";
-            this.duracionDataGridViewTextBoxColumn.HeaderText = "Duracion";
-            this.duracionDataGridViewTextBoxColumn.Name = "duracionDataGridViewTextBoxColumn";
-            this.duracionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.duracionDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // AsientosDisponibles
-            // 
-            this.AsientosDisponibles.DataPropertyName = "AsientosDisponibles";
-            this.AsientosDisponibles.HeaderText = "AsientosDisponibles";
-            this.AsientosDisponibles.Name = "AsientosDisponibles";
-            this.AsientosDisponibles.ReadOnly = true;
-            this.AsientosDisponibles.Width = 138;
-            // 
-            // hayComidaDataGridViewCheckBoxColumn
-            // 
-            this.hayComidaDataGridViewCheckBoxColumn.DataPropertyName = "HayComida";
-            this.hayComidaDataGridViewCheckBoxColumn.HeaderText = "HayComida";
-            this.hayComidaDataGridViewCheckBoxColumn.Name = "hayComidaDataGridViewCheckBoxColumn";
-            this.hayComidaDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.hayComidaDataGridViewCheckBoxColumn.Width = 76;
-            // 
             // vueloBindingSource
             // 
             this.vueloBindingSource.DataSource = typeof(Biblioteca.Vuelo);
@@ -291,12 +212,121 @@
             this.lbl_NoHayVuelos.Size = new System.Drawing.Size(0, 15);
             this.lbl_NoHayVuelos.TabIndex = 32;
             // 
+            // btn_Continuar
+            // 
+            this.btn_Continuar.Enabled = false;
+            this.btn_Continuar.Location = new System.Drawing.Point(365, 379);
+            this.btn_Continuar.Name = "btn_Continuar";
+            this.btn_Continuar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Continuar.TabIndex = 33;
+            this.btn_Continuar.Text = "Continuar";
+            this.btn_Continuar.UseVisualStyleBackColor = true;
+            this.btn_Continuar.Click += new System.EventHandler(this.btn_Continuar_Click);
+            // 
+            // vueloBindingSource1
+            // 
+            this.vueloBindingSource1.DataSource = typeof(Biblioteca.Vuelo);
+            // 
+            // dgv_HayVuelo
+            // 
+            this.dgv_HayVuelo.AllowUserToAddRows = false;
+            this.dgv_HayVuelo.AllowUserToDeleteRows = false;
+            this.dgv_HayVuelo.AllowUserToResizeRows = false;
+            this.dgv_HayVuelo.AutoGenerateColumns = false;
+            this.dgv_HayVuelo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_HayVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_HayVuelo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Colum1,
+            this.origenDataGridViewTextBoxColumn,
+            this.destinoDataGridViewTextBoxColumn,
+            this.llegadaDataGridViewTextBoxColumn,
+            this.salidaDataGridViewTextBoxColumn,
+            this.recaudadoDataGridViewTextBoxColumn,
+            this.duracionDataGridViewTextBoxColumn,
+            this.asientosDisponiblesDataGridViewTextBoxColumn,
+            this.hayComidaDataGridViewCheckBoxColumn});
+            this.dgv_HayVuelo.DataSource = this.vueloBindingSource;
+            this.dgv_HayVuelo.Location = new System.Drawing.Point(30, 30);
+            this.dgv_HayVuelo.Name = "dgv_HayVuelo";
+            this.dgv_HayVuelo.ReadOnly = true;
+            this.dgv_HayVuelo.RowTemplate.Height = 25;
+            this.dgv_HayVuelo.Size = new System.Drawing.Size(741, 228);
+            this.dgv_HayVuelo.TabIndex = 34;
+            this.dgv_HayVuelo.Visible = false;
+            this.dgv_HayVuelo.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_HayVuelo_RowHeaderMouseClick);
+            this.dgv_HayVuelo.VisibleChanged += new System.EventHandler(this.dgv_HayVuelo_VisibleChanged);
+            // 
+            // Colum1
+            // 
+            this.Colum1.DataPropertyName = "CodigoVuelo";
+            this.Colum1.HeaderText = "Codigo Vuelo";
+            this.Colum1.Name = "Colum1";
+            this.Colum1.ReadOnly = true;
+            // 
+            // origenDataGridViewTextBoxColumn
+            // 
+            this.origenDataGridViewTextBoxColumn.DataPropertyName = "Origen";
+            this.origenDataGridViewTextBoxColumn.HeaderText = "Origen";
+            this.origenDataGridViewTextBoxColumn.Name = "origenDataGridViewTextBoxColumn";
+            this.origenDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // destinoDataGridViewTextBoxColumn
+            // 
+            this.destinoDataGridViewTextBoxColumn.DataPropertyName = "Destino";
+            this.destinoDataGridViewTextBoxColumn.HeaderText = "Destino";
+            this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
+            this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // llegadaDataGridViewTextBoxColumn
+            // 
+            this.llegadaDataGridViewTextBoxColumn.DataPropertyName = "Llegada";
+            this.llegadaDataGridViewTextBoxColumn.HeaderText = "Llegada";
+            this.llegadaDataGridViewTextBoxColumn.Name = "llegadaDataGridViewTextBoxColumn";
+            this.llegadaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // salidaDataGridViewTextBoxColumn
+            // 
+            this.salidaDataGridViewTextBoxColumn.DataPropertyName = "Salida";
+            this.salidaDataGridViewTextBoxColumn.HeaderText = "Salida";
+            this.salidaDataGridViewTextBoxColumn.Name = "salidaDataGridViewTextBoxColumn";
+            this.salidaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // recaudadoDataGridViewTextBoxColumn
+            // 
+            this.recaudadoDataGridViewTextBoxColumn.DataPropertyName = "Recaudado";
+            this.recaudadoDataGridViewTextBoxColumn.HeaderText = "Recaudado";
+            this.recaudadoDataGridViewTextBoxColumn.Name = "recaudadoDataGridViewTextBoxColumn";
+            this.recaudadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // duracionDataGridViewTextBoxColumn
+            // 
+            this.duracionDataGridViewTextBoxColumn.DataPropertyName = "Duracion";
+            this.duracionDataGridViewTextBoxColumn.HeaderText = "Duracion";
+            this.duracionDataGridViewTextBoxColumn.Name = "duracionDataGridViewTextBoxColumn";
+            this.duracionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // asientosDisponiblesDataGridViewTextBoxColumn
+            // 
+            this.asientosDisponiblesDataGridViewTextBoxColumn.DataPropertyName = "AsientosDisponibles";
+            this.asientosDisponiblesDataGridViewTextBoxColumn.HeaderText = "AsientosDisponibles";
+            this.asientosDisponiblesDataGridViewTextBoxColumn.Name = "asientosDisponiblesDataGridViewTextBoxColumn";
+            this.asientosDisponiblesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // hayComidaDataGridViewCheckBoxColumn
+            // 
+            this.hayComidaDataGridViewCheckBoxColumn.DataPropertyName = "HayComida";
+            this.hayComidaDataGridViewCheckBoxColumn.HeaderText = "HayComida";
+            this.hayComidaDataGridViewCheckBoxColumn.Name = "hayComidaDataGridViewCheckBoxColumn";
+            this.hayComidaDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // frm_VenderVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Continuar);
             this.Controls.Add(this.lbl_NoHayVuelos);
             this.Controls.Add(this.btn_AgregarVuelo);
             this.Controls.Add(this.btn_Cancelar);
@@ -312,13 +342,15 @@
             this.Controls.Add(this.lbl_Origen);
             this.Controls.Add(this.cmb_Origen);
             this.Controls.Add(this.dgv_HayVuelo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_VenderVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_VenderVuelo";
             this.Load += new System.EventHandler(this.frm_VenderVuelos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadPasajeros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_HayVuelo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HayVuelo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,17 +370,21 @@
         private ComboBox cmb_Destino;
         private Label lbl_Origen;
         private ComboBox cmb_Origen;
-        private DataGridView dgv_HayVuelo;
         private BindingSource vueloBindingSource;
         private DataGridViewTextBoxColumn unAvionDataGridViewTextBoxColumn;
         private Button btn_AgregarVuelo;
         private Label lbl_NoHayVuelos;
+        private Button btn_Continuar;
+        private BindingSource vueloBindingSource1;
+        private DataGridView dgv_HayVuelo;
+        private DataGridViewTextBoxColumn Colum1;
         private DataGridViewTextBoxColumn origenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn destinoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn salidaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn llegadaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn salidaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn recaudadoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn duracionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn AsientosDisponibles;
+        private DataGridViewTextBoxColumn asientosDisponiblesDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;
     }
 }

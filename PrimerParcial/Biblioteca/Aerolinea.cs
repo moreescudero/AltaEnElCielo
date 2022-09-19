@@ -8,9 +8,9 @@ namespace Biblioteca
 {
     public static class Aerolinea
     {
-        static List<Avion> listaAviones;
-        static List<Vuelo> listaVuelos;
-        static List<Pasajero> listaPasajeros;
+        public static List<Avion> listaAviones;
+        public static List<Vuelo> listaVuelos;
+        public static List<Pasajero> listaPasajeros;
         //List<Equipaje> equipajes;
 
         public static void InicializarAerolinea(List<Avion> aviones, List<Vuelo> vuelos, List<Pasajero> pasajeros)
@@ -36,6 +36,11 @@ namespace Biblioteca
                 }
             }
             return filtro;
+        }
+
+        public static void AgregarRecaudacion(float ventaPasajes, Vuelo vuelo)
+        {
+            vuelo.Recaudado += ventaPasajes;
         }
 
     }

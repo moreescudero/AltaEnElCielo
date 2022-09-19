@@ -32,7 +32,9 @@
             this.btn_Salir = new System.Windows.Forms.Button();
             this.btn_AgregarVuelo = new System.Windows.Forms.Button();
             this.dgv_VisualizarVuelos = new System.Windows.Forms.DataGridView();
+            this.vueloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MatriculaAvion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.origenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +43,7 @@
             this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.esNacionalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.vueloBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_VerPasajeros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarVuelos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -72,10 +74,11 @@
             this.dgv_VisualizarVuelos.AllowUserToDeleteRows = false;
             this.dgv_VisualizarVuelos.AllowUserToResizeRows = false;
             this.dgv_VisualizarVuelos.AutoGenerateColumns = false;
-            this.dgv_VisualizarVuelos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_VisualizarVuelos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_VisualizarVuelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_VisualizarVuelos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MatriculaAvion,
+            this.Column1,
             this.origenDataGridViewTextBoxColumn,
             this.destinoDataGridViewTextBoxColumn,
             this.salidaDataGridViewTextBoxColumn,
@@ -85,12 +88,16 @@
             this.hayComidaDataGridViewCheckBoxColumn,
             this.esNacionalDataGridViewCheckBoxColumn});
             this.dgv_VisualizarVuelos.DataSource = this.vueloBindingSource;
-            this.dgv_VisualizarVuelos.Location = new System.Drawing.Point(43, 66);
+            this.dgv_VisualizarVuelos.Location = new System.Drawing.Point(12, 66);
             this.dgv_VisualizarVuelos.Name = "dgv_VisualizarVuelos";
             this.dgv_VisualizarVuelos.ReadOnly = true;
             this.dgv_VisualizarVuelos.RowTemplate.Height = 25;
-            this.dgv_VisualizarVuelos.Size = new System.Drawing.Size(716, 232);
+            this.dgv_VisualizarVuelos.Size = new System.Drawing.Size(776, 232);
             this.dgv_VisualizarVuelos.TabIndex = 3;
+            // 
+            // vueloBindingSource
+            // 
+            this.vueloBindingSource.DataSource = typeof(Biblioteca.Vuelo);
             // 
             // MatriculaAvion
             // 
@@ -98,7 +105,13 @@
             this.MatriculaAvion.HeaderText = "Matricula Avion";
             this.MatriculaAvion.Name = "MatriculaAvion";
             this.MatriculaAvion.ReadOnly = true;
-            this.MatriculaAvion.Width = 106;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "CodigoVuelo";
+            this.Column1.HeaderText = "Codigo Vuelo";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // origenDataGridViewTextBoxColumn
             // 
@@ -106,7 +119,6 @@
             this.origenDataGridViewTextBoxColumn.HeaderText = "Origen";
             this.origenDataGridViewTextBoxColumn.Name = "origenDataGridViewTextBoxColumn";
             this.origenDataGridViewTextBoxColumn.ReadOnly = true;
-            this.origenDataGridViewTextBoxColumn.Width = 68;
             // 
             // destinoDataGridViewTextBoxColumn
             // 
@@ -114,7 +126,6 @@
             this.destinoDataGridViewTextBoxColumn.HeaderText = "Destino";
             this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
             this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.destinoDataGridViewTextBoxColumn.Width = 72;
             // 
             // salidaDataGridViewTextBoxColumn
             // 
@@ -122,7 +133,6 @@
             this.salidaDataGridViewTextBoxColumn.HeaderText = "Salida";
             this.salidaDataGridViewTextBoxColumn.Name = "salidaDataGridViewTextBoxColumn";
             this.salidaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.salidaDataGridViewTextBoxColumn.Width = 63;
             // 
             // llegadaDataGridViewTextBoxColumn
             // 
@@ -130,7 +140,6 @@
             this.llegadaDataGridViewTextBoxColumn.HeaderText = "Llegada";
             this.llegadaDataGridViewTextBoxColumn.Name = "llegadaDataGridViewTextBoxColumn";
             this.llegadaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.llegadaDataGridViewTextBoxColumn.Width = 73;
             // 
             // duracionDataGridViewTextBoxColumn
             // 
@@ -138,7 +147,6 @@
             this.duracionDataGridViewTextBoxColumn.HeaderText = "Duracion";
             this.duracionDataGridViewTextBoxColumn.Name = "duracionDataGridViewTextBoxColumn";
             this.duracionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.duracionDataGridViewTextBoxColumn.Width = 80;
             // 
             // recaudadoDataGridViewTextBoxColumn
             // 
@@ -146,7 +154,6 @@
             this.recaudadoDataGridViewTextBoxColumn.HeaderText = "Recaudado";
             this.recaudadoDataGridViewTextBoxColumn.Name = "recaudadoDataGridViewTextBoxColumn";
             this.recaudadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.recaudadoDataGridViewTextBoxColumn.Width = 91;
             // 
             // hayComidaDataGridViewCheckBoxColumn
             // 
@@ -154,7 +161,6 @@
             this.hayComidaDataGridViewCheckBoxColumn.HeaderText = "Hay Comida";
             this.hayComidaDataGridViewCheckBoxColumn.Name = "hayComidaDataGridViewCheckBoxColumn";
             this.hayComidaDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.hayComidaDataGridViewCheckBoxColumn.Width = 71;
             // 
             // esNacionalDataGridViewCheckBoxColumn
             // 
@@ -162,20 +168,27 @@
             this.esNacionalDataGridViewCheckBoxColumn.HeaderText = "Es Nacional";
             this.esNacionalDataGridViewCheckBoxColumn.Name = "esNacionalDataGridViewCheckBoxColumn";
             this.esNacionalDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.esNacionalDataGridViewCheckBoxColumn.Width = 67;
             // 
-            // vueloBindingSource
+            // btn_VerPasajeros
             // 
-            this.vueloBindingSource.DataSource = typeof(Biblioteca.Vuelo);
+            this.btn_VerPasajeros.Location = new System.Drawing.Point(677, 304);
+            this.btn_VerPasajeros.Name = "btn_VerPasajeros";
+            this.btn_VerPasajeros.Size = new System.Drawing.Size(111, 23);
+            this.btn_VerPasajeros.TabIndex = 4;
+            this.btn_VerPasajeros.Text = "Ver pasajeros";
+            this.btn_VerPasajeros.UseVisualStyleBackColor = true;
             // 
             // frm_VisualizarVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btn_Salir;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_VerPasajeros);
             this.Controls.Add(this.dgv_VisualizarVuelos);
             this.Controls.Add(this.btn_AgregarVuelo);
             this.Controls.Add(this.btn_Salir);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_VisualizarVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_VisualizarVuelos";
@@ -193,6 +206,7 @@
         private DataGridViewTextBoxColumn unAvionDataGridViewTextBoxColumn;
         private BindingSource vueloBindingSource;
         private DataGridViewTextBoxColumn MatriculaAvion;
+        private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn origenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn destinoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salidaDataGridViewTextBoxColumn;
@@ -201,5 +215,6 @@
         private DataGridViewTextBoxColumn recaudadoDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;
         private DataGridViewCheckBoxColumn esNacionalDataGridViewCheckBoxColumn;
+        private Button btn_VerPasajeros;
     }
 }
