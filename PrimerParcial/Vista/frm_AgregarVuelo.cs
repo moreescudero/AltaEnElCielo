@@ -42,14 +42,13 @@ namespace Vista
         {
             if(banderaCalendario && banderaDestinoCargado && banderaOrigenCargado)
             {
-                cmb_Origen.Text = origen.ToString();
-                cmb_Destino.Text = destino.ToString();
+                MostrarOrigenDestino();
+                lbl_AyudaAviones.Visible = false;
                 cdr_Salida.SelectionStart = salida;
                 cmb_Origen.Enabled = false;
                 cmb_Destino.Enabled = false;
                 cdr_Salida.Enabled = false;
-                CargarAvionesDisponibles();
-
+                cmb_Hora.Enabled = true;
             }
             else
             {
@@ -73,12 +72,19 @@ namespace Vista
             txt_CodigoVuelo.Text = Vuelo.GeneradorCodigoVuelo();
         }
         
+        private void MostrarOrigenDestino()
+        {
+            cmb_Origen.Items.Add(origen);
+            cmb_Destino.Items.Add(destino);
+            cmb_Origen.SelectedIndex = 0;
+            cmb_Destino.SelectedIndex = 0;
+        }
+
         private void CargarAvionesDisponibles()
         {
             cmb_Avion.Enabled = true;
-            cmb_Hora.Enabled = true;
             cmb_Avion.Items.Clear();
-            List<Avion> aviones = Aerolinea.BuscarAvionesDisponibles(cdr_Salida.SelectionStart);
+            List<Avion> aviones = Aerolinea.BuscarAvionesDisponibles(salida);
 
             foreach (Avion avion in aviones)
             {
@@ -91,23 +97,14 @@ namespace Vista
             string? aux = cdr_Salida.SelectionStart.ToString("g");
             lbl_AyudaAviones.Visible = false;
             banderaCalendario = true;
+            cmb_Hora.Enabled = true;
             salida = DateTime.Parse(aux);//DateTime.Parse(cdr_Salida.SelectionStart.ToString("yyyy/MM/dd hh:mm tt"));
-            CargarAvionesDisponibles();
+            
         }
 
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)
         {
-            string horaStr = "";
-            for (int i = 0; i < 2; i++)
-            {
-                horaStr += cmb_Hora.Text[i];
-            }
-            int año, mes, dia, hora;
-            año = salida.Year;
-            mes = salida.Month;
-            dia = salida.Day;
-            hora = int.Parse(horaStr);
-            Aerolinea.listaVuelos.Add(new Vuelo(txt_CodigoVuelo.Text, cmb_Avion.Text, esNacional, origen, destino, new DateTime(año, mes, dia, hora, 0, 0), hayComida, unAvion.CantAsientos));
+            Aerolinea.listaVuelos.Add(new Vuelo(txt_CodigoVuelo.Text, cmb_Avion.Text, esNacional, origen, destino, salida, hayComida, unAvion.CantAsientos));
             this.DialogResult = DialogResult.OK;
         }
 
@@ -183,6 +180,24 @@ namespace Vista
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void cmb_Hora_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string horaStr = "";
+            for (int i = 0; i < 2; i++)
+            {
+                horaStr += cmb_Hora.Text[i];
+            }
+            int año, mes, dia, hora;
+            año = salida.Year;
+            mes = salida.Month;
+            dia = salida.Day;
+            hora = int.Parse(horaStr);
+
+            salida = new DateTime(año, mes, dia, hora, 0, 0);
+
+            CargarAvionesDisponibles();
         }
     }
 }

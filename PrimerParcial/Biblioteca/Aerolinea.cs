@@ -49,22 +49,39 @@ namespace Biblioteca
         public static List<Avion> BuscarAvionesDisponibles(DateTime salida)
         {
             List<Avion> aviones = new List<Avion>();
-            foreach(Vuelo vuelo in listaVuelos)
+            //foreach(Avion avion in listaAviones)
+            //{
+            //    int contador = 0;
+            //    for (int i = 0; i < listaVuelos.Count; i++)
+            //    {
+            //        if (listaVuelos[i].Salida.CompareTo(salida) > 0 || listaVuelos[i].Llegada.CompareTo(salida) < 0)
+            //        {
+            //            if (listaVuelos[i].MatriculaAvion == avion.Matricula && !aviones.Contains(avion))
+            //            {
+            //                aviones.Add(avion);
+            //                break;
+            //            }
+            //            else if (aviones.Contains(avion))
+            //            {
+            //                break;
+            //            }
+            //            else
+            //            {
+            //                contador++;
+            //            }
+            //        }
+            //    }
+            //    if (contador == listaVuelos.Count) // si hay un dia en el que se usa un avion no funciona
+            //    {
+            //        aviones.Add(avion);
+            //    }
+            //}
+            foreach(Avion avion in listaAviones)
             {
-                if(vuelo.Salida.CompareTo(salida) > 0 || vuelo.Llegada.CompareTo(salida) < 0)
-                {
-                    for(int i = 0; i < listaVuelos.Count; i++)
-                    {
-                        for(int j = 0; j < listaAviones.Count; j++)
-                        {
-                            if (listaVuelos[i].MatriculaAvion == listaAviones[j].Matricula && !aviones.Contains(listaAviones[j]))
-                            {
-                                aviones.Add(listaAviones[j]);
-                            }
-                        }
-                    }
-                }
+                aviones.Add(avion);
             }
+            //en vez de hacer lo de arriba remover los que coincidan en fecha y listo mas sencillo zip zap asi lo hace un profesional niñita
+
             return aviones;
         }
 

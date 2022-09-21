@@ -14,6 +14,7 @@ namespace Vista
     public partial class frm_VisualizarVuelos : Form
     {
         List<Vuelo> vuelos = new List<Vuelo>();
+        int index;
         public frm_VisualizarVuelos()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace Vista
             }
             else
             {
-
+                lbl_AgregarVueloCancelado.Visible = true;
             }
         }
         private void btn_Salir_Click(object sender, EventArgs e)
@@ -53,8 +54,29 @@ namespace Vista
 
         private void dgv_VisualizarVuelos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            btn_AgregarVuelo.Enabled = true;
+            index = e.RowIndex;
+            if(index != 0)
+            {
+                btn_VerPasajeros.Enabled = true;
+                lbl_AgregarVueloCancelado.Visible = false;
+            }
+        }
 
+        private void btn_VerPasajeros_Click(object sender, EventArgs e)
+        {
+            pnl_VerPasajeros.Visible = true;
+        }
+
+        private void pnl_VerPasajeros_VisibleChanged(object sender, EventArgs e)
+        {
+            dgv_Pasajeros.DataSource = null;
+            dgv_Pasajeros.DataSource = vuelos[index].ListaPasajeros;
+        }
+
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            pnl_VerPasajeros.Visible = false;
+            lbl_AgregarVueloCancelado.Visible = false;
         }
     }
 }

@@ -201,6 +201,7 @@
             this.cmb_Hora.Name = "cmb_Hora";
             this.cmb_Hora.Size = new System.Drawing.Size(121, 23);
             this.cmb_Hora.TabIndex = 18;
+            this.cmb_Hora.SelectedIndexChanged += new System.EventHandler(this.cmb_Hora_SelectedIndexChanged);
             // 
             // frm_AgregarVuelo
             // 
