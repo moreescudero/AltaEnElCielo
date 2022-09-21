@@ -14,9 +14,6 @@ namespace Vista
 {
     public partial class frm_Menu : Form
     {
-        List<Vuelo> vuelos = new List<Vuelo>();
-        List<Avion> aviones = new List<Avion>();
-        List<Pasajero> pasajeros = new List<Pasajero>();
         public frm_Menu()
         {
             InitializeComponent();
@@ -29,7 +26,8 @@ namespace Vista
         private void frm_Menu_Load(object sender, EventArgs e)
         {
             tmr_Fondo.Start();
-            Aerolinea.InicializarAerolinea(aviones, vuelos, pasajeros);
+            Aerolinea.InicializarAerolinea();
+            Aerolinea.QuitarVuelosFinalizados();
             SetHora();
             SetBackgroundImage();
         }
@@ -42,7 +40,7 @@ namespace Vista
 
         private void SetHora()
         {
-            lbl_HoraActual.Text = DateTime.Now.ToShortTimeString();
+            lbl_HoraActual.Text = DateTime.Now.ToShortDateString();
         }
 
         private void SetBackgroundImage()
@@ -75,18 +73,32 @@ namespace Vista
             SetBackgroundImage();
         }
 
-        private void pic_VisualizarVuelos_Click(object sender, EventArgs e)
-        {
-            frm_VisualizarVuelos formVisualizar = new frm_VisualizarVuelos(vuelos);
-            formVisualizar.ShowDialog();
-            formVisualizar.Close();
-        }
-
         private void pic_Vender_Click(object sender, EventArgs e)
         {
             frm_VenderVuelos formVender = new frm_VenderVuelos();
             formVender.ShowDialog();
             formVender.Close();
+        }
+
+        private void pic_VisualizarVuelos_Click(object sender, EventArgs e)
+        {
+            frm_VisualizarVuelos formVisualizar = new frm_VisualizarVuelos(Aerolinea.listaVuelos);
+            formVisualizar.ShowDialog();
+            formVisualizar.Close();
+        }
+
+        private void pic_Informacion_Click(object sender, EventArgs e)
+        {
+            frm_InformacionVuelos formVuelos = new frm_InformacionVuelos();
+            formVuelos.ShowDialog();
+            formVuelos.Close();
+        }
+
+        private void pic_Estadisticas_Click(object sender, EventArgs e)
+        {
+            frm_EstadisticasHistoricas formEstadisticas = new frm_EstadisticasHistoricas();
+            formEstadisticas.ShowDialog();
+            formEstadisticas.Close();
         }
     }
 }

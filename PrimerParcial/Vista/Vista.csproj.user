@@ -7,6 +7,12 @@
     <Compile Update="frm_AltaPasajero.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frm_EstadisticasHistoricas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frm_InformacionVuelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>

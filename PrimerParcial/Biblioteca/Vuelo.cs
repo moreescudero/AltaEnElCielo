@@ -46,7 +46,7 @@ namespace Biblioteca
         //atributos cosas extras ?? wifi/menu vegano, celiaco, etc/televisor ? 
         List<Pasajero> listaPasajeros;
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, bool hayComida, int asientosDisponibles)
         {
             this.codigoVuelo = codigoVuelo;
             this.matriculaAvion = matriculaAvion;
@@ -54,11 +54,17 @@ namespace Biblioteca
             this.origen = origen;
             this.destino = destino;
             this.salida = salida;
-            this.llegada = llegada;
-            this.duracion = duracion;
-            this.listaPasajeros = listaPasajeros;
             this.hayComida = hayComida;
             this.asientosDisponibles = asientosDisponibles;
+            this.duracion = AsignarDuracion();
+            this.llegada = CalcularLlegada();
+        }
+
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles)
+        {
+            this.listaPasajeros = listaPasajeros;
+            this.llegada = llegada;
+            this.duracion = duracion;
         }
 
         public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
@@ -117,6 +123,12 @@ namespace Biblioteca
             get { return duracion; }
         }
 
+        public List<Pasajero> ListaPasajeros
+        {
+            get { return listaPasajeros; }
+            set { listaPasajeros = value; }
+        }
+
         public int AsientosDisponibles
         {
             get { return asientosDisponibles; }
@@ -128,9 +140,9 @@ namespace Biblioteca
             Random rnd = new Random();
             StringBuilder codigo = new StringBuilder();
 
-            for(int i = 0; i > 6; i++)
+            for(int i = 0; i < 6; i++)
             {
-                if(i > 3)
+                if(i > 2)
                 {
                     codigo.Insert(codigo.Length,rnd.Next(10));
                 }
@@ -147,13 +159,13 @@ namespace Biblioteca
             AsientosDisponibles -= asientosOcupados;
         }
 
-        public int AsignarDuracion()//puedo reutilizar para hacer volver a los aviones
+        private int AsignarDuracion()//puedo reutilizar para hacer volver a los aviones
         {
             Random random = new Random();
             int rnd;
             if (esNacional)
             {
-                rnd = random.Next(2,5);
+                rnd = random.Next(2, 5);
             }
             else
             {
@@ -163,9 +175,9 @@ namespace Biblioteca
             return rnd;
         }
 
-        public DateTime CalcularLlegada()
+        private DateTime CalcularLlegada()
         {
-            DateTime llegada = salida.AddHours(AsignarDuracion());
+            DateTime llegada = salida.AddHours(duracion);
             int dia = int.Parse(salida.Day.ToString());
             int mes = int.Parse(salida.Month.ToString());
 
@@ -176,7 +188,7 @@ namespace Biblioteca
                 {
                     llegada.AddMonths(1);
                 }
-                if (dia == 31 && mes == 12)
+                else if (dia == 31 && mes == 12)
                 {
                     llegada.AddYears(1);
                 }

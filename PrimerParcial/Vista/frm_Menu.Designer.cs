@@ -83,7 +83,6 @@
             // 
             // pic_VisualizarVuelos
             // 
-            this.pic_VisualizarVuelos.Enabled = false;
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
             this.pic_VisualizarVuelos.Location = new System.Drawing.Point(105, 183);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
@@ -133,6 +132,7 @@
             this.pic_Estadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Estadisticas.TabIndex = 7;
             this.pic_Estadisticas.TabStop = false;
+            this.pic_Estadisticas.Click += new System.EventHandler(this.pic_Estadisticas_Click);
             // 
             // lbl_Estadisticas
             // 
@@ -153,6 +153,7 @@
             this.pic_Informacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Informacion.TabIndex = 9;
             this.pic_Informacion.TabStop = false;
+            this.pic_Informacion.Click += new System.EventHandler(this.pic_Informacion_Click);
             // 
             // lbl_Informacion
             // 

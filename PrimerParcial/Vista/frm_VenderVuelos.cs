@@ -16,7 +16,7 @@ namespace Vista
         List<Vuelo>? filtro;
         bool banderaCalendario = false;
         string? codVuelo;
-
+        //usar paneles
         public frm_VenderVuelos()
         {
             InitializeComponent();
@@ -32,8 +32,7 @@ namespace Vista
             cmb_Clase.Items.Add("Turista"); // mejorar 
             cmb_Clase.Items.Add("Premium");
 
-            //cmb_IdaVuelta.Items.Add("Solo ida"); // hacerlo bien
-            //cmb_IdaVuelta.Items.Add("Ida y vuelta"); 
+            //en el btn help indicar que arrastrando en el calendario pueden indicar ida y vuelta o solo ida si marcan una sola fecha
 
         }
 

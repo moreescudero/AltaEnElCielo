@@ -13,14 +13,16 @@ namespace Biblioteca
         int dni;
         float equipaje;
         string clase;
+        string menuElegido;
         float precioBoleto;
 
-        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, float precioBoleto) : base(nombre, apellido)
+        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto) : base(nombre, apellido)
         {
             this.edad = edad;
             this.dni = dni;
             this.equipaje = equipaje;
             this.clase = clase;
+            this.menuElegido = menuElegido;
             this.precioBoleto = precioBoleto;
         }
 
@@ -37,6 +39,11 @@ namespace Biblioteca
         public int Dni
         {
             get { return dni; }
+        }
+
+        public string MenuElegido
+        {
+            get { return menuElegido; }
         }
 
         public float Equipaje
