@@ -50,10 +50,10 @@
             this.Colum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.origenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.llegadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.salidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.llegadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duracionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asientosDisponiblesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadPasajeros)).BeginInit();
@@ -239,10 +239,10 @@
             this.Colum1,
             this.origenDataGridViewTextBoxColumn,
             this.destinoDataGridViewTextBoxColumn,
-            this.llegadaDataGridViewTextBoxColumn,
             this.salidaDataGridViewTextBoxColumn,
-            this.recaudadoDataGridViewTextBoxColumn,
+            this.llegadaDataGridViewTextBoxColumn,
             this.duracionDataGridViewTextBoxColumn,
+            this.recaudadoDataGridViewTextBoxColumn,
             this.asientosDisponiblesDataGridViewTextBoxColumn,
             this.hayComidaDataGridViewCheckBoxColumn});
             this.dgv_HayVuelo.DataSource = this.vueloBindingSource;
@@ -277,13 +277,6 @@
             this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
             this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // llegadaDataGridViewTextBoxColumn
-            // 
-            this.llegadaDataGridViewTextBoxColumn.DataPropertyName = "Llegada";
-            this.llegadaDataGridViewTextBoxColumn.HeaderText = "Llegada";
-            this.llegadaDataGridViewTextBoxColumn.Name = "llegadaDataGridViewTextBoxColumn";
-            this.llegadaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // salidaDataGridViewTextBoxColumn
             // 
             this.salidaDataGridViewTextBoxColumn.DataPropertyName = "Salida";
@@ -291,12 +284,12 @@
             this.salidaDataGridViewTextBoxColumn.Name = "salidaDataGridViewTextBoxColumn";
             this.salidaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // recaudadoDataGridViewTextBoxColumn
+            // llegadaDataGridViewTextBoxColumn
             // 
-            this.recaudadoDataGridViewTextBoxColumn.DataPropertyName = "Recaudado";
-            this.recaudadoDataGridViewTextBoxColumn.HeaderText = "Recaudado";
-            this.recaudadoDataGridViewTextBoxColumn.Name = "recaudadoDataGridViewTextBoxColumn";
-            this.recaudadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.llegadaDataGridViewTextBoxColumn.DataPropertyName = "Llegada";
+            this.llegadaDataGridViewTextBoxColumn.HeaderText = "Llegada";
+            this.llegadaDataGridViewTextBoxColumn.Name = "llegadaDataGridViewTextBoxColumn";
+            this.llegadaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // duracionDataGridViewTextBoxColumn
             // 
@@ -305,17 +298,24 @@
             this.duracionDataGridViewTextBoxColumn.Name = "duracionDataGridViewTextBoxColumn";
             this.duracionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // recaudadoDataGridViewTextBoxColumn
+            // 
+            this.recaudadoDataGridViewTextBoxColumn.DataPropertyName = "Recaudado";
+            this.recaudadoDataGridViewTextBoxColumn.HeaderText = "Recaudado";
+            this.recaudadoDataGridViewTextBoxColumn.Name = "recaudadoDataGridViewTextBoxColumn";
+            this.recaudadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // asientosDisponiblesDataGridViewTextBoxColumn
             // 
             this.asientosDisponiblesDataGridViewTextBoxColumn.DataPropertyName = "AsientosDisponibles";
-            this.asientosDisponiblesDataGridViewTextBoxColumn.HeaderText = "AsientosDisponibles";
+            this.asientosDisponiblesDataGridViewTextBoxColumn.HeaderText = "Asientos Disponibles";
             this.asientosDisponiblesDataGridViewTextBoxColumn.Name = "asientosDisponiblesDataGridViewTextBoxColumn";
             this.asientosDisponiblesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // hayComidaDataGridViewCheckBoxColumn
             // 
             this.hayComidaDataGridViewCheckBoxColumn.DataPropertyName = "HayComida";
-            this.hayComidaDataGridViewCheckBoxColumn.HeaderText = "HayComida";
+            this.hayComidaDataGridViewCheckBoxColumn.HeaderText = "Hay Comida";
             this.hayComidaDataGridViewCheckBoxColumn.Name = "hayComidaDataGridViewCheckBoxColumn";
             this.hayComidaDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
@@ -380,10 +380,10 @@
         private DataGridViewTextBoxColumn Colum1;
         private DataGridViewTextBoxColumn origenDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn destinoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn llegadaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salidaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn recaudadoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn llegadaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn duracionDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn recaudadoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn asientosDisponiblesDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;
     }

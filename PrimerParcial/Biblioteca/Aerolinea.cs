@@ -49,39 +49,20 @@ namespace Biblioteca
         public static List<Avion> BuscarAvionesDisponibles(DateTime salida)
         {
             List<Avion> aviones = new List<Avion>();
-            //foreach(Avion avion in listaAviones)
-            //{
-            //    int contador = 0;
-            //    for (int i = 0; i < listaVuelos.Count; i++)
-            //    {
-            //        if (listaVuelos[i].Salida.CompareTo(salida) > 0 || listaVuelos[i].Llegada.CompareTo(salida) < 0)
-            //        {
-            //            if (listaVuelos[i].MatriculaAvion == avion.Matricula && !aviones.Contains(avion))
-            //            {
-            //                aviones.Add(avion);
-            //                break;
-            //            }
-            //            else if (aviones.Contains(avion))
-            //            {
-            //                break;
-            //            }
-            //            else
-            //            {
-            //                contador++;
-            //            }
-            //        }
-            //    }
-            //    if (contador == listaVuelos.Count) // si hay un dia en el que se usa un avion no funciona
-            //    {
-            //        aviones.Add(avion);
-            //    }
-            //}
+            
             foreach(Avion avion in listaAviones)
             {
                 aviones.Add(avion);
+                for (int i = 0; i < listaVuelos.Count; i++)
+                {
+                    if (listaVuelos[i].Salida.CompareTo(salida) < 0 && listaVuelos[i].Llegada.CompareTo(salida) > 0 && listaVuelos[i].MatriculaAvion == avion.Matricula)
+                    {
+                        aviones.Remove(avion);
+                        break;
+                    }
+                }
             }
-            //en vez de hacer lo de arriba remover los que coincidan en fecha y listo mas sencillo zip zap asi lo hace un profesional niñita
-
+            
             return aviones;
         }
 
@@ -98,11 +79,54 @@ namespace Biblioteca
             return filtro;
         }
 
-
-        //creo que no va aca xd
-        public static void AgregarRecaudacion(float ventaPasajes, Vuelo vuelo)
+        private static float SumarGanancia(bool esNacional, Vuelo vuelo)
         {
-            vuelo.Recaudado += ventaPasajes;
+            if (esNacional)
+            {
+                return vuelo.Recaudado;
+                
+            }
+            return vuelo.Recaudado;
+
+
+        }
+
+        public static float CalcularGanancia(bool esNacional)
+        {
+            float total = 0;
+
+            foreach (Vuelo vuelo in listaVuelos)
+            {
+                total += SumarGanancia(esNacional, vuelo);
+            }
+
+            foreach (Vuelo vuelo in listaVuelosFinalizados)
+            {
+                total += SumarGanancia(esNacional, vuelo);
+            }
+
+            return total;
+        }
+
+        //public static string? BuscarDestinoMasPopular()
+        //{
+        //    string? destino;
+
+        //    for(int i = 0; i < listaVuelosFinalizados.Count(); i++)
+        //    {
+        //        for(int j = i + 1; j < listaVuelosFinalizados.Count(); j++)
+        //        {
+
+        //        }
+        //    }
+
+        //    return destino;
+        //}
+
+
+        public static float CalcularRecaudacionTotal()
+        {
+            return CalcularGanancia(true) + CalcularGanancia(false);
         }
 
     }

@@ -42,12 +42,7 @@
             this.lbl_CantEquipaje = new System.Windows.Forms.Label();
             this.nud_CantEquipaje = new System.Windows.Forms.NumericUpDown();
             this.lbl_Clase = new System.Windows.Forms.Label();
-            this.chk_MenuComun = new System.Windows.Forms.CheckBox();
-            this.chk_MenuVegano = new System.Windows.Forms.CheckBox();
-            this.chk_MenuCeliaco = new System.Windows.Forms.CheckBox();
-            this.chk_MenuVegetariano = new System.Windows.Forms.CheckBox();
             this.lbl_Menu = new System.Windows.Forms.Label();
-            this.lbl_SinMenu = new System.Windows.Forms.Label();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lbl_Subtotal = new System.Windows.Forms.Label();
@@ -66,6 +61,7 @@
             this.btn_CargarPasajero = new System.Windows.Forms.Button();
             this.lbl_EstadoCargaPasajero = new System.Windows.Forms.Label();
             this.lbl_ErrorAlAceptar = new System.Windows.Forms.Label();
+            this.cmb_Menu = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroUno)).BeginInit();
@@ -201,46 +197,6 @@
             this.lbl_Clase.TabIndex = 13;
             this.lbl_Clase.Text = "Clase seleccionada:";
             // 
-            // chk_MenuComun
-            // 
-            this.chk_MenuComun.AutoSize = true;
-            this.chk_MenuComun.Location = new System.Drawing.Point(237, 288);
-            this.chk_MenuComun.Name = "chk_MenuComun";
-            this.chk_MenuComun.Size = new System.Drawing.Size(66, 19);
-            this.chk_MenuComun.TabIndex = 14;
-            this.chk_MenuComun.Text = "Comun";
-            this.chk_MenuComun.UseVisualStyleBackColor = true;
-            // 
-            // chk_MenuVegano
-            // 
-            this.chk_MenuVegano.AutoSize = true;
-            this.chk_MenuVegano.Location = new System.Drawing.Point(373, 288);
-            this.chk_MenuVegano.Name = "chk_MenuVegano";
-            this.chk_MenuVegano.Size = new System.Drawing.Size(65, 19);
-            this.chk_MenuVegano.TabIndex = 15;
-            this.chk_MenuVegano.Text = "Vegano";
-            this.chk_MenuVegano.UseVisualStyleBackColor = true;
-            // 
-            // chk_MenuCeliaco
-            // 
-            this.chk_MenuCeliaco.AutoSize = true;
-            this.chk_MenuCeliaco.Location = new System.Drawing.Point(505, 288);
-            this.chk_MenuCeliaco.Name = "chk_MenuCeliaco";
-            this.chk_MenuCeliaco.Size = new System.Drawing.Size(65, 19);
-            this.chk_MenuCeliaco.TabIndex = 16;
-            this.chk_MenuCeliaco.Text = "Celíaco";
-            this.chk_MenuCeliaco.UseVisualStyleBackColor = true;
-            // 
-            // chk_MenuVegetariano
-            // 
-            this.chk_MenuVegetariano.AutoSize = true;
-            this.chk_MenuVegetariano.Location = new System.Drawing.Point(641, 288);
-            this.chk_MenuVegetariano.Name = "chk_MenuVegetariano";
-            this.chk_MenuVegetariano.Size = new System.Drawing.Size(88, 19);
-            this.chk_MenuVegetariano.TabIndex = 17;
-            this.chk_MenuVegetariano.Text = "Vegetariano";
-            this.chk_MenuVegetariano.UseVisualStyleBackColor = true;
-            // 
             // lbl_Menu
             // 
             this.lbl_Menu.AutoSize = true;
@@ -250,20 +206,8 @@
             this.lbl_Menu.TabIndex = 18;
             this.lbl_Menu.Text = "Opcion de menu:";
             // 
-            // lbl_SinMenu
-            // 
-            this.lbl_SinMenu.AutoSize = true;
-            this.lbl_SinMenu.Location = new System.Drawing.Point(350, 253);
-            this.lbl_SinMenu.Name = "lbl_SinMenu";
-            this.lbl_SinMenu.Size = new System.Drawing.Size(88, 15);
-            this.lbl_SinMenu.TabIndex = 19;
-            this.lbl_SinMenu.Text = "vuelo sin menu";
-            this.lbl_SinMenu.Visible = false;
-            this.lbl_SinMenu.VisibleChanged += new System.EventHandler(this.lbl_SinMenu_VisibleChanged);
-            // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Enabled = false;
             this.btn_Aceptar.Location = new System.Drawing.Point(654, 398);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
@@ -295,9 +239,8 @@
             this.lbl_Total.AutoSize = true;
             this.lbl_Total.Location = new System.Drawing.Point(237, 413);
             this.lbl_Total.Name = "lbl_Total";
-            this.lbl_Total.Size = new System.Drawing.Size(35, 15);
+            this.lbl_Total.Size = new System.Drawing.Size(0, 15);
             this.lbl_Total.TabIndex = 23;
-            this.lbl_Total.Text = "Total:";
             // 
             // nud_Equipaje
             // 
@@ -315,7 +258,6 @@
             // pic_PasajeroUno
             // 
             this.pic_PasajeroUno.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pic_PasajeroUno.Enabled = false;
             this.pic_PasajeroUno.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroUno.Image")));
             this.pic_PasajeroUno.InitialImage = null;
             this.pic_PasajeroUno.Location = new System.Drawing.Point(34, 51);
@@ -439,7 +381,6 @@
             // 
             // btn_CargarPasajero
             // 
-            this.btn_CargarPasajero.Enabled = false;
             this.btn_CargarPasajero.Location = new System.Drawing.Point(575, 369);
             this.btn_CargarPasajero.Name = "btn_CargarPasajero";
             this.btn_CargarPasajero.Size = new System.Drawing.Size(116, 23);
@@ -451,7 +392,7 @@
             // lbl_EstadoCargaPasajero
             // 
             this.lbl_EstadoCargaPasajero.AutoSize = true;
-            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(583, 349);
+            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(530, 349);
             this.lbl_EstadoCargaPasajero.Name = "lbl_EstadoCargaPasajero";
             this.lbl_EstadoCargaPasajero.Size = new System.Drawing.Size(0, 15);
             this.lbl_EstadoCargaPasajero.TabIndex = 36;
@@ -464,6 +405,15 @@
             this.lbl_ErrorAlAceptar.Size = new System.Drawing.Size(0, 15);
             this.lbl_ErrorAlAceptar.TabIndex = 37;
             // 
+            // cmb_Menu
+            // 
+            this.cmb_Menu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Menu.FormattingEnabled = true;
+            this.cmb_Menu.Location = new System.Drawing.Point(349, 250);
+            this.cmb_Menu.Name = "cmb_Menu";
+            this.cmb_Menu.Size = new System.Drawing.Size(141, 23);
+            this.cmb_Menu.TabIndex = 38;
+            // 
             // frm_AltaPasajero
             // 
             this.AcceptButton = this.btn_Aceptar;
@@ -472,6 +422,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cmb_Menu);
             this.Controls.Add(this.lbl_ErrorAlAceptar);
             this.Controls.Add(this.lbl_EstadoCargaPasajero);
             this.Controls.Add(this.btn_CargarPasajero);
@@ -490,12 +441,7 @@
             this.Controls.Add(this.lbl_Subtotal);
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.btn_Aceptar);
-            this.Controls.Add(this.lbl_SinMenu);
             this.Controls.Add(this.lbl_Menu);
-            this.Controls.Add(this.chk_MenuVegetariano);
-            this.Controls.Add(this.chk_MenuCeliaco);
-            this.Controls.Add(this.chk_MenuVegano);
-            this.Controls.Add(this.chk_MenuComun);
             this.Controls.Add(this.lbl_Clase);
             this.Controls.Add(this.nud_CantEquipaje);
             this.Controls.Add(this.lbl_CantEquipaje);
@@ -544,12 +490,7 @@
         private Label lbl_CantEquipaje;
         private NumericUpDown nud_CantEquipaje;
         private Label lbl_Clase;
-        private CheckBox chk_MenuComun;
-        private CheckBox chk_MenuVegano;
-        private CheckBox chk_MenuCeliaco;
-        private CheckBox chk_MenuVegetariano;
         private Label lbl_Menu;
-        private Label lbl_SinMenu;
         private Button btn_Aceptar;
         private Button btn_Cancelar;
         private Label lbl_Subtotal;
@@ -568,5 +509,6 @@
         private Button btn_CargarPasajero;
         private Label lbl_EstadoCargaPasajero;
         private Label lbl_ErrorAlAceptar;
+        private ComboBox cmb_Menu;
     }
 }

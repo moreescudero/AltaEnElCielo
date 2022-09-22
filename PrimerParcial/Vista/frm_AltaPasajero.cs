@@ -24,7 +24,7 @@ namespace Vista
         bool banderaSeCargoDos = false;
         bool banderaSeCargoTres = false;
         bool banderaSeCargoCuatro = false;
-        List<Pasajero> grupoFamiliar;
+        List<Pasajero> grupoFamiliar = new List<Pasajero>();
         Vuelo unVuelo;
 
         //constructores
@@ -63,14 +63,24 @@ namespace Vista
             }
             //eleccion de extras todavia trabajando en eso 
             lbl_Clase.Text += "\n" + clase;
-            for (int i = 0; i > Aerolinea.listaVuelos.Count; i++)
+            for (int i = 0; i < Aerolinea.listaVuelos.Count; i++)
             {
                 if (codigoVuelo == Aerolinea.listaVuelos[i].CodigoVuelo)
                 {
                     unVuelo = Aerolinea.listaVuelos[i];
                     if (!unVuelo.HayComida)
                     {
-                        lbl_SinMenu.Visible = true;
+                        cmb_Menu.Items.Add("Sin Menu");
+                        cmb_Menu.SelectedIndex = 0;
+                        cmb_Menu.Enabled = false;
+                        
+                    }
+                    else
+                    {
+                        cmb_Menu.Items.Add("Comun");
+                        cmb_Menu.Items.Add("Celiaco");
+                        cmb_Menu.Items.Add("Vegetariano");
+                        cmb_Menu.Items.Add("Vegano");
                     }
                     break;
                 }
@@ -100,13 +110,13 @@ namespace Vista
                 MostrarParaModificar();
             }
             VisualizarPasajeroElegido(1);
-            Limpiar();
         }
         private void pic_PasajeroDos_Click(object sender, EventArgs e)
         {
             if (!banderaSeCargoDos)
             {
                 btn_CargarPasajero.Text = "Cargar Pasajero 2";
+                Limpiar();
             }
             else
             {
@@ -115,13 +125,13 @@ namespace Vista
                 MostrarParaModificar();
             }
             VisualizarPasajeroElegido(2);
-            Limpiar();
         }
         private void pic_PasajeroTres_Click(object sender, EventArgs e)
         {
             if (!banderaSeCargoTres)
             {
                 btn_CargarPasajero.Text = "Cargar Pasajero 3";
+                Limpiar();
             }
             else
             {
@@ -130,13 +140,13 @@ namespace Vista
                 MostrarParaModificar();
             }
             VisualizarPasajeroElegido(3);
-            Limpiar();
         }
         private void pic_PasajeroCuatro_Click(object sender, EventArgs e)
         {
             if (!banderaSeCargoCuatro)
             {
                 btn_CargarPasajero.Text = "Cargar Pasajero 4";
+                Limpiar();
             }
             else
             {
@@ -145,7 +155,6 @@ namespace Vista
                 MostrarParaModificar();
             }
             VisualizarPasajeroElegido(4);
-            Limpiar();
         }
 
 
@@ -154,7 +163,7 @@ namespace Vista
         {
             if(grupoFamiliar.Count == cantidadPasajeros)
             {
-                for(int i = 0; i > grupoFamiliar.Count; i++)
+                for(int i = 0; i < grupoFamiliar.Count; i++)
                 {
                     unVuelo.ListaPasajeros.Add(grupoFamiliar[i]);
                 }
@@ -169,8 +178,7 @@ namespace Vista
         {
             if (VerificarDatosCompletos())
             {
-                string menu = DevolverMenuElegido();
-                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), float.Parse(nud_Equipaje.Value.ToString()), clase, menu, precio);
+                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), float.Parse(nud_Equipaje.Value.ToString()), clase, cmb_Menu.Text, precio);
                 if ((!banderaSeCargoUno && btn_CargarPasajero.Text == "Cargar Pasajero 1") || (!banderaSeCargoDos && btn_CargarPasajero.Text == "Cargar Pasajero 2") || (!banderaSeCargoTres && btn_CargarPasajero.Text == "Cargar Pasajero 3") || (!banderaSeCargoCuatro && btn_CargarPasajero.Text == "Cargar Pasajero 4"))
                 {
                     precio = Pasajero.CalcularPrecio((int)unVuelo.Destino, unVuelo.Duracion, clase);
@@ -178,7 +186,7 @@ namespace Vista
                     grupoFamiliar.Add(pasajero);
                     //lbl_Subtotal.Text += " $ " + precio; para cuando tenga los extras y para antes de agregar impuestos (IVA, algunos impuestos mas ?? buscar en despegar)
                     //Bruto + Impuestos = Neto
-                    lbl_Total.Text += " $ " + total;
+                    lbl_Total.Text = "Total: $ " + total;
                     lbl_EstadoCargaPasajero.Text = "Se cargo un pasajero con exito";
                     LevantarBanderas();
                     ActivarImagenes();
@@ -189,7 +197,6 @@ namespace Vista
                     grupoFamiliar.RemoveAt(index + 1);
                     lbl_EstadoCargaPasajero.Text = "Se modifico un pasajero con exito";
                 }
-                
             }
             else
             {
@@ -201,7 +208,7 @@ namespace Vista
         //mis funciones
         private bool VerificarDatosCompletos()
         {
-            if ((nud_CantEquipaje.Value == 0 || (nud_CantEquipaje.Value > 0 && nud_Equipaje.Value > 0)) && txt_Nombre.Text != String.Empty && txt_Apellido.Text != String.Empty && txt_Edad.Text != String.Empty && txt_Dni.Text != String.Empty && (!unVuelo.HayComida || (unVuelo.HayComida && (chk_MenuComun.Checked || chk_MenuVegano.Checked || chk_MenuCeliaco.Checked || chk_MenuVegetariano.Checked))))
+            if ((nud_CantEquipaje.Value == 0 || (nud_CantEquipaje.Value > 0 && nud_Equipaje.Value > 0)) && txt_Nombre.Text != String.Empty && txt_Apellido.Text != String.Empty && txt_Edad.Text != String.Empty && txt_Dni.Text != String.Empty && cmb_Menu.Text != String.Empty)
             {
                 lbl_EstadoCargaPasajero.Text = String.Empty;
                 return true;
@@ -209,39 +216,7 @@ namespace Vista
             return false;
         }
 
-        private string DevolverMenuElegido()
-        {
-            string menu = "Sin Menu";
-
-            if(!lbl_SinMenu.Visible)
-            {
-                if(chk_MenuComun.Checked)
-                {
-                    menu = "Comun";
-                }
-                else
-                {
-                    if(chk_MenuCeliaco.Checked)
-                    {
-                        menu = "Celiaco";
-                    }
-                    else
-                    {
-                        if(chk_MenuVegano.Checked)
-                        {
-                            menu = "Vegano";
-                        }
-                        else
-                        {
-                            menu = "Vegetariano";
-                        }
-                    }
-                }
-            }
-
-            return menu;
-        }
-
+       
         private void MostrarParaModificar()
         {
             txt_Nombre.Text = grupoFamiliar[index].Nombre;
@@ -249,27 +224,27 @@ namespace Vista
             txt_Dni.Text = grupoFamiliar[index].Dni.ToString();
             txt_Edad.Text = grupoFamiliar[index].Edad.ToString();
             nud_Equipaje.Value = decimal.Parse(grupoFamiliar[index].Equipaje.ToString());
-            if(!lbl_SinMenu.Visible)
+            if (grupoFamiliar[index].MenuElegido != "Sin Menu")
             {
                 if (grupoFamiliar[index].MenuElegido == "Comun")
                 {
-                    chk_MenuComun.Checked = true;
+                    cmb_Menu.SelectedIndex = 0;
                 }
                 else
                 {
-                    if(grupoFamiliar[index].MenuElegido == "Celiaco")
+                    if (grupoFamiliar[index].MenuElegido == "Celiaco")
                     {
-                        chk_MenuCeliaco.Checked = true;
+                        cmb_Menu.SelectedIndex = 1;
                     }
                     else
                     {
                         if (grupoFamiliar[index].MenuElegido == "Vegetariano")
                         {
-                            chk_MenuVegetariano.Checked = true;
+                            cmb_Menu.SelectedIndex = 2;
                         }
                         else
                         {
-                            chk_MenuVegano.Checked = true;
+                            cmb_Menu.SelectedIndex = 3;
                         }
                     }
                 }
@@ -357,21 +332,14 @@ namespace Vista
             txt_Dni.Text = String.Empty;
             nud_CantEquipaje.Value = 0;
             nud_Equipaje.Value = 0;
-            chk_MenuCeliaco.Checked = false;
-            chk_MenuComun.Checked = false;
-            chk_MenuVegano.Checked = false;
-            chk_MenuVegetariano.Checked = false;
+            if(cmb_Menu.Text != "Sin Menu")
+            {
+                cmb_Menu.SelectedIndex = -1;
+            }
             lbl_EstadoCargaPasajero.Text = String.Empty;
         }
 
         //visible changed
-        private void lbl_SinMenu_VisibleChanged(object sender, EventArgs e)
-        {
-            chk_MenuCeliaco.Enabled = false;
-            chk_MenuComun.Enabled = false;
-            chk_MenuVegano.Enabled = false;
-            chk_MenuVegetariano.Enabled = false;
-        }
 
         private void pic_PasajeroDos_VisibleChanged(object sender, EventArgs e)
         {
@@ -392,7 +360,7 @@ namespace Vista
         //textbox 
         private void ProhibirNumeros(KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar) && char.IsControl(e.KeyChar))
+            if (char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -400,7 +368,7 @@ namespace Vista
 
         private void ProhibirLetras(KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
             }

@@ -55,7 +55,7 @@ namespace Biblioteca
             this.destino = destino;
             this.salida = salida;
             this.hayComida = hayComida;
-            this.asientosDisponibles = asientosDisponibles;
+            this.asientosDisponibles = RestarAsientosDisponibles();
             this.duracion = AsignarDuracion();
             this.llegada = CalcularLlegada();
         }
@@ -65,6 +65,8 @@ namespace Biblioteca
             this.listaPasajeros = listaPasajeros;
             this.llegada = llegada;
             this.duracion = duracion;
+            this.asientosDisponibles = asientosDisponibles;
+            this.recaudado = CalcularRecaudado();
         }
 
         public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
@@ -135,6 +137,18 @@ namespace Biblioteca
             set { asientosDisponibles = value; }
         }
 
+        private float CalcularRecaudado()
+        {
+            float recaudacion = 0;
+
+            for(int i = 0; i < listaPasajeros.Count; i++)
+            {
+                recaudacion += listaPasajeros[i].PrecioBoleto;
+            }
+
+            return recaudacion;
+        }
+
         public static string GeneradorCodigoVuelo()
         {
             Random rnd = new Random();
@@ -154,9 +168,16 @@ namespace Biblioteca
             return codigo.ToString();
         }
 
-        public void RestarAsientosDisponibles(int asientosOcupados)
+        private int RestarAsientosDisponibles()
         {
-            AsientosDisponibles -= asientosOcupados;
+            int asientos = 0;
+
+            if(listaPasajeros is not null)
+            {
+                asientos = AsientosDisponibles - listaPasajeros.Count;
+            }
+
+            return asientos;
         }
 
         private int AsignarDuracion()//puedo reutilizar para hacer volver a los aviones

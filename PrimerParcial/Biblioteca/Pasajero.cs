@@ -15,8 +15,9 @@ namespace Biblioteca
         string clase;
         string menuElegido;
         float precioBoleto;
+        bool bolsoMano;
 
-        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto) : base(nombre, apellido)
+        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto, bool bolsoMano) : base(nombre, apellido)
         {
             this.edad = edad;
             this.dni = dni;
@@ -24,6 +25,7 @@ namespace Biblioteca
             this.clase = clase;
             this.menuElegido = menuElegido;
             this.precioBoleto = precioBoleto;
+            this.bolsoMano = bolsoMano;
         }
 
         public string Clase
@@ -56,12 +58,16 @@ namespace Biblioteca
             get { return precioBoleto; }
         }
 
+        public bool BolsoMano
+        {
+            get { return bolsoMano; }
+        }
 
         public static float CalcularPrecio(int destino, int duracion, string clase)
         {
             float precioHora;
 
-            if (destino > 100)
+            if (destino < 100)
             {
                 precioHora = 50f;
             }

@@ -30,7 +30,7 @@ namespace Vista
         } 
         public frm_AgregarVuelo(Destinos origen, Destinos destino, DateTime salida) : this()
         {
-            this.origen = origen;
+            this.origen = origen; //al ir a la primera sobrecarga se pisan los datos origen y destino
             this.destino = destino;
             this.salida = salida;
             banderaCalendario = true;
@@ -77,7 +77,6 @@ namespace Vista
             cmb_Origen.Items.Add(origen);
             cmb_Destino.Items.Add(destino);
             cmb_Origen.SelectedIndex = 0;
-            cmb_Destino.SelectedIndex = 0;
         }
 
         private void CargarAvionesDisponibles()
@@ -111,20 +110,28 @@ namespace Vista
         private void cmb_Origen_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmb_Destino.Enabled = true;
-            cmb_Destino.Items.Clear();
-
-            foreach (string destino in Enum.GetNames(typeof(Destinos)))
+            if(cdr_Salida.MinDate == DateTime.Now.AddDays(7))
             {
-                if (cmb_Origen.Text != destino)
-                {
-                    cmb_Destino.Items.Add(destino);
+                cmb_Destino.Items.Clear();
 
-                    if (cmb_Origen.Text != "BuenosAires" && (destino == "Recife" || destino == "Roma" || destino == "Acapulco" || destino == "Miami"))
+                foreach (string destino in Enum.GetNames(typeof(Destinos)))
+                {
+                    if (cmb_Origen.Text != destino)
                     {
-                        cmb_Destino.Items.Remove(destino);
+                        cmb_Destino.Items.Add(destino);
+
+                        if (cmb_Origen.Text != "BuenosAires" && (destino == "Recife" || destino == "Roma" || destino == "Acapulco" || destino == "Miami"))
+                        {
+                            cmb_Destino.Items.Remove(destino);
+                        }
                     }
                 }
             }
+            else
+            {
+                cmb_Destino.SelectedIndex = 0;
+            }
+
             origen = (Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text);
             banderaOrigenCargado = true;
         }

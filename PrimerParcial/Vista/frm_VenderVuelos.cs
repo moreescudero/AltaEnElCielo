@@ -13,9 +13,9 @@ namespace Vista
 {
     public partial class frm_VenderVuelos : Form
     {
-        List<Vuelo>? filtro;
+        List<Vuelo> filtro = new List<Vuelo>();
         bool banderaCalendario = false;
-        string? codVuelo;
+        int index;
         //usar paneles
         public frm_VenderVuelos()
         {
@@ -29,7 +29,7 @@ namespace Vista
             {
                 cmb_Origen.Items.Add(destino);
             }
-            cmb_Clase.Items.Add("Turista"); // mejorar 
+            cmb_Clase.Items.Add("Turista"); 
             cmb_Clase.Items.Add("Premium");
 
             //en el btn help indicar que arrastrando en el calendario pueden indicar ida y vuelta o solo ida si marcan una sola fecha
@@ -79,10 +79,10 @@ namespace Vista
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            frm_AltaPasajero altaPasajero = new frm_AltaPasajero(codVuelo, int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text);
+            frm_AltaPasajero altaPasajero = new frm_AltaPasajero(filtro[index].CodigoVuelo, int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text);
             if(altaPasajero.ShowDialog() == DialogResult.OK)
             {
-                this.Close(); // alta pasajero se va a encargar de terminar de cargar todo
+                this.DialogResult = DialogResult.OK; // alta pasajero se va a encargar de terminar de cargar todo
             }
             else
             {
@@ -95,35 +95,43 @@ namespace Vista
             FormCompleto();
         }
 
+        private void ActualizarDataGrid()
+        {
+            filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()));
+            dgv_HayVuelo.DataSource = null;
+            dgv_HayVuelo.DataSource = filtro;
+        }
+
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)
         {
             frm_AgregarVuelo agregarVuelo = new frm_AgregarVuelo((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), cdr_Salida.SelectionStart);
-            agregarVuelo.ShowDialog();
-            agregarVuelo.Close();
+            if(agregarVuelo.ShowDialog() == DialogResult.OK)
+            {
+                ActualizarDataGrid();
+                lbl_NoHayVuelos.Visible = false;
+            }
         }
 
         private void dgv_HayVuelo_VisibleChanged(object sender, EventArgs e)
         {
+            ActualizarDataGrid();
                 //usar un trycatch
-            filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()));
             if (filtro.Count == 0)
             {
                 lbl_NoHayVuelos.Text = "No hay vuelos que coincidan con el origen y el destino deseado";
             }
-            else
-            {
-                dgv_HayVuelo.DataSource = filtro;
-            }
             
             btn_Continuar.Enabled = false;
-            btn_Aceptar.Enabled = true;
             btn_AgregarVuelo.Visible = true;
         }
 
         private void dgv_HayVuelo_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int index = e.RowIndex;
-            codVuelo = dgv_HayVuelo[0, index].Value.ToString(); 
+            index = e.RowIndex;
+            if(index >= 0)
+            {
+                btn_Aceptar.Enabled = true;
+            }
         }
 
         private void btn_Continuar_Click(object sender, EventArgs e)

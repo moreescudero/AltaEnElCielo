@@ -12,7 +12,7 @@ namespace Biblioteca
         int cantAsientos;
         int cantBaños;
         float capacidadBodega;
-
+        int horasEnVuelo;
 
         public Avion( string? matricula, int cantAsientos, int cantBaños, float capacidadBodega)
         {
@@ -39,6 +39,12 @@ namespace Biblioteca
         public float CapacidadBodega
         {
             get { return capacidadBodega; }
+        }
+
+        public int HorasEnVuelo
+        {
+            get { return horasEnVuelo; }
+            set { horasEnVuelo = value; }
         }
 
         public int CalcularAsientosPremium()
