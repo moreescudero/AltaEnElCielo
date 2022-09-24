@@ -41,6 +41,9 @@ namespace Biblioteca
         DateTime llegada;
         int duracion;
         int asientosDisponibles;
+        bool disponible;
+        int asientosPrimeraDisponibles;
+        int asientosTuristaDisponibles;
         float recaudado; // recaudacion total por pasaje vendido
         bool hayComida;
         //atributos cosas extras ?? wifi/menu vegano, celiaco, etc/televisor ? 
@@ -55,24 +58,27 @@ namespace Biblioteca
             this.destino = destino;
             this.salida = salida;
             this.hayComida = hayComida;
-            this.asientosDisponibles = RestarAsientosDisponibles();
+            this.asientosDisponibles = asientosDisponibles;
             this.duracion = AsignarDuracion();
             this.llegada = CalcularLlegada();
+            listaPasajeros = new List<Pasajero>();
+            this.disponible = true;
         }
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles, bool disponible) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles)
         {
             this.listaPasajeros = listaPasajeros;
             this.llegada = llegada;
             this.duracion = duracion;
-            this.asientosDisponibles = asientosDisponibles;
-            this.recaudado = CalcularRecaudado();
+            this.recaudado = Aerolinea.CalcularRecaudado();
+            this.disponible = disponible;
         }
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
-        {
-            this.recaudado = recaudado;
-        }
+        //public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
+        //{
+        //    this.recaudado = recaudado;
+        //    this.asientosDisponibles = RestarAsientosDisponibles();
+        //}
 
         public string? CodigoVuelo
         {
@@ -137,17 +143,23 @@ namespace Biblioteca
             set { asientosDisponibles = value; }
         }
 
-        private float CalcularRecaudado()
+        public bool Disponible
         {
-            float recaudacion = 0;
-
-            for(int i = 0; i < listaPasajeros.Count; i++)
-            {
-                recaudacion += listaPasajeros[i].PrecioBoleto;
-            }
-
-            return recaudacion;
+            get { return disponible; }
+            //set { disponible = value; }
         }
+
+        //private float CalcularRecaudado()
+        //{
+        //    float recaudacion = 0;
+
+        //    foreach(Pasajero pasajero in Aerolinea.listaPasajeros)
+        //    {
+        //        recaudacion += pasajero.PrecioBoleto;
+        //    }
+
+        //    return recaudacion;
+        //}
 
         public static string GeneradorCodigoVuelo()
         {
@@ -168,17 +180,11 @@ namespace Biblioteca
             return codigo.ToString();
         }
 
-        private int RestarAsientosDisponibles()
-        {
-            int asientos = 0;
-
-            if(listaPasajeros is not null)
-            {
-                asientos = AsientosDisponibles - listaPasajeros.Count;
-            }
-
-            return asientos;
-        }
+        //private int RestarAsientosDisponibles()
+        //{
+        //    int asientos = AsientosDisponibles - listaPasajeros.Count;
+        //    return asientos;
+        //}
 
         private int AsignarDuracion()//puedo reutilizar para hacer volver a los aviones
         {
@@ -193,7 +199,25 @@ namespace Biblioteca
                 rnd = random.Next(8, 13);
             }
 
+            Aerolinea.SumarHorasEnVuelo(matriculaAvion, rnd);
+
             return rnd;
+        }
+
+        public void CambiarALleno()
+        {
+            if(asientosDisponibles == 0)
+            {
+                disponible = false;
+            }
+        }
+
+        public void SumarRecaudacion(float ganancia)
+        {
+            if (ganancia > 0)
+            {
+                recaudado += ganancia;
+            }
         }
 
         private DateTime CalcularLlegada()

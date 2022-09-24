@@ -87,13 +87,6 @@ namespace Vista
             formVisualizar.Close();
         }
 
-        private void pic_Informacion_Click(object sender, EventArgs e)
-        {
-            frm_InformacionVuelos formVuelos = new frm_InformacionVuelos();
-            formVuelos.ShowDialog();
-            formVuelos.Close();
-        }
-
         private void pic_Estadisticas_Click(object sender, EventArgs e)
         {
             frm_EstadisticasHistoricas formEstadisticas = new frm_EstadisticasHistoricas();

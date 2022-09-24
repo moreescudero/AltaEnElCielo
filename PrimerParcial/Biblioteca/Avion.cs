@@ -20,6 +20,7 @@ namespace Biblioteca
             this.cantAsientos = cantAsientos;
             this.cantBaños = cantBaños;
             this.capacidadBodega = capacidadBodega;
+            this.horasEnVuelo = 0;
         }
 
         public string? Matricula

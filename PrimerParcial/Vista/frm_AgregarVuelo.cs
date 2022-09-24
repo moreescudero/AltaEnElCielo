@@ -30,7 +30,7 @@ namespace Vista
         } 
         public frm_AgregarVuelo(Destinos origen, Destinos destino, DateTime salida) : this()
         {
-            this.origen = origen; //al ir a la primera sobrecarga se pisan los datos origen y destino
+            this.origen = origen; 
             this.destino = destino;
             this.salida = salida;
             banderaCalendario = true;
@@ -109,9 +109,9 @@ namespace Vista
 
         private void cmb_Origen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmb_Destino.Enabled = true;
-            if(cdr_Salida.MinDate == DateTime.Now.AddDays(7))
+            if (cmb_Origen.Items.Count > 1)
             {
+                cmb_Destino.Enabled = true;
                 cmb_Destino.Items.Clear();
 
                 foreach (string destino in Enum.GetNames(typeof(Destinos)))
@@ -161,7 +161,6 @@ namespace Vista
 
         private void chk_SiHay_CheckedChanged(object sender, EventArgs e)
         {
-            FormCompleto();
             if(chk_SiHay.Checked)
             {
                 hayComida = true;
@@ -170,6 +169,7 @@ namespace Vista
             {
                 hayComida = false;
             }
+            FormCompleto();
         }
 
         private void cmb_Avion_SelectedIndexChanged(object sender, EventArgs e)

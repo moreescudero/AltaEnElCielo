@@ -40,12 +40,9 @@
             this.lbl_VenderVuelos = new System.Windows.Forms.Label();
             this.pic_Estadisticas = new System.Windows.Forms.PictureBox();
             this.lbl_Estadisticas = new System.Windows.Forms.Label();
-            this.pic_Informacion = new System.Windows.Forms.PictureBox();
-            this.lbl_Informacion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_VisualizarVuelos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Vender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Estadisticas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Informacion)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Salir
@@ -84,7 +81,7 @@
             // pic_VisualizarVuelos
             // 
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
-            this.pic_VisualizarVuelos.Location = new System.Drawing.Point(105, 183);
+            this.pic_VisualizarVuelos.Location = new System.Drawing.Point(204, 183);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
             this.pic_VisualizarVuelos.Size = new System.Drawing.Size(67, 67);
             this.pic_VisualizarVuelos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -96,7 +93,7 @@
             // 
             this.lbl_VisualizarVuelos.AutoSize = true;
             this.lbl_VisualizarVuelos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VisualizarVuelos.Location = new System.Drawing.Point(95, 165);
+            this.lbl_VisualizarVuelos.Location = new System.Drawing.Point(194, 165);
             this.lbl_VisualizarVuelos.Name = "lbl_VisualizarVuelos";
             this.lbl_VisualizarVuelos.Size = new System.Drawing.Size(92, 15);
             this.lbl_VisualizarVuelos.TabIndex = 4;
@@ -105,7 +102,7 @@
             // pic_Vender
             // 
             this.pic_Vender.Image = ((System.Drawing.Image)(resources.GetObject("pic_Vender.Image")));
-            this.pic_Vender.Location = new System.Drawing.Point(257, 183);
+            this.pic_Vender.Location = new System.Drawing.Point(350, 183);
             this.pic_Vender.Name = "pic_Vender";
             this.pic_Vender.Size = new System.Drawing.Size(80, 67);
             this.pic_Vender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,7 +114,7 @@
             // 
             this.lbl_VenderVuelos.AutoSize = true;
             this.lbl_VenderVuelos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VenderVuelos.Location = new System.Drawing.Point(257, 165);
+            this.lbl_VenderVuelos.Location = new System.Drawing.Point(350, 165);
             this.lbl_VenderVuelos.Name = "lbl_VenderVuelos";
             this.lbl_VenderVuelos.Size = new System.Drawing.Size(80, 15);
             this.lbl_VenderVuelos.TabIndex = 6;
@@ -126,7 +123,7 @@
             // pic_Estadisticas
             // 
             this.pic_Estadisticas.Image = ((System.Drawing.Image)(resources.GetObject("pic_Estadisticas.Image")));
-            this.pic_Estadisticas.Location = new System.Drawing.Point(595, 183);
+            this.pic_Estadisticas.Location = new System.Drawing.Point(508, 183);
             this.pic_Estadisticas.Name = "pic_Estadisticas";
             this.pic_Estadisticas.Size = new System.Drawing.Size(90, 67);
             this.pic_Estadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -138,32 +135,11 @@
             // 
             this.lbl_Estadisticas.AutoSize = true;
             this.lbl_Estadisticas.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Estadisticas.Location = new System.Drawing.Point(586, 165);
+            this.lbl_Estadisticas.Location = new System.Drawing.Point(499, 165);
             this.lbl_Estadisticas.Name = "lbl_Estadisticas";
             this.lbl_Estadisticas.Size = new System.Drawing.Size(120, 15);
             this.lbl_Estadisticas.TabIndex = 8;
             this.lbl_Estadisticas.Text = "estadisticas historicas";
-            // 
-            // pic_Informacion
-            // 
-            this.pic_Informacion.Image = ((System.Drawing.Image)(resources.GetObject("pic_Informacion.Image")));
-            this.pic_Informacion.Location = new System.Drawing.Point(427, 183);
-            this.pic_Informacion.Name = "pic_Informacion";
-            this.pic_Informacion.Size = new System.Drawing.Size(92, 67);
-            this.pic_Informacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Informacion.TabIndex = 9;
-            this.pic_Informacion.TabStop = false;
-            this.pic_Informacion.Click += new System.EventHandler(this.pic_Informacion_Click);
-            // 
-            // lbl_Informacion
-            // 
-            this.lbl_Informacion.AutoSize = true;
-            this.lbl_Informacion.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Informacion.Location = new System.Drawing.Point(409, 165);
-            this.lbl_Informacion.Name = "lbl_Informacion";
-            this.lbl_Informacion.Size = new System.Drawing.Size(148, 15);
-            this.lbl_Informacion.TabIndex = 10;
-            this.lbl_Informacion.Text = "Informacion de cada vuelo";
             // 
             // frm_Menu
             // 
@@ -172,8 +148,6 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(804, 363);
-            this.Controls.Add(this.lbl_Informacion);
-            this.Controls.Add(this.pic_Informacion);
             this.Controls.Add(this.lbl_Estadisticas);
             this.Controls.Add(this.pic_Estadisticas);
             this.Controls.Add(this.lbl_VenderVuelos);
@@ -191,7 +165,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_VisualizarVuelos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Vender)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Estadisticas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Informacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,7 +182,5 @@
         private Label lbl_VenderVuelos;
         private PictureBox pic_Estadisticas;
         private Label lbl_Estadisticas;
-        private PictureBox pic_Informacion;
-        private Label lbl_Informacion;
     }
 }

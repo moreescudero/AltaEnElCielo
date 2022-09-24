@@ -62,6 +62,8 @@
             this.lbl_EstadoCargaPasajero = new System.Windows.Forms.Label();
             this.lbl_ErrorAlAceptar = new System.Windows.Forms.Label();
             this.cmb_Menu = new System.Windows.Forms.ComboBox();
+            this.chk_BolsoMano = new System.Windows.Forms.CheckBox();
+            this.lbl_Iva = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroUno)).BeginInit();
@@ -228,16 +230,15 @@
             // lbl_Subtotal
             // 
             this.lbl_Subtotal.AutoSize = true;
-            this.lbl_Subtotal.Location = new System.Drawing.Point(237, 389);
+            this.lbl_Subtotal.Location = new System.Drawing.Point(236, 349);
             this.lbl_Subtotal.Name = "lbl_Subtotal";
-            this.lbl_Subtotal.Size = new System.Drawing.Size(54, 15);
+            this.lbl_Subtotal.Size = new System.Drawing.Size(0, 15);
             this.lbl_Subtotal.TabIndex = 22;
-            this.lbl_Subtotal.Text = "Subtotal:";
             // 
             // lbl_Total
             // 
             this.lbl_Total.AutoSize = true;
-            this.lbl_Total.Location = new System.Drawing.Point(237, 413);
+            this.lbl_Total.Location = new System.Drawing.Point(237, 426);
             this.lbl_Total.Name = "lbl_Total";
             this.lbl_Total.Size = new System.Drawing.Size(0, 15);
             this.lbl_Total.TabIndex = 23;
@@ -318,7 +319,7 @@
             // lbl_Extras
             // 
             this.lbl_Extras.AutoSize = true;
-            this.lbl_Extras.Location = new System.Drawing.Point(237, 334);
+            this.lbl_Extras.Location = new System.Drawing.Point(237, 307);
             this.lbl_Extras.Name = "lbl_Extras";
             this.lbl_Extras.Size = new System.Drawing.Size(71, 15);
             this.lbl_Extras.TabIndex = 29;
@@ -414,6 +415,24 @@
             this.cmb_Menu.Size = new System.Drawing.Size(141, 23);
             this.cmb_Menu.TabIndex = 38;
             // 
+            // chk_BolsoMano
+            // 
+            this.chk_BolsoMano.AutoSize = true;
+            this.chk_BolsoMano.Location = new System.Drawing.Point(628, 155);
+            this.chk_BolsoMano.Name = "chk_BolsoMano";
+            this.chk_BolsoMano.Size = new System.Drawing.Size(105, 19);
+            this.chk_BolsoMano.TabIndex = 39;
+            this.chk_BolsoMano.Text = "Bolso de mano";
+            this.chk_BolsoMano.UseVisualStyleBackColor = true;
+            // 
+            // lbl_Iva
+            // 
+            this.lbl_Iva.AutoSize = true;
+            this.lbl_Iva.Location = new System.Drawing.Point(237, 377);
+            this.lbl_Iva.Name = "lbl_Iva";
+            this.lbl_Iva.Size = new System.Drawing.Size(0, 15);
+            this.lbl_Iva.TabIndex = 40;
+            // 
             // frm_AltaPasajero
             // 
             this.AcceptButton = this.btn_Aceptar;
@@ -422,6 +441,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_Iva);
+            this.Controls.Add(this.chk_BolsoMano);
             this.Controls.Add(this.cmb_Menu);
             this.Controls.Add(this.lbl_ErrorAlAceptar);
             this.Controls.Add(this.lbl_EstadoCargaPasajero);
@@ -510,5 +531,7 @@
         private Label lbl_EstadoCargaPasajero;
         private Label lbl_ErrorAlAceptar;
         private ComboBox cmb_Menu;
+        private CheckBox chk_BolsoMano;
+        private Label lbl_Iva;
     }
 }

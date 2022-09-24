@@ -39,7 +39,7 @@ namespace Vista
         private void cdr_Salida_DateSelected(object sender, DateRangeEventArgs e)
         {
             banderaCalendario = true;
-            DateTime ida = cdr_Salida.SelectionStart;
+            DateTime ida = cdr_Salida.SelectionStart; // esto para orgenizar el ida y vuelta
             DateTime vuelta = cdr_Salida.SelectionEnd;
             FormCompleto();
         }
@@ -65,7 +65,6 @@ namespace Vista
           
         private void nud_CantidadPasajeros_ValueChanged(object sender, EventArgs e)
         {
-            decimal cantPasajeros = nud_CantidadPasajeros.Value;
             FormCompleto();
         }
 

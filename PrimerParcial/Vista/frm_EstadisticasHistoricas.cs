@@ -73,10 +73,16 @@ namespace Vista
 
         private void CalcularRecaudaciones()
         {
-            txt_RecaudacionTotal.Text = Aerolinea.CalcularRecaudacionTotal().ToString();
+            txt_RecaudacionTotal.Text = Aerolinea.CalcularGanancia().ToString();
             txt_GananciasInternacionales.Text = Aerolinea.CalcularGanancia(false).ToString();
             txt_GananciasNacionales.Text = Aerolinea.CalcularGanancia(true).ToString();
             //txt_DestinoMasElegido.Text = Aerolinea.BuscarDestinoMasPopular();
+        }
+
+        private void HacerDataGridPorDestinos()
+        {
+            DataTable table_Destinos = new DataTable();
+            DataGridView dgv_Destinos = new DataGridView();
         }
 
         private void cmb_Opciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,7 +100,7 @@ namespace Vista
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaPasajeros;
                     break;
                 case 2:
-                    //dgv_SegunOpcionElegida.DataSource = ;
+                    //HacerDataGridPorDestinos();
                     break;
                 case 3:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaPasajeros; //otra lista

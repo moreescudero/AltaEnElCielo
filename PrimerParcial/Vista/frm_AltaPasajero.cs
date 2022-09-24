@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -63,11 +64,11 @@ namespace Vista
             }
             //eleccion de extras todavia trabajando en eso 
             lbl_Clase.Text += "\n" + clase;
-            for (int i = 0; i < Aerolinea.listaVuelos.Count; i++)
+            foreach (Vuelo vuelo in Aerolinea.listaVuelos)
             {
-                if (codigoVuelo == Aerolinea.listaVuelos[i].CodigoVuelo)
+                if (codigoVuelo == vuelo.CodigoVuelo)
                 {
-                    unVuelo = Aerolinea.listaVuelos[i];
+                    unVuelo = vuelo;
                     if (!unVuelo.HayComida)
                     {
                         cmb_Menu.Items.Add("Sin Menu");
@@ -163,9 +164,12 @@ namespace Vista
         {
             if(grupoFamiliar.Count == cantidadPasajeros)
             {
-                for(int i = 0; i < grupoFamiliar.Count; i++)
+                foreach (Pasajero pasajero in grupoFamiliar)
                 {
-                    unVuelo.ListaPasajeros.Add(grupoFamiliar[i]);
+                    unVuelo.ListaPasajeros.Add(pasajero);
+                    unVuelo.AsientosDisponibles--;
+                    unVuelo.SumarRecaudacion(pasajero.PrecioBoleto);
+                    unVuelo.CambiarALleno();
                 }
                 this.DialogResult = DialogResult.OK;
             }
@@ -178,13 +182,17 @@ namespace Vista
         {
             if (VerificarDatosCompletos())
             {
-                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), float.Parse(nud_Equipaje.Value.ToString()), clase, cmb_Menu.Text, precio);
+                precio = Pasajero.CalcularPrecio((int)unVuelo.Destino, unVuelo.Duracion, clase);
+                float impuestos = precio * 0.90f;
+                float impuestoPais = precio * 0.3f;
+                float precioTotal = precio + impuestos + impuestoPais;
+                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), float.Parse(nud_Equipaje.Value.ToString()), clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked);
                 if ((!banderaSeCargoUno && btn_CargarPasajero.Text == "Cargar Pasajero 1") || (!banderaSeCargoDos && btn_CargarPasajero.Text == "Cargar Pasajero 2") || (!banderaSeCargoTres && btn_CargarPasajero.Text == "Cargar Pasajero 3") || (!banderaSeCargoCuatro && btn_CargarPasajero.Text == "Cargar Pasajero 4"))
                 {
-                    precio = Pasajero.CalcularPrecio((int)unVuelo.Destino, unVuelo.Duracion, clase);
-                    total += precio;
+                    total += precioTotal;
                     grupoFamiliar.Add(pasajero);
-                    //lbl_Subtotal.Text += " $ " + precio; para cuando tenga los extras y para antes de agregar impuestos (IVA, algunos impuestos mas ?? buscar en despegar)
+                    lbl_Subtotal.Text = "Subtotal: $ " + precio;
+                    lbl_Iva.Text = "Impuestos y tasas: $ " + impuestos + "\nImpuesto PAIS: $" + impuestoPais;
                     //Bruto + Impuestos = Neto
                     lbl_Total.Text = "Total: $ " + total;
                     lbl_EstadoCargaPasajero.Text = "Se cargo un pasajero con exito";
@@ -224,6 +232,7 @@ namespace Vista
             txt_Dni.Text = grupoFamiliar[index].Dni.ToString();
             txt_Edad.Text = grupoFamiliar[index].Edad.ToString();
             nud_Equipaje.Value = decimal.Parse(grupoFamiliar[index].Equipaje.ToString());
+            chk_BolsoMano.Checked = grupoFamiliar[index].BolsoMano;
             if (grupoFamiliar[index].MenuElegido != "Sin Menu")
             {
                 if (grupoFamiliar[index].MenuElegido == "Comun")
@@ -330,6 +339,7 @@ namespace Vista
             txt_Apellido.Text = String.Empty;
             txt_Edad.Text = String.Empty;
             txt_Dni.Text = String.Empty;
+            chk_BolsoMano.Checked = false;
             nud_CantEquipaje.Value = 0;
             nud_Equipaje.Value = 0;
             if(cmb_Menu.Text != "Sin Menu")
@@ -394,7 +404,6 @@ namespace Vista
         {
             ProhibirLetras(e);
         }
-
 
     }
 }

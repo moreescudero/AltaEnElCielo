@@ -79,16 +79,37 @@ namespace Biblioteca
             return filtro;
         }
 
+        public static void SumarHorasEnVuelo(string matricula, int duracion)
+        {
+            foreach (Avion avion in listaAviones)
+            {
+                if (avion.Matricula == matricula)
+                {
+                    avion.HorasEnVuelo += duracion;
+                    break;
+                }
+            }
+        }
+
+        public static float CalcularRecaudado()
+        {
+            float recaudacion = 0;
+
+            foreach (Pasajero pasajero in listaPasajeros)
+            {
+                recaudacion += pasajero.PrecioBoleto;
+            }
+
+            return recaudacion;
+        }
+
         private static float SumarGanancia(bool esNacional, Vuelo vuelo)
         {
-            if (esNacional)
+            if (vuelo.EsNacional == esNacional)
             {
                 return vuelo.Recaudado;
-                
             }
-            return vuelo.Recaudado;
-
-
+            return 0;
         }
 
         public static float CalcularGanancia(bool esNacional)
@@ -123,8 +144,13 @@ namespace Biblioteca
         //    return destino;
         //}
 
+        //public static string BuscarRecaudacionPorDestino(string destino)
+        //{
 
-        public static float CalcularRecaudacionTotal()
+        //}
+
+
+        public static float CalcularGanancia()
         {
             return CalcularGanancia(true) + CalcularGanancia(false);
         }
