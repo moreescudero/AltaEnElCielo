@@ -80,6 +80,7 @@
             // 
             this.lbl_Nombre.AutoSize = true;
             this.lbl_Nombre.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Nombre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_Nombre.Location = new System.Drawing.Point(236, 74);
             this.lbl_Nombre.Name = "lbl_Nombre";
             this.lbl_Nombre.Size = new System.Drawing.Size(54, 15);

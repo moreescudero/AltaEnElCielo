@@ -56,7 +56,6 @@ namespace Vista
             if (clase == "Premium")
             {
                 nud_CantEquipaje.Maximum = 2;
-                nud_Equipaje.Maximum = 42;
             }
             else
             {
@@ -94,6 +93,17 @@ namespace Vista
             if (nud_CantEquipaje.Value > 0)
             {
                 nud_Equipaje.Enabled = true;
+                if (clase == "Premium")
+                {
+                    if(nud_CantEquipaje.Value == 1)
+                    {
+                        nud_Equipaje.Maximum = 21;
+                    }
+                    else
+                    {
+                        nud_Equipaje.Maximum = 42;
+                    }
+                }
             }
             else
             {
@@ -169,8 +179,8 @@ namespace Vista
                     unVuelo.ListaPasajeros.Add(pasajero);
                     unVuelo.AsientosDisponibles--;
                     unVuelo.SumarRecaudacion(pasajero.PrecioBoleto);
-                    unVuelo.CambiarALleno();
                 }
+                unVuelo.CambiarANoDisponible();
                 this.DialogResult = DialogResult.OK;
             }
             else
@@ -182,7 +192,7 @@ namespace Vista
         {
             if (VerificarDatosCompletos())
             {
-                precio = Pasajero.CalcularPrecio((int)unVuelo.Destino, unVuelo.Duracion, clase);
+                precio = Pasajero.CalcularPrecio(unVuelo.EsNacional, unVuelo.Duracion, clase);
                 float impuestos = precio * 0.90f;
                 float impuestoPais = precio * 0.3f;
                 float precioTotal = precio + impuestos + impuestoPais;
@@ -191,7 +201,7 @@ namespace Vista
                 {
                     total += precioTotal;
                     grupoFamiliar.Add(pasajero);
-                    lbl_Subtotal.Text = "Subtotal: $ " + precio;
+                    lbl_Subtotal.Text = "Precio de 1 pasaje: $ " + precio;
                     lbl_Iva.Text = "Impuestos y tasas: $ " + impuestos + "\nImpuesto PAIS: $" + impuestoPais;
                     //Bruto + Impuestos = Neto
                     lbl_Total.Text = "Total: $ " + total;

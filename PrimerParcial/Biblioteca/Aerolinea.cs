@@ -129,7 +129,7 @@ namespace Biblioteca
             return total;
         }
 
-        private static int Comparar(string destino, Vuelo vuelo, int contador)
+        private static int Comparar(string destino, Vuelo vuelo, int contador) // usar equals?
         {
             if (vuelo.Destino.ToString() == destino)
             {
@@ -203,6 +203,35 @@ namespace Biblioteca
         public static float CalcularGanancia()
         {
             return CalcularGanancia(true) + CalcularGanancia(false);
+        }
+
+        public static List<Pasajero> SumarVuelosAPasajero()
+        {
+            List<Pasajero> pasajerosClientes = new List<Pasajero>();
+
+            foreach (Pasajero pasajero in listaPasajeros)
+            {
+                foreach (Vuelo vuelo in listaVuelos)
+                {
+                    if (vuelo.ListaPasajeros.Contains(pasajero))
+                    {
+                        pasajero.CantidadDeVuelos++;
+                    }
+                }
+                foreach (Vuelo vuelo in listaVuelosFinalizados)
+                {
+                    if (vuelo.ListaPasajeros.Contains(pasajero))
+                    {
+                        pasajero.CantidadDeVuelos++;
+                    }
+                }
+                if(pasajero.CantidadDeVuelos >= 3)
+                {
+                    pasajerosClientes.Add(pasajero);
+                }
+            }
+
+            return pasajerosClientes;
         }
 
     }

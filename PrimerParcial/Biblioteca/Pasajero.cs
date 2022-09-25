@@ -57,6 +57,7 @@ namespace Biblioteca
         public float PrecioBoleto
         {
             get { return precioBoleto; }
+            set { precioBoleto = value; }
         }
 
         public bool BolsoMano
@@ -64,11 +65,17 @@ namespace Biblioteca
             get { return bolsoMano; }
         }
 
-        public static float CalcularPrecio(int destino, int duracion, string clase)
+        public int CantidadDeVuelos
+        {
+            get { return cantidadDeVuelos; }
+            set { cantidadDeVuelos = value; }
+        }
+
+        public static float CalcularPrecio(bool esNacional, int duracion, string clase)
         {
             float precioHora;
 
-            if (destino < 100)
+            if (esNacional)
             {
                 precioHora = 50f;
             }

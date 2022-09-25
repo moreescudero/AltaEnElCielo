@@ -94,8 +94,6 @@ namespace Vista
         private void HacerDataGridPorDestinos()
         {
             dgv_SegunOpcionElegida.DataSource = tabla;
-            dgv_SegunOpcionElegida.AllowUserToOrderColumns = false;
-            dgv_SegunOpcionElegida.AllowUserToResizeColumns = false;
             dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns[1], ListSortDirection.Descending);
         }
 
@@ -117,11 +115,11 @@ namespace Vista
                     HacerDataGridPorDestinos();
                     break;
                 case 3:
-                    dgv_SegunOpcionElegida.DataSource = Aerolinea.listaPasajeros; //otra lista
+                    dgv_SegunOpcionElegida.DataSource = Aerolinea.SumarVuelosAPasajero(); //cambiarle el nombre al metodo
                     break;
                 default:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaAviones;
-                    dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns[4], ListSortDirection.Descending);
+                    //dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns[4], ListSortDirection.Descending);
                     break;
             }
         }

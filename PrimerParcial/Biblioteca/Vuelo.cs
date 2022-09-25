@@ -123,7 +123,7 @@ namespace Biblioteca
         public float Recaudado
         {
             get { return recaudado; }
-            set { recaudado = value; }
+            //set { recaudado = value; }
         }
 
         public int Duracion
@@ -149,17 +149,6 @@ namespace Biblioteca
             //set { disponible = value; }
         }
 
-        //private float CalcularRecaudado()
-        //{
-        //    float recaudacion = 0;
-
-        //    foreach(Pasajero pasajero in Aerolinea.listaPasajeros)
-        //    {
-        //        recaudacion += pasajero.PrecioBoleto;
-        //    }
-
-        //    return recaudacion;
-        //}
 
         public static string GeneradorCodigoVuelo()
         {
@@ -180,13 +169,8 @@ namespace Biblioteca
             return codigo.ToString();
         }
 
-        //private int RestarAsientosDisponibles()
-        //{
-        //    int asientos = AsientosDisponibles - listaPasajeros.Count;
-        //    return asientos;
-        //}
 
-        private int AsignarDuracion()//puedo reutilizar para hacer volver a los aviones
+        private int AsignarDuracion()
         {
             Random random = new Random();
             int rnd;
@@ -204,9 +188,13 @@ namespace Biblioteca
             return rnd;
         }
 
-        public void CambiarALleno()
+        public void CambiarANoDisponible()
         {
             if(asientosDisponibles == 0)
+            {
+                disponible = false;
+            }
+            if(salida.CompareTo(DateTime.Now) == 0 || salida.CompareTo(DateTime.Now) > 0)
             {
                 disponible = false;
             }
