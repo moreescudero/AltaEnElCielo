@@ -54,7 +54,7 @@ namespace Vista
 
         private void tmr_HoraActual_Tick(object sender, EventArgs e)
         {
-            lbl_Hora.Text = DateTime.Now.ToShortTimeString();
+            lbl_Hora.Text = DateTime.Now.ToShortDateString();
         }
     }
 }

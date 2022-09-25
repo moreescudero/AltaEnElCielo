@@ -97,8 +97,7 @@ namespace Vista
             lbl_AyudaAviones.Visible = false;
             banderaCalendario = true;
             cmb_Hora.Enabled = true;
-            salida = DateTime.Parse(aux);//DateTime.Parse(cdr_Salida.SelectionStart.ToString("yyyy/MM/dd hh:mm tt"));
-            
+            salida = DateTime.Parse(aux);
         }
 
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)

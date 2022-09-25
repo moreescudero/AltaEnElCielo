@@ -40,7 +40,7 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(123, 255);
+            this.btn_Cancelar.Location = new System.Drawing.Point(134, 260);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Location = new System.Drawing.Point(338, 255);
+            this.btn_Aceptar.Location = new System.Drawing.Point(349, 260);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // txt_Usuario
             // 
-            this.txt_Usuario.Location = new System.Drawing.Point(196, 68);
+            this.txt_Usuario.Location = new System.Drawing.Point(207, 73);
             this.txt_Usuario.Name = "txt_Usuario";
             this.txt_Usuario.PlaceholderText = "Ingrese usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(146, 23);
@@ -68,7 +68,7 @@
             // 
             // txt_Contraseña
             // 
-            this.txt_Contraseña.Location = new System.Drawing.Point(196, 162);
+            this.txt_Contraseña.Location = new System.Drawing.Point(207, 167);
             this.txt_Contraseña.Name = "txt_Contraseña";
             this.txt_Contraseña.PasswordChar = '*';
             this.txt_Contraseña.PlaceholderText = "Ingrese contraseña";
@@ -77,7 +77,7 @@
             // 
             // btn_Autocompletar
             // 
-            this.btn_Autocompletar.Location = new System.Drawing.Point(196, 324);
+            this.btn_Autocompletar.Location = new System.Drawing.Point(207, 329);
             this.btn_Autocompletar.Name = "btn_Autocompletar";
             this.btn_Autocompletar.Size = new System.Drawing.Size(146, 23);
             this.btn_Autocompletar.TabIndex = 4;

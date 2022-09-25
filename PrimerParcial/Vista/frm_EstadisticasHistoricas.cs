@@ -13,6 +13,8 @@ namespace Vista
 {
     public partial class frm_EstadisticasHistoricas : Form
     {
+        DataTable tabla = new DataTable();
+
         public frm_EstadisticasHistoricas()
         {
             InitializeComponent();
@@ -28,6 +30,16 @@ namespace Vista
             cmb_Opciones.Items.Add("Destinos por facturación");
             cmb_Opciones.Items.Add("Pasajeros frecuentes por cantidad de vuelos");
             cmb_Opciones.Items.Add("Horas de vuelo de cada avión");
+
+
+            tabla.Clear();
+            tabla.Columns.Add("Destino", typeof(string));
+            tabla.Columns.Add("Recaudacion", typeof(float));
+
+            foreach (string destino in Enum.GetNames(typeof(Destinos)))
+            {
+                tabla.Rows.Add(destino, Aerolinea.BuscarRecaudacionPorDestino(destino));
+            }
         }
 
         private void btn_Volver_Click(object sender, EventArgs e)
@@ -76,13 +88,15 @@ namespace Vista
             txt_RecaudacionTotal.Text = Aerolinea.CalcularGanancia().ToString();
             txt_GananciasInternacionales.Text = Aerolinea.CalcularGanancia(false).ToString();
             txt_GananciasNacionales.Text = Aerolinea.CalcularGanancia(true).ToString();
-            //txt_DestinoMasElegido.Text = Aerolinea.BuscarDestinoMasPopular();
+            txt_DestinoMasElegido.Text = Aerolinea.BuscarDestinoMasPopular();
         }
 
         private void HacerDataGridPorDestinos()
         {
-            DataTable table_Destinos = new DataTable();
-            DataGridView dgv_Destinos = new DataGridView();
+            dgv_SegunOpcionElegida.DataSource = tabla;
+            dgv_SegunOpcionElegida.AllowUserToOrderColumns = false;
+            dgv_SegunOpcionElegida.AllowUserToResizeColumns = false;
+            dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns[1], ListSortDirection.Descending);
         }
 
         private void cmb_Opciones_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,15 +114,23 @@ namespace Vista
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaPasajeros;
                     break;
                 case 2:
-                    //HacerDataGridPorDestinos();
+                    HacerDataGridPorDestinos();
                     break;
                 case 3:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaPasajeros; //otra lista
                     break;
                 default:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaAviones;
+                    dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns[4], ListSortDirection.Descending);
                     break;
             }
+        }
+
+        private void pnl_VerEstadisticas_VisibleChanged(object sender, EventArgs e)
+        {
+            cmb_Opciones.SelectedIndex = -1;
+            dgv_SegunOpcionElegida.Visible = false;
+            OcultarTodo();
         }
     }
 }

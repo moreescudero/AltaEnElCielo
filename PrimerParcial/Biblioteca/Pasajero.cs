@@ -16,6 +16,7 @@ namespace Biblioteca
         string menuElegido;
         float precioBoleto;
         bool bolsoMano;
+        int cantidadDeVuelos; // implementar
 
         public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto, bool bolsoMano) : base(nombre, apellido)
         {

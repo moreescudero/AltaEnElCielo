@@ -31,17 +31,17 @@ namespace Biblioteca
         private static void AgregarVueloFinalizado(Vuelo vuelo)
         {
             listaVuelosFinalizados.Add(vuelo);
+            listaVuelos.Remove(vuelo);
         }
 
         public static void QuitarVuelosFinalizados()
         {
             DateTime ahora = DateTime.Now;
-            foreach(Vuelo vuelo in listaVuelos)
+            foreach (Vuelo vuelo in listaVuelos)
             {
-                if(ahora.CompareTo(vuelo.Llegada) > 0)
+                if (ahora.CompareTo(vuelo.Llegada) > 0)
                 {
                     AgregarVueloFinalizado(vuelo);
-                    listaVuelos.Remove(vuelo);
                 }
             }
         }
@@ -49,8 +49,8 @@ namespace Biblioteca
         public static List<Avion> BuscarAvionesDisponibles(DateTime salida)
         {
             List<Avion> aviones = new List<Avion>();
-            
-            foreach(Avion avion in listaAviones)
+
+            foreach (Avion avion in listaAviones)
             {
                 aviones.Add(avion);
                 for (int i = 0; i < listaVuelos.Count; i++)
@@ -62,7 +62,7 @@ namespace Biblioteca
                     }
                 }
             }
-            
+
             return aviones;
         }
 
@@ -129,25 +129,75 @@ namespace Biblioteca
             return total;
         }
 
-        //public static string? BuscarDestinoMasPopular()
-        //{
-        //    string? destino;
+        private static int Comparar(string destino, Vuelo vuelo, int contador)
+        {
+            if (vuelo.Destino.ToString() == destino)
+            {
+                return contador++;
+            }
+            return contador;
+        }
 
-        //    for(int i = 0; i < listaVuelosFinalizados.Count(); i++)
-        //    {
-        //        for(int j = i + 1; j < listaVuelosFinalizados.Count(); j++)
-        //        {
+        private static int BuscarDestino(string destino)
+        {
+            int contador = 0;
+            foreach (Vuelo vuelo in listaVuelos)
+            {
+                contador = Comparar(destino, vuelo, contador);
+            }
+            foreach (Vuelo vuelo in listaVuelosFinalizados)
+            {
+                contador = Comparar(destino, vuelo, contador);
+            }
 
-        //        }
-        //    }
+            return contador;
+        }
 
-        //    return destino;
-        //}
+        public static string? BuscarDestinoMasPopular()
+        {
+            int contador;
+            int maximo = 0;
+            string? destinoPopular = "";
+            foreach (string? destino in Enum.GetNames(typeof(Destinos)))
+            {
+                contador = BuscarDestino(destino);
+                if (contador > maximo)
+                {
+                    maximo = contador;
+                    destinoPopular = destino;
+                }
+                else if(contador == maximo)
+                {
+                    destinoPopular += ", " + destino;
+                }
 
-        //public static string BuscarRecaudacionPorDestino(string destino)
-        //{
+            }
+            return destinoPopular;
+        }
 
-        //}
+        private static float SumarGanancia(string destino, Vuelo vuelo)
+        {
+            if (vuelo.Destino.ToString() == destino)
+            {
+                return vuelo.Recaudado;
+            }
+            return 0;
+        }
+
+        public static float BuscarRecaudacionPorDestino(string destino)
+        {
+            float recaudacion = 0;
+
+            foreach (Vuelo vuelo in listaVuelos)
+            {
+                recaudacion += SumarGanancia(destino, vuelo);
+            }
+            foreach (Vuelo vuelo in listaVuelosFinalizados)
+            {
+                recaudacion += SumarGanancia(destino, vuelo);
+            }
+            return recaudacion;
+        }
 
 
         public static float CalcularGanancia()
