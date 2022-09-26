@@ -71,6 +71,21 @@ namespace Biblioteca
             set { cantidadDeVuelos = value; }
         }
 
+        public override bool Equals(object? obj)
+        {
+            Pasajero pasajero = obj as Pasajero;
+            if(pasajero is not null)
+            {
+                return this.dni == pasajero.Dni;
+            }
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return "Nombre completo: " + this.nombre + " " + this.apellido + "  Cantidad de vuelos: " + this.cantidadDeVuelos + "\n";
+        }
+
         public static float CalcularPrecio(bool esNacional, int duracion, string clase)
         {
             float precioHora;

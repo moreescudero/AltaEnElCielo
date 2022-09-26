@@ -44,6 +44,7 @@
             this.btn_Volver = new System.Windows.Forms.Button();
             this.btn_VerEstadisticas = new System.Windows.Forms.Button();
             this.pnl_VerEstadisticas = new System.Windows.Forms.Panel();
+            this.pnl_Informacion = new System.Windows.Forms.Panel();
             this.dgv_SegunOpcionElegida = new System.Windows.Forms.DataGridView();
             this.txt_DestinoMasElegido = new System.Windows.Forms.TextBox();
             this.lbl_DestinoMasElegido = new System.Windows.Forms.Label();
@@ -56,9 +57,11 @@
             this.lbl_Visualizar = new System.Windows.Forms.Label();
             this.cmb_Opciones = new System.Windows.Forms.ComboBox();
             this.btn_CerrarPanel = new System.Windows.Forms.Button();
+            this.lbl_Info = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VuelosHistoricos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             this.pnl_VerEstadisticas.SuspendLayout();
+            this.pnl_Informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SegunOpcionElegida)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,6 +188,7 @@
             // 
             // pnl_VerEstadisticas
             // 
+            this.pnl_VerEstadisticas.Controls.Add(this.pnl_Informacion);
             this.pnl_VerEstadisticas.Controls.Add(this.dgv_SegunOpcionElegida);
             this.pnl_VerEstadisticas.Controls.Add(this.txt_DestinoMasElegido);
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_DestinoMasElegido);
@@ -204,6 +208,14 @@
             this.pnl_VerEstadisticas.TabIndex = 3;
             this.pnl_VerEstadisticas.Visible = false;
             this.pnl_VerEstadisticas.VisibleChanged += new System.EventHandler(this.pnl_VerEstadisticas_VisibleChanged);
+            // 
+            // pnl_Informacion
+            // 
+            this.pnl_Informacion.Controls.Add(this.lbl_Info);
+            this.pnl_Informacion.Location = new System.Drawing.Point(0, 75);
+            this.pnl_Informacion.Name = "pnl_Informacion";
+            this.pnl_Informacion.Size = new System.Drawing.Size(800, 334);
+            this.pnl_Informacion.TabIndex = 12;
             // 
             // dgv_SegunOpcionElegida
             // 
@@ -325,6 +337,15 @@
             this.btn_CerrarPanel.UseVisualStyleBackColor = true;
             this.btn_CerrarPanel.Click += new System.EventHandler(this.btn_CerrarPanel_Click);
             // 
+            // lbl_Info
+            // 
+            this.lbl_Info.AutoSize = true;
+            this.lbl_Info.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Info.Location = new System.Drawing.Point(37, 9);
+            this.lbl_Info.Name = "lbl_Info";
+            this.lbl_Info.Size = new System.Drawing.Size(0, 15);
+            this.lbl_Info.TabIndex = 1;
+            // 
             // frm_EstadisticasHistoricas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -344,6 +365,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).EndInit();
             this.pnl_VerEstadisticas.ResumeLayout(false);
             this.pnl_VerEstadisticas.PerformLayout();
+            this.pnl_Informacion.ResumeLayout(false);
+            this.pnl_Informacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SegunOpcionElegida)).EndInit();
             this.ResumeLayout(false);
 
@@ -378,5 +401,7 @@
         private Label lbl_RecaudacionTotal;
         private Label lbl_Visualizar;
         private ComboBox cmb_Opciones;
+        private Panel pnl_Informacion;
+        private Label lbl_Info;
     }
 }

@@ -14,6 +14,7 @@ namespace Vista
     public partial class frm_EstadisticasHistoricas : Form
     {
         DataTable tabla = new DataTable();
+        Dictionary<int, Empleado> empleados = new Dictionary<int, Empleado>();
 
         public frm_EstadisticasHistoricas()
         {
@@ -30,6 +31,7 @@ namespace Vista
             cmb_Opciones.Items.Add("Destinos por facturación");
             cmb_Opciones.Items.Add("Pasajeros frecuentes por cantidad de vuelos");
             cmb_Opciones.Items.Add("Horas de vuelo de cada avión");
+            cmb_Opciones.Items.Add("Informacion completa de la Aerolinea");
 
 
             tabla.Clear();
@@ -40,6 +42,7 @@ namespace Vista
             {
                 tabla.Rows.Add(destino, Aerolinea.BuscarRecaudacionPorDestino(destino));
             }
+
         }
 
         private void btn_Volver_Click(object sender, EventArgs e)
@@ -81,6 +84,34 @@ namespace Vista
             txt_GananciasInternacionales.Visible = false;
             txt_GananciasNacionales.Visible = false;
             txt_RecaudacionTotal.Visible = false;
+            pnl_Informacion.Visible = false;
+        }
+
+        private void MostrarInformacionCompleta()
+        {
+            pnl_Informacion.Visible = true;
+            lbl_Info.Text = String.Empty;
+            lbl_Info.Text = "Empleados: ";
+            Hardcodeo.InicializarEmpleados(empleados);
+            foreach(KeyValuePair<int, Empleado> item in empleados)
+            {
+                lbl_Info.Text += item.Value.ToString();
+            }
+            lbl_Info.Text += "\nAviones: ";
+            foreach(Avion avion in Aerolinea.listaAviones)
+            {
+                lbl_Info.Text += avion.ToString();
+            }
+            lbl_Info.Text += "\nVuelos con mayor recaudacion: ";
+            foreach(Vuelo vuelo in Aerolinea.BuscarVueloMayorRecaudacion())
+            {
+                lbl_Info.Text += vuelo.ToString();
+            }
+            lbl_Info.Text += "\nPasajeros platino: "; 
+            foreach(Pasajero pasajero in Aerolinea.CrearListaClientesPlatino())
+            {
+                lbl_Info.Text += pasajero.ToString();
+            }
         }
 
         private void CalcularRecaudaciones()
@@ -115,11 +146,14 @@ namespace Vista
                     HacerDataGridPorDestinos();
                     break;
                 case 3:
-                    dgv_SegunOpcionElegida.DataSource = Aerolinea.SumarVuelosAPasajero(); //cambiarle el nombre al metodo
+                    dgv_SegunOpcionElegida.DataSource = Aerolinea.CrearListaClientes();
                     break;
-                default:
+                case 4:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaAviones;
                     //dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns[4], ListSortDirection.Descending);
+                    break;
+                default:
+                    MostrarInformacionCompleta();
                     break;
             }
         }

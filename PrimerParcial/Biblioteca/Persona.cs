@@ -26,5 +26,9 @@ namespace Biblioteca
         {
             get { return apellido; }
         }
+        public override string ToString()
+        {
+            return this.nombre + " " + this.apellido + "\n";
+        }
     }
 }

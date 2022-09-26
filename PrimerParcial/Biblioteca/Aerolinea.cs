@@ -13,10 +13,12 @@ namespace Biblioteca
         public static List<Vuelo> listaVuelos = new List<Vuelo>();
         public static List<Vuelo> listaVuelosFinalizados = new List<Vuelo>();
         public static List<Pasajero> listaPasajeros = new List<Pasajero>();
+
         //List<Equipaje> equipajes;
 
         public static void InicializarAerolinea()
         {
+            
             listaAviones = Hardcodeo.InicializarAviones(listaAviones);
             listaPasajeros = Hardcodeo.InicializarPasajeros(listaPasajeros);
             listaVuelos = Hardcodeo.InicializarVuelos(listaAviones, listaVuelos, listaPasajeros);
@@ -130,34 +132,42 @@ namespace Biblioteca
             return total;
         }
 
-        private static int Comparar(string destino, Vuelo vuelo, int contador) // usar equals?
-        {
-            if (vuelo.Destino.ToString() == destino)
-            {
-                return contador++;
-            }
-            return contador;
-        }
+        //private static int Comparar(string destino, string destinoVuelo, int contador) 
+        //{
+        //    if (destinoVuelo == destino)
+        //    {
+        //        return (contador + 1);
+        //    }
+        //    return contador;
+        //}
 
         private static int BuscarDestino(string destino)
         {
             int contador = 0;
+            //int cantidad = 0;
             foreach (Vuelo vuelo in listaVuelos)
             {
-                contador = Comparar(destino, vuelo, contador);
+                //cantidad = Comparar(destino, vuelo.Destino.ToString(), contador);
+                if(destino == vuelo.Destino.ToString())
+                {
+                    contador++;
+                }
             }
             foreach (Vuelo vuelo in listaVuelosFinalizados)
             {
-                contador = Comparar(destino, vuelo, contador);
+                //cantidad = Comparar(destino, vuelo.Destino.ToString(), contador);
+                if (destino == vuelo.Destino.ToString())
+                {
+                    contador++;
+                }
             }
-
             return contador;
         }
 
         public static string? BuscarDestinoMasPopular()
         {
             int contador;
-            int maximo = 0;
+            int maximo = -1;
             string? destinoPopular = "";
             foreach (string? destino in Enum.GetNames(typeof(Destinos)))
             {
@@ -206,7 +216,47 @@ namespace Biblioteca
             return CalcularGanancia(true) + CalcularGanancia(false);
         }
 
-        public static List<Pasajero> SumarVuelosAPasajero()
+        private static void SumarVuelosAPasajero(Pasajero pasajero, Vuelo vuelo)
+        {
+            foreach (Pasajero pasajero1 in vuelo.ListaPasajeros)
+            {
+                if (pasajero1.Equals(pasajero)) //uso equals
+                {
+                    pasajero.CantidadDeVuelos++;
+                }
+            }
+            //if (vuelo.ListaPasajeros.Contains(pasajero))
+            //{
+            //    pasajero.CantidadDeVuelos++;
+            //}
+        }
+
+        public static List<Pasajero> CrearListaClientesPlatino()
+        {
+            List<Pasajero> pasajeros = new List<Pasajero>();
+            List<Pasajero> pasajeroRetorno = new List<Pasajero>();
+            int maximo = - 1;
+            pasajeros = CrearListaClientes();
+
+            foreach (Pasajero pasajero in pasajeros)
+            {
+                if (pasajero.CantidadDeVuelos > maximo)
+                {
+                    maximo = pasajero.CantidadDeVuelos;
+                }
+            }
+            foreach (Pasajero pasajero in pasajeros)
+            {
+                if (pasajero.CantidadDeVuelos < maximo)
+                {
+                    pasajeroRetorno.Remove(pasajero);
+                }
+            }
+
+            return pasajeroRetorno;
+        }
+
+        public static List<Pasajero> CrearListaClientes()
         {
             List<Pasajero> pasajerosClientes = new List<Pasajero>();
 
@@ -214,17 +264,11 @@ namespace Biblioteca
             {
                 foreach (Vuelo vuelo in listaVuelos)
                 {
-                    if (vuelo.ListaPasajeros.Contains(pasajero))
-                    {
-                        pasajero.CantidadDeVuelos++;
-                    }
+                    SumarVuelosAPasajero(pasajero, vuelo);
                 }
                 foreach (Vuelo vuelo in listaVuelosFinalizados)
                 {
-                    if (vuelo.ListaPasajeros.Contains(pasajero))
-                    {
-                        pasajero.CantidadDeVuelos++;
-                    }
+                    SumarVuelosAPasajero(pasajero, vuelo);
                 }
                 if(pasajero.CantidadDeVuelos >= 3)
                 {
@@ -235,5 +279,29 @@ namespace Biblioteca
             return pasajerosClientes;
         }
 
+        public static List<Vuelo> BuscarVueloMayorRecaudacion()
+        {
+            List<Vuelo> vuelos = new List<Vuelo>();
+            float maximo = -1;
+
+            foreach(Vuelo vuelo in listaVuelos)
+            {
+                if(vuelo.Recaudado > maximo)
+                {
+                    maximo = vuelo.Recaudado;
+                    vuelos.Add(vuelo);
+                }
+            }
+            foreach(Vuelo vuelo in listaVuelosFinalizados)
+            {
+                if (vuelo.Recaudado > maximo)
+                {
+                    maximo = vuelo.Recaudado;
+                    vuelos.Add(vuelo);
+                }
+            }
+
+            return vuelos;
+        }
     }
 }

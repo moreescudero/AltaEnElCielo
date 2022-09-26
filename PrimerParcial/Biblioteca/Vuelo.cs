@@ -162,6 +162,11 @@ namespace Biblioteca
             get { return asientosTuristaDisponibles; }
         }
 
+        public override string ToString()
+        {
+            return "Codigo de Vuelo: " + this.codigoVuelo + "  Matricula avion: " + this.matriculaAvion + "  Recaudado: " + this.recaudado + "\n";
+        }
+
         public void RestarAsientos(string clase)
         {
             if(clase == "Premium")

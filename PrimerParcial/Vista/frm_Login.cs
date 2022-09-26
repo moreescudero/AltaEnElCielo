@@ -32,7 +32,7 @@ namespace Vista
             {
                 if(item.Value.Usuario == txt_Usuario.Text && item.Value.ValidarContraseña(txt_Contraseña.Text))
                 {
-                    frm_Menu menu = new frm_Menu(item.Value.Usuario);
+                    frm_Menu menu = new frm_Menu(item.Value);
                     menu.ShowDialog();
                     menu.Close();
                     break;

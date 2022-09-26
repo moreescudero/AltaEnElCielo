@@ -48,7 +48,10 @@ namespace Biblioteca
             set { horasEnVuelo = value; }
         }
 
-
+        public override string ToString()
+        {
+            return "Matricula: " + this.matricula + "  Cantidad asientos: " + this.cantAsientos + "\n";
+        }
 
         //public int DescontarAsientosDisponibles(int asientosPremium, int asientosTurista, string clase)
         //{

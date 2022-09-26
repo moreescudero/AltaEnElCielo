@@ -18,9 +18,9 @@ namespace Vista
         {
             InitializeComponent();
         }
-        public frm_Menu(string usuario): this()
+        public frm_Menu(Empleado usuario): this()
         {
-            lbl_Bienvenido.Text = "Usuario: " + usuario;
+            lbl_Bienvenido.Text = "Usuario: " + usuario.ToString();
         }
 
         private void frm_Menu_Load(object sender, EventArgs e)
