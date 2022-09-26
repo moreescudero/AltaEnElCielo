@@ -16,7 +16,7 @@ namespace Biblioteca
         string menuElegido;
         float precioBoleto;
         bool bolsoMano;
-        int cantidadDeVuelos; // implementar
+        int cantidadDeVuelos; 
 
         public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto, bool bolsoMano) : base(nombre, apellido)
         {
@@ -87,7 +87,8 @@ namespace Biblioteca
             {
                 precioHora *= 1.15f;
             }
-            precioHora *= duracion;
+            if(duracion > 0)
+                precioHora *= duracion;
 
             return precioHora;
         }

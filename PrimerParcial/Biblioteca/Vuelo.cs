@@ -41,8 +41,8 @@ namespace Biblioteca
         DateTime llegada;
         int duracion;
         int asientosDisponibles;
-        bool disponible;
-        int asientosPrimeraDisponibles;
+        string disponible;
+        int asientosPremiumDisponibles;
         int asientosTuristaDisponibles;
         float recaudado; // recaudacion total por pasaje vendido
         bool hayComida;
@@ -59,18 +59,22 @@ namespace Biblioteca
             this.salida = salida;
             this.hayComida = hayComida;
             this.asientosDisponibles = asientosDisponibles;
+            this.asientosPremiumDisponibles = CalcularAsientosPremium();
+            this.asientosTuristaDisponibles = CalcularAsientosTurista();
             this.duracion = AsignarDuracion();
             this.llegada = CalcularLlegada();
             listaPasajeros = new List<Pasajero>();
-            this.disponible = true;
+            this.disponible = "disponible";
         }
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles, bool disponible) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles, int asientosPremiumDisponibles, int asientosTuristaDisponibles, string? disponible) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles)
         {
             this.listaPasajeros = listaPasajeros;
             this.llegada = llegada;
             this.duracion = duracion;
             this.recaudado = Aerolinea.CalcularRecaudado();
+            this.asientosTuristaDisponibles = asientosTuristaDisponibles;
+            this.asientosPremiumDisponibles = asientosPremiumDisponibles;
             this.disponible = disponible;
         }
 
@@ -140,15 +144,36 @@ namespace Biblioteca
         public int AsientosDisponibles
         {
             get { return asientosDisponibles; }
-            set { asientosDisponibles = value; }
         }
 
-        public bool Disponible
+        public string? Disponible
         {
             get { return disponible; }
-            //set { disponible = value; }
+            set { disponible = value; }
         }
 
+        public int AsientosPremiumDisponibles
+        {
+            get { return asientosPremiumDisponibles; }
+        }
+
+        public int AsientosTuristaDisponibles
+        {
+            get { return asientosTuristaDisponibles; }
+        }
+
+        public void RestarAsientos(string clase)
+        {
+            if(clase == "Premium")
+            {
+                asientosPremiumDisponibles--;
+            }
+            else
+            {
+                asientosTuristaDisponibles--;
+            }
+            asientosDisponibles--;
+        }
 
         public static string GeneradorCodigoVuelo()
         {
@@ -188,15 +213,25 @@ namespace Biblioteca
             return rnd;
         }
 
+        private int CalcularAsientosPremium()
+        {
+            return (int)(asientosDisponibles * 0.2);
+        }
+
+        private int CalcularAsientosTurista()
+        {
+            return (int)(asientosDisponibles * 0.8);
+        }
+
         public void CambiarANoDisponible()
         {
             if(asientosDisponibles == 0)
             {
-                disponible = false;
+                disponible = "Lleno";
             }
             if(salida.CompareTo(DateTime.Now) == 0 || salida.CompareTo(DateTime.Now) > 0)
             {
-                disponible = false;
+                disponible = "En Vuelo";
             }
         }
 

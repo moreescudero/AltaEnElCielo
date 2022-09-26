@@ -13,7 +13,7 @@ namespace Vista
 {
     public partial class frm_Login : Form
     {
-        List<Empleado> listaEmpleados = new List<Empleado>();
+        Dictionary<int,Empleado> empleados = new Dictionary<int, Empleado>();
 
         public frm_Login()
         {
@@ -22,19 +22,20 @@ namespace Vista
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            Hardcodeo.InicializarEmpleados(listaEmpleados);
+            Hardcodeo.InicializarEmpleados(empleados);
             tmr_HoraActual.Start();
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            foreach(Empleado empleado in listaEmpleados)
+            foreach(KeyValuePair<int,Empleado> item in empleados)
             {
-                if(empleado.Usuario == txt_Usuario.Text && empleado.ValidarContraseña(txt_Contraseña.Text))
+                if(item.Value.Usuario == txt_Usuario.Text && item.Value.ValidarContraseña(txt_Contraseña.Text))
                 {
-                    frm_Menu menu = new frm_Menu(empleado.Usuario);
+                    frm_Menu menu = new frm_Menu(item.Value.Usuario);
                     menu.ShowDialog();
                     menu.Close();
+                    break;
                 }
             }
         }
@@ -47,8 +48,8 @@ namespace Vista
         private void btn_Autocompletar_Click(object sender, EventArgs e)
         {
             Random random = new Random();
-            int rnd = random.Next(0, 4);
-            txt_Usuario.Text = listaEmpleados[rnd].Usuario;
+            int rnd = random.Next(1, 5);
+            txt_Usuario.Text = empleados[rnd].Usuario;
             txt_Contraseña.Text = "123";
         }
 

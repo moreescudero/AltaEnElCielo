@@ -48,23 +48,15 @@ namespace Biblioteca
             set { horasEnVuelo = value; }
         }
 
-        public int CalcularAsientosPremium()
-        {
-            return (int)(cantAsientos * 0.2);
-        }
 
-        public int CalcularAsientosTurista()
-        {
-            return (int)(cantAsientos * 0.8);
-        }
 
-        public int DescontarAsientosDisponibles(int asientosPremium, int asientosTurista, string clase)
-        {
-            if(clase == "Premium")
-            {
-                return asientosPremium--;
-            }
-            return asientosTurista--;
-        }
+        //public int DescontarAsientosDisponibles(int asientosPremium, int asientosTurista, string clase)
+        //{
+        //    if(clase == "Premium")
+        //    {
+        //        return asientosPremium--;
+        //    }
+        //    return asientosTurista--;
+        //}
     }
 }

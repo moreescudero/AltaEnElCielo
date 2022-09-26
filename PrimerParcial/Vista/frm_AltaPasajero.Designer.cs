@@ -64,6 +64,7 @@
             this.cmb_Menu = new System.Windows.Forms.ComboBox();
             this.chk_BolsoMano = new System.Windows.Forms.CheckBox();
             this.lbl_Iva = new System.Windows.Forms.Label();
+            this.lbl_ClienteExistente = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroUno)).BeginInit();
@@ -81,7 +82,7 @@
             this.lbl_Nombre.AutoSize = true;
             this.lbl_Nombre.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Nombre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Nombre.Location = new System.Drawing.Point(236, 74);
+            this.lbl_Nombre.Location = new System.Drawing.Point(236, 114);
             this.lbl_Nombre.Name = "lbl_Nombre";
             this.lbl_Nombre.Size = new System.Drawing.Size(54, 15);
             this.lbl_Nombre.TabIndex = 0;
@@ -109,7 +110,7 @@
             // 
             this.lbl_Apellido.AutoSize = true;
             this.lbl_Apellido.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Apellido.Location = new System.Drawing.Point(236, 118);
+            this.lbl_Apellido.Location = new System.Drawing.Point(236, 158);
             this.lbl_Apellido.Name = "lbl_Apellido";
             this.lbl_Apellido.Size = new System.Drawing.Size(54, 15);
             this.lbl_Apellido.TabIndex = 3;
@@ -129,7 +130,7 @@
             // 
             this.lbl_Dni.AutoSize = true;
             this.lbl_Dni.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Dni.Location = new System.Drawing.Point(236, 159);
+            this.lbl_Dni.Location = new System.Drawing.Point(236, 73);
             this.lbl_Dni.Name = "lbl_Dni";
             this.lbl_Dni.Size = new System.Drawing.Size(33, 15);
             this.lbl_Dni.TabIndex = 5;
@@ -137,7 +138,7 @@
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(349, 71);
+            this.txt_Nombre.Location = new System.Drawing.Point(349, 111);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(100, 23);
             this.txt_Nombre.TabIndex = 6;
@@ -145,7 +146,7 @@
             // 
             // txt_Apellido
             // 
-            this.txt_Apellido.Location = new System.Drawing.Point(349, 115);
+            this.txt_Apellido.Location = new System.Drawing.Point(349, 155);
             this.txt_Apellido.Name = "txt_Apellido";
             this.txt_Apellido.Size = new System.Drawing.Size(100, 23);
             this.txt_Apellido.TabIndex = 7;
@@ -153,10 +154,11 @@
             // 
             // txt_Dni
             // 
-            this.txt_Dni.Location = new System.Drawing.Point(349, 156);
+            this.txt_Dni.Location = new System.Drawing.Point(349, 70);
             this.txt_Dni.Name = "txt_Dni";
             this.txt_Dni.Size = new System.Drawing.Size(100, 23);
             this.txt_Dni.TabIndex = 8;
+            this.txt_Dni.TextChanged += new System.EventHandler(this.txt_Dni_TextChanged);
             this.txt_Dni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Dni_KeyPress);
             // 
             // txt_Edad
@@ -434,6 +436,15 @@
             this.lbl_Iva.Size = new System.Drawing.Size(0, 15);
             this.lbl_Iva.TabIndex = 40;
             // 
+            // lbl_ClienteExistente
+            // 
+            this.lbl_ClienteExistente.AutoSize = true;
+            this.lbl_ClienteExistente.Location = new System.Drawing.Point(236, 51);
+            this.lbl_ClienteExistente.Name = "lbl_ClienteExistente";
+            this.lbl_ClienteExistente.Size = new System.Drawing.Size(352, 15);
+            this.lbl_ClienteExistente.TabIndex = 41;
+            this.lbl_ClienteExistente.Text = "Si el pasajero ya viajo antes al ingresar el DNI se llenaran sus datos";
+            // 
             // frm_AltaPasajero
             // 
             this.AcceptButton = this.btn_Aceptar;
@@ -442,6 +453,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_ClienteExistente);
             this.Controls.Add(this.lbl_Iva);
             this.Controls.Add(this.chk_BolsoMano);
             this.Controls.Add(this.cmb_Menu);
@@ -534,5 +546,6 @@
         private ComboBox cmb_Menu;
         private CheckBox chk_BolsoMano;
         private Label lbl_Iva;
+        private Label lbl_ClienteExistente;
     }
 }

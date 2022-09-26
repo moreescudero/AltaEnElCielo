@@ -96,7 +96,7 @@ namespace Vista
 
         private void ActualizarDataGrid()
         {
-            filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()));
+            filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text);
             dgv_HayVuelo.DataSource = null;
             dgv_HayVuelo.DataSource = filtro;
         }

@@ -30,6 +30,7 @@ namespace Biblioteca
 
         private static void AgregarVueloFinalizado(Vuelo vuelo)
         {
+            vuelo.Disponible = "Finalizado";
             listaVuelosFinalizados.Add(vuelo);
             listaVuelos.Remove(vuelo);
         }
@@ -66,12 +67,12 @@ namespace Biblioteca
             return aviones;
         }
 
-        public static List<Vuelo> FiltrarVuelos(Destinos origen, Destinos llegada, int cantPasajeros)
+        public static List<Vuelo> FiltrarVuelos(Destinos origen, Destinos llegada, int cantPasajeros, string clase)
         {
             List<Vuelo> filtro = new List<Vuelo>();
             for (int i = 0; i < listaVuelos.Count; i++)
             {
-                if (origen.CompareTo(listaVuelos[i].Origen) == 0 && llegada.CompareTo(listaVuelos[i].Destino) == 0 && listaVuelos[i].AsientosDisponibles >= cantPasajeros)
+                if (origen.CompareTo(listaVuelos[i].Origen) == 0 && llegada.CompareTo(listaVuelos[i].Destino) == 0 && ((clase == "Turista" && listaVuelos[i].AsientosTuristaDisponibles >= cantPasajeros) || (clase == "Premium" && listaVuelos[i].AsientosPremiumDisponibles >= cantPasajeros)))
                 {
                     filtro.Add(listaVuelos[i]);
                 }

@@ -177,7 +177,7 @@ namespace Vista
                 foreach (Pasajero pasajero in grupoFamiliar)
                 {
                     unVuelo.ListaPasajeros.Add(pasajero);
-                    unVuelo.AsientosDisponibles--;
+                    unVuelo.RestarAsientos(pasajero.Clase);
                     unVuelo.SumarRecaudacion(pasajero.PrecioBoleto);
                 }
                 unVuelo.CambiarANoDisponible();
@@ -357,6 +357,7 @@ namespace Vista
                 cmb_Menu.SelectedIndex = -1;
             }
             lbl_EstadoCargaPasajero.Text = String.Empty;
+            lbl_ClienteExistente.Visible = true;
         }
 
         //visible changed
@@ -415,5 +416,20 @@ namespace Vista
             ProhibirLetras(e);
         }
 
+        private void txt_Dni_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Pasajero pasajero in Aerolinea.listaPasajeros)
+            {
+                if (txt_Dni.Text == pasajero.Dni.ToString())
+                {
+                    txt_Nombre.Text = pasajero.Nombre;
+                    txt_Apellido.Text = pasajero.Apellido;
+                    txt_Edad.Text = pasajero.Edad.ToString();
+                    break;
+                } 
+            }
+            lbl_ClienteExistente.Visible = false;
+            
+        }
     }
 }
