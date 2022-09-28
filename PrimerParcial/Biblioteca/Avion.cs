@@ -50,7 +50,7 @@ namespace Biblioteca
 
         public override string ToString()
         {
-            return "Matricula: " + this.matricula + "  Cantidad asientos: " + this.cantAsientos + "\n";
+            return "Matricula: " + this.matricula + "  Cantidad asientos: " + this.cantAsientos;
         }
 
         //public int DescontarAsientosDisponibles(int asientosPremium, int asientosTurista, string clase)

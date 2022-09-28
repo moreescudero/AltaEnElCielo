@@ -45,6 +45,7 @@
             this.btn_VerEstadisticas = new System.Windows.Forms.Button();
             this.pnl_VerEstadisticas = new System.Windows.Forms.Panel();
             this.pnl_Informacion = new System.Windows.Forms.Panel();
+            this.rtx_Info = new System.Windows.Forms.RichTextBox();
             this.dgv_SegunOpcionElegida = new System.Windows.Forms.DataGridView();
             this.txt_DestinoMasElegido = new System.Windows.Forms.TextBox();
             this.lbl_DestinoMasElegido = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.lbl_Visualizar = new System.Windows.Forms.Label();
             this.cmb_Opciones = new System.Windows.Forms.ComboBox();
             this.btn_CerrarPanel = new System.Windows.Forms.Button();
-            this.lbl_Info = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VuelosHistoricos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             this.pnl_VerEstadisticas.SuspendLayout();
@@ -201,7 +201,7 @@
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Visualizar);
             this.pnl_VerEstadisticas.Controls.Add(this.cmb_Opciones);
             this.pnl_VerEstadisticas.Controls.Add(this.btn_CerrarPanel);
-            this.pnl_VerEstadisticas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_VerEstadisticas.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_VerEstadisticas.Location = new System.Drawing.Point(0, 0);
             this.pnl_VerEstadisticas.Name = "pnl_VerEstadisticas";
             this.pnl_VerEstadisticas.Size = new System.Drawing.Size(800, 450);
@@ -211,11 +211,22 @@
             // 
             // pnl_Informacion
             // 
-            this.pnl_Informacion.Controls.Add(this.lbl_Info);
+            this.pnl_Informacion.Controls.Add(this.rtx_Info);
             this.pnl_Informacion.Location = new System.Drawing.Point(0, 75);
             this.pnl_Informacion.Name = "pnl_Informacion";
-            this.pnl_Informacion.Size = new System.Drawing.Size(800, 334);
+            this.pnl_Informacion.Size = new System.Drawing.Size(800, 317);
             this.pnl_Informacion.TabIndex = 12;
+            // 
+            // rtx_Info
+            // 
+            this.rtx_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtx_Info.Enabled = false;
+            this.rtx_Info.Location = new System.Drawing.Point(37, 3);
+            this.rtx_Info.Name = "rtx_Info";
+            this.rtx_Info.ReadOnly = true;
+            this.rtx_Info.Size = new System.Drawing.Size(726, 311);
+            this.rtx_Info.TabIndex = 0;
+            this.rtx_Info.Text = "";
             // 
             // dgv_SegunOpcionElegida
             // 
@@ -237,7 +248,7 @@
             this.txt_DestinoMasElegido.Enabled = false;
             this.txt_DestinoMasElegido.Location = new System.Drawing.Point(360, 309);
             this.txt_DestinoMasElegido.Name = "txt_DestinoMasElegido";
-            this.txt_DestinoMasElegido.Size = new System.Drawing.Size(163, 23);
+            this.txt_DestinoMasElegido.Size = new System.Drawing.Size(307, 23);
             this.txt_DestinoMasElegido.TabIndex = 11;
             this.txt_DestinoMasElegido.Visible = false;
             // 
@@ -256,7 +267,7 @@
             this.txt_GananciasNacionales.Enabled = false;
             this.txt_GananciasNacionales.Location = new System.Drawing.Point(360, 174);
             this.txt_GananciasNacionales.Name = "txt_GananciasNacionales";
-            this.txt_GananciasNacionales.Size = new System.Drawing.Size(163, 23);
+            this.txt_GananciasNacionales.Size = new System.Drawing.Size(307, 23);
             this.txt_GananciasNacionales.TabIndex = 8;
             this.txt_GananciasNacionales.Visible = false;
             // 
@@ -265,7 +276,7 @@
             this.txt_GananciasInternacionales.Enabled = false;
             this.txt_GananciasInternacionales.Location = new System.Drawing.Point(360, 236);
             this.txt_GananciasInternacionales.Name = "txt_GananciasInternacionales";
-            this.txt_GananciasInternacionales.Size = new System.Drawing.Size(163, 23);
+            this.txt_GananciasInternacionales.Size = new System.Drawing.Size(307, 23);
             this.txt_GananciasInternacionales.TabIndex = 7;
             this.txt_GananciasInternacionales.Visible = false;
             // 
@@ -274,7 +285,7 @@
             this.txt_RecaudacionTotal.Enabled = false;
             this.txt_RecaudacionTotal.Location = new System.Drawing.Point(360, 111);
             this.txt_RecaudacionTotal.Name = "txt_RecaudacionTotal";
-            this.txt_RecaudacionTotal.Size = new System.Drawing.Size(163, 23);
+            this.txt_RecaudacionTotal.Size = new System.Drawing.Size(307, 23);
             this.txt_RecaudacionTotal.TabIndex = 6;
             this.txt_RecaudacionTotal.Visible = false;
             // 
@@ -337,15 +348,6 @@
             this.btn_CerrarPanel.UseVisualStyleBackColor = true;
             this.btn_CerrarPanel.Click += new System.EventHandler(this.btn_CerrarPanel_Click);
             // 
-            // lbl_Info
-            // 
-            this.lbl_Info.AutoSize = true;
-            this.lbl_Info.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Info.Location = new System.Drawing.Point(37, 9);
-            this.lbl_Info.Name = "lbl_Info";
-            this.lbl_Info.Size = new System.Drawing.Size(0, 15);
-            this.lbl_Info.TabIndex = 1;
-            // 
             // frm_EstadisticasHistoricas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -366,7 +368,6 @@
             this.pnl_VerEstadisticas.ResumeLayout(false);
             this.pnl_VerEstadisticas.PerformLayout();
             this.pnl_Informacion.ResumeLayout(false);
-            this.pnl_Informacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SegunOpcionElegida)).EndInit();
             this.ResumeLayout(false);
 
@@ -402,6 +403,6 @@
         private Label lbl_Visualizar;
         private ComboBox cmb_Opciones;
         private Panel pnl_Informacion;
-        private Label lbl_Info;
+        private RichTextBox rtx_Info;
     }
 }

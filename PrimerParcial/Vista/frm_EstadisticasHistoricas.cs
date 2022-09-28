@@ -90,27 +90,27 @@ namespace Vista
         private void MostrarInformacionCompleta()
         {
             pnl_Informacion.Visible = true;
-            lbl_Info.Text = String.Empty;
-            lbl_Info.Text = "Empleados: ";
+            rtx_Info.Text = String.Empty;
+            rtx_Info.Text = "Empleados: ";
             Hardcodeo.InicializarEmpleados(empleados);
             foreach(KeyValuePair<int, Empleado> item in empleados)
             {
-                lbl_Info.Text += item.Value.ToString();
+                rtx_Info.Text += item.Value.ToString() + "        ";
             }
-            lbl_Info.Text += "\nAviones: ";
+            rtx_Info.Text += "\n\nAviones: \n";
             foreach(Avion avion in Aerolinea.listaAviones)
             {
-                lbl_Info.Text += avion.ToString();
+                rtx_Info.Text += avion.ToString() + "\n";
             }
-            lbl_Info.Text += "\nVuelos con mayor recaudacion: ";
+            rtx_Info.Text += "\nVuelos con mayor recaudacion: \n";
             foreach(Vuelo vuelo in Aerolinea.BuscarVueloMayorRecaudacion())
             {
-                lbl_Info.Text += vuelo.ToString();
+                rtx_Info.Text += vuelo.ToString() + "\n";
             }
-            lbl_Info.Text += "\nPasajeros platino: "; 
-            foreach(Pasajero pasajero in Aerolinea.CrearListaClientesPlatino())
+            rtx_Info.Text += "\nPasajeros platino: ";
+            foreach (Pasajero pasajero in Aerolinea.CrearListaClientesPlatino())
             {
-                lbl_Info.Text += pasajero.ToString();
+                rtx_Info.Text += pasajero.ToString() + "\n";
             }
         }
 
@@ -150,7 +150,7 @@ namespace Vista
                     break;
                 case 4:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaAviones;
-                    //dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns[4], ListSortDirection.Descending);
+                    //dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns["HorasEnVuelo"], ListSortDirection.Descending);
                     break;
                 default:
                     MostrarInformacionCompleta();

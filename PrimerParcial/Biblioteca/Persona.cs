@@ -26,9 +26,12 @@ namespace Biblioteca
         {
             get { return apellido; }
         }
+
+        //hacer un metodo abstracto
+
         public override string ToString()
         {
-            return this.nombre + " " + this.apellido + "\n";
+            return this.nombre + " " + this.apellido;
         }
     }
 }

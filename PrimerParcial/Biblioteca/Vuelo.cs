@@ -162,9 +162,18 @@ namespace Biblioteca
             get { return asientosTuristaDisponibles; }
         }
 
+        public override bool Equals(object? obj)
+        {
+            Vuelo vuelo = obj as Vuelo;
+            if(vuelo is not null) 
+            {
+                return vuelo.codigoVuelo == this.codigoVuelo;
+            }
+            return false;
+        }
         public override string ToString()
         {
-            return "Codigo de Vuelo: " + this.codigoVuelo + "  Matricula avion: " + this.matriculaAvion + "  Recaudado: " + this.recaudado + "\n";
+            return "Codigo de Vuelo: " + this.codigoVuelo + "  Matricula avion: " + this.matriculaAvion + "  Recaudado: " + this.recaudado + " Destino: " + this.destino;
         }
 
         public void RestarAsientos(string clase)

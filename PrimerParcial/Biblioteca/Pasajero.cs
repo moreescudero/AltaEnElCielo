@@ -81,9 +81,15 @@ namespace Biblioteca
             return false;
         }
 
+        //public override int GetHashCode()
+        //{
+        //   // return ;
+        //}
+
+
         public override string ToString()
         {
-            return "Nombre completo: " + this.nombre + " " + this.apellido + "  Cantidad de vuelos: " + this.cantidadDeVuelos + "\n";
+            return "Nombre completo: " + base.ToString() + "  Cantidad de vuelos: " + this.cantidadDeVuelos;
         }
 
         public static float CalcularPrecio(bool esNacional, int duracion, string clase)

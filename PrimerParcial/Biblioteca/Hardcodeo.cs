@@ -24,6 +24,7 @@ namespace Biblioteca
 
         public static void InicializarEmpleados(Dictionary<int, Empleado> empleados)
         {
+            empleados.Clear();
             empleados.Add(1, new Empleado("more", "escudero", "more", "123"));
             empleados.Add(2, new Empleado("mati", "barrozo", "mati", "123"));
             empleados.Add(3, new Empleado("nico", "gil", "nico", "123"));
@@ -98,7 +99,7 @@ namespace Biblioteca
 
         public static List<Vuelo> InicializarVuelos(List<Avion> aviones, List<Vuelo> vuelos, List<Pasajero> pasajeros)
         {
-            vuelos.Add(new Vuelo("MNE156", aviones[0].Matricula,false,Destinos.BuenosAires,Destinos.Roma,new DateTime(2022, 10, 4, 19, 30, 0), new DateTime(2022, 10, 5, 5, 30, 0), 10, true,CargarPasajerosAUnVuelo(pasajeros, true, false, 10), 0, 0, 0, "Lleno"));
+            vuelos.Add(new Vuelo("MNE156", aviones[0].Matricula,false,Destinos.BuenosAires,Destinos.Roma,new DateTime(2022, 9, 26, 19, 30, 0), new DateTime(2022, 9, 27, 5, 30, 0), 10, true,CargarPasajerosAUnVuelo(pasajeros, true, false, 10), 0, 0, 0, "Lleno"));
             vuelos.Add(new Vuelo("AMA262", aviones[0].Matricula,false,Destinos.BuenosAires,Destinos.Miami,new DateTime(2023, 1, 3, 11, 30, 0), new DateTime(2023, 1, 3, 23, 30, 0), 12, true,CargarPasajerosAUnVuelo(pasajeros, true, false, 12), 59, 10, 49, "Disponible"));
             vuelos.Add(new Vuelo("ROE251", aviones[5].Matricula,true,Destinos.Mendoza,Destinos.Bariloche,new DateTime(2022, 10, 4, 18, 0, 0), new DateTime(2022, 10, 4, 20, 0, 0), 2, false, CargarPasajerosAUnVuelo(pasajeros, false, true, 2), 17, 6, 11, "Disponible"));
             vuelos.Add(new Vuelo("MSK301", aviones[3].Matricula,true,Destinos.Córdoba,Destinos.Posadas,new DateTime(2022, 12, 13, 4, 0, 0), new DateTime(2022, 12, 13, 7, 0, 0), 3, false, CargarPasajerosAUnVuelo(pasajeros, false, true, 3), 6, 1, 5, "Disponible"));

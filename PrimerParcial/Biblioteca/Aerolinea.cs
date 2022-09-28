@@ -25,16 +25,10 @@ namespace Biblioteca
             listaVuelosFinalizados = Hardcodeo.InicializarHistorialVuelos(listaVuelosFinalizados, listaAviones, listaPasajeros);
         }
 
-        public static void AgregarVuelo(Vuelo vuelo)
-        {
-            listaVuelos.Add(vuelo);
-        }
-
         private static void AgregarVueloFinalizado(Vuelo vuelo)
         {
             vuelo.Disponible = "Finalizado";
             listaVuelosFinalizados.Add(vuelo);
-            listaVuelos.Remove(vuelo);
         }
 
         public static void QuitarVuelosFinalizados()
@@ -47,7 +41,23 @@ namespace Biblioteca
                     AgregarVueloFinalizado(vuelo);
                 }
             }
+            for(int i = 0; i < listaVuelos.Count; i++)
+            {
+                if(listaVuelos is not null)
+                {
+                    if (listaVuelos[i].Disponible == "Finalizado")
+                    {
+                        listaVuelos.RemoveAt(i);
+                        i--;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
+
 
         public static List<Avion> BuscarAvionesDisponibles(DateTime salida)
         {
@@ -65,7 +75,6 @@ namespace Biblioteca
                     }
                 }
             }
-
             return aviones;
         }
 
@@ -224,6 +233,7 @@ namespace Biblioteca
                 {
                     pasajero.CantidadDeVuelos++;
                 }
+                break;
             }
             //if (vuelo.ListaPasajeros.Contains(pasajero))
             //{
@@ -235,7 +245,7 @@ namespace Biblioteca
         {
             List<Pasajero> pasajeros = new List<Pasajero>();
             List<Pasajero> pasajeroRetorno = new List<Pasajero>();
-            int maximo = - 1;
+            int maximo = -1;
             pasajeros = CrearListaClientes();
 
             foreach (Pasajero pasajero in pasajeros)
@@ -247,9 +257,9 @@ namespace Biblioteca
             }
             foreach (Pasajero pasajero in pasajeros)
             {
-                if (pasajero.CantidadDeVuelos < maximo)
+                if (pasajero.CantidadDeVuelos == maximo)
                 {
-                    pasajeroRetorno.Remove(pasajero);
+                    pasajeroRetorno.Add(pasajero);
                 }
             }
 
