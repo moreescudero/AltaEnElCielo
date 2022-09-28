@@ -36,12 +36,16 @@
             this.btn_Autocompletar = new System.Windows.Forms.Button();
             this.lbl_Hora = new System.Windows.Forms.Label();
             this.tmr_HoraActual = new System.Windows.Forms.Timer(this.components);
+            this.lbl_Incorrecto = new System.Windows.Forms.Label();
+            this.hlp_Ayuda = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // btn_Cancelar
             // 
+            this.hlp_Ayuda.SetHelpString(this.btn_Cancelar, "Cierra la aplicación");
             this.btn_Cancelar.Location = new System.Drawing.Point(134, 260);
             this.btn_Cancelar.Name = "btn_Cancelar";
+            this.hlp_Ayuda.SetShowHelp(this.btn_Cancelar, true);
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 0;
             this.btn_Cancelar.Text = "Cancelar";
@@ -50,8 +54,10 @@
             // 
             // btn_Aceptar
             // 
+            this.hlp_Ayuda.SetHelpString(this.btn_Aceptar, "Ingresa a la aplicación si el usuario y la contraseña son correctos");
             this.btn_Aceptar.Location = new System.Drawing.Point(349, 260);
             this.btn_Aceptar.Name = "btn_Aceptar";
+            this.hlp_Ayuda.SetShowHelp(this.btn_Aceptar, true);
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 1;
             this.btn_Aceptar.Text = "Aceptar";
@@ -65,6 +71,7 @@
             this.txt_Usuario.PlaceholderText = "Ingrese usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(146, 23);
             this.txt_Usuario.TabIndex = 2;
+            this.txt_Usuario.TextChanged += new System.EventHandler(this.txt_Usuario_TextChanged);
             // 
             // txt_Contraseña
             // 
@@ -77,8 +84,11 @@
             // 
             // btn_Autocompletar
             // 
+            this.hlp_Ayuda.SetHelpString(this.btn_Autocompletar, "Cargará los textbox con un usuario aleatorio de la base de empleados para que pue" +
+        "da ingresar");
             this.btn_Autocompletar.Location = new System.Drawing.Point(207, 329);
             this.btn_Autocompletar.Name = "btn_Autocompletar";
+            this.hlp_Ayuda.SetShowHelp(this.btn_Autocompletar, true);
             this.btn_Autocompletar.Size = new System.Drawing.Size(146, 23);
             this.btn_Autocompletar.TabIndex = 4;
             this.btn_Autocompletar.Text = "Autocompletar";
@@ -97,6 +107,16 @@
             // 
             this.tmr_HoraActual.Tick += new System.EventHandler(this.tmr_HoraActual_Tick);
             // 
+            // lbl_Incorrecto
+            // 
+            this.lbl_Incorrecto.AutoSize = true;
+            this.lbl_Incorrecto.Location = new System.Drawing.Point(186, 204);
+            this.lbl_Incorrecto.Name = "lbl_Incorrecto";
+            this.lbl_Incorrecto.Size = new System.Drawing.Size(180, 15);
+            this.lbl_Incorrecto.TabIndex = 8;
+            this.lbl_Incorrecto.Text = "Usuario o contraseña incorrectos";
+            this.lbl_Incorrecto.Visible = false;
+            // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -109,7 +129,11 @@
             this.Controls.Add(this.txt_Usuario);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.btn_Cancelar);
+            this.Controls.Add(this.lbl_Incorrecto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
@@ -128,5 +152,7 @@
         private Button btn_Autocompletar;
         private Label lbl_Hora;
         private System.Windows.Forms.Timer tmr_HoraActual;
+        private Label lbl_Incorrecto;
+        private HelpProvider hlp_Ayuda;
     }
 }

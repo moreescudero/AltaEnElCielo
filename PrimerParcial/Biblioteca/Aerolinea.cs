@@ -83,7 +83,7 @@ namespace Biblioteca
             List<Vuelo> filtro = new List<Vuelo>();
             for (int i = 0; i < listaVuelos.Count; i++)
             {
-                if (origen.CompareTo(listaVuelos[i].Origen) == 0 && llegada.CompareTo(listaVuelos[i].Destino) == 0 && ((clase == "Turista" && listaVuelos[i].AsientosTuristaDisponibles >= cantPasajeros) || (clase == "Premium" && listaVuelos[i].AsientosPremiumDisponibles >= cantPasajeros)))
+                if (origen.CompareTo(listaVuelos[i].Origen) == 0 && llegada.CompareTo(listaVuelos[i].Destino) == 0 && listaVuelos[i].BodegaDisponible > 0 && ((clase == "Turista" && listaVuelos[i].AsientosTuristaDisponibles >= cantPasajeros) || (clase == "Premium" && listaVuelos[i].AsientosPremiumDisponibles >= cantPasajeros)))
                 {
                     filtro.Add(listaVuelos[i]);
                 }

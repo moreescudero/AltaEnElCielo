@@ -31,11 +31,13 @@ namespace Vista
             SetHora();
             SetBackgroundImage();
         }
-
-        private void btn_Salir_Click(object sender, EventArgs e)
+        private void btn_CerrarSesion_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            
+        }
+        private void btn_Salir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void SetHora()
@@ -93,5 +95,6 @@ namespace Vista
             formEstadisticas.ShowDialog();
             formEstadisticas.Close();
         }
+
     }
 }

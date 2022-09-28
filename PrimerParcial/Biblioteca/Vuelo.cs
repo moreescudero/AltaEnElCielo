@@ -41,15 +41,15 @@ namespace Biblioteca
         DateTime llegada;
         int duracion;
         int asientosDisponibles;
-        string disponible;
+        string? disponible;
         int asientosPremiumDisponibles;
         int asientosTuristaDisponibles;
         float recaudado; // recaudacion total por pasaje vendido
         bool hayComida;
-        //atributos cosas extras ?? wifi/menu vegano, celiaco, etc/televisor ? 
+        float bodegaDisponible; 
         List<Pasajero> listaPasajeros;
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, bool hayComida, int asientosDisponibles)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, bool hayComida, int asientosDisponibles, float bodegaDisponible)
         {
             this.codigoVuelo = codigoVuelo;
             this.matriculaAvion = matriculaAvion;
@@ -65,9 +65,10 @@ namespace Biblioteca
             this.llegada = CalcularLlegada();
             listaPasajeros = new List<Pasajero>();
             this.disponible = "disponible";
+            this.bodegaDisponible = bodegaDisponible;
         }
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles, int asientosPremiumDisponibles, int asientosTuristaDisponibles, string? disponible) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles, int asientosPremiumDisponibles, int asientosTuristaDisponibles, string? disponible, float bodegaDisponible) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles, bodegaDisponible)
         {
             this.listaPasajeros = listaPasajeros;
             this.llegada = llegada;
@@ -162,6 +163,11 @@ namespace Biblioteca
             get { return asientosTuristaDisponibles; }
         }
 
+        public float BodegaDisponible
+        {
+            get { return bodegaDisponible; }
+        }
+
         public override bool Equals(object? obj)
         {
             Vuelo vuelo = obj as Vuelo;
@@ -176,7 +182,7 @@ namespace Biblioteca
             return "Codigo de Vuelo: " + this.codigoVuelo + "  Matricula avion: " + this.matriculaAvion + "  Recaudado: " + this.recaudado + " Destino: " + this.destino;
         }
 
-        public void RestarAsientos(string clase)
+        public void RestarAsientosYBodega(string clase, float equipaje)
         {
             if(clase == "Premium")
             {
@@ -187,6 +193,8 @@ namespace Biblioteca
                 asientosTuristaDisponibles--;
             }
             asientosDisponibles--;
+
+            bodegaDisponible -= equipaje;
         }
 
         public static string GeneradorCodigoVuelo()

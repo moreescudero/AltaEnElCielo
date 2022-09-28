@@ -65,6 +65,7 @@
             this.chk_BolsoMano = new System.Windows.Forms.CheckBox();
             this.lbl_Iva = new System.Windows.Forms.Label();
             this.lbl_ClienteExistente = new System.Windows.Forms.Label();
+            this.lbl_EquipajeBodega = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroUno)).BeginInit();
@@ -229,6 +230,7 @@
             this.btn_Cancelar.TabIndex = 21;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // lbl_Subtotal
             // 
@@ -258,6 +260,7 @@
             this.nud_Equipaje.Name = "nud_Equipaje";
             this.nud_Equipaje.Size = new System.Drawing.Size(101, 23);
             this.nud_Equipaje.TabIndex = 24;
+            this.nud_Equipaje.ValueChanged += new System.EventHandler(this.nud_Equipaje_ValueChanged);
             // 
             // pic_PasajeroUno
             // 
@@ -445,6 +448,16 @@
             this.lbl_ClienteExistente.TabIndex = 41;
             this.lbl_ClienteExistente.Text = "Si el pasajero ya viajo antes al ingresar el DNI se llenaran sus datos";
             // 
+            // lbl_EquipajeBodega
+            // 
+            this.lbl_EquipajeBodega.AutoSize = true;
+            this.lbl_EquipajeBodega.Location = new System.Drawing.Point(521, 103);
+            this.lbl_EquipajeBodega.Name = "lbl_EquipajeBodega";
+            this.lbl_EquipajeBodega.Size = new System.Drawing.Size(212, 15);
+            this.lbl_EquipajeBodega.TabIndex = 42;
+            this.lbl_EquipajeBodega.Text = "Se excede de la  capacidad en bodega!!";
+            this.lbl_EquipajeBodega.Visible = false;
+            // 
             // frm_AltaPasajero
             // 
             this.AcceptButton = this.btn_Aceptar;
@@ -453,6 +466,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.lbl_EquipajeBodega);
             this.Controls.Add(this.lbl_ClienteExistente);
             this.Controls.Add(this.lbl_Iva);
             this.Controls.Add(this.chk_BolsoMano);
@@ -547,5 +562,6 @@
         private CheckBox chk_BolsoMano;
         private Label lbl_Iva;
         private Label lbl_ClienteExistente;
+        private Label lbl_EquipajeBodega;
     }
 }

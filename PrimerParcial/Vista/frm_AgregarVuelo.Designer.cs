@@ -209,6 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.cmb_Hora);
             this.Controls.Add(this.lbl_HoraDespegue);
             this.Controls.Add(this.chk_SiHay);

@@ -28,15 +28,22 @@ namespace Vista
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
+            int contador = 0;
             foreach(KeyValuePair<int,Empleado> item in empleados)
             {
                 if(item.Value.Usuario == txt_Usuario.Text && item.Value.ValidarContraseña(txt_Contraseña.Text))
                 {
                     frm_Menu menu = new frm_Menu(item.Value);
+                    this.Hide();
                     menu.ShowDialog();
-                    menu.Close();
+                    this.Show();
                     break;
                 }
+                contador++;
+            }
+            if (contador == 4)
+            {
+                lbl_Incorrecto.Visible = true;
             }
         }
 
@@ -44,6 +51,7 @@ namespace Vista
         {
             Application.Exit();
         }
+
 
         private void btn_Autocompletar_Click(object sender, EventArgs e)
         {
@@ -56,6 +64,11 @@ namespace Vista
         private void tmr_HoraActual_Tick(object sender, EventArgs e)
         {
             lbl_Hora.Text = DateTime.Now.ToShortDateString();
+        }
+
+        private void txt_Usuario_TextChanged(object sender, EventArgs e)
+        {
+            lbl_Incorrecto.Visible = false;
         }
     }
 }

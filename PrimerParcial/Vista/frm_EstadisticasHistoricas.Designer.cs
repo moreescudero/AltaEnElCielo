@@ -354,6 +354,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.pnl_VerEstadisticas);
             this.Controls.Add(this.btn_VerEstadisticas);
             this.Controls.Add(this.btn_Volver);

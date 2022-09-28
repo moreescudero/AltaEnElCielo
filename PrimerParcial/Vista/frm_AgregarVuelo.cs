@@ -102,7 +102,7 @@ namespace Vista
 
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)
         {
-            Aerolinea.listaVuelos.Add(new Vuelo(txt_CodigoVuelo.Text, cmb_Avion.Text, esNacional, origen, destino, salida, hayComida, unAvion.CantAsientos));
+            Aerolinea.listaVuelos.Add(new Vuelo(txt_CodigoVuelo.Text, cmb_Avion.Text, esNacional, origen, destino, salida, hayComida, unAvion.CantAsientos, unAvion.CapacidadBodega));
             this.DialogResult = DialogResult.OK;
         }
 

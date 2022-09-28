@@ -55,6 +55,7 @@
             this.llegadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.duracionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BodegaDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asientosDisponiblesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -107,6 +108,7 @@
             this.llegadaDataGridViewTextBoxColumn,
             this.duracionDataGridViewTextBoxColumn,
             this.recaudadoDataGridViewTextBoxColumn,
+            this.BodegaDisponible,
             this.asientosDisponiblesDataGridViewTextBoxColumn,
             this.Disponible,
             this.hayComidaDataGridViewCheckBoxColumn,
@@ -306,6 +308,13 @@
             this.recaudadoDataGridViewTextBoxColumn.Name = "recaudadoDataGridViewTextBoxColumn";
             this.recaudadoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // BodegaDisponible
+            // 
+            this.BodegaDisponible.DataPropertyName = "BodegaDisponible";
+            this.BodegaDisponible.HeaderText = "BodegaDisponible";
+            this.BodegaDisponible.Name = "BodegaDisponible";
+            this.BodegaDisponible.ReadOnly = true;
+            // 
             // asientosDisponiblesDataGridViewTextBoxColumn
             // 
             this.asientosDisponiblesDataGridViewTextBoxColumn.DataPropertyName = "AsientosDisponibles";
@@ -340,6 +349,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Salir;
             this.ClientSize = new System.Drawing.Size(896, 441);
+            this.ControlBox = false;
             this.Controls.Add(this.pnl_VerPasajeros);
             this.Controls.Add(this.btn_VerPasajeros);
             this.Controls.Add(this.dgv_VisualizarVuelos);
@@ -390,6 +400,7 @@
         private DataGridViewTextBoxColumn llegadaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn duracionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn recaudadoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn BodegaDisponible;
         private DataGridViewTextBoxColumn asientosDisponiblesDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Disponible;
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;

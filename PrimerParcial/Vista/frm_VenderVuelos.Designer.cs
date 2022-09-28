@@ -326,6 +326,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_Continuar);
             this.Controls.Add(this.lbl_NoHayVuelos);
             this.Controls.Add(this.btn_AgregarVuelo);

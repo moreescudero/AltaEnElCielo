@@ -177,7 +177,7 @@ namespace Vista
                 foreach (Pasajero pasajero in grupoFamiliar)
                 {
                     unVuelo.ListaPasajeros.Add(pasajero);
-                    unVuelo.RestarAsientos(pasajero.Clase);
+                    unVuelo.RestarAsientosYBodega(pasajero.Clase, pasajero.Equipaje);
                     unVuelo.SumarRecaudacion(pasajero.PrecioBoleto);
                 }
                 unVuelo.CambiarANoDisponible();
@@ -196,7 +196,7 @@ namespace Vista
                 float impuestos = precio * 0.90f;
                 float impuestoPais = precio * 0.3f;
                 float precioTotal = precio + impuestos + impuestoPais;
-                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), float.Parse(nud_Equipaje.Value.ToString()), clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked);
+                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), (float)nud_Equipaje.Value, clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked);
                 if ((!banderaSeCargoUno && btn_CargarPasajero.Text == "Cargar Pasajero 1") || (!banderaSeCargoDos && btn_CargarPasajero.Text == "Cargar Pasajero 2") || (!banderaSeCargoTres && btn_CargarPasajero.Text == "Cargar Pasajero 3") || (!banderaSeCargoCuatro && btn_CargarPasajero.Text == "Cargar Pasajero 4"))
                 {
                     total += precioTotal;
@@ -222,6 +222,10 @@ namespace Vista
                 lbl_EstadoCargaPasajero.Text = "Complete todos los datos para cargar un pasajero";
             }
         }
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
 
         //mis funciones
         private bool VerificarDatosCompletos()
@@ -241,7 +245,7 @@ namespace Vista
             txt_Apellido.Text = grupoFamiliar[index].Apellido;
             txt_Dni.Text = grupoFamiliar[index].Dni.ToString();
             txt_Edad.Text = grupoFamiliar[index].Edad.ToString();
-            nud_Equipaje.Value = decimal.Parse(grupoFamiliar[index].Equipaje.ToString());
+            nud_Equipaje.Value = (decimal)grupoFamiliar[index].Equipaje;
             chk_BolsoMano.Checked = grupoFamiliar[index].BolsoMano;
             if (grupoFamiliar[index].MenuElegido != "Sin Menu")
             {
@@ -378,6 +382,20 @@ namespace Vista
             }
         }
 
+        //nud
+        private void nud_Equipaje_ValueChanged(object sender, EventArgs e)
+        {
+            if (unVuelo.BodegaDisponible < (float)nud_Equipaje.Value)
+            {
+                lbl_EquipajeBodega.Visible = true;
+                nud_Equipaje.Value = 0;
+            }
+            else
+            {
+                lbl_EquipajeBodega.Visible = false;
+            }
+        }
+
         //textbox 
         private void ProhibirNumeros(KeyPressEventArgs e)
         {
@@ -407,7 +425,6 @@ namespace Vista
 
         private void txt_Dni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //buscar si el dni esta en la base de datos y completar el form en caso de que si
             ProhibirLetras(e);
         }
 
@@ -431,5 +448,7 @@ namespace Vista
             lbl_ClienteExistente.Visible = false;
             
         }
+
+
     }
 }

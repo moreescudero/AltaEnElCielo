@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Menu));
-            this.btn_Salir = new System.Windows.Forms.Button();
+            this.btn_CerrarSesion = new System.Windows.Forms.Button();
             this.lbl_Bienvenido = new System.Windows.Forms.Label();
             this.tmr_Fondo = new System.Windows.Forms.Timer(this.components);
             this.lbl_HoraActual = new System.Windows.Forms.Label();
@@ -41,21 +41,23 @@
             this.pic_Estadisticas = new System.Windows.Forms.PictureBox();
             this.lbl_Estadisticas = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_Salir = new System.Windows.Forms.Button();
+            this.hlp_Ayuda = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pic_VisualizarVuelos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Vender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Estadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_Salir
+            // btn_CerrarSesion
             // 
-            this.btn_Salir.Location = new System.Drawing.Point(336, 316);
-            this.btn_Salir.Name = "btn_Salir";
-            this.btn_Salir.Size = new System.Drawing.Size(109, 23);
-            this.btn_Salir.TabIndex = 0;
-            this.btn_Salir.Text = "Cerrar Sesion";
-            this.btn_Salir.UseVisualStyleBackColor = true;
-            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
+            this.btn_CerrarSesion.Location = new System.Drawing.Point(278, 316);
+            this.btn_CerrarSesion.Name = "btn_CerrarSesion";
+            this.btn_CerrarSesion.Size = new System.Drawing.Size(109, 23);
+            this.btn_CerrarSesion.TabIndex = 0;
+            this.btn_CerrarSesion.Text = "Cerrar Sesion";
+            this.btn_CerrarSesion.UseVisualStyleBackColor = true;
+            this.btn_CerrarSesion.Click += new System.EventHandler(this.btn_CerrarSesion_Click);
             // 
             // lbl_Bienvenido
             // 
@@ -82,9 +84,12 @@
             // 
             // pic_VisualizarVuelos
             // 
+            this.hlp_Ayuda.SetHelpString(this.pic_VisualizarVuelos, "Accedes a la lista de todos los vuelos disponibles y podes agregar un nuevo vuelo" +
+        "");
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
             this.pic_VisualizarVuelos.Location = new System.Drawing.Point(204, 183);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
+            this.hlp_Ayuda.SetShowHelp(this.pic_VisualizarVuelos, true);
             this.pic_VisualizarVuelos.Size = new System.Drawing.Size(67, 67);
             this.pic_VisualizarVuelos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_VisualizarVuelos.TabIndex = 3;
@@ -103,9 +108,12 @@
             // 
             // pic_Vender
             // 
+            this.hlp_Ayuda.SetHelpString(this.pic_Vender, "Podes vender pasajes a un grupo familiar y agregar un vuelo en caso de que el des" +
+        "tino y el origen que deseen no tenga un vuelo disponible");
             this.pic_Vender.Image = ((System.Drawing.Image)(resources.GetObject("pic_Vender.Image")));
             this.pic_Vender.Location = new System.Drawing.Point(350, 183);
             this.pic_Vender.Name = "pic_Vender";
+            this.hlp_Ayuda.SetShowHelp(this.pic_Vender, true);
             this.pic_Vender.Size = new System.Drawing.Size(80, 67);
             this.pic_Vender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Vender.TabIndex = 5;
@@ -124,9 +132,12 @@
             // 
             // pic_Estadisticas
             // 
+            this.hlp_Ayuda.SetHelpString(this.pic_Estadisticas, "Podes visualizar los vuelos finalizados, las recaudaciones totales de la aeroline" +
+        "a, los datos de los aviones, etc");
             this.pic_Estadisticas.Image = ((System.Drawing.Image)(resources.GetObject("pic_Estadisticas.Image")));
             this.pic_Estadisticas.Location = new System.Drawing.Point(508, 183);
             this.pic_Estadisticas.Name = "pic_Estadisticas";
+            this.hlp_Ayuda.SetShowHelp(this.pic_Estadisticas, true);
             this.pic_Estadisticas.Size = new System.Drawing.Size(90, 67);
             this.pic_Estadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Estadisticas.TabIndex = 7;
@@ -154,6 +165,16 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_Salir
+            // 
+            this.btn_Salir.Location = new System.Drawing.Point(403, 316);
+            this.btn_Salir.Name = "btn_Salir";
+            this.btn_Salir.Size = new System.Drawing.Size(109, 23);
+            this.btn_Salir.TabIndex = 10;
+            this.btn_Salir.Text = "Salir";
+            this.btn_Salir.UseVisualStyleBackColor = true;
+            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
+            // 
             // frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -161,6 +182,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(804, 363);
+            this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_Estadisticas);
             this.Controls.Add(this.pic_Estadisticas);
@@ -170,8 +192,11 @@
             this.Controls.Add(this.pic_VisualizarVuelos);
             this.Controls.Add(this.lbl_HoraActual);
             this.Controls.Add(this.lbl_Bienvenido);
-            this.Controls.Add(this.btn_Salir);
+            this.Controls.Add(this.btn_CerrarSesion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.HelpButton = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frm_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
@@ -187,7 +212,7 @@
 
         #endregion
 
-        private Button btn_Salir;
+        private Button btn_CerrarSesion;
         private Label lbl_Bienvenido;
         private System.Windows.Forms.Timer tmr_Fondo;
         private Label lbl_HoraActual;
@@ -198,5 +223,7 @@
         private PictureBox pic_Estadisticas;
         private Label lbl_Estadisticas;
         private PictureBox pictureBox1;
+        private Button btn_Salir;
+        private HelpProvider hlp_Ayuda;
     }
 }
