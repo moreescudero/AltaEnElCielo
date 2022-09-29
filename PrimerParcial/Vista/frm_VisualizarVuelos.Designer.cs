@@ -271,8 +271,9 @@
             this.dgv_Pasajeros.Name = "dgv_Pasajeros";
             this.dgv_Pasajeros.ReadOnly = true;
             this.dgv_Pasajeros.RowTemplate.Height = 25;
-            this.dgv_Pasajeros.Size = new System.Drawing.Size(872, 300);
+            this.dgv_Pasajeros.Size = new System.Drawing.Size(872, 282);
             this.dgv_Pasajeros.TabIndex = 0;
+            this.tip_Ayuda.SetToolTip(this.dgv_Pasajeros, "Pasajeros del vuelo");
             // 
             // nombreDataGridViewTextBoxColumn
             // 

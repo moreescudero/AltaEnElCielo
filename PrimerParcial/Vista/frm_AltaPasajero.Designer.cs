@@ -160,8 +160,8 @@
             this.txt_Dni.Name = "txt_Dni";
             this.txt_Dni.Size = new System.Drawing.Size(100, 23);
             this.txt_Dni.TabIndex = 8;
-            this.tip_Ayuda.SetToolTip(this.txt_Dni, "Si el pasajero ya viajó antes, al ingresar el DNI se van a completar sus datos au" +
-        "tomáticamente");
+            this.tip_Ayuda.SetToolTip(this.txt_Dni, "Si el pasajero ya viajó antes, al ingresar el DNI se \r\nvan a completar sus datos " +
+        "automáticamente");
             this.txt_Dni.TextChanged += new System.EventHandler(this.txt_Dni_TextChanged);
             this.txt_Dni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Dni_KeyPress);
             // 
@@ -171,6 +171,9 @@
             this.txt_Edad.Name = "txt_Edad";
             this.txt_Edad.Size = new System.Drawing.Size(100, 23);
             this.txt_Edad.TabIndex = 9;
+            this.tip_Ayuda.SetToolTip(this.txt_Edad, "Si el pasajero tiene entre 3 y 12 años viajará con un\r\ndescuento del 50%, si tien" +
+        "e entre 0 y 2 años su \r\npasaje deberá viajar con un adulto responsable y ");
+            this.txt_Edad.TextChanged += new System.EventHandler(this.txt_Edad_TextChanged);
             this.txt_Edad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Edad_KeyPress);
             // 
             // lbl_CantEquipaje
@@ -265,8 +268,8 @@
             this.nud_Equipaje.Name = "nud_Equipaje";
             this.nud_Equipaje.Size = new System.Drawing.Size(101, 23);
             this.nud_Equipaje.TabIndex = 24;
-            this.tip_Ayuda.SetToolTip(this.nud_Equipaje, "Si se ingresa 1 en cantidad de equipaje el máximo será 25 (Turista) y 21 (Premium" +
-        "), si es premium y se ingresa 2 en cantidad el máximo será 42");
+            this.tip_Ayuda.SetToolTip(this.nud_Equipaje, "Si se ingresa 1 en cantidad de equipaje el máximo será 25 (Turista) \r\ny 21 (Premi" +
+        "um), si es premium y se ingresa 2 en cantidad el máximo \r\nserá 42");
             this.nud_Equipaje.ValueChanged += new System.EventHandler(this.nud_Equipaje_ValueChanged);
             // 
             // pic_PasajeroUno

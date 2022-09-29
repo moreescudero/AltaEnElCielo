@@ -14,12 +14,17 @@ namespace Vista
     public partial class frm_VenderVuelos : Form
     {
         List<Vuelo> filtro = new List<Vuelo>();
+        Empleado usuario;
         bool banderaCalendario = false;
         int index;
 
         public frm_VenderVuelos()
         {
             InitializeComponent();
+        }
+        public frm_VenderVuelos(Empleado usuario) : this ()
+        {
+            this.usuario = usuario;
         }
 
         private void frm_VenderVuelos_Load(object sender, EventArgs e)
@@ -75,7 +80,7 @@ namespace Vista
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            frm_AltaPasajero altaPasajero = new frm_AltaPasajero(filtro[index].CodigoVuelo, int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text);
+            frm_AltaPasajero altaPasajero = new frm_AltaPasajero(filtro[index].CodigoVuelo, int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text, usuario);
             if(altaPasajero.ShowDialog() == DialogResult.OK)
             {
                 this.DialogResult = DialogResult.OK; // alta pasajero se va a encargar de terminar de cargar todo
@@ -152,8 +157,6 @@ namespace Vista
             lbl_Fechas.Visible = false;
 
             dgv_HayVuelo.Visible = true;
-
- 
         }
 
     }

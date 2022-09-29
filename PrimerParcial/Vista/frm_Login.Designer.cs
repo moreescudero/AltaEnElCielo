@@ -58,7 +58,7 @@
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 1;
             this.btn_Aceptar.Text = "Aceptar";
-            this.tip_Ayuda.SetToolTip(this.btn_Aceptar, "Ingresa si el usuario y la contraseña son correctos");
+            this.tip_Ayuda.SetToolTip(this.btn_Aceptar, "Ingresa si el usuario y la contraseña \r\nson correctos");
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
@@ -87,7 +87,7 @@
             this.btn_Autocompletar.Size = new System.Drawing.Size(146, 23);
             this.btn_Autocompletar.TabIndex = 4;
             this.btn_Autocompletar.Text = "Autocompletar";
-            this.tip_Ayuda.SetToolTip(this.btn_Autocompletar, "Carga el usuario con un empleado aleatorio para poder ingresar al programa");
+            this.tip_Ayuda.SetToolTip(this.btn_Autocompletar, "Carga el usuario con un empleado \r\naleatorio para poder ingresar al programa");
             this.btn_Autocompletar.UseVisualStyleBackColor = true;
             this.btn_Autocompletar.Click += new System.EventHandler(this.btn_Autocompletar_Click);
             // 

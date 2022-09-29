@@ -10,6 +10,7 @@ namespace Biblioteca
     {
         string usuario;
         string contraseña;
+        float comision = 0;
 
         public Empleado(string nombre, string apellido, string usuario, string contraseña) : base(nombre, apellido)
         {
@@ -22,6 +23,11 @@ namespace Biblioteca
             get { return usuario; }
         }
 
+        //public float Comision
+        //{
+        //    get { return comision; }
+        //}
+
         public bool ValidarContraseña(string contIngresada)
         {
             if(contIngresada == contraseña)
@@ -31,9 +37,15 @@ namespace Biblioteca
             return false;
         }
 
-        //public override float Calcular()
-        //{
-        //    //Calcular la comision de cada empleado que es un 1%
-        //}
+        public override string ToString()
+        {
+            return base.ToString() + " Comision total: $" + comision;
+        }
+
+        public override void Calcular(float precio)
+        {
+            //Calcular la comision de cada empleado que es un 1 %
+            this.comision += (precio * 0.1f);
+        }
     }
 }

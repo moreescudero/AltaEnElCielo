@@ -14,17 +14,19 @@ namespace Vista
 {
     public partial class frm_Menu : Form
     {
+        Empleado usuario;
         public frm_Menu()
         {
             InitializeComponent();
         }
         public frm_Menu(Empleado usuario): this()
         {
-            lbl_Bienvenido.Text = "Usuario: " + usuario.ToString();
+            this.usuario = usuario;
         }
 
         private void frm_Menu_Load(object sender, EventArgs e)
         {
+            lbl_Bienvenido.Text = "Usuario: " + usuario.Usuario;
             tmr_Fondo.Start();
             SetHora();
             SetBackgroundImage();
@@ -76,7 +78,7 @@ namespace Vista
 
         private void pic_Vender_Click(object sender, EventArgs e)
         {
-            frm_VenderVuelos formVender = new frm_VenderVuelos();
+            frm_VenderVuelos formVender = new frm_VenderVuelos(usuario);
             formVender.ShowDialog();
             formVender.Close();
         }

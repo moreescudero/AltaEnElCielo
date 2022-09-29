@@ -19,6 +19,7 @@ namespace Vista
         int index;
         string clase;
         string? codigoVuelo;
+        Empleado usuario;
         float precio;
         float total = 0;
         bool banderaSeCargoUno = false;
@@ -34,11 +35,12 @@ namespace Vista
             InitializeComponent();
         }
         
-        public frm_AltaPasajero(string? codigoVuelo, int cantidadPasajeros, string clase) : this()
+        public frm_AltaPasajero(string? codigoVuelo, int cantidadPasajeros, string clase, Empleado usuario) : this()
         {
             this.codigoVuelo = codigoVuelo;
             this.cantidadPasajeros = cantidadPasajeros;
             this.clase = clase;
+            this.usuario = usuario;
         }
 
         //Load
@@ -176,6 +178,7 @@ namespace Vista
             {
                 foreach (Pasajero pasajero in grupoFamiliar)
                 {
+                    pasajero.Calcular(pasajero.PrecioBoleto);
                     Aerolinea.listaPasajeros.Add(pasajero);
                     unVuelo.ListaPasajeros.Add(pasajero);
                     unVuelo.SumarRecaudacion(pasajero.PrecioBoleto);
@@ -196,7 +199,7 @@ namespace Vista
                 float impuestos = precio * 0.90f;
                 float impuestoPais = precio * 0.3f;
                 float precioTotal = precio + impuestos + impuestoPais;
-                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), (float)nud_Equipaje.Value, clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked);
+                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), (float)nud_Equipaje.Value, clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked, usuario);
                 unVuelo.RestarAsientosYBodega(pasajero.Clase, pasajero.Equipaje);
                 if ((!banderaSeCargoUno && btn_CargarPasajero.Text == "Cargar Pasajero 1") || (!banderaSeCargoDos && btn_CargarPasajero.Text == "Cargar Pasajero 2") || (!banderaSeCargoTres && btn_CargarPasajero.Text == "Cargar Pasajero 3") || (!banderaSeCargoCuatro && btn_CargarPasajero.Text == "Cargar Pasajero 4"))
                 {
@@ -445,6 +448,10 @@ namespace Vista
                     break;
                 } 
             }
+        }
+        private void txt_Edad_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

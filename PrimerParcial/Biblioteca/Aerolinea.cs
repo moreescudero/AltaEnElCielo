@@ -13,13 +13,16 @@ namespace Biblioteca
         public static List<Vuelo> listaVuelos = new List<Vuelo>();
         public static List<Vuelo> listaVuelosFinalizados = new List<Vuelo>();
         public static List<Pasajero> listaPasajeros = new List<Pasajero>();
+        public static Dictionary<int, Empleado> diccEmpleados = new Dictionary<int, Empleado>();
+
 
         //List<Equipaje> equipajes;
 
         public static void InicializarAerolinea()
         {
+            Hardcodeo.InicializarEmpleados(diccEmpleados);
             listaAviones = Hardcodeo.InicializarAviones(listaAviones);
-            listaPasajeros = Hardcodeo.InicializarPasajeros(listaPasajeros);
+            listaPasajeros = Hardcodeo.InicializarPasajeros(listaPasajeros, diccEmpleados);
             listaVuelos = Hardcodeo.InicializarVuelos(listaAviones, listaVuelos, listaPasajeros);
             listaVuelosFinalizados = Hardcodeo.InicializarHistorialVuelos(listaVuelosFinalizados, listaAviones, listaPasajeros);
         }

@@ -91,8 +91,8 @@
             this.pic_VisualizarVuelos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_VisualizarVuelos.TabIndex = 3;
             this.pic_VisualizarVuelos.TabStop = false;
-            this.tip_Ayuda.SetToolTip(this.pic_VisualizarVuelos, "Accedes a la lista de todos los vuelos disponibles y podes agregar un nuevo vuelo" +
-        "");
+            this.tip_Ayuda.SetToolTip(this.pic_VisualizarVuelos, "Accedes a la lista de todos los \r\nvuelos disponibles y podes agregar un \r\nnuevo v" +
+        "uelo");
             this.pic_VisualizarVuelos.Click += new System.EventHandler(this.pic_VisualizarVuelos_Click);
             // 
             // lbl_VisualizarVuelos
@@ -114,8 +114,8 @@
             this.pic_Vender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Vender.TabIndex = 5;
             this.pic_Vender.TabStop = false;
-            this.tip_Ayuda.SetToolTip(this.pic_Vender, "Podes vender pasajes a un grupo familiar y agregar un vuelo en caso de que el des" +
-        "tino y el origen que deseen no tenga un vuelo disponible");
+            this.tip_Ayuda.SetToolTip(this.pic_Vender, "Podes vender pasajes a un grupo familiar y \r\nagregar un vuelo en caso de que el d" +
+        "estino \r\ny el origen que deseen no tenga un vuelo \r\ndisponible");
             this.pic_Vender.Click += new System.EventHandler(this.pic_Vender_Click);
             // 
             // lbl_VenderVuelos
@@ -137,8 +137,8 @@
             this.pic_Estadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Estadisticas.TabIndex = 7;
             this.pic_Estadisticas.TabStop = false;
-            this.tip_Ayuda.SetToolTip(this.pic_Estadisticas, "Podes visualizar los vuelos finalizados, las recaudaciones totales de la aeroline" +
-        "a, los datos de los aviones, etc");
+            this.tip_Ayuda.SetToolTip(this.pic_Estadisticas, "Podes visualizar los vuelos finalizados, \r\nlas recaudaciones totales de la aeroli" +
+        "nea, \r\nlos datos de los aviones, etc");
             this.pic_Estadisticas.Click += new System.EventHandler(this.pic_Estadisticas_Click);
             // 
             // lbl_Estadisticas

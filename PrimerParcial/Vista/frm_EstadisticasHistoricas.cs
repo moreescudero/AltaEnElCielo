@@ -14,7 +14,6 @@ namespace Vista
     public partial class frm_EstadisticasHistoricas : Form
     {
         DataTable tabla = new DataTable();
-        Dictionary<int, Empleado> empleados = new Dictionary<int, Empleado>();
 
         public frm_EstadisticasHistoricas()
         {
@@ -91,11 +90,10 @@ namespace Vista
         {
             pnl_Informacion.Visible = true;
             rtx_Info.Text = String.Empty;
-            rtx_Info.Text = "Empleados: ";
-            Hardcodeo.InicializarEmpleados(empleados);
-            foreach(KeyValuePair<int, Empleado> item in empleados)
+            rtx_Info.Text = "Empleados:\n";
+            foreach(KeyValuePair<int, Empleado> item in Aerolinea.diccEmpleados)
             {
-                rtx_Info.Text += item.Value.ToString() + "        ";
+                rtx_Info.Text += item.Value.ToString() + "\n";
             }
             rtx_Info.Text += "\n\nAviones: \n";
             foreach(Avion avion in Aerolinea.listaAviones)

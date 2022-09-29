@@ -24,7 +24,6 @@ namespace Biblioteca
 
         public static void InicializarEmpleados(Dictionary<int, Empleado> empleados)
         {
-            empleados.Clear();
             empleados.Add(1, new Empleado("more", "escudero", "more", "123"));
             empleados.Add(2, new Empleado("mati", "barrozo", "mati", "123"));
             empleados.Add(3, new Empleado("nico", "gil", "nico", "123"));
@@ -34,64 +33,64 @@ namespace Biblioteca
         //pasajeros pero hacer otra lista que sea pasajeros en vuelo
 
         //lista pasajeros totales aerolinea
-        public static List<Pasajero> InicializarPasajeros(List<Pasajero> pasajeros)
+        public static List<Pasajero> InicializarPasajeros(List<Pasajero> pasajeros, Dictionary<int, Empleado> empleados)
         {
-            pasajeros.Add(new Pasajero("Maria","Rodriguez",47,20149213,20,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Damian","Alvarez",26,39198278,42,"Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Lucia","Petrarca",33,32487938,35, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Santiago","Perez",19,49123039,18,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("Mariano","Lopez",22,42983757,20,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Jose","Lopez",88,5239124,38, "Premium", "Vegano", 100, true));
-            pasajeros.Add(new Pasajero("Facundo","Zarate",46,25333298,18,"Turista", "Comun", 50, false));
-            pasajeros.Add(new Pasajero("Nicolas","Pezza",15,50892111,19,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("Luciana","Fernandez",34,31123908,41, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Florencia","Garcia",61,16123843,42, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Alejandra","Aguilar",60,17003124,41, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Lucio","Alcorta",24,41982898,21,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Lucas","Gimenez",30,35955034,21,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Martina","Cespedes",57,18230499,17,"Turista", "Vegetariano", 50, true));
-            pasajeros.Add(new Pasajero("Lucila","Hernandez",27,38129385,20,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Victoria","Andreani",30,35624999,42,"Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Lucia","Petrarca",70,6487938,35, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Santino","Juarez",18,50126739,18,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("German","Lopez",20,46903427,20,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Maximiliano","Brusoti",55,20299114,38, "Premium", "Vegano", 100, true));
-            pasajeros.Add(new Pasajero("Tomas","Perez",10,54964842,18,"Turista", "Comun", 50, false));
-            pasajeros.Add(new Pasajero("Lautaro","Acosta",13,5281671,19,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("Camila","Quintans",29,35472886,41, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Mayra","Dimasi",29,35152007,42, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Micaela","Vallejos",60,16935724,41, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Agustina","Altieri",26,39050002,21,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Julieta","Orsenigo",40,31896371,21,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Jazmin","Grosano",23,41997597,17,"Turista", "Vegetariano", 50, true));
-            pasajeros.Add(new Pasajero("Ludmila","Ojeda",36,32964712,20,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Ivan","Gendlin",38,31079884,42,"Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Francesco","Canteros",33,36759947,35, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Jana","Galli",19,49886039,18,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("Tomas","Alcoba",20,44073757,20,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Nicolas","Davila",71,6977612,38, "Premium", "Vegano", 100, true));
-            pasajeros.Add(new Pasajero("Alejo","Altamira",21,43918299,18,"Turista", "Comun", 50, false));
-            pasajeros.Add(new Pasajero("Lucas","ALtamirano",69,9892111,19,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("Pablo","Muñoz",34,31123908,41, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Luciano","Buttafuoco",61,16243843,42, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Joaquin","Sampini",60,17461124,41, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Julian","Martos",24,41902668,21,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Pilar","Tomzuck",30,35974875,21,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Ariel","Molina",52,18947209,17,"Turista", "Vegetariano", 50, true));
-            pasajeros.Add(new Pasajero("Paola","Chavez",46,25122213,20,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Francisca","Merello",42,23190578,42,"Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Alex","Russel",33,32005838,35, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Aldana","Gardel",18,49188470,18,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("Estefania","Albornoz",51,19678004,20,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Nahuel","Seib",82,4967124,38, "Premium", "Vegano", 100, true));
-            pasajeros.Add(new Pasajero("Rocio","Lavalle",60,17395498,18,"Turista", "Comun", 50, false));
-            pasajeros.Add(new Pasajero("Martin","Alvarez",39,32805111,19,"Turista", "Vegetariano", 50, false));
-            pasajeros.Add(new Pasajero("Ludovica","Gutierrez",37,32193408,41, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Gimena","Ripolles",41,22102743,42, "Premium", "Comun", 100, true));
-            pasajeros.Add(new Pasajero("Soledad","Ansoar",32,31993104,41, "Premium", "Celiaco", 100, true));
-            pasajeros.Add(new Pasajero("Federico","Vera",28,35989998,21,"Turista", "Celiaco", 50, false));
-            pasajeros.Add(new Pasajero("Carlo","Ortiz",17,50120175,21,"Turista", "Comun", 50, true));
-            pasajeros.Add(new Pasajero("Fernanda","Zorzol",57,18288109,17,"Turista", "Vegetariano", 50, true));
+            pasajeros.Add(new Pasajero("Maria","Rodriguez",47,20149213,20,"Turista", "Comun", 50, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Damian","Alvarez",26,39198278,42,"Premium", "Comun", 100, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Lucia","Petrarca",33,32487938,35, "Premium", "Celiaco", 100, true, empleados[2]));
+            pasajeros.Add(new Pasajero("Santiago","Perez",19,49123039,18,"Turista", "Vegetariano", 50, false, empleados[4]));
+            pasajeros.Add(new Pasajero("Mariano","Lopez",22,42983757,20,"Turista", "Celiaco", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Jose","Lopez",88,5239124,38, "Premium", "Vegano", 100, true, empleados[4]));
+            pasajeros.Add(new Pasajero("Facundo","Zarate",46,25333298,18,"Turista", "Comun", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Nicolas","Pezza",15,50892111,19,"Turista", "Vegetariano", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Luciana","Fernandez",34,31123908,41, "Premium", "Comun", 100, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Florencia","Garcia",61,16123843,42, "Premium", "Comun", 100, true, empleados[4]));
+            pasajeros.Add(new Pasajero("Alejandra","Aguilar",60,17003124,41, "Premium", "Celiaco", 100, true, empleados[4]));
+            pasajeros.Add(new Pasajero("Lucio","Alcorta",24,41982898,21,"Turista", "Celiaco", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Lucas","Gimenez",30,35955034,21,"Turista", "Comun", 50, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Martina","Cespedes",57,18230499,17,"Turista", "Vegetariano", 50, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Lucila","Hernandez",27,38129385,20,"Turista", "Comun", 50, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Victoria","Andreani",30,35624999,42,"Premium", "Comun", 100, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Lucia","Petrarca",70,6487938,35, "Premium", "Celiaco", 100, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Santino","Juarez",18,50126739,18,"Turista", "Vegetariano", 50, false, empleados[4]));
+            pasajeros.Add(new Pasajero("German","Lopez",20,46903427,20,"Turista", "Celiaco", 50, false, empleados[3]));
+            pasajeros.Add(new Pasajero("Maximiliano","Brusoti",55,20299114,38, "Premium", "Vegano", 100, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Tomas","Perez",10,54964842,18,"Turista", "Comun", 50, false, empleados[3]));
+            pasajeros.Add(new Pasajero("Lautaro","Acosta",13,5281671,19,"Turista", "Vegetariano", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Camila","Quintans",29,35472886,41, "Premium", "Comun", 100, true, empleados[4]));
+            pasajeros.Add(new Pasajero("Mayra","Dimasi",29,35152007,42, "Premium", "Comun", 100, true, empleados[2]));
+            pasajeros.Add(new Pasajero("Micaela","Vallejos",60,16935724,41, "Premium", "Celiaco", 100, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Agustina","Altieri",26,39050002,21,"Turista", "Celiaco", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Julieta","Orsenigo",40,31896371,21,"Turista", "Comun", 50, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Jazmin","Grosano",23,41997597,17,"Turista", "Vegetariano", 50, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Ludmila","Ojeda",36,32964712,20,"Turista", "Comun", 50, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Ivan","Gendlin",38,31079884,42,"Premium", "Comun", 100, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Francesco","Canteros",33,36759947,35, "Premium", "Celiaco", 100, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Jana","Galli",19,49886039,18,"Turista", "Vegetariano", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Tomas","Alcoba",20,44073757,20,"Turista", "Celiaco", 50, false, empleados[2]));
+            pasajeros.Add(new Pasajero("Nicolas","Davila",71,6977612,38, "Premium", "Vegano", 100, true, empleados[4]));
+            pasajeros.Add(new Pasajero("Alejo","Altamira",21,43918299,18,"Turista", "Comun", 50, false, empleados[4]));
+            pasajeros.Add(new Pasajero("Lucas","ALtamirano",69,9892111,19,"Turista", "Vegetariano", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Pablo","Muñoz",34,31123908,41, "Premium", "Comun", 100, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Luciano","Buttafuoco",61,16243843,42, "Premium", "Comun", 100, true, empleados[2]));
+            pasajeros.Add(new Pasajero("Joaquin","Sampini",60,17461124,41, "Premium", "Celiaco", 100, true, empleados[4]));
+            pasajeros.Add(new Pasajero("Julian","Martos",24,41902668,21,"Turista", "Celiaco", 50, false, empleados[4]));
+            pasajeros.Add(new Pasajero("Pilar","Tomzuck",30,35974875,21,"Turista", "Comun", 50, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Ariel","Molina",52,18947209,17,"Turista", "Vegetariano", 50, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Paola","Chavez",46,25122213,20,"Turista", "Comun", 50, true, empleados[4]));
+            pasajeros.Add(new Pasajero("Francisca","Merello",42,23190578,42,"Premium", "Comun", 100, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Alex","Russel",33,32005838,35, "Premium", "Celiaco", 100, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Aldana","Gardel",18,49188470,18,"Turista", "Vegetariano", 50, false, empleados[4]));
+            pasajeros.Add(new Pasajero("Estefania","Albornoz",51,19678004,20,"Turista", "Celiaco", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Nahuel","Seib",82,4967124,38, "Premium", "Vegano", 100, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Rocio","Lavalle",60,17395498,18,"Turista", "Comun", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Martin","Alvarez",39,32805111,19,"Turista", "Vegetariano", 50, false, empleados[2]));
+            pasajeros.Add(new Pasajero("Ludovica","Gutierrez",37,32193408,41, "Premium", "Comun", 100, true, empleados[2]));
+            pasajeros.Add(new Pasajero("Gimena","Ripolles",41,22102743,42, "Premium", "Comun", 100, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Soledad","Ansoar",32,31993104,41, "Premium", "Celiaco", 100, true, empleados[3]));
+            pasajeros.Add(new Pasajero("Federico","Vera",28,35989998,21,"Turista", "Celiaco", 50, false, empleados[1]));
+            pasajeros.Add(new Pasajero("Carlo","Ortiz",17,50120175,21,"Turista", "Comun", 50, true, empleados[1]));
+            pasajeros.Add(new Pasajero("Fernanda","Zorzol",57,18288109,17,"Turista", "Vegetariano", 50, true, empleados[1]));
 
 
             return pasajeros;
@@ -120,6 +119,7 @@ namespace Biblioteca
             foreach (Pasajero pasajero in lista)    
             {
                 pasajero.PrecioBoleto = Pasajero.CalcularPrecio(esNacional,duracion, pasajero.Clase);
+                pasajero.Calcular(pasajero.PrecioBoleto);
             }
 
             return lista;

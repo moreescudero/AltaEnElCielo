@@ -15,10 +15,12 @@ namespace Biblioteca
         string clase;
         string menuElegido;
         float precioBoleto;
+        float costoTotalEnBoletos = 0;
         bool bolsoMano;
-        int cantidadDeVuelos; 
+        int cantidadDeVuelos;
+        //Empleado usuarioVendedor;
 
-        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto, bool bolsoMano) : base(nombre, apellido)
+        public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto, bool bolsoMano, Empleado usuarioVendedor) : base(nombre, apellido)
         {
             this.edad = edad;
             this.dni = dni;
@@ -27,6 +29,7 @@ namespace Biblioteca
             this.menuElegido = menuElegido;
             this.precioBoleto = precioBoleto;
             this.bolsoMano = bolsoMano;
+            usuarioVendedor.Calcular(precioBoleto);
         }
 
         public string Clase
@@ -71,6 +74,11 @@ namespace Biblioteca
             set { cantidadDeVuelos = value; }
         }
 
+        //public float CostoTotalEnBoletos
+        //{
+        //    get { return costoTotalEnBoletos; }
+        //}
+
         public override bool Equals(object? obj)
         {
             Pasajero pasajero = obj as Pasajero;
@@ -86,36 +94,38 @@ namespace Biblioteca
             return this.dni;
         }
 
-        //public override float Calcular()
-        //{
-        //    //hacer el calculo de todo lo que haya gastado un pasajero en boletos
-        //}
+        public override void Calcular(float precio)
+        {
+            //hacer el calculo de todo lo que haya gastado un pasajero en boletos
+            this.costoTotalEnBoletos += precio;
+        }
 
         public override string ToString()
         {
-            return "Nombre completo: " + base.ToString() + "  Cantidad de vuelos: " + this.cantidadDeVuelos;
+            return "Nombre completo: " + base.ToString() + "  Cantidad de vuelos: " + this.cantidadDeVuelos + " Gasto total en boletos: $" + this.costoTotalEnBoletos;
         }
 
         public static float CalcularPrecio(bool esNacional, int duracion, string clase)
         {
-            float precioHora;
+            float costoPasaje;
 
             if (esNacional)
             {
-                precioHora = 50f;
+                costoPasaje = 50f;
             }
             else
             {
-                precioHora = 100f;
+                costoPasaje = 100f;
             }
             if (clase == "Premium")
             {
-                precioHora *= 1.15f;
+                costoPasaje *= 1.15f;
             }
             if(duracion > 0)
-                precioHora *= duracion;
+                costoPasaje *= duracion;
 
-            return precioHora;
+
+            return costoPasaje;
         }
 
     }

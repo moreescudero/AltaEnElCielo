@@ -135,7 +135,7 @@
             this.nud_CantidadPasajeros.ReadOnly = true;
             this.nud_CantidadPasajeros.Size = new System.Drawing.Size(120, 23);
             this.nud_CantidadPasajeros.TabIndex = 21;
-            this.tip_Ayuda.SetToolTip(this.nud_CantidadPasajeros, "Se puede agregar un grupo familiar de hasta 4 personas");
+            this.tip_Ayuda.SetToolTip(this.nud_CantidadPasajeros, "Se puede agregar un grupo \r\nfamiliar de hasta 4 personas");
             this.nud_CantidadPasajeros.ValueChanged += new System.EventHandler(this.nud_CantidadPasajeros_ValueChanged);
             // 
             // cdr_Salida
@@ -227,7 +227,7 @@
             this.btn_Continuar.Size = new System.Drawing.Size(75, 23);
             this.btn_Continuar.TabIndex = 33;
             this.btn_Continuar.Text = "Continuar";
-            this.tip_Ayuda.SetToolTip(this.btn_Continuar, "Continua para asignar un vuelo al pasajero/grupo familiar ");
+            this.tip_Ayuda.SetToolTip(this.btn_Continuar, "Continua para asignar un vuelo al \r\npasajero/grupo familiar ");
             this.btn_Continuar.UseVisualStyleBackColor = true;
             this.btn_Continuar.Click += new System.EventHandler(this.btn_Continuar_Click);
             // 

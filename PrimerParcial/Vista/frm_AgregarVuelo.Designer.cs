@@ -129,7 +129,7 @@
             this.cmb_Avion.Name = "cmb_Avion";
             this.cmb_Avion.Size = new System.Drawing.Size(121, 23);
             this.cmb_Avion.TabIndex = 9;
-            this.tip_Ayuda.SetToolTip(this.cmb_Avion, "Selecciona entre los aviones disponibles en la fecha y horarios elegidos");
+            this.tip_Ayuda.SetToolTip(this.cmb_Avion, "Selecciona entre los aviones disponibles en \r\nla fecha y horarios elegidos");
             this.cmb_Avion.SelectedIndexChanged += new System.EventHandler(this.cmb_Avion_SelectedIndexChanged);
             // 
             // lbl_Avion
@@ -166,7 +166,7 @@
             this.txt_CodigoVuelo.Name = "txt_CodigoVuelo";
             this.txt_CodigoVuelo.Size = new System.Drawing.Size(121, 23);
             this.txt_CodigoVuelo.TabIndex = 13;
-            this.tip_Ayuda.SetToolTip(this.txt_CodigoVuelo, "Se genera automáticamente un código alfanumérico de 6 dígitos");
+            this.tip_Ayuda.SetToolTip(this.txt_CodigoVuelo, "Se genera automáticamente un código \r\nalfanumérico de 6 dígitos");
             // 
             // lbl_Catering
             // 
@@ -206,7 +206,7 @@
             this.cmb_Hora.Name = "cmb_Hora";
             this.cmb_Hora.Size = new System.Drawing.Size(121, 23);
             this.cmb_Hora.TabIndex = 18;
-            this.tip_Ayuda.SetToolTip(this.cmb_Hora, "Selecciona la hora en la que desees que despegue el avión");
+            this.tip_Ayuda.SetToolTip(this.cmb_Hora, "Selecciona la hora en la que desees que \r\ndespegue el avión");
             this.cmb_Hora.SelectedIndexChanged += new System.EventHandler(this.cmb_Hora_SelectedIndexChanged);
             // 
             // frm_AgregarVuelo

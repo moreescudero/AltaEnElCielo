@@ -13,8 +13,7 @@ namespace Vista
 {
     public partial class frm_Login : Form
     {
-        Dictionary<int,Empleado> empleados = new Dictionary<int, Empleado>();
-
+        
         public frm_Login()
         {
             InitializeComponent();
@@ -22,7 +21,6 @@ namespace Vista
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            Hardcodeo.InicializarEmpleados(empleados);
             tmr_HoraActual.Start();
             Aerolinea.InicializarAerolinea();
             Aerolinea.QuitarVuelosFinalizados();
@@ -31,7 +29,7 @@ namespace Vista
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             int contador = 0;
-            foreach(KeyValuePair<int,Empleado> item in empleados)
+            foreach(KeyValuePair<int,Empleado> item in Aerolinea.diccEmpleados)
             {
                 if(item.Value.Usuario == txt_Usuario.Text && item.Value.ValidarContraseña(txt_Contraseña.Text))
                 {
@@ -65,7 +63,7 @@ namespace Vista
         {
             Random random = new Random();
             int rnd = random.Next(1, 5);
-            txt_Usuario.Text = empleados[rnd].Usuario;
+            txt_Usuario.Text = Aerolinea.diccEmpleados[rnd].Usuario;
             txt_Contraseña.Text = "123";
         }
 
