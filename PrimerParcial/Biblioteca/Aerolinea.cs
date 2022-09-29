@@ -18,7 +18,6 @@ namespace Biblioteca
 
         public static void InicializarAerolinea()
         {
-            
             listaAviones = Hardcodeo.InicializarAviones(listaAviones);
             listaPasajeros = Hardcodeo.InicializarPasajeros(listaPasajeros);
             listaVuelos = Hardcodeo.InicializarVuelos(listaAviones, listaVuelos, listaPasajeros);
@@ -58,7 +57,6 @@ namespace Biblioteca
             }
         }
 
-
         public static List<Avion> BuscarAvionesDisponibles(DateTime salida)
         {
             List<Avion> aviones = new List<Avion>();
@@ -68,7 +66,7 @@ namespace Biblioteca
                 aviones.Add(avion);
                 for (int i = 0; i < listaVuelos.Count; i++)
                 {
-                    if (listaVuelos[i].Salida.CompareTo(salida) < 0 && listaVuelos[i].Llegada.CompareTo(salida) > 0 && listaVuelos[i].MatriculaAvion == avion.Matricula)
+                    if (listaVuelos[i].Salida.CompareTo(salida) < 0 && listaVuelos[i].Llegada.CompareTo(salida) > 0 && listaVuelos[i].Equals(avion))
                     {
                         aviones.Remove(avion);
                         break;
@@ -145,7 +143,7 @@ namespace Biblioteca
         //{
         //    if (destinoVuelo == destino)
         //    {
-        //        return (contador + 1);
+        //        return contador++;
         //    }
         //    return contador;
         //}
@@ -243,21 +241,19 @@ namespace Biblioteca
 
         public static List<Pasajero> CrearListaClientesPlatino()
         {
-            List<Pasajero> pasajeros = new List<Pasajero>();
             List<Pasajero> pasajeroRetorno = new List<Pasajero>();
             int maximo = -1;
-            pasajeros = CrearListaClientes();
 
-            foreach (Pasajero pasajero in pasajeros)
+            foreach (Pasajero pasajero in CrearListaClientes())
             {
                 if (pasajero.CantidadDeVuelos > maximo)
                 {
                     maximo = pasajero.CantidadDeVuelos;
                 }
             }
-            foreach (Pasajero pasajero in pasajeros)
+            foreach (Pasajero pasajero in CrearListaClientes())
             {
-                if (pasajero.CantidadDeVuelos == maximo)
+                if (pasajero.CantidadDeVuelos >= maximo)
                 {
                     pasajeroRetorno.Add(pasajero);
                 }

@@ -176,8 +176,8 @@ namespace Vista
             {
                 foreach (Pasajero pasajero in grupoFamiliar)
                 {
+                    Aerolinea.listaPasajeros.Add(pasajero);
                     unVuelo.ListaPasajeros.Add(pasajero);
-                    unVuelo.RestarAsientosYBodega(pasajero.Clase, pasajero.Equipaje);
                     unVuelo.SumarRecaudacion(pasajero.PrecioBoleto);
                 }
                 unVuelo.CambiarANoDisponible();
@@ -197,6 +197,7 @@ namespace Vista
                 float impuestoPais = precio * 0.3f;
                 float precioTotal = precio + impuestos + impuestoPais;
                 Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), (float)nud_Equipaje.Value, clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked);
+                unVuelo.RestarAsientosYBodega(pasajero.Clase, pasajero.Equipaje);
                 if ((!banderaSeCargoUno && btn_CargarPasajero.Text == "Cargar Pasajero 1") || (!banderaSeCargoDos && btn_CargarPasajero.Text == "Cargar Pasajero 2") || (!banderaSeCargoTres && btn_CargarPasajero.Text == "Cargar Pasajero 3") || (!banderaSeCargoCuatro && btn_CargarPasajero.Text == "Cargar Pasajero 4"))
                 {
                     total += precioTotal;
@@ -243,7 +244,7 @@ namespace Vista
         {
             txt_Nombre.Text = grupoFamiliar[index].Nombre;
             txt_Apellido.Text = grupoFamiliar[index].Apellido;
-            txt_Dni.Text = grupoFamiliar[index].Dni.ToString();
+            txt_Dni.Text = grupoFamiliar[index].GetHashCode().ToString();
             txt_Edad.Text = grupoFamiliar[index].Edad.ToString();
             nud_Equipaje.Value = (decimal)grupoFamiliar[index].Equipaje;
             chk_BolsoMano.Checked = grupoFamiliar[index].BolsoMano;
@@ -361,7 +362,6 @@ namespace Vista
                 cmb_Menu.SelectedIndex = -1;
             }
             lbl_EstadoCargaPasajero.Text = String.Empty;
-            lbl_ClienteExistente.Visible = true;
         }
 
         //visible changed
@@ -445,10 +445,6 @@ namespace Vista
                     break;
                 } 
             }
-            lbl_ClienteExistente.Visible = false;
-            
         }
-
-
     }
 }

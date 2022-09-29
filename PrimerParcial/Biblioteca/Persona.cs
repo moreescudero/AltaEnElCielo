@@ -27,7 +27,7 @@ namespace Biblioteca
             get { return apellido; }
         }
 
-        //hacer un metodo abstracto
+        //public abstract float Calcular();
 
         public override string ToString()
         {

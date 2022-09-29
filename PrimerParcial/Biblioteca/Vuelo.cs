@@ -59,8 +59,8 @@ namespace Biblioteca
             this.salida = salida;
             this.hayComida = hayComida;
             this.asientosDisponibles = asientosDisponibles;
-            this.asientosPremiumDisponibles = CalcularAsientosPremium();
-            this.asientosTuristaDisponibles = CalcularAsientosTurista();
+            this.asientosPremiumDisponibles = CalcularAsientos(0.2f);
+            this.asientosTuristaDisponibles = CalcularAsientos(0.8f);
             this.duracion = AsignarDuracion();
             this.llegada = CalcularLlegada();
             listaPasajeros = new List<Pasajero>();
@@ -139,7 +139,7 @@ namespace Biblioteca
         public List<Pasajero> ListaPasajeros
         {
             get { return listaPasajeros; }
-            set { listaPasajeros = value; }
+            //set { listaPasajeros = value; }
         }
 
         public int AsientosDisponibles
@@ -170,10 +170,10 @@ namespace Biblioteca
 
         public override bool Equals(object? obj)
         {
-            Vuelo vuelo = obj as Vuelo;
-            if(vuelo is not null) 
+            Avion avion = obj as Avion;
+            if(avion is not null) 
             {
-                return vuelo.codigoVuelo == this.codigoVuelo;
+                return avion.Matricula == this.matriculaAvion;
             }
             return false;
         }
@@ -235,15 +235,11 @@ namespace Biblioteca
             return rnd;
         }
 
-        private int CalcularAsientosPremium()
+        private int CalcularAsientos(float porcentaje)
         {
-            return (int)(asientosDisponibles * 0.2);
+            return (int)(asientosDisponibles * porcentaje);
         }
 
-        private int CalcularAsientosTurista()
-        {
-            return (int)(asientosDisponibles * 0.8);
-        }
 
         public void CambiarANoDisponible()
         {
@@ -251,7 +247,7 @@ namespace Biblioteca
             {
                 disponible = "Lleno";
             }
-            if(salida.CompareTo(DateTime.Now) == 0 || salida.CompareTo(DateTime.Now) > 0)
+            if(salida.CompareTo(DateTime.Now) == 0 || salida.CompareTo(DateTime.Now) < 0)
             {
                 disponible = "En Vuelo";
             }

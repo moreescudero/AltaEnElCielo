@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_AgregarVuelo = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lbl_Destino = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             this.chk_SiHay = new System.Windows.Forms.CheckBox();
             this.lbl_HoraDespegue = new System.Windows.Forms.Label();
             this.cmb_Hora = new System.Windows.Forms.ComboBox();
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btn_AgregarVuelo
@@ -53,7 +55,7 @@
             this.btn_AgregarVuelo.Name = "btn_AgregarVuelo";
             this.btn_AgregarVuelo.Size = new System.Drawing.Size(95, 23);
             this.btn_AgregarVuelo.TabIndex = 0;
-            this.btn_AgregarVuelo.Text = "AgregarVuelo";
+            this.btn_AgregarVuelo.Text = "Agregar vuelo";
             this.btn_AgregarVuelo.UseVisualStyleBackColor = true;
             this.btn_AgregarVuelo.Click += new System.EventHandler(this.btn_AgregarVuelo_Click);
             // 
@@ -115,6 +117,7 @@
             this.cdr_Salida.Name = "cdr_Salida";
             this.cdr_Salida.ShowTodayCircle = false;
             this.cdr_Salida.TabIndex = 8;
+            this.tip_Ayuda.SetToolTip(this.cdr_Salida, "Selecciona una fecha superior a una semana");
             this.cdr_Salida.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.cdr_Salida_DateSelected);
             // 
             // cmb_Avion
@@ -126,6 +129,7 @@
             this.cmb_Avion.Name = "cmb_Avion";
             this.cmb_Avion.Size = new System.Drawing.Size(121, 23);
             this.cmb_Avion.TabIndex = 9;
+            this.tip_Ayuda.SetToolTip(this.cmb_Avion, "Selecciona entre los aviones disponibles en la fecha y horarios elegidos");
             this.cmb_Avion.SelectedIndexChanged += new System.EventHandler(this.cmb_Avion_SelectedIndexChanged);
             // 
             // lbl_Avion
@@ -140,11 +144,11 @@
             // lbl_AyudaAviones
             // 
             this.lbl_AyudaAviones.AutoSize = true;
-            this.lbl_AyudaAviones.Location = new System.Drawing.Point(47, 260);
+            this.lbl_AyudaAviones.Location = new System.Drawing.Point(39, 255);
             this.lbl_AyudaAviones.Name = "lbl_AyudaAviones";
-            this.lbl_AyudaAviones.Size = new System.Drawing.Size(349, 15);
+            this.lbl_AyudaAviones.Size = new System.Drawing.Size(385, 15);
             this.lbl_AyudaAviones.TabIndex = 11;
-            this.lbl_AyudaAviones.Text = "Para que se habiliten los aviones disponibles primero elegir fecha";
+            this.lbl_AyudaAviones.Text = "Para que se habiliten los aviones disponibles primero elegir fecha y hora";
             // 
             // lbl_CodigoVuelo
             // 
@@ -162,6 +166,7 @@
             this.txt_CodigoVuelo.Name = "txt_CodigoVuelo";
             this.txt_CodigoVuelo.Size = new System.Drawing.Size(121, 23);
             this.txt_CodigoVuelo.TabIndex = 13;
+            this.tip_Ayuda.SetToolTip(this.txt_CodigoVuelo, "Se genera automáticamente un código alfanumérico de 6 dígitos");
             // 
             // lbl_Catering
             // 
@@ -201,6 +206,7 @@
             this.cmb_Hora.Name = "cmb_Hora";
             this.cmb_Hora.Size = new System.Drawing.Size(121, 23);
             this.cmb_Hora.TabIndex = 18;
+            this.tip_Ayuda.SetToolTip(this.cmb_Hora, "Selecciona la hora en la que desees que despegue el avión");
             this.cmb_Hora.SelectedIndexChanged += new System.EventHandler(this.cmb_Hora_SelectedIndexChanged);
             // 
             // frm_AgregarVuelo
@@ -254,5 +260,6 @@
         private CheckBox chk_SiHay;
         private Label lbl_HoraDespegue;
         private ComboBox cmb_Hora;
+        private ToolTip tip_Ayuda;
     }
 }

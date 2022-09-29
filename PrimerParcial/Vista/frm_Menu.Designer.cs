@@ -42,7 +42,7 @@
             this.lbl_Estadisticas = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Salir = new System.Windows.Forms.Button();
-            this.hlp_Ayuda = new System.Windows.Forms.HelpProvider();
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pic_VisualizarVuelos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Vender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Estadisticas)).BeginInit();
@@ -84,16 +84,15 @@
             // 
             // pic_VisualizarVuelos
             // 
-            this.hlp_Ayuda.SetHelpString(this.pic_VisualizarVuelos, "Accedes a la lista de todos los vuelos disponibles y podes agregar un nuevo vuelo" +
-        "");
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
             this.pic_VisualizarVuelos.Location = new System.Drawing.Point(204, 183);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
-            this.hlp_Ayuda.SetShowHelp(this.pic_VisualizarVuelos, true);
             this.pic_VisualizarVuelos.Size = new System.Drawing.Size(67, 67);
             this.pic_VisualizarVuelos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_VisualizarVuelos.TabIndex = 3;
             this.pic_VisualizarVuelos.TabStop = false;
+            this.tip_Ayuda.SetToolTip(this.pic_VisualizarVuelos, "Accedes a la lista de todos los vuelos disponibles y podes agregar un nuevo vuelo" +
+        "");
             this.pic_VisualizarVuelos.Click += new System.EventHandler(this.pic_VisualizarVuelos_Click);
             // 
             // lbl_VisualizarVuelos
@@ -108,16 +107,15 @@
             // 
             // pic_Vender
             // 
-            this.hlp_Ayuda.SetHelpString(this.pic_Vender, "Podes vender pasajes a un grupo familiar y agregar un vuelo en caso de que el des" +
-        "tino y el origen que deseen no tenga un vuelo disponible");
             this.pic_Vender.Image = ((System.Drawing.Image)(resources.GetObject("pic_Vender.Image")));
             this.pic_Vender.Location = new System.Drawing.Point(350, 183);
             this.pic_Vender.Name = "pic_Vender";
-            this.hlp_Ayuda.SetShowHelp(this.pic_Vender, true);
             this.pic_Vender.Size = new System.Drawing.Size(80, 67);
             this.pic_Vender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Vender.TabIndex = 5;
             this.pic_Vender.TabStop = false;
+            this.tip_Ayuda.SetToolTip(this.pic_Vender, "Podes vender pasajes a un grupo familiar y agregar un vuelo en caso de que el des" +
+        "tino y el origen que deseen no tenga un vuelo disponible");
             this.pic_Vender.Click += new System.EventHandler(this.pic_Vender_Click);
             // 
             // lbl_VenderVuelos
@@ -132,16 +130,15 @@
             // 
             // pic_Estadisticas
             // 
-            this.hlp_Ayuda.SetHelpString(this.pic_Estadisticas, "Podes visualizar los vuelos finalizados, las recaudaciones totales de la aeroline" +
-        "a, los datos de los aviones, etc");
             this.pic_Estadisticas.Image = ((System.Drawing.Image)(resources.GetObject("pic_Estadisticas.Image")));
             this.pic_Estadisticas.Location = new System.Drawing.Point(508, 183);
             this.pic_Estadisticas.Name = "pic_Estadisticas";
-            this.hlp_Ayuda.SetShowHelp(this.pic_Estadisticas, true);
             this.pic_Estadisticas.Size = new System.Drawing.Size(90, 67);
             this.pic_Estadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Estadisticas.TabIndex = 7;
             this.pic_Estadisticas.TabStop = false;
+            this.tip_Ayuda.SetToolTip(this.pic_Estadisticas, "Podes visualizar los vuelos finalizados, las recaudaciones totales de la aeroline" +
+        "a, los datos de los aviones, etc");
             this.pic_Estadisticas.Click += new System.EventHandler(this.pic_Estadisticas_Click);
             // 
             // lbl_Estadisticas
@@ -182,6 +179,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(804, 363);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_Estadisticas);
@@ -194,7 +192,6 @@
             this.Controls.Add(this.lbl_Bienvenido);
             this.Controls.Add(this.btn_CerrarSesion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.HelpButton = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Menu";
@@ -224,6 +221,6 @@
         private Label lbl_Estadisticas;
         private PictureBox pictureBox1;
         private Button btn_Salir;
-        private HelpProvider hlp_Ayuda;
+        private ToolTip tip_Ayuda;
     }
 }

@@ -37,30 +37,28 @@
             this.lbl_Hora = new System.Windows.Forms.Label();
             this.tmr_HoraActual = new System.Windows.Forms.Timer(this.components);
             this.lbl_Incorrecto = new System.Windows.Forms.Label();
-            this.hlp_Ayuda = new System.Windows.Forms.HelpProvider();
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // btn_Cancelar
             // 
-            this.hlp_Ayuda.SetHelpString(this.btn_Cancelar, "Cierra la aplicación");
             this.btn_Cancelar.Location = new System.Drawing.Point(134, 260);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.hlp_Ayuda.SetShowHelp(this.btn_Cancelar, true);
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 0;
             this.btn_Cancelar.Text = "Cancelar";
+            this.tip_Ayuda.SetToolTip(this.btn_Cancelar, "Cierra el programa");
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Aceptar
             // 
-            this.hlp_Ayuda.SetHelpString(this.btn_Aceptar, "Ingresa a la aplicación si el usuario y la contraseña son correctos");
             this.btn_Aceptar.Location = new System.Drawing.Point(349, 260);
             this.btn_Aceptar.Name = "btn_Aceptar";
-            this.hlp_Ayuda.SetShowHelp(this.btn_Aceptar, true);
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 1;
             this.btn_Aceptar.Text = "Aceptar";
+            this.tip_Ayuda.SetToolTip(this.btn_Aceptar, "Ingresa si el usuario y la contraseña son correctos");
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
@@ -84,14 +82,12 @@
             // 
             // btn_Autocompletar
             // 
-            this.hlp_Ayuda.SetHelpString(this.btn_Autocompletar, "Cargará los textbox con un usuario aleatorio de la base de empleados para que pue" +
-        "da ingresar");
             this.btn_Autocompletar.Location = new System.Drawing.Point(207, 329);
             this.btn_Autocompletar.Name = "btn_Autocompletar";
-            this.hlp_Ayuda.SetShowHelp(this.btn_Autocompletar, true);
             this.btn_Autocompletar.Size = new System.Drawing.Size(146, 23);
             this.btn_Autocompletar.TabIndex = 4;
             this.btn_Autocompletar.Text = "Autocompletar";
+            this.tip_Ayuda.SetToolTip(this.btn_Autocompletar, "Carga el usuario con un empleado aleatorio para poder ingresar al programa");
             this.btn_Autocompletar.UseVisualStyleBackColor = true;
             this.btn_Autocompletar.Click += new System.EventHandler(this.btn_Autocompletar_Click);
             // 
@@ -123,6 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(564, 429);
+            this.ControlBox = false;
             this.Controls.Add(this.lbl_Hora);
             this.Controls.Add(this.btn_Autocompletar);
             this.Controls.Add(this.txt_Contraseña);
@@ -131,7 +128,6 @@
             this.Controls.Add(this.btn_Cancelar);
             this.Controls.Add(this.lbl_Incorrecto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.HelpButton = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Login";
@@ -153,6 +149,6 @@
         private Label lbl_Hora;
         private System.Windows.Forms.Timer tmr_HoraActual;
         private Label lbl_Incorrecto;
-        private HelpProvider hlp_Ayuda;
+        private ToolTip tip_Ayuda;
     }
 }

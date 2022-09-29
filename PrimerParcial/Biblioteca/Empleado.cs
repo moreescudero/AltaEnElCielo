@@ -31,6 +31,9 @@ namespace Biblioteca
             return false;
         }
 
-       
+        //public override float Calcular()
+        //{
+        //    //Calcular la comision de cada empleado que es un 1%
+        //}
     }
 }

@@ -58,6 +58,7 @@
             this.lbl_Visualizar = new System.Windows.Forms.Label();
             this.cmb_Opciones = new System.Windows.Forms.ComboBox();
             this.btn_CerrarPanel = new System.Windows.Forms.Button();
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VuelosHistoricos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             this.pnl_VerEstadisticas.SuspendLayout();
@@ -220,7 +221,6 @@
             // rtx_Info
             // 
             this.rtx_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtx_Info.Enabled = false;
             this.rtx_Info.Location = new System.Drawing.Point(37, 3);
             this.rtx_Info.Name = "rtx_Info";
             this.rtx_Info.ReadOnly = true;
@@ -334,8 +334,9 @@
             this.cmb_Opciones.FormattingEnabled = true;
             this.cmb_Opciones.Location = new System.Drawing.Point(214, 33);
             this.cmb_Opciones.Name = "cmb_Opciones";
-            this.cmb_Opciones.Size = new System.Drawing.Size(309, 23);
+            this.cmb_Opciones.Size = new System.Drawing.Size(377, 23);
             this.cmb_Opciones.TabIndex = 1;
+            this.tip_Ayuda.SetToolTip(this.cmb_Opciones, "Seleccione los datos que desea visualizar en pantalla");
             this.cmb_Opciones.SelectedIndexChanged += new System.EventHandler(this.cmb_Opciones_SelectedIndexChanged);
             // 
             // btn_CerrarPanel
@@ -405,5 +406,6 @@
         private ComboBox cmb_Opciones;
         private Panel pnl_Informacion;
         private RichTextBox rtx_Info;
+        private ToolTip tip_Ayuda;
     }
 }

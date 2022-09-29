@@ -26,8 +26,6 @@ namespace Vista
         private void frm_Menu_Load(object sender, EventArgs e)
         {
             tmr_Fondo.Start();
-            Aerolinea.InicializarAerolinea();
-            Aerolinea.QuitarVuelosFinalizados();
             SetHora();
             SetBackgroundImage();
         }
@@ -37,6 +35,7 @@ namespace Vista
         }
         private void btn_Salir_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             Application.Exit();
         }
 

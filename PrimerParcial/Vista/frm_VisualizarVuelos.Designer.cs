@@ -33,6 +33,19 @@
             this.btn_AgregarVuelo = new System.Windows.Forms.Button();
             this.vueloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgv_VisualizarVuelos = new System.Windows.Forms.DataGridView();
+            this.codigoVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matriculaAvionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.origenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.llegadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duracionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BodegaDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asientosDisponiblesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.esNacionalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_VerPasajeros = new System.Windows.Forms.Button();
             this.pnl_VerPasajeros = new System.Windows.Forms.Panel();
             this.btn_Volver = new System.Windows.Forms.Button();
@@ -47,19 +60,7 @@
             this.menuElegidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pasajeroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_AgregarVueloCancelado = new System.Windows.Forms.Label();
-            this.codigoVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matriculaAvionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.origenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.destinoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.llegadaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duracionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BodegaDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asientosDisponiblesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Disponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.esNacionalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarVuelos)).BeginInit();
             this.pnl_VerPasajeros.SuspendLayout();
@@ -122,6 +123,97 @@
             this.dgv_VisualizarVuelos.TabIndex = 4;
             this.dgv_VisualizarVuelos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_VisualizarVuelos_RowHeaderMouseClick);
             // 
+            // codigoVueloDataGridViewTextBoxColumn
+            // 
+            this.codigoVueloDataGridViewTextBoxColumn.DataPropertyName = "CodigoVuelo";
+            this.codigoVueloDataGridViewTextBoxColumn.HeaderText = "Codigo Vuelo";
+            this.codigoVueloDataGridViewTextBoxColumn.Name = "codigoVueloDataGridViewTextBoxColumn";
+            this.codigoVueloDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // matriculaAvionDataGridViewTextBoxColumn
+            // 
+            this.matriculaAvionDataGridViewTextBoxColumn.DataPropertyName = "MatriculaAvion";
+            this.matriculaAvionDataGridViewTextBoxColumn.HeaderText = "Matricula Avion";
+            this.matriculaAvionDataGridViewTextBoxColumn.Name = "matriculaAvionDataGridViewTextBoxColumn";
+            this.matriculaAvionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // origenDataGridViewTextBoxColumn
+            // 
+            this.origenDataGridViewTextBoxColumn.DataPropertyName = "Origen";
+            this.origenDataGridViewTextBoxColumn.HeaderText = "Origen";
+            this.origenDataGridViewTextBoxColumn.Name = "origenDataGridViewTextBoxColumn";
+            this.origenDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // destinoDataGridViewTextBoxColumn
+            // 
+            this.destinoDataGridViewTextBoxColumn.DataPropertyName = "Destino";
+            this.destinoDataGridViewTextBoxColumn.HeaderText = "Destino";
+            this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
+            this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // salidaDataGridViewTextBoxColumn
+            // 
+            this.salidaDataGridViewTextBoxColumn.DataPropertyName = "Salida";
+            this.salidaDataGridViewTextBoxColumn.HeaderText = "Salida";
+            this.salidaDataGridViewTextBoxColumn.Name = "salidaDataGridViewTextBoxColumn";
+            this.salidaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // llegadaDataGridViewTextBoxColumn
+            // 
+            this.llegadaDataGridViewTextBoxColumn.DataPropertyName = "Llegada";
+            this.llegadaDataGridViewTextBoxColumn.HeaderText = "Llegada";
+            this.llegadaDataGridViewTextBoxColumn.Name = "llegadaDataGridViewTextBoxColumn";
+            this.llegadaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // duracionDataGridViewTextBoxColumn
+            // 
+            this.duracionDataGridViewTextBoxColumn.DataPropertyName = "Duracion";
+            this.duracionDataGridViewTextBoxColumn.HeaderText = "Duracion";
+            this.duracionDataGridViewTextBoxColumn.Name = "duracionDataGridViewTextBoxColumn";
+            this.duracionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // recaudadoDataGridViewTextBoxColumn
+            // 
+            this.recaudadoDataGridViewTextBoxColumn.DataPropertyName = "Recaudado";
+            this.recaudadoDataGridViewTextBoxColumn.HeaderText = "Recaudado";
+            this.recaudadoDataGridViewTextBoxColumn.Name = "recaudadoDataGridViewTextBoxColumn";
+            this.recaudadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // BodegaDisponible
+            // 
+            this.BodegaDisponible.DataPropertyName = "BodegaDisponible";
+            this.BodegaDisponible.HeaderText = "BodegaDisponible";
+            this.BodegaDisponible.Name = "BodegaDisponible";
+            this.BodegaDisponible.ReadOnly = true;
+            // 
+            // asientosDisponiblesDataGridViewTextBoxColumn
+            // 
+            this.asientosDisponiblesDataGridViewTextBoxColumn.DataPropertyName = "AsientosDisponibles";
+            this.asientosDisponiblesDataGridViewTextBoxColumn.HeaderText = "Asientos Disponibles";
+            this.asientosDisponiblesDataGridViewTextBoxColumn.Name = "asientosDisponiblesDataGridViewTextBoxColumn";
+            this.asientosDisponiblesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Disponible
+            // 
+            this.Disponible.DataPropertyName = "Disponible";
+            this.Disponible.HeaderText = "Disponible";
+            this.Disponible.Name = "Disponible";
+            this.Disponible.ReadOnly = true;
+            // 
+            // hayComidaDataGridViewCheckBoxColumn
+            // 
+            this.hayComidaDataGridViewCheckBoxColumn.DataPropertyName = "HayComida";
+            this.hayComidaDataGridViewCheckBoxColumn.HeaderText = "Hay Comida";
+            this.hayComidaDataGridViewCheckBoxColumn.Name = "hayComidaDataGridViewCheckBoxColumn";
+            this.hayComidaDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // esNacionalDataGridViewCheckBoxColumn
+            // 
+            this.esNacionalDataGridViewCheckBoxColumn.DataPropertyName = "EsNacional";
+            this.esNacionalDataGridViewCheckBoxColumn.HeaderText = "Es Nacional";
+            this.esNacionalDataGridViewCheckBoxColumn.Name = "esNacionalDataGridViewCheckBoxColumn";
+            this.esNacionalDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // btn_VerPasajeros
             // 
             this.btn_VerPasajeros.Enabled = false;
@@ -153,6 +245,7 @@
             this.btn_Volver.Size = new System.Drawing.Size(113, 23);
             this.btn_Volver.TabIndex = 1;
             this.btn_Volver.Text = "Volver";
+            this.tip_Ayuda.SetToolTip(this.btn_Volver, "Agrega un nuevo vuelo");
             this.btn_Volver.UseVisualStyleBackColor = true;
             this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
@@ -252,97 +345,6 @@
             this.lbl_AgregarVueloCancelado.Text = "No se agregó vuelo";
             this.lbl_AgregarVueloCancelado.Visible = false;
             // 
-            // codigoVueloDataGridViewTextBoxColumn
-            // 
-            this.codigoVueloDataGridViewTextBoxColumn.DataPropertyName = "CodigoVuelo";
-            this.codigoVueloDataGridViewTextBoxColumn.HeaderText = "Codigo Vuelo";
-            this.codigoVueloDataGridViewTextBoxColumn.Name = "codigoVueloDataGridViewTextBoxColumn";
-            this.codigoVueloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // matriculaAvionDataGridViewTextBoxColumn
-            // 
-            this.matriculaAvionDataGridViewTextBoxColumn.DataPropertyName = "MatriculaAvion";
-            this.matriculaAvionDataGridViewTextBoxColumn.HeaderText = "Matricula Avion";
-            this.matriculaAvionDataGridViewTextBoxColumn.Name = "matriculaAvionDataGridViewTextBoxColumn";
-            this.matriculaAvionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // origenDataGridViewTextBoxColumn
-            // 
-            this.origenDataGridViewTextBoxColumn.DataPropertyName = "Origen";
-            this.origenDataGridViewTextBoxColumn.HeaderText = "Origen";
-            this.origenDataGridViewTextBoxColumn.Name = "origenDataGridViewTextBoxColumn";
-            this.origenDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // destinoDataGridViewTextBoxColumn
-            // 
-            this.destinoDataGridViewTextBoxColumn.DataPropertyName = "Destino";
-            this.destinoDataGridViewTextBoxColumn.HeaderText = "Destino";
-            this.destinoDataGridViewTextBoxColumn.Name = "destinoDataGridViewTextBoxColumn";
-            this.destinoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // salidaDataGridViewTextBoxColumn
-            // 
-            this.salidaDataGridViewTextBoxColumn.DataPropertyName = "Salida";
-            this.salidaDataGridViewTextBoxColumn.HeaderText = "Salida";
-            this.salidaDataGridViewTextBoxColumn.Name = "salidaDataGridViewTextBoxColumn";
-            this.salidaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // llegadaDataGridViewTextBoxColumn
-            // 
-            this.llegadaDataGridViewTextBoxColumn.DataPropertyName = "Llegada";
-            this.llegadaDataGridViewTextBoxColumn.HeaderText = "Llegada";
-            this.llegadaDataGridViewTextBoxColumn.Name = "llegadaDataGridViewTextBoxColumn";
-            this.llegadaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // duracionDataGridViewTextBoxColumn
-            // 
-            this.duracionDataGridViewTextBoxColumn.DataPropertyName = "Duracion";
-            this.duracionDataGridViewTextBoxColumn.HeaderText = "Duracion";
-            this.duracionDataGridViewTextBoxColumn.Name = "duracionDataGridViewTextBoxColumn";
-            this.duracionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // recaudadoDataGridViewTextBoxColumn
-            // 
-            this.recaudadoDataGridViewTextBoxColumn.DataPropertyName = "Recaudado";
-            this.recaudadoDataGridViewTextBoxColumn.HeaderText = "Recaudado";
-            this.recaudadoDataGridViewTextBoxColumn.Name = "recaudadoDataGridViewTextBoxColumn";
-            this.recaudadoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // BodegaDisponible
-            // 
-            this.BodegaDisponible.DataPropertyName = "BodegaDisponible";
-            this.BodegaDisponible.HeaderText = "BodegaDisponible";
-            this.BodegaDisponible.Name = "BodegaDisponible";
-            this.BodegaDisponible.ReadOnly = true;
-            // 
-            // asientosDisponiblesDataGridViewTextBoxColumn
-            // 
-            this.asientosDisponiblesDataGridViewTextBoxColumn.DataPropertyName = "AsientosDisponibles";
-            this.asientosDisponiblesDataGridViewTextBoxColumn.HeaderText = "Asientos Disponibles";
-            this.asientosDisponiblesDataGridViewTextBoxColumn.Name = "asientosDisponiblesDataGridViewTextBoxColumn";
-            this.asientosDisponiblesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Disponible
-            // 
-            this.Disponible.DataPropertyName = "Disponible";
-            this.Disponible.HeaderText = "Disponible";
-            this.Disponible.Name = "Disponible";
-            this.Disponible.ReadOnly = true;
-            // 
-            // hayComidaDataGridViewCheckBoxColumn
-            // 
-            this.hayComidaDataGridViewCheckBoxColumn.DataPropertyName = "HayComida";
-            this.hayComidaDataGridViewCheckBoxColumn.HeaderText = "Hay Comida";
-            this.hayComidaDataGridViewCheckBoxColumn.Name = "hayComidaDataGridViewCheckBoxColumn";
-            this.hayComidaDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // esNacionalDataGridViewCheckBoxColumn
-            // 
-            this.esNacionalDataGridViewCheckBoxColumn.DataPropertyName = "EsNacional";
-            this.esNacionalDataGridViewCheckBoxColumn.HeaderText = "Es Nacional";
-            this.esNacionalDataGridViewCheckBoxColumn.Name = "esNacionalDataGridViewCheckBoxColumn";
-            this.esNacionalDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
             // frm_VisualizarVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -405,5 +407,6 @@
         private DataGridViewTextBoxColumn Disponible;
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;
         private DataGridViewCheckBoxColumn esNacionalDataGridViewCheckBoxColumn;
+        private ToolTip tip_Ayuda;
     }
 }

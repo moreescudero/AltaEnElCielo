@@ -76,16 +76,20 @@ namespace Biblioteca
             Pasajero pasajero = obj as Pasajero;
             if(pasajero is not null)
             {
-                return this.dni == pasajero.Dni;
+                return this.dni == pasajero.GetHashCode();
             }
             return false;
         }
 
-        //public override int GetHashCode()
-        //{
-        //   // return ;
-        //}
+        public override int GetHashCode()
+        {
+            return this.dni;
+        }
 
+        //public override float Calcular()
+        //{
+        //    //hacer el calculo de todo lo que haya gastado un pasajero en boletos
+        //}
 
         public override string ToString()
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_AltaPasajero));
             this.lbl_Nombre = new System.Windows.Forms.Label();
             this.lbl_Equipaje = new System.Windows.Forms.Label();
@@ -64,8 +65,8 @@
             this.cmb_Menu = new System.Windows.Forms.ComboBox();
             this.chk_BolsoMano = new System.Windows.Forms.CheckBox();
             this.lbl_Iva = new System.Windows.Forms.Label();
-            this.lbl_ClienteExistente = new System.Windows.Forms.Label();
             this.lbl_EquipajeBodega = new System.Windows.Forms.Label();
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PasajeroUno)).BeginInit();
@@ -159,6 +160,8 @@
             this.txt_Dni.Name = "txt_Dni";
             this.txt_Dni.Size = new System.Drawing.Size(100, 23);
             this.txt_Dni.TabIndex = 8;
+            this.tip_Ayuda.SetToolTip(this.txt_Dni, "Si el pasajero ya viajó antes, al ingresar el DNI se van a completar sus datos au" +
+        "tomáticamente");
             this.txt_Dni.TextChanged += new System.EventHandler(this.txt_Dni_TextChanged);
             this.txt_Dni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Dni_KeyPress);
             // 
@@ -191,6 +194,8 @@
             this.nud_CantEquipaje.ReadOnly = true;
             this.nud_CantEquipaje.Size = new System.Drawing.Size(100, 23);
             this.nud_CantEquipaje.TabIndex = 12;
+            this.tip_Ayuda.SetToolTip(this.nud_CantEquipaje, "Si el pasajero es clase turista la cantidad de equipaje máximo será 1, en clase p" +
+        "remium será 2");
             this.nud_CantEquipaje.ValueChanged += new System.EventHandler(this.nud_CantEquipaje_ValueChanged);
             // 
             // lbl_Clase
@@ -260,6 +265,8 @@
             this.nud_Equipaje.Name = "nud_Equipaje";
             this.nud_Equipaje.Size = new System.Drawing.Size(101, 23);
             this.nud_Equipaje.TabIndex = 24;
+            this.tip_Ayuda.SetToolTip(this.nud_Equipaje, "Si se ingresa 1 en cantidad de equipaje el máximo será 25 (Turista) y 21 (Premium" +
+        "), si es premium y se ingresa 2 en cantidad el máximo será 42");
             this.nud_Equipaje.ValueChanged += new System.EventHandler(this.nud_Equipaje_ValueChanged);
             // 
             // pic_PasajeroUno
@@ -273,6 +280,7 @@
             this.pic_PasajeroUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_PasajeroUno.TabIndex = 25;
             this.pic_PasajeroUno.TabStop = false;
+            this.tip_Ayuda.SetToolTip(this.pic_PasajeroUno, "Pasajero 1");
             this.pic_PasajeroUno.Click += new System.EventHandler(this.pic_PasajeroUno_Click);
             // 
             // pic_PasajeroCuatro
@@ -287,6 +295,7 @@
             this.pic_PasajeroCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_PasajeroCuatro.TabIndex = 26;
             this.pic_PasajeroCuatro.TabStop = false;
+            this.tip_Ayuda.SetToolTip(this.pic_PasajeroCuatro, "Pasajero 4");
             this.pic_PasajeroCuatro.Visible = false;
             this.pic_PasajeroCuatro.Click += new System.EventHandler(this.pic_PasajeroCuatro_Click);
             // 
@@ -302,6 +311,7 @@
             this.pic_PasajeroTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_PasajeroTres.TabIndex = 27;
             this.pic_PasajeroTres.TabStop = false;
+            this.tip_Ayuda.SetToolTip(this.pic_PasajeroTres, "Pasajero 3");
             this.pic_PasajeroTres.Visible = false;
             this.pic_PasajeroTres.VisibleChanged += new System.EventHandler(this.pic_PasasjeroTres_VisibleChanged);
             this.pic_PasajeroTres.Click += new System.EventHandler(this.pic_PasajeroTres_Click);
@@ -318,6 +328,7 @@
             this.pic_PasajeroDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_PasajeroDos.TabIndex = 28;
             this.pic_PasajeroDos.TabStop = false;
+            this.tip_Ayuda.SetToolTip(this.pic_PasajeroDos, "Pasajero 2");
             this.pic_PasajeroDos.Visible = false;
             this.pic_PasajeroDos.VisibleChanged += new System.EventHandler(this.pic_PasajeroDos_VisibleChanged);
             this.pic_PasajeroDos.Click += new System.EventHandler(this.pic_PasajeroDos_Click);
@@ -439,24 +450,20 @@
             this.lbl_Iva.Size = new System.Drawing.Size(0, 15);
             this.lbl_Iva.TabIndex = 40;
             // 
-            // lbl_ClienteExistente
-            // 
-            this.lbl_ClienteExistente.AutoSize = true;
-            this.lbl_ClienteExistente.Location = new System.Drawing.Point(236, 51);
-            this.lbl_ClienteExistente.Name = "lbl_ClienteExistente";
-            this.lbl_ClienteExistente.Size = new System.Drawing.Size(352, 15);
-            this.lbl_ClienteExistente.TabIndex = 41;
-            this.lbl_ClienteExistente.Text = "Si el pasajero ya viajo antes al ingresar el DNI se llenaran sus datos";
-            // 
             // lbl_EquipajeBodega
             // 
             this.lbl_EquipajeBodega.AutoSize = true;
             this.lbl_EquipajeBodega.Location = new System.Drawing.Point(521, 103);
             this.lbl_EquipajeBodega.Name = "lbl_EquipajeBodega";
-            this.lbl_EquipajeBodega.Size = new System.Drawing.Size(212, 15);
+            this.lbl_EquipajeBodega.Size = new System.Drawing.Size(209, 15);
             this.lbl_EquipajeBodega.TabIndex = 42;
-            this.lbl_EquipajeBodega.Text = "Se excede de la  capacidad en bodega!!";
+            this.lbl_EquipajeBodega.Text = "Se excede de la capacidad en bodega!!";
             this.lbl_EquipajeBodega.Visible = false;
+            // 
+            // tip_Ayuda
+            // 
+            this.tip_Ayuda.BackColor = System.Drawing.SystemColors.InfoText;
+            this.tip_Ayuda.ForeColor = System.Drawing.SystemColors.Info;
             // 
             // frm_AltaPasajero
             // 
@@ -468,7 +475,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
             this.Controls.Add(this.lbl_EquipajeBodega);
-            this.Controls.Add(this.lbl_ClienteExistente);
             this.Controls.Add(this.lbl_Iva);
             this.Controls.Add(this.chk_BolsoMano);
             this.Controls.Add(this.cmb_Menu);
@@ -561,7 +567,7 @@
         private ComboBox cmb_Menu;
         private CheckBox chk_BolsoMano;
         private Label lbl_Iva;
-        private Label lbl_ClienteExistente;
         private Label lbl_EquipajeBodega;
+        private ToolTip tip_Ayuda;
     }
 }

@@ -52,14 +52,5 @@ namespace Biblioteca
         {
             return "Matricula: " + this.matricula + "  Cantidad asientos: " + this.cantAsientos;
         }
-
-        //public int DescontarAsientosDisponibles(int asientosPremium, int asientosTurista, string clase)
-        //{
-        //    if(clase == "Premium")
-        //    {
-        //        return asientosPremium--;
-        //    }
-        //    return asientosTurista--;
-        //}
     }
 }

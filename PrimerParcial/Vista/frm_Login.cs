@@ -24,6 +24,8 @@ namespace Vista
         {
             Hardcodeo.InicializarEmpleados(empleados);
             tmr_HoraActual.Start();
+            Aerolinea.InicializarAerolinea();
+            Aerolinea.QuitarVuelosFinalizados();
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
@@ -35,8 +37,14 @@ namespace Vista
                 {
                     frm_Menu menu = new frm_Menu(item.Value);
                     this.Hide();
-                    menu.ShowDialog();
-                    this.Show();
+                    if(menu.ShowDialog() == DialogResult.OK)
+                    {
+                        this.Show();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                     break;
                 }
                 contador++;

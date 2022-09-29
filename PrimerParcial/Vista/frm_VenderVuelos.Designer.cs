@@ -56,6 +56,8 @@
             this.recaudadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.asientosDisponiblesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lbl_DenegarAgregarVuelo = new System.Windows.Forms.Label();
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadPasajeros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource1)).BeginInit();
@@ -133,6 +135,7 @@
             this.nud_CantidadPasajeros.ReadOnly = true;
             this.nud_CantidadPasajeros.Size = new System.Drawing.Size(120, 23);
             this.nud_CantidadPasajeros.TabIndex = 21;
+            this.tip_Ayuda.SetToolTip(this.nud_CantidadPasajeros, "Se puede agregar un grupo familiar de hasta 4 personas");
             this.nud_CantidadPasajeros.ValueChanged += new System.EventHandler(this.nud_CantidadPasajeros_ValueChanged);
             // 
             // cdr_Salida
@@ -140,10 +143,12 @@
             this.cdr_Salida.BackColor = System.Drawing.SystemColors.Window;
             this.cdr_Salida.Location = new System.Drawing.Point(289, 200);
             this.cdr_Salida.MaxDate = new System.DateTime(2024, 9, 30, 0, 0, 0, 0);
+            this.cdr_Salida.MaxSelectionCount = 1;
             this.cdr_Salida.MinDate = new System.DateTime(2022, 9, 15, 0, 0, 0, 0);
             this.cdr_Salida.Name = "cdr_Salida";
             this.cdr_Salida.ShowTodayCircle = false;
             this.cdr_Salida.TabIndex = 19;
+            this.tip_Ayuda.SetToolTip(this.cdr_Salida, "Selecciona la fecha en que desee el pasajero");
             this.cdr_Salida.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.cdr_Salida_DateSelected);
             // 
             // lbl_Destino
@@ -198,6 +203,8 @@
             this.btn_AgregarVuelo.Size = new System.Drawing.Size(120, 23);
             this.btn_AgregarVuelo.TabIndex = 31;
             this.btn_AgregarVuelo.Text = "Agregar Vuelo";
+            this.tip_Ayuda.SetToolTip(this.btn_AgregarVuelo, "Agrega un vuelo, excepto si la fecha elegida\r\nes menor a dentro de una semana a p" +
+        "artir de hoy");
             this.btn_AgregarVuelo.UseVisualStyleBackColor = true;
             this.btn_AgregarVuelo.Visible = false;
             this.btn_AgregarVuelo.Click += new System.EventHandler(this.btn_AgregarVuelo_Click);
@@ -220,6 +227,7 @@
             this.btn_Continuar.Size = new System.Drawing.Size(75, 23);
             this.btn_Continuar.TabIndex = 33;
             this.btn_Continuar.Text = "Continuar";
+            this.tip_Ayuda.SetToolTip(this.btn_Continuar, "Continua para asignar un vuelo al pasajero/grupo familiar ");
             this.btn_Continuar.UseVisualStyleBackColor = true;
             this.btn_Continuar.Click += new System.EventHandler(this.btn_Continuar_Click);
             // 
@@ -252,6 +260,9 @@
             this.dgv_HayVuelo.RowTemplate.Height = 25;
             this.dgv_HayVuelo.Size = new System.Drawing.Size(741, 228);
             this.dgv_HayVuelo.TabIndex = 34;
+            this.tip_Ayuda.SetToolTip(this.dgv_HayVuelo, "Se realiza un filtro de los vuelos disponibles segun\r\nel origen y destino selecci" +
+        "onados, y además segun \r\nla disponibilidad en bodega (mayor a 0) y en la \r\ncanti" +
+        "dad de asientos. \r\n");
             this.dgv_HayVuelo.Visible = false;
             this.dgv_HayVuelo.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_HayVuelo_RowHeaderMouseClick);
             this.dgv_HayVuelo.VisibleChanged += new System.EventHandler(this.dgv_HayVuelo_VisibleChanged);
@@ -319,6 +330,14 @@
             this.hayComidaDataGridViewCheckBoxColumn.Name = "hayComidaDataGridViewCheckBoxColumn";
             this.hayComidaDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // lbl_DenegarAgregarVuelo
+            // 
+            this.lbl_DenegarAgregarVuelo.AutoSize = true;
+            this.lbl_DenegarAgregarVuelo.Location = new System.Drawing.Point(609, 303);
+            this.lbl_DenegarAgregarVuelo.Name = "lbl_DenegarAgregarVuelo";
+            this.lbl_DenegarAgregarVuelo.Size = new System.Drawing.Size(0, 15);
+            this.lbl_DenegarAgregarVuelo.TabIndex = 35;
+            // 
             // frm_VenderVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -327,6 +346,7 @@
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_DenegarAgregarVuelo);
             this.Controls.Add(this.btn_Continuar);
             this.Controls.Add(this.lbl_NoHayVuelos);
             this.Controls.Add(this.btn_AgregarVuelo);
@@ -387,5 +407,7 @@
         private DataGridViewTextBoxColumn recaudadoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn asientosDisponiblesDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;
+        private Label lbl_DenegarAgregarVuelo;
+        private ToolTip tip_Ayuda;
     }
 }

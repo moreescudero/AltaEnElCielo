@@ -16,7 +16,7 @@ namespace Vista
         List<Vuelo> filtro = new List<Vuelo>();
         bool banderaCalendario = false;
         int index;
-        //usar paneles
+
         public frm_VenderVuelos()
         {
             InitializeComponent();
@@ -31,9 +31,6 @@ namespace Vista
             }
             cmb_Clase.Items.Add("Turista"); 
             cmb_Clase.Items.Add("Premium");
-
-            //en el btn help indicar que arrastrando en el calendario pueden indicar ida y vuelta o solo ida si marcan una sola fecha
-
         }
 
         private void cdr_Salida_DateSelected(object sender, DateRangeEventArgs e)
@@ -104,7 +101,7 @@ namespace Vista
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)
         {
             frm_AgregarVuelo agregarVuelo = new frm_AgregarVuelo((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), cdr_Salida.SelectionStart);
-            if(agregarVuelo.ShowDialog() == DialogResult.OK)
+            if (agregarVuelo.ShowDialog() == DialogResult.OK)
             {
                 ActualizarDataGrid();
                 lbl_NoHayVuelos.Visible = false;
@@ -114,14 +111,22 @@ namespace Vista
         private void dgv_HayVuelo_VisibleChanged(object sender, EventArgs e)
         {
             ActualizarDataGrid();
-                //usar un trycatch
             if (filtro.Count == 0)
             {
                 lbl_NoHayVuelos.Text = "No hay vuelos que coincidan con el origen y el destino deseado";
             }
             
             btn_Continuar.Enabled = false;
-            btn_AgregarVuelo.Visible = true;
+
+            if (cdr_Salida.SelectionStart.CompareTo(DateTime.Now.AddDays(7)) < 0)
+            {
+                lbl_DenegarAgregarVuelo.Text = "No podes crear un vuelo\ncon una antelación menor a 1 semana";
+                btn_AgregarVuelo.Enabled = false;
+            }
+            else
+            {
+                btn_AgregarVuelo.Visible = true;
+            }
         }
 
         private void dgv_HayVuelo_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -148,6 +153,7 @@ namespace Vista
 
             dgv_HayVuelo.Visible = true;
 
+ 
         }
 
     }
