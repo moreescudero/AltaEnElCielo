@@ -18,6 +18,7 @@ namespace Biblioteca
         float costoTotalEnBoletos = 0;
         bool bolsoMano;
         int cantidadDeVuelos;
+        string medioDePago;
         //Empleado usuarioVendedor;
 
         public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto, bool bolsoMano, Empleado usuarioVendedor) : base(nombre, apellido)
@@ -74,10 +75,10 @@ namespace Biblioteca
             set { cantidadDeVuelos = value; }
         }
 
-        //public float CostoTotalEnBoletos
-        //{
-        //    get { return costoTotalEnBoletos; }
-        //}
+        public string MedioDePago
+        {
+            set { medioDePago = value; }
+        }
 
         public override bool Equals(object? obj)
         {

@@ -22,10 +22,14 @@ namespace Vista
         Empleado usuario;
         float precio;
         float total = 0;
+        float precioTotal;
+        float impuestos;
+        float impuestoPais;
         bool banderaSeCargoUno = false;
         bool banderaSeCargoDos = false;
         bool banderaSeCargoTres = false;
         bool banderaSeCargoCuatro = false;
+        bool banderaAdultoResponsable = false;
         List<Pasajero> grupoFamiliar = new List<Pasajero>();
         Vuelo unVuelo;
 
@@ -184,7 +188,12 @@ namespace Vista
                     unVuelo.SumarRecaudacion(pasajero.PrecioBoleto);
                 }
                 unVuelo.CambiarANoDisponible();
-                this.DialogResult = DialogResult.OK;
+
+                frm_Cobranza formCobranza = new frm_Cobranza(precioTotal, grupoFamiliar);
+                if(formCobranza.DialogResult == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
             }
             else
             {
@@ -193,37 +202,41 @@ namespace Vista
         }
         private void btn_CargarPasajero_Click(object sender, EventArgs e)
         {
-            if (VerificarDatosCompletos())
+            if (!banderaAdultoResponsable && int.Parse(txt_Edad.Text) < 12)
             {
-                precio = Pasajero.CalcularPrecio(unVuelo.EsNacional, unVuelo.Duracion, clase);
-                float impuestos = precio * 0.90f;
-                float impuestoPais = precio * 0.3f;
-                float precioTotal = precio + impuestos + impuestoPais;
-                Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), (float)nud_Equipaje.Value, clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked, usuario);
-                unVuelo.RestarAsientosYBodega(pasajero.Clase, pasajero.Equipaje);
-                if ((!banderaSeCargoUno && btn_CargarPasajero.Text == "Cargar Pasajero 1") || (!banderaSeCargoDos && btn_CargarPasajero.Text == "Cargar Pasajero 2") || (!banderaSeCargoTres && btn_CargarPasajero.Text == "Cargar Pasajero 3") || (!banderaSeCargoCuatro && btn_CargarPasajero.Text == "Cargar Pasajero 4"))
-                {
-                    total += precioTotal;
-                    grupoFamiliar.Add(pasajero);
-                    lbl_Subtotal.Text = "Precio de 1 pasaje: $ " + precio;
-                    lbl_Iva.Text = "Impuestos y tasas: $ " + impuestos + "\nImpuesto PAIS: $" + impuestoPais;
-                    //Bruto + Impuestos = Neto
-                    lbl_Total.Text = "Total: $ " + total;
-                    lbl_EstadoCargaPasajero.Text = "Se cargo un pasajero con exito";
-                    LevantarBanderas();
-                    ActivarImagenes();
-                }
-                else
-                {
-                    grupoFamiliar.Insert(index, pasajero);
-                    grupoFamiliar.RemoveAt(index + 1);
-                    lbl_EstadoCargaPasajero.Text = "Se modifico un pasajero con exito";
-                }
+                lbl_EstadoCargaPasajero.Text = "No podes cargar un menor de 12 años sin un adulto";
             }
             else
             {
-                lbl_EstadoCargaPasajero.ForeColor = Color.Red;
-                lbl_EstadoCargaPasajero.Text = "Complete todos los datos para cargar un pasajero";
+                if (VerificarDatosCompletos())
+                {
+                    CargarImpuestosYTasas();
+                    Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), (float)nud_Equipaje.Value, clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked, usuario);
+                    unVuelo.RestarAsientosYBodega(pasajero.Clase, pasajero.Equipaje);
+                    if ((!banderaSeCargoUno && btn_CargarPasajero.Text == "Cargar Pasajero 1") || (!banderaSeCargoDos && btn_CargarPasajero.Text == "Cargar Pasajero 2") || (!banderaSeCargoTres && btn_CargarPasajero.Text == "Cargar Pasajero 3") || (!banderaSeCargoCuatro && btn_CargarPasajero.Text == "Cargar Pasajero 4"))
+                    {
+                        total += precioTotal;
+                        grupoFamiliar.Add(pasajero);
+                        lbl_Subtotal.Text = "Precio de 1 pasaje: $ " + precio;
+                        lbl_Iva.Text = "Impuestos y tasas: $ " + impuestos + "\nImpuesto PAIS: $" + impuestoPais;
+                        //Bruto + Impuestos = Neto
+                        lbl_Total.Text = "Total: $ " + total;
+                        lbl_EstadoCargaPasajero.Text = "Se cargo un pasajero con exito";
+                        LevantarBanderas();
+                        ActivarImagenes();
+                    }
+                    else
+                    {
+                        grupoFamiliar.Insert(index, pasajero);
+                        grupoFamiliar.RemoveAt(index + 1);
+                        lbl_EstadoCargaPasajero.Text = "Se modifico un pasajero con exito";
+                    }
+                }
+                else
+                {
+                    lbl_EstadoCargaPasajero.Text = "Complete todos los datos para cargar un pasajero";
+
+                }
             }
         }
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -237,11 +250,32 @@ namespace Vista
             if ((nud_CantEquipaje.Value == 0 || (nud_CantEquipaje.Value > 0 && nud_Equipaje.Value > 0)) && txt_Nombre.Text != String.Empty && txt_Apellido.Text != String.Empty && txt_Edad.Text != String.Empty && txt_Dni.Text != String.Empty && cmb_Menu.Text != String.Empty)
             {
                 lbl_EstadoCargaPasajero.Text = String.Empty;
+                if(int.Parse(txt_Edad.Text) > 18)
+                {
+                    banderaAdultoResponsable = true;
+                }
                 return true;
             }
             return false;
         }
 
+        private void CargarImpuestosYTasas()
+        {
+            precio = Pasajero.CalcularPrecio(unVuelo.EsNacional, unVuelo.Duracion, clase);
+            impuestos = precio * 0.9f;
+            impuestoPais = precio * 0.3f;
+            precioTotal = precio + impuestos + impuestoPais;
+            if (int.Parse(txt_Edad.Text) <= 2)
+            {
+                precioTotal = 0;
+                lbl_BonificacionPorEdad.Text = "Descuento por menor de 2 años aplicado: bonificación 100%";
+            }
+            else if (int.Parse(txt_Edad.Text) <= 12)
+            {
+                precioTotal *= 0.5f;
+                lbl_BonificacionPorEdad.Text = "Descuento por menor de 12 años aplicado: bonificación 50%";
+            }
+        }
        
         private void MostrarParaModificar()
         {
@@ -365,6 +399,7 @@ namespace Vista
                 cmb_Menu.SelectedIndex = -1;
             }
             lbl_EstadoCargaPasajero.Text = String.Empty;
+            lbl_BonificacionPorEdad.Text = String.Empty;
         }
 
         //visible changed
@@ -448,10 +483,6 @@ namespace Vista
                     break;
                 } 
             }
-        }
-        private void txt_Edad_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

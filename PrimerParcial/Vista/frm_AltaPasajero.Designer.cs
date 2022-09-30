@@ -53,7 +53,7 @@
             this.pic_PasajeroCuatro = new System.Windows.Forms.PictureBox();
             this.pic_PasajeroTres = new System.Windows.Forms.PictureBox();
             this.pic_PasajeroDos = new System.Windows.Forms.PictureBox();
-            this.lbl_Extras = new System.Windows.Forms.Label();
+            this.lbl_BonificacionPorEdad = new System.Windows.Forms.Label();
             this.lbl_ComoGuardar = new System.Windows.Forms.Label();
             this.pic_ElegirUno = new System.Windows.Forms.PictureBox();
             this.pic_ElegirDos = new System.Windows.Forms.PictureBox();
@@ -172,8 +172,7 @@
             this.txt_Edad.Size = new System.Drawing.Size(100, 23);
             this.txt_Edad.TabIndex = 9;
             this.tip_Ayuda.SetToolTip(this.txt_Edad, "Si el pasajero tiene entre 3 y 12 años viajará con un\r\ndescuento del 50%, si tien" +
-        "e entre 0 y 2 años su \r\npasaje deberá viajar con un adulto responsable y ");
-            this.txt_Edad.TextChanged += new System.EventHandler(this.txt_Edad_TextChanged);
+        "e entre 0 y 2 años el \r\ndescuento será del 100%");
             this.txt_Edad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Edad_KeyPress);
             // 
             // lbl_CantEquipaje
@@ -243,7 +242,7 @@
             // lbl_Subtotal
             // 
             this.lbl_Subtotal.AutoSize = true;
-            this.lbl_Subtotal.Location = new System.Drawing.Point(236, 349);
+            this.lbl_Subtotal.Location = new System.Drawing.Point(235, 306);
             this.lbl_Subtotal.Name = "lbl_Subtotal";
             this.lbl_Subtotal.Size = new System.Drawing.Size(0, 15);
             this.lbl_Subtotal.TabIndex = 22;
@@ -336,14 +335,13 @@
             this.pic_PasajeroDos.VisibleChanged += new System.EventHandler(this.pic_PasajeroDos_VisibleChanged);
             this.pic_PasajeroDos.Click += new System.EventHandler(this.pic_PasajeroDos_Click);
             // 
-            // lbl_Extras
+            // lbl_BonificacionPorEdad
             // 
-            this.lbl_Extras.AutoSize = true;
-            this.lbl_Extras.Location = new System.Drawing.Point(237, 307);
-            this.lbl_Extras.Name = "lbl_Extras";
-            this.lbl_Extras.Size = new System.Drawing.Size(71, 15);
-            this.lbl_Extras.TabIndex = 29;
-            this.lbl_Extras.Text = "Extras $$$$$";
+            this.lbl_BonificacionPorEdad.AutoSize = true;
+            this.lbl_BonificacionPorEdad.Location = new System.Drawing.Point(237, 369);
+            this.lbl_BonificacionPorEdad.Name = "lbl_BonificacionPorEdad";
+            this.lbl_BonificacionPorEdad.Size = new System.Drawing.Size(0, 15);
+            this.lbl_BonificacionPorEdad.TabIndex = 29;
             // 
             // lbl_ComoGuardar
             // 
@@ -413,7 +411,7 @@
             // lbl_EstadoCargaPasajero
             // 
             this.lbl_EstadoCargaPasajero.AutoSize = true;
-            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(530, 349);
+            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(515, 349);
             this.lbl_EstadoCargaPasajero.Name = "lbl_EstadoCargaPasajero";
             this.lbl_EstadoCargaPasajero.Size = new System.Drawing.Size(0, 15);
             this.lbl_EstadoCargaPasajero.TabIndex = 36;
@@ -448,7 +446,7 @@
             // lbl_Iva
             // 
             this.lbl_Iva.AutoSize = true;
-            this.lbl_Iva.Location = new System.Drawing.Point(237, 377);
+            this.lbl_Iva.Location = new System.Drawing.Point(236, 334);
             this.lbl_Iva.Name = "lbl_Iva";
             this.lbl_Iva.Size = new System.Drawing.Size(0, 15);
             this.lbl_Iva.TabIndex = 40;
@@ -489,7 +487,7 @@
             this.Controls.Add(this.pic_ElegirDos);
             this.Controls.Add(this.pic_ElegirUno);
             this.Controls.Add(this.lbl_ComoGuardar);
-            this.Controls.Add(this.lbl_Extras);
+            this.Controls.Add(this.lbl_BonificacionPorEdad);
             this.Controls.Add(this.pic_PasajeroDos);
             this.Controls.Add(this.pic_PasajeroTres);
             this.Controls.Add(this.pic_PasajeroCuatro);
@@ -558,7 +556,7 @@
         private PictureBox pic_PasajeroCuatro;
         private PictureBox pic_PasajeroTres;
         private PictureBox pic_PasajeroDos;
-        private Label lbl_Extras;
+        private Label lbl_BonificacionPorEdad;
         private Label lbl_ComoGuardar;
         private PictureBox pic_ElegirUno;
         private PictureBox pic_ElegirDos;
