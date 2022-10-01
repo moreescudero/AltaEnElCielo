@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public enum Destinos
+    public enum EDestinos
     {
         BuenosAires,
         SantaRosa,
@@ -35,8 +35,8 @@ namespace Biblioteca
         string? codigoVuelo;
         string? matriculaAvion;
         bool esNacional;
-        Destinos origen;
-        Destinos destino;
+        EDestinos origen;
+        EDestinos destino;
         DateTime salida;
         DateTime llegada;
         int duracion;
@@ -49,7 +49,7 @@ namespace Biblioteca
         float bodegaDisponible; 
         List<Pasajero> listaPasajeros;
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, bool hayComida, int asientosDisponibles, float bodegaDisponible)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, EDestinos origen, EDestinos destino, DateTime salida, bool hayComida, int asientosDisponibles, float bodegaDisponible)
         {
             this.codigoVuelo = codigoVuelo;
             this.matriculaAvion = matriculaAvion;
@@ -68,8 +68,9 @@ namespace Biblioteca
             this.bodegaDisponible = bodegaDisponible;
         }
 
-        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles, int asientosPremiumDisponibles, int asientosTuristaDisponibles, string? disponible, float bodegaDisponible) : this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles, bodegaDisponible)
+        public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, EDestinos origen, EDestinos destino, DateTime salida, DateTime llegada, int duracion, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles, int asientosPremiumDisponibles, int asientosTuristaDisponibles, string? disponible, float bodegaDisponible) : this (codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, hayComida, asientosDisponibles, bodegaDisponible)
         {
+            this.codigoVuelo = codigoVuelo;
             this.listaPasajeros = listaPasajeros;
             this.llegada = llegada;
             this.duracion = duracion;
@@ -105,12 +106,12 @@ namespace Biblioteca
             get { return esNacional; } 
         }
 
-        public Destinos Origen
+        public EDestinos Origen
         {
             get { return origen; }
         }
 
-        public Destinos Destino
+        public EDestinos Destino
         {
             get { return destino; }
         }
@@ -170,7 +171,7 @@ namespace Biblioteca
 
         public override bool Equals(object? obj)
         {
-            Avion avion = obj as Avion;
+            Avion? avion = obj as Avion;
             if(avion is not null) 
             {
                 return avion.Matricula == this.matriculaAvion;

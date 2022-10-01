@@ -82,7 +82,7 @@ namespace Biblioteca
 
         public override bool Equals(object? obj)
         {
-            Pasajero pasajero = obj as Pasajero;
+            Pasajero? pasajero = obj as Pasajero;
             if(pasajero is not null)
             {
                 return this.dni == pasajero.GetHashCode();

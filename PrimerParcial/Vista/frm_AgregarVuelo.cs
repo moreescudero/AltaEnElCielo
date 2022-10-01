@@ -15,8 +15,8 @@ namespace Vista
     public partial class frm_AgregarVuelo : Form
     {
         Avion unAvion;
-        Destinos origen;
-        Destinos destino;
+        EDestinos origen;
+        EDestinos destino;
         DateTime salida;
         bool banderaCalendario = false;
         bool banderaOrigenCargado = false;
@@ -28,7 +28,7 @@ namespace Vista
         {
             InitializeComponent();
         } 
-        public frm_AgregarVuelo(Destinos origen, Destinos destino, DateTime salida) : this()
+        public frm_AgregarVuelo(EDestinos origen, EDestinos destino, DateTime salida) : this()
         {
             this.origen = origen; 
             this.destino = destino;
@@ -53,7 +53,7 @@ namespace Vista
             else
             {
                 cdr_Salida.MinDate = DateTime.Now.AddDays(7);
-                foreach (string destino in Enum.GetNames(typeof(Destinos)))
+                foreach (string destino in Enum.GetNames(typeof(EDestinos)))
                 {
                     cmb_Origen.Items.Add(destino);
                 }
@@ -113,7 +113,7 @@ namespace Vista
                 cmb_Destino.Enabled = true;
                 cmb_Destino.Items.Clear();
 
-                foreach (string destino in Enum.GetNames(typeof(Destinos)))
+                foreach (string destino in Enum.GetNames(typeof(EDestinos)))
                 {
                     if (cmb_Origen.Text != destino)
                     {
@@ -131,13 +131,13 @@ namespace Vista
                 cmb_Destino.SelectedIndex = 0;
             }
 
-            origen = (Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text);
+            origen = (EDestinos)Enum.Parse(typeof(EDestinos), cmb_Origen.Text);
             banderaOrigenCargado = true;
         }
 
         private void cmb_Destino_SelectedIndexChanged(object sender, EventArgs e)
         {
-            destino = (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text);
+            destino = (EDestinos)Enum.Parse(typeof(EDestinos), cmb_Destino.Text);
             banderaDestinoCargado = true;
             if(((int)destino) < 100 && ((int)origen) < 100)
             {

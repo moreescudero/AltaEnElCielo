@@ -55,6 +55,7 @@
             this.txt_Calle = new System.Windows.Forms.TextBox();
             this.lbl_Calle = new System.Windows.Forms.Label();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.lbl_Acavaunaimagenowo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_MedioDePago
@@ -127,6 +128,7 @@
             this.txt_VencimientoMesONumero.Size = new System.Drawing.Size(43, 23);
             this.txt_VencimientoMesONumero.TabIndex = 8;
             this.txt_VencimientoMesONumero.Visible = false;
+            this.txt_VencimientoMesONumero.TextChanged += new System.EventHandler(this.txt_VencimientoMesONumero_TextChanged);
             this.txt_VencimientoMesONumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_VencimientoMesONumero_KeyPress);
             // 
             // txt_Titular
@@ -180,9 +182,10 @@
             this.cmb_Cuotas.FormattingEnabled = true;
             this.cmb_Cuotas.Location = new System.Drawing.Point(234, 321);
             this.cmb_Cuotas.Name = "cmb_Cuotas";
-            this.cmb_Cuotas.Size = new System.Drawing.Size(276, 23);
+            this.cmb_Cuotas.Size = new System.Drawing.Size(325, 23);
             this.cmb_Cuotas.TabIndex = 15;
             this.cmb_Cuotas.Visible = false;
+            this.cmb_Cuotas.SelectedIndexChanged += new System.EventHandler(this.cmb_Cuotas_SelectedIndexChanged);
             // 
             // cmb_SituacionFiscal
             // 
@@ -230,16 +233,17 @@
             // 
             this.cmb_Provincias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Provincias.FormattingEnabled = true;
-            this.cmb_Provincias.Location = new System.Drawing.Point(262, 119);
+            this.cmb_Provincias.Location = new System.Drawing.Point(259, 119);
             this.cmb_Provincias.Name = "cmb_Provincias";
             this.cmb_Provincias.Size = new System.Drawing.Size(214, 23);
             this.cmb_Provincias.TabIndex = 20;
             this.cmb_Provincias.Visible = false;
+            this.cmb_Provincias.SelectedIndexChanged += new System.EventHandler(this.cmb_Provincias_SelectedIndexChanged);
             // 
             // lbl_Provincias
             // 
             this.lbl_Provincias.AutoSize = true;
-            this.lbl_Provincias.Location = new System.Drawing.Point(262, 101);
+            this.lbl_Provincias.Location = new System.Drawing.Point(259, 101);
             this.lbl_Provincias.Name = "lbl_Provincias";
             this.lbl_Provincias.Size = new System.Drawing.Size(64, 15);
             this.lbl_Provincias.TabIndex = 21;
@@ -264,6 +268,7 @@
             this.txt_VencimientoAñoOPiso.Size = new System.Drawing.Size(43, 23);
             this.txt_VencimientoAñoOPiso.TabIndex = 11;
             this.txt_VencimientoAñoOPiso.Visible = false;
+            this.txt_VencimientoAñoOPiso.TextChanged += new System.EventHandler(this.txt_VencimientoAñoOPiso_TextChanged);
             this.txt_VencimientoAñoOPiso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_VencimientoAñoOPiso_KeyPress);
             // 
             // lbl_Piso
@@ -294,6 +299,16 @@
             this.lbl_Calle.Text = "Calle:";
             this.lbl_Calle.Visible = false;
             // 
+            // lbl_Acavaunaimagenowo
+            // 
+            this.lbl_Acavaunaimagenowo.AutoSize = true;
+            this.lbl_Acavaunaimagenowo.Location = new System.Drawing.Point(580, 47);
+            this.lbl_Acavaunaimagenowo.Name = "lbl_Acavaunaimagenowo";
+            this.lbl_Acavaunaimagenowo.Size = new System.Drawing.Size(38, 15);
+            this.lbl_Acavaunaimagenowo.TabIndex = 25;
+            this.lbl_Acavaunaimagenowo.Text = "label1";
+            this.lbl_Acavaunaimagenowo.TextChanged += new System.EventHandler(this.lbl_Acavaunaimagenowo_TextChanged);
+            // 
             // frm_Cobranza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -301,6 +316,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(715, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_Acavaunaimagenowo);
             this.Controls.Add(this.lbl_Calle);
             this.Controls.Add(this.txt_Calle);
             this.Controls.Add(this.lbl_Piso);
@@ -364,5 +380,6 @@
         private TextBox txt_Calle;
         private Label lbl_Calle;
         private ToolTip tip_Ayuda;
+        private Label lbl_Acavaunaimagenowo;
     }
 }

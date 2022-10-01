@@ -378,7 +378,7 @@
 
         private Button btn_Salir;
         private Button btn_AgregarVuelo;
-        private DataGridViewTextBoxColumn unAvionDataGridViewTextBoxColumn;
+        //private DataGridViewTextBoxColumn unAvionDataGridViewTextBoxColumn;
         private BindingSource vueloBindingSource;
         private DataGridView dgv_VisualizarVuelos;
         private Button btn_VerPasajeros;

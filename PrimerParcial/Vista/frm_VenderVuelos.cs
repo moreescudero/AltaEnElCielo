@@ -30,7 +30,7 @@ namespace Vista
         private void frm_VenderVuelos_Load(object sender, EventArgs e)
         {
             cdr_Salida.MinDate = DateTime.Now;
-            foreach(string destino in Enum.GetNames(typeof(Destinos)))
+            foreach(string destino in Enum.GetNames(typeof(EDestinos)))
             {
                 cmb_Origen.Items.Add(destino);
             }
@@ -51,7 +51,7 @@ namespace Vista
             cmb_Destino.Enabled = true;
             cmb_Destino.Items.Clear();
 
-            foreach (string destino in Enum.GetNames(typeof(Destinos)))
+            foreach (string destino in Enum.GetNames(typeof(EDestinos)))
             {
                 if (cmb_Origen.Text != destino)
                 {
@@ -98,14 +98,14 @@ namespace Vista
 
         private void ActualizarDataGrid()
         {
-            filtro = Aerolinea.FiltrarVuelos((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text);
+            filtro = Aerolinea.FiltrarVuelos((EDestinos)Enum.Parse(typeof(EDestinos), cmb_Origen.Text), (EDestinos)Enum.Parse(typeof(EDestinos), cmb_Destino.Text), int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text);
             dgv_HayVuelo.DataSource = null;
             dgv_HayVuelo.DataSource = filtro;
         }
 
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)
         {
-            frm_AgregarVuelo agregarVuelo = new frm_AgregarVuelo((Destinos)Enum.Parse(typeof(Destinos), cmb_Origen.Text), (Destinos)Enum.Parse(typeof(Destinos), cmb_Destino.Text), cdr_Salida.SelectionStart);
+            frm_AgregarVuelo agregarVuelo = new frm_AgregarVuelo((EDestinos)Enum.Parse(typeof(EDestinos), cmb_Origen.Text), (EDestinos)Enum.Parse(typeof(EDestinos), cmb_Destino.Text), cdr_Salida.SelectionStart);
             if (agregarVuelo.ShowDialog() == DialogResult.OK)
             {
                 ActualizarDataGrid();

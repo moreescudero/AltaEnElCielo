@@ -190,10 +190,14 @@ namespace Vista
                 unVuelo.CambiarANoDisponible();
 
                 frm_Cobranza formCobranza = new frm_Cobranza(precioTotal, grupoFamiliar);
-                if(formCobranza.DialogResult == DialogResult.OK)
-                {
+                formCobranza.ShowDialog();
+                formCobranza.Close();
+                
+
+                //if(formCobranza.DialogResult == DialogResult.OK)
+                //{
                     this.DialogResult = DialogResult.OK;
-                }
+                //}
             }
             else
             {

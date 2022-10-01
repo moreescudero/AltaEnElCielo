@@ -14,7 +14,9 @@ namespace Biblioteca
         public static List<Vuelo> listaVuelosFinalizados = new List<Vuelo>();
         public static List<Pasajero> listaPasajeros = new List<Pasajero>();
         public static Dictionary<int, Empleado> diccEmpleados = new Dictionary<int, Empleado>();
-
+        public static float gananciaEfectivo;
+        public static float gananciaCredito;
+        public static float gananciaDebito;
 
         //List<Equipaje> equipajes;
 
@@ -79,7 +81,7 @@ namespace Biblioteca
             return aviones;
         }
 
-        public static List<Vuelo> FiltrarVuelos(Destinos origen, Destinos llegada, int cantPasajeros, string clase)
+        public static List<Vuelo> FiltrarVuelos(EDestinos origen, EDestinos llegada, int cantPasajeros, string clase)
         {
             List<Vuelo> filtro = new List<Vuelo>();
             for (int i = 0; i < listaVuelos.Count; i++)
@@ -179,7 +181,7 @@ namespace Biblioteca
             int contador;
             int maximo = -1;
             string? destinoPopular = "";
-            foreach (string? destino in Enum.GetNames(typeof(Destinos)))
+            foreach (string? destino in Enum.GetNames(typeof(EDestinos)))
             {
                 contador = BuscarDestino(destino);
                 if (contador > maximo)

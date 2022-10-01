@@ -392,7 +392,7 @@
         private Label lbl_Origen;
         private ComboBox cmb_Origen;
         private BindingSource vueloBindingSource;
-        private DataGridViewTextBoxColumn unAvionDataGridViewTextBoxColumn;
+        //private DataGridViewTextBoxColumn unAvionDataGridViewTextBoxColumn;
         private Button btn_AgregarVuelo;
         private Label lbl_NoHayVuelos;
         private Button btn_Continuar;

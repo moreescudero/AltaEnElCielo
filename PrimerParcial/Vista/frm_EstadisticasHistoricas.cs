@@ -25,7 +25,7 @@ namespace Vista
             dgv_VuelosHistoricos.DataSource = null;
             dgv_VuelosHistoricos.DataSource = Aerolinea.listaVuelosFinalizados;
 
-            cmb_Opciones.Items.Add("Recaudaciones");
+            cmb_Opciones.Items.Add("Recaudaciones"); // agregar lo de medios de pago
             cmb_Opciones.Items.Add("Pasajeros totales");
             cmb_Opciones.Items.Add("Destinos por facturación");
             cmb_Opciones.Items.Add("Pasajeros frecuentes por cantidad de vuelos");
@@ -37,7 +37,7 @@ namespace Vista
             tabla.Columns.Add("Destino", typeof(string));
             tabla.Columns.Add("Recaudacion", typeof(float));
 
-            foreach (string destino in Enum.GetNames(typeof(Destinos)))
+            foreach (string destino in Enum.GetNames(typeof(EDestinos)))
             {
                 tabla.Rows.Add(destino, Aerolinea.BuscarRecaudacionPorDestino(destino));
             }

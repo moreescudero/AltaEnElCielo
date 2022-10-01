@@ -51,6 +51,7 @@
             // 
             // btn_CerrarSesion
             // 
+            this.btn_CerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CerrarSesion.Location = new System.Drawing.Point(278, 316);
             this.btn_CerrarSesion.Name = "btn_CerrarSesion";
             this.btn_CerrarSesion.Size = new System.Drawing.Size(109, 23);
@@ -84,6 +85,8 @@
             // 
             // pic_VisualizarVuelos
             // 
+            this.pic_VisualizarVuelos.BackColor = System.Drawing.Color.Transparent;
+            this.pic_VisualizarVuelos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
             this.pic_VisualizarVuelos.Location = new System.Drawing.Point(204, 183);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
@@ -107,6 +110,8 @@
             // 
             // pic_Vender
             // 
+            this.pic_Vender.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Vender.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Vender.Image = ((System.Drawing.Image)(resources.GetObject("pic_Vender.Image")));
             this.pic_Vender.Location = new System.Drawing.Point(350, 183);
             this.pic_Vender.Name = "pic_Vender";
@@ -130,6 +135,8 @@
             // 
             // pic_Estadisticas
             // 
+            this.pic_Estadisticas.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Estadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Estadisticas.Image = ((System.Drawing.Image)(resources.GetObject("pic_Estadisticas.Image")));
             this.pic_Estadisticas.Location = new System.Drawing.Point(508, 183);
             this.pic_Estadisticas.Name = "pic_Estadisticas";
@@ -164,6 +171,7 @@
             // 
             // btn_Salir
             // 
+            this.btn_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Salir.Location = new System.Drawing.Point(403, 316);
             this.btn_Salir.Name = "btn_Salir";
             this.btn_Salir.Size = new System.Drawing.Size(109, 23);
