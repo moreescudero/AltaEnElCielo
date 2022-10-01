@@ -4,21 +4,21 @@
 
 
 
-## Sobre mi:
+### Sobre mi:
 
 
 
-## Resumen:
+### Resumen:
 
 
 
 
-## Diagrama de clases:
+### Diagrama de clases:
 
 
 
-## Justificación técnica:
+### Justificación técnica:
 
 
 
-## Propuesta de valor agregado:
+### Propuesta de valor agregado:
