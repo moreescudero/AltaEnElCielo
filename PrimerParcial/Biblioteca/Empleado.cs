@@ -23,11 +23,6 @@ namespace Biblioteca
             get { return usuario; }
         }
 
-        //public float Comision
-        //{
-        //    get { return comision; }
-        //}
-
         public bool ValidarContraseña(string contIngresada)
         {
             if(contIngresada == contraseña)

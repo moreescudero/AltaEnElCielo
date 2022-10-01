@@ -24,10 +24,10 @@ namespace Biblioteca
         public static void InicializarAerolinea()
         {
             Hardcodeo.InicializarEmpleados(diccEmpleados);
-            listaAviones = Hardcodeo.InicializarAviones(listaAviones);
-            listaPasajeros = Hardcodeo.InicializarPasajeros(listaPasajeros, diccEmpleados);
-            listaVuelos = Hardcodeo.InicializarVuelos(listaAviones, listaVuelos, listaPasajeros);
-            listaVuelosFinalizados = Hardcodeo.InicializarHistorialVuelos(listaVuelosFinalizados, listaAviones, listaPasajeros);
+            Hardcodeo.InicializarAviones(listaAviones);
+            Hardcodeo.InicializarPasajeros(listaPasajeros, diccEmpleados);
+            Hardcodeo.InicializarVuelos(listaAviones, listaVuelos, listaPasajeros);
+            Hardcodeo.InicializarHistorialVuelos(listaVuelosFinalizados, listaAviones, listaPasajeros);
             listaPasajerosFrecuentes = CrearListaClientes();
         }
 

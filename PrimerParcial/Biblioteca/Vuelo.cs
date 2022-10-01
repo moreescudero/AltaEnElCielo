@@ -80,11 +80,6 @@ namespace Biblioteca
             this.disponible = disponible;
         }
 
-        //public Vuelo(string? codigoVuelo, string? matriculaAvion, bool esNacional, Destinos origen, Destinos destino, DateTime salida, DateTime llegada, int duracion, float recaudado, bool hayComida, List<Pasajero> listaPasajeros, int asientosDisponibles) :this(codigoVuelo, matriculaAvion, esNacional, origen, destino, salida, llegada, duracion, hayComida, listaPasajeros, asientosDisponibles)
-        //{
-        //    this.recaudado = recaudado;
-        //    this.asientosDisponibles = RestarAsientosDisponibles();
-        //}
 
         public string? CodigoVuelo
         {
