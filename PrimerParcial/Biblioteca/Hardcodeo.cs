@@ -106,6 +106,14 @@ namespace Biblioteca
             vuelos.Add(new Vuelo("TBY015", aviones[5].Matricula,true,EDestinos.Jujuy,EDestinos.Ushuaia,new DateTime(2023, 3, 4, 23, 45, 0), new DateTime(2023, 3, 5, 3, 45, 0), 4, true, CargarPasajerosAUnVuelo(pasajeros, true, 4), 80, 39, 41, "Disponible", 2663));
             vuelos.Add(new Vuelo("CHT261", aviones[6].Matricula,true,EDestinos.Corrientes,EDestinos.SantiagoDelEstero,new DateTime(2022, 11, 22, 13, 0, 0), new DateTime(2022, 11, 22, 15, 0, 0), 2, false, CargarPasajerosAUnVuelo(pasajeros, true, 2), 9, 9, 0, "Disponible", 378));
 
+            vuelos.Add(new Vuelo("MNE156", aviones[2].Matricula,false,EDestinos.BuenosAires,EDestinos.Acapulco,new DateTime(2022, 10, 26, 11, 30, 0), new DateTime(2022, 10, 26, 19, 30, 0), 8, false,CargarPasajerosAUnVuelo(pasajeros, false, 8), 0, 0, 0, "Lleno", 0));
+            vuelos.Add(new Vuelo("AMA262", aviones[0].Matricula,false,EDestinos.Acapulco,EDestinos.BuenosAires,new DateTime(2022, 11, 3, 5, 30, 0), new DateTime(2022, 11, 3, 17, 30, 0), 12, true,CargarPasajerosAUnVuelo(pasajeros, false, 12), 39, 10, 29, "Disponible",1045));
+            vuelos.Add(new Vuelo("ROE251", aviones[5].Matricula,false, EDestinos.Recife,EDestinos.BuenosAires,new DateTime(2022, 10, 10, 18, 0, 0), new DateTime(2022, 10, 11, 5, 0, 0), 11, true, CargarPasajerosAUnVuelo(pasajeros, false, 11), 20, 9, 11, "Disponible", 527));
+            vuelos.Add(new Vuelo("MSK301", aviones[3].Matricula,true,EDestinos.Trelew,EDestinos.Corrientes,new DateTime(2022, 12, 2, 4, 0, 0), new DateTime(2022, 12, 2, 7, 0, 0), 3, false, CargarPasajerosAUnVuelo(pasajeros, true, 3), 6, 1, 5, "Disponible", 167));
+            vuelos.Add(new Vuelo("LPI202", aviones[5].Matricula,false,EDestinos.Roma,EDestinos.Miami, new DateTime(2022, 12, 22, 10, 15, 0), new DateTime(2022, 12, 22, 19, 15, 0), 9, true, CargarPasajerosAUnVuelo(pasajeros, false, 9), 7, 3, 4, "Disponible", 930));
+            vuelos.Add(new Vuelo("TBY015", aviones[3].Matricula,true,EDestinos.Ushuaia,EDestinos.Salta,new DateTime(2022, 10, 30, 6, 45, 0), new DateTime(2022, 10, 30, 10, 45, 0), 4, true, CargarPasajerosAUnVuelo(pasajeros, true, 4), 80, 39, 41, "Disponible", 2663));
+            vuelos.Add(new Vuelo("CHT261", aviones[1].Matricula,false,EDestinos.Miami,EDestinos.Bariloche,new DateTime(2022, 11, 20, 2, 0, 0), new DateTime(2022, 11, 20, 14, 0, 0), 12, false, CargarPasajerosAUnVuelo(pasajeros, false, 12), 12, 9, 3, "Disponible", 998));
+
             return vuelos;
         }
 
@@ -116,10 +124,23 @@ namespace Biblioteca
             List<Pasajero> lista = new List<Pasajero>();
             lista = pasajeros.GetRange(index, rnd.Next(1, pasajeros.Count() - index));
 
+            int medioDePago = rnd.Next(0, 3);
             foreach (Pasajero pasajero in lista)    
             {
                 pasajero.PrecioBoleto = Pasajero.CalcularPrecio(esNacional,duracion, pasajero.Clase);
                 pasajero.Calcular(pasajero.PrecioBoleto);
+                switch(medioDePago)
+                {
+                    case 0:
+                        Aerolinea.gananciaCredito += pasajero.PrecioBoleto;
+                        break;
+                    case 1:
+                        Aerolinea.gananciaDebito += pasajero.PrecioBoleto;
+                        break;
+                    default:
+                        Aerolinea.gananciaEfectivo += pasajero.PrecioBoleto;
+                        break;
+                }
             }
 
             return lista;

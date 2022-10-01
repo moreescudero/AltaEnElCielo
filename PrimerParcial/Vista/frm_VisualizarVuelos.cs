@@ -55,7 +55,7 @@ namespace Vista
         private void dgv_VisualizarVuelos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             index = e.RowIndex;
-            if(index != 0)
+            if(index >= 0)
             {
                 btn_VerPasajeros.Enabled = true;
                 lbl_AgregarVueloCancelado.Visible = false;

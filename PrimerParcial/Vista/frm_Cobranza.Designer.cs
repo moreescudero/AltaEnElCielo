@@ -76,6 +76,7 @@
             this.cmb_MedioDePago.Name = "cmb_MedioDePago";
             this.cmb_MedioDePago.Size = new System.Drawing.Size(236, 23);
             this.cmb_MedioDePago.TabIndex = 1;
+            this.tip_Ayuda.SetToolTip(this.cmb_MedioDePago, "Seleccione el medio de pago que \r\ndesea el cliente");
             this.cmb_MedioDePago.SelectedIndexChanged += new System.EventHandler(this.cmb_MedioDePago_SelectedIndexChanged);
             // 
             // lbl_Numero
@@ -163,6 +164,8 @@
             this.txt_CodSeguridadODepto.Name = "txt_CodSeguridadODepto";
             this.txt_CodSeguridadODepto.Size = new System.Drawing.Size(43, 23);
             this.txt_CodSeguridadODepto.TabIndex = 13;
+            this.tip_Ayuda.SetToolTip(this.txt_CodSeguridadODepto, "Los 3 dígitos del dorso de la tarjeta o los \r\n4 dígitos enfrente de la tarjeta en" +
+        " amex");
             this.txt_CodSeguridadODepto.Visible = false;
             this.txt_CodSeguridadODepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodSeguridadODepto_KeyPress);
             // 
@@ -184,8 +187,8 @@
             this.cmb_Cuotas.Name = "cmb_Cuotas";
             this.cmb_Cuotas.Size = new System.Drawing.Size(325, 23);
             this.cmb_Cuotas.TabIndex = 15;
+            this.tip_Ayuda.SetToolTip(this.cmb_Cuotas, "Financiación según la tarjeta del cliente");
             this.cmb_Cuotas.Visible = false;
-            this.cmb_Cuotas.SelectedIndexChanged += new System.EventHandler(this.cmb_Cuotas_SelectedIndexChanged);
             // 
             // cmb_SituacionFiscal
             // 
@@ -307,6 +310,7 @@
             this.lbl_Acavaunaimagenowo.Size = new System.Drawing.Size(38, 15);
             this.lbl_Acavaunaimagenowo.TabIndex = 25;
             this.lbl_Acavaunaimagenowo.Text = "label1";
+            this.tip_Ayuda.SetToolTip(this.lbl_Acavaunaimagenowo, "Tipo de tarjeta");
             this.lbl_Acavaunaimagenowo.TextChanged += new System.EventHandler(this.lbl_Acavaunaimagenowo_TextChanged);
             // 
             // frm_Cobranza

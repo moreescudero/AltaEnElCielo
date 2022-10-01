@@ -43,27 +43,51 @@
             this.vueloBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_Volver = new System.Windows.Forms.Button();
             this.btn_VerEstadisticas = new System.Windows.Forms.Button();
-            this.pnl_VerEstadisticas = new System.Windows.Forms.Panel();
+            this.pasajeroBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.cmb_Opciones = new System.Windows.Forms.ComboBox();
+            this.btn_VerPasajeros = new System.Windows.Forms.Button();
+            this.lbl_Debito = new System.Windows.Forms.Label();
+            this.txt_Debito = new System.Windows.Forms.TextBox();
+            this.lbl_Credito = new System.Windows.Forms.Label();
+            this.lbl_Efectivo = new System.Windows.Forms.Label();
+            this.txt_Credito = new System.Windows.Forms.TextBox();
+            this.txt_Efectivo = new System.Windows.Forms.TextBox();
+            this.btn_CerrarPanel = new System.Windows.Forms.Button();
+            this.lbl_Visualizar = new System.Windows.Forms.Label();
+            this.lbl_RecaudacionTotal = new System.Windows.Forms.Label();
+            this.lbl_GananciasNacionales = new System.Windows.Forms.Label();
+            this.lbl_GananciasInternacionales = new System.Windows.Forms.Label();
+            this.txt_RecaudacionTotal = new System.Windows.Forms.TextBox();
+            this.txt_GananciasInternacionales = new System.Windows.Forms.TextBox();
+            this.txt_GananciasNacionales = new System.Windows.Forms.TextBox();
+            this.lbl_DestinoMasElegido = new System.Windows.Forms.Label();
+            this.txt_DestinoMasElegido = new System.Windows.Forms.TextBox();
+            this.dgv_SegunOpcionElegida = new System.Windows.Forms.DataGridView();
             this.pnl_Informacion = new System.Windows.Forms.Panel();
             this.rtx_Info = new System.Windows.Forms.RichTextBox();
-            this.dgv_SegunOpcionElegida = new System.Windows.Forms.DataGridView();
-            this.txt_DestinoMasElegido = new System.Windows.Forms.TextBox();
-            this.lbl_DestinoMasElegido = new System.Windows.Forms.Label();
-            this.txt_GananciasNacionales = new System.Windows.Forms.TextBox();
-            this.txt_GananciasInternacionales = new System.Windows.Forms.TextBox();
-            this.txt_RecaudacionTotal = new System.Windows.Forms.TextBox();
-            this.lbl_GananciasInternacionales = new System.Windows.Forms.Label();
-            this.lbl_GananciasNacionales = new System.Windows.Forms.Label();
-            this.lbl_RecaudacionTotal = new System.Windows.Forms.Label();
-            this.lbl_Visualizar = new System.Windows.Forms.Label();
-            this.cmb_Opciones = new System.Windows.Forms.ComboBox();
-            this.btn_CerrarPanel = new System.Windows.Forms.Button();
-            this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.pnl_VerEstadisticas = new System.Windows.Forms.Panel();
+            this.pnl_VerPasajeros = new System.Windows.Forms.Panel();
+            this.dgv_VerPasajeros = new System.Windows.Forms.DataGridView();
+            this.claseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuElegidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioBoletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bolsoManoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cantidadDeVuelosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_CerrarVerPasajeros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VuelosHistoricos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
-            this.pnl_VerEstadisticas.SuspendLayout();
-            this.pnl_Informacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pasajeroBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SegunOpcionElegida)).BeginInit();
+            this.pnl_Informacion.SuspendLayout();
+            this.pnl_VerEstadisticas.SuspendLayout();
+            this.pnl_VerPasajeros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_VerPasajeros)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_VuelosHistoricos
@@ -92,6 +116,7 @@
             this.dgv_VuelosHistoricos.RowTemplate.Height = 25;
             this.dgv_VuelosHistoricos.Size = new System.Drawing.Size(726, 317);
             this.dgv_VuelosHistoricos.TabIndex = 0;
+            this.dgv_VuelosHistoricos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_VuelosHistoricos_RowHeaderMouseClick);
             // 
             // codigoVueloDataGridViewTextBoxColumn
             // 
@@ -169,7 +194,7 @@
             // 
             // btn_Volver
             // 
-            this.btn_Volver.Location = new System.Drawing.Point(283, 415);
+            this.btn_Volver.Location = new System.Drawing.Point(220, 415);
             this.btn_Volver.Name = "btn_Volver";
             this.btn_Volver.Size = new System.Drawing.Size(117, 23);
             this.btn_Volver.TabIndex = 1;
@@ -179,13 +204,226 @@
             // 
             // btn_VerEstadisticas
             // 
-            this.btn_VerEstadisticas.Location = new System.Drawing.Point(406, 415);
+            this.btn_VerEstadisticas.Location = new System.Drawing.Point(343, 415);
             this.btn_VerEstadisticas.Name = "btn_VerEstadisticas";
             this.btn_VerEstadisticas.Size = new System.Drawing.Size(117, 23);
             this.btn_VerEstadisticas.TabIndex = 2;
             this.btn_VerEstadisticas.Text = "Ver estadísticas";
             this.btn_VerEstadisticas.UseVisualStyleBackColor = true;
             this.btn_VerEstadisticas.Click += new System.EventHandler(this.btn_VerEstadisticas_Click);
+            // 
+            // pasajeroBindingSource
+            // 
+            this.pasajeroBindingSource.DataSource = typeof(Biblioteca.Pasajero);
+            // 
+            // cmb_Opciones
+            // 
+            this.cmb_Opciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Opciones.FormattingEnabled = true;
+            this.cmb_Opciones.Location = new System.Drawing.Point(214, 33);
+            this.cmb_Opciones.Name = "cmb_Opciones";
+            this.cmb_Opciones.Size = new System.Drawing.Size(377, 23);
+            this.cmb_Opciones.TabIndex = 1;
+            this.tip_Ayuda.SetToolTip(this.cmb_Opciones, "Seleccione los datos que desea visualizar en pantalla");
+            this.cmb_Opciones.SelectedIndexChanged += new System.EventHandler(this.cmb_Opciones_SelectedIndexChanged);
+            // 
+            // btn_VerPasajeros
+            // 
+            this.btn_VerPasajeros.Location = new System.Drawing.Point(466, 415);
+            this.btn_VerPasajeros.Name = "btn_VerPasajeros";
+            this.btn_VerPasajeros.Size = new System.Drawing.Size(117, 23);
+            this.btn_VerPasajeros.TabIndex = 4;
+            this.btn_VerPasajeros.Text = "Ver Pasajeros";
+            this.btn_VerPasajeros.UseVisualStyleBackColor = true;
+            this.btn_VerPasajeros.Click += new System.EventHandler(this.btn_VerPasajeros_Click);
+            // 
+            // lbl_Debito
+            // 
+            this.lbl_Debito.AutoSize = true;
+            this.lbl_Debito.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Debito.Location = new System.Drawing.Point(129, 330);
+            this.lbl_Debito.Name = "lbl_Debito";
+            this.lbl_Debito.Size = new System.Drawing.Size(164, 15);
+            this.lbl_Debito.TabIndex = 13;
+            this.lbl_Debito.Text = "Recaudación tarjeta de débito";
+            this.lbl_Debito.Visible = false;
+            // 
+            // txt_Debito
+            // 
+            this.txt_Debito.Enabled = false;
+            this.txt_Debito.Location = new System.Drawing.Point(138, 348);
+            this.txt_Debito.Name = "txt_Debito";
+            this.txt_Debito.Size = new System.Drawing.Size(142, 23);
+            this.txt_Debito.TabIndex = 14;
+            this.txt_Debito.Visible = false;
+            // 
+            // lbl_Credito
+            // 
+            this.lbl_Credito.AutoSize = true;
+            this.lbl_Credito.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Credito.Location = new System.Drawing.Point(323, 330);
+            this.lbl_Credito.Name = "lbl_Credito";
+            this.lbl_Credito.Size = new System.Drawing.Size(167, 15);
+            this.lbl_Credito.TabIndex = 15;
+            this.lbl_Credito.Text = "Recaudación tarjeta de crédito";
+            this.lbl_Credito.Visible = false;
+            // 
+            // lbl_Efectivo
+            // 
+            this.lbl_Efectivo.AutoSize = true;
+            this.lbl_Efectivo.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Efectivo.Location = new System.Drawing.Point(525, 330);
+            this.lbl_Efectivo.Name = "lbl_Efectivo";
+            this.lbl_Efectivo.Size = new System.Drawing.Size(143, 15);
+            this.lbl_Efectivo.TabIndex = 16;
+            this.lbl_Efectivo.Text = "Recaudación con efectivo";
+            this.lbl_Efectivo.Visible = false;
+            // 
+            // txt_Credito
+            // 
+            this.txt_Credito.Enabled = false;
+            this.txt_Credito.Location = new System.Drawing.Point(333, 348);
+            this.txt_Credito.Name = "txt_Credito";
+            this.txt_Credito.Size = new System.Drawing.Size(142, 23);
+            this.txt_Credito.TabIndex = 17;
+            this.txt_Credito.Visible = false;
+            // 
+            // txt_Efectivo
+            // 
+            this.txt_Efectivo.Enabled = false;
+            this.txt_Efectivo.Location = new System.Drawing.Point(525, 348);
+            this.txt_Efectivo.Name = "txt_Efectivo";
+            this.txt_Efectivo.Size = new System.Drawing.Size(142, 23);
+            this.txt_Efectivo.TabIndex = 18;
+            this.txt_Efectivo.Visible = false;
+            // 
+            // btn_CerrarPanel
+            // 
+            this.btn_CerrarPanel.Location = new System.Drawing.Point(343, 415);
+            this.btn_CerrarPanel.Name = "btn_CerrarPanel";
+            this.btn_CerrarPanel.Size = new System.Drawing.Size(117, 23);
+            this.btn_CerrarPanel.TabIndex = 0;
+            this.btn_CerrarPanel.Text = "Volver";
+            this.btn_CerrarPanel.UseVisualStyleBackColor = true;
+            this.btn_CerrarPanel.Click += new System.EventHandler(this.btn_CerrarPanel_Click);
+            // 
+            // lbl_Visualizar
+            // 
+            this.lbl_Visualizar.AutoSize = true;
+            this.lbl_Visualizar.Location = new System.Drawing.Point(37, 36);
+            this.lbl_Visualizar.Name = "lbl_Visualizar";
+            this.lbl_Visualizar.Size = new System.Drawing.Size(138, 15);
+            this.lbl_Visualizar.TabIndex = 2;
+            this.lbl_Visualizar.Text = "Elija que desea visualizar:";
+            // 
+            // lbl_RecaudacionTotal
+            // 
+            this.lbl_RecaudacionTotal.AutoSize = true;
+            this.lbl_RecaudacionTotal.Location = new System.Drawing.Point(37, 114);
+            this.lbl_RecaudacionTotal.Name = "lbl_RecaudacionTotal";
+            this.lbl_RecaudacionTotal.Size = new System.Drawing.Size(108, 15);
+            this.lbl_RecaudacionTotal.TabIndex = 3;
+            this.lbl_RecaudacionTotal.Text = "Recaudación total: ";
+            this.lbl_RecaudacionTotal.Visible = false;
+            // 
+            // lbl_GananciasNacionales
+            // 
+            this.lbl_GananciasNacionales.AutoSize = true;
+            this.lbl_GananciasNacionales.Location = new System.Drawing.Point(37, 161);
+            this.lbl_GananciasNacionales.Name = "lbl_GananciasNacionales";
+            this.lbl_GananciasNacionales.Size = new System.Drawing.Size(219, 15);
+            this.lbl_GananciasNacionales.TabIndex = 4;
+            this.lbl_GananciasNacionales.Text = "Ganancias totales por vuelos nacionales:";
+            this.lbl_GananciasNacionales.Visible = false;
+            // 
+            // lbl_GananciasInternacionales
+            // 
+            this.lbl_GananciasInternacionales.AutoSize = true;
+            this.lbl_GananciasInternacionales.Location = new System.Drawing.Point(37, 219);
+            this.lbl_GananciasInternacionales.Name = "lbl_GananciasInternacionales";
+            this.lbl_GananciasInternacionales.Size = new System.Drawing.Size(243, 15);
+            this.lbl_GananciasInternacionales.TabIndex = 5;
+            this.lbl_GananciasInternacionales.Text = "Ganancias totales por vuelos internacionales:";
+            this.lbl_GananciasInternacionales.Visible = false;
+            // 
+            // txt_RecaudacionTotal
+            // 
+            this.txt_RecaudacionTotal.Enabled = false;
+            this.txt_RecaudacionTotal.Location = new System.Drawing.Point(360, 111);
+            this.txt_RecaudacionTotal.Name = "txt_RecaudacionTotal";
+            this.txt_RecaudacionTotal.Size = new System.Drawing.Size(307, 23);
+            this.txt_RecaudacionTotal.TabIndex = 6;
+            this.txt_RecaudacionTotal.Visible = false;
+            // 
+            // txt_GananciasInternacionales
+            // 
+            this.txt_GananciasInternacionales.Enabled = false;
+            this.txt_GananciasInternacionales.Location = new System.Drawing.Point(360, 216);
+            this.txt_GananciasInternacionales.Name = "txt_GananciasInternacionales";
+            this.txt_GananciasInternacionales.Size = new System.Drawing.Size(307, 23);
+            this.txt_GananciasInternacionales.TabIndex = 7;
+            this.txt_GananciasInternacionales.Visible = false;
+            // 
+            // txt_GananciasNacionales
+            // 
+            this.txt_GananciasNacionales.Enabled = false;
+            this.txt_GananciasNacionales.Location = new System.Drawing.Point(360, 161);
+            this.txt_GananciasNacionales.Name = "txt_GananciasNacionales";
+            this.txt_GananciasNacionales.Size = new System.Drawing.Size(307, 23);
+            this.txt_GananciasNacionales.TabIndex = 8;
+            this.txt_GananciasNacionales.Visible = false;
+            // 
+            // lbl_DestinoMasElegido
+            // 
+            this.lbl_DestinoMasElegido.AutoSize = true;
+            this.lbl_DestinoMasElegido.Location = new System.Drawing.Point(40, 273);
+            this.lbl_DestinoMasElegido.Name = "lbl_DestinoMasElegido";
+            this.lbl_DestinoMasElegido.Size = new System.Drawing.Size(199, 15);
+            this.lbl_DestinoMasElegido.TabIndex = 10;
+            this.lbl_DestinoMasElegido.Text = "Destino más elegido por los clientes:";
+            this.lbl_DestinoMasElegido.Visible = false;
+            // 
+            // txt_DestinoMasElegido
+            // 
+            this.txt_DestinoMasElegido.Enabled = false;
+            this.txt_DestinoMasElegido.Location = new System.Drawing.Point(360, 270);
+            this.txt_DestinoMasElegido.Name = "txt_DestinoMasElegido";
+            this.txt_DestinoMasElegido.Size = new System.Drawing.Size(307, 23);
+            this.txt_DestinoMasElegido.TabIndex = 11;
+            this.txt_DestinoMasElegido.Visible = false;
+            // 
+            // dgv_SegunOpcionElegida
+            // 
+            this.dgv_SegunOpcionElegida.AllowUserToAddRows = false;
+            this.dgv_SegunOpcionElegida.AllowUserToDeleteRows = false;
+            this.dgv_SegunOpcionElegida.AllowUserToResizeRows = false;
+            this.dgv_SegunOpcionElegida.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_SegunOpcionElegida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_SegunOpcionElegida.Location = new System.Drawing.Point(40, 75);
+            this.dgv_SegunOpcionElegida.Name = "dgv_SegunOpcionElegida";
+            this.dgv_SegunOpcionElegida.ReadOnly = true;
+            this.dgv_SegunOpcionElegida.RowTemplate.Height = 25;
+            this.dgv_SegunOpcionElegida.Size = new System.Drawing.Size(723, 296);
+            this.dgv_SegunOpcionElegida.TabIndex = 9;
+            this.dgv_SegunOpcionElegida.Visible = false;
+            // 
+            // pnl_Informacion
+            // 
+            this.pnl_Informacion.Controls.Add(this.rtx_Info);
+            this.pnl_Informacion.Location = new System.Drawing.Point(0, 75);
+            this.pnl_Informacion.Name = "pnl_Informacion";
+            this.pnl_Informacion.Size = new System.Drawing.Size(800, 317);
+            this.pnl_Informacion.TabIndex = 12;
+            // 
+            // rtx_Info
+            // 
+            this.rtx_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtx_Info.Location = new System.Drawing.Point(40, 3);
+            this.rtx_Info.Name = "rtx_Info";
+            this.rtx_Info.ReadOnly = true;
+            this.rtx_Info.Size = new System.Drawing.Size(726, 296);
+            this.rtx_Info.TabIndex = 0;
+            this.rtx_Info.Text = "";
             // 
             // pnl_VerEstadisticas
             // 
@@ -202,7 +440,13 @@
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Visualizar);
             this.pnl_VerEstadisticas.Controls.Add(this.cmb_Opciones);
             this.pnl_VerEstadisticas.Controls.Add(this.btn_CerrarPanel);
-            this.pnl_VerEstadisticas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_VerEstadisticas.Controls.Add(this.txt_Efectivo);
+            this.pnl_VerEstadisticas.Controls.Add(this.txt_Credito);
+            this.pnl_VerEstadisticas.Controls.Add(this.lbl_Efectivo);
+            this.pnl_VerEstadisticas.Controls.Add(this.lbl_Credito);
+            this.pnl_VerEstadisticas.Controls.Add(this.txt_Debito);
+            this.pnl_VerEstadisticas.Controls.Add(this.lbl_Debito);
+            this.pnl_VerEstadisticas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_VerEstadisticas.Location = new System.Drawing.Point(0, 0);
             this.pnl_VerEstadisticas.Name = "pnl_VerEstadisticas";
             this.pnl_VerEstadisticas.Size = new System.Drawing.Size(800, 450);
@@ -210,144 +454,125 @@
             this.pnl_VerEstadisticas.Visible = false;
             this.pnl_VerEstadisticas.VisibleChanged += new System.EventHandler(this.pnl_VerEstadisticas_VisibleChanged);
             // 
-            // pnl_Informacion
+            // pnl_VerPasajeros
             // 
-            this.pnl_Informacion.Controls.Add(this.rtx_Info);
-            this.pnl_Informacion.Location = new System.Drawing.Point(0, 75);
-            this.pnl_Informacion.Name = "pnl_Informacion";
-            this.pnl_Informacion.Size = new System.Drawing.Size(800, 317);
-            this.pnl_Informacion.TabIndex = 12;
+            this.pnl_VerPasajeros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_VerPasajeros.Controls.Add(this.btn_CerrarVerPasajeros);
+            this.pnl_VerPasajeros.Controls.Add(this.dgv_VerPasajeros);
+            this.pnl_VerPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_VerPasajeros.Location = new System.Drawing.Point(0, 0);
+            this.pnl_VerPasajeros.Name = "pnl_VerPasajeros";
+            this.pnl_VerPasajeros.Size = new System.Drawing.Size(800, 450);
+            this.pnl_VerPasajeros.TabIndex = 5;
+            this.pnl_VerPasajeros.Visible = false;
+            this.pnl_VerPasajeros.VisibleChanged += new System.EventHandler(this.pnl_VerPasajeros_VisibleChanged);
             // 
-            // rtx_Info
+            // dgv_VerPasajeros
             // 
-            this.rtx_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtx_Info.Location = new System.Drawing.Point(37, 3);
-            this.rtx_Info.Name = "rtx_Info";
-            this.rtx_Info.ReadOnly = true;
-            this.rtx_Info.Size = new System.Drawing.Size(726, 311);
-            this.rtx_Info.TabIndex = 0;
-            this.rtx_Info.Text = "";
+            this.dgv_VerPasajeros.AllowUserToAddRows = false;
+            this.dgv_VerPasajeros.AllowUserToDeleteRows = false;
+            this.dgv_VerPasajeros.AllowUserToResizeRows = false;
+            this.dgv_VerPasajeros.AutoGenerateColumns = false;
+            this.dgv_VerPasajeros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_VerPasajeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_VerPasajeros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.claseDataGridViewTextBoxColumn,
+            this.edadDataGridViewTextBoxColumn,
+            this.dniDataGridViewTextBoxColumn,
+            this.menuElegidoDataGridViewTextBoxColumn,
+            this.equipajeDataGridViewTextBoxColumn,
+            this.precioBoletoDataGridViewTextBoxColumn,
+            this.bolsoManoDataGridViewCheckBoxColumn,
+            this.cantidadDeVuelosDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.apellidoDataGridViewTextBoxColumn});
+            this.dgv_VerPasajeros.DataSource = this.pasajeroBindingSource;
+            this.dgv_VerPasajeros.Location = new System.Drawing.Point(37, 75);
+            this.dgv_VerPasajeros.Name = "dgv_VerPasajeros";
+            this.dgv_VerPasajeros.ReadOnly = true;
+            this.dgv_VerPasajeros.RowTemplate.Height = 25;
+            this.dgv_VerPasajeros.Size = new System.Drawing.Size(729, 317);
+            this.dgv_VerPasajeros.TabIndex = 0;
             // 
-            // dgv_SegunOpcionElegida
+            // claseDataGridViewTextBoxColumn
             // 
-            this.dgv_SegunOpcionElegida.AllowUserToAddRows = false;
-            this.dgv_SegunOpcionElegida.AllowUserToDeleteRows = false;
-            this.dgv_SegunOpcionElegida.AllowUserToResizeRows = false;
-            this.dgv_SegunOpcionElegida.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_SegunOpcionElegida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_SegunOpcionElegida.Location = new System.Drawing.Point(40, 75);
-            this.dgv_SegunOpcionElegida.Name = "dgv_SegunOpcionElegida";
-            this.dgv_SegunOpcionElegida.ReadOnly = true;
-            this.dgv_SegunOpcionElegida.RowTemplate.Height = 25;
-            this.dgv_SegunOpcionElegida.Size = new System.Drawing.Size(723, 317);
-            this.dgv_SegunOpcionElegida.TabIndex = 9;
-            this.dgv_SegunOpcionElegida.Visible = false;
+            this.claseDataGridViewTextBoxColumn.DataPropertyName = "Clase";
+            this.claseDataGridViewTextBoxColumn.HeaderText = "Clase";
+            this.claseDataGridViewTextBoxColumn.Name = "claseDataGridViewTextBoxColumn";
+            this.claseDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // txt_DestinoMasElegido
+            // edadDataGridViewTextBoxColumn
             // 
-            this.txt_DestinoMasElegido.Enabled = false;
-            this.txt_DestinoMasElegido.Location = new System.Drawing.Point(360, 309);
-            this.txt_DestinoMasElegido.Name = "txt_DestinoMasElegido";
-            this.txt_DestinoMasElegido.Size = new System.Drawing.Size(307, 23);
-            this.txt_DestinoMasElegido.TabIndex = 11;
-            this.txt_DestinoMasElegido.Visible = false;
+            this.edadDataGridViewTextBoxColumn.DataPropertyName = "Edad";
+            this.edadDataGridViewTextBoxColumn.HeaderText = "Edad";
+            this.edadDataGridViewTextBoxColumn.Name = "edadDataGridViewTextBoxColumn";
+            this.edadDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // lbl_DestinoMasElegido
+            // dniDataGridViewTextBoxColumn
             // 
-            this.lbl_DestinoMasElegido.AutoSize = true;
-            this.lbl_DestinoMasElegido.Location = new System.Drawing.Point(40, 312);
-            this.lbl_DestinoMasElegido.Name = "lbl_DestinoMasElegido";
-            this.lbl_DestinoMasElegido.Size = new System.Drawing.Size(199, 15);
-            this.lbl_DestinoMasElegido.TabIndex = 10;
-            this.lbl_DestinoMasElegido.Text = "Destino más elegido por los clientes:";
-            this.lbl_DestinoMasElegido.Visible = false;
+            this.dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
+            this.dniDataGridViewTextBoxColumn.HeaderText = "Dni";
+            this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // txt_GananciasNacionales
+            // menuElegidoDataGridViewTextBoxColumn
             // 
-            this.txt_GananciasNacionales.Enabled = false;
-            this.txt_GananciasNacionales.Location = new System.Drawing.Point(360, 174);
-            this.txt_GananciasNacionales.Name = "txt_GananciasNacionales";
-            this.txt_GananciasNacionales.Size = new System.Drawing.Size(307, 23);
-            this.txt_GananciasNacionales.TabIndex = 8;
-            this.txt_GananciasNacionales.Visible = false;
+            this.menuElegidoDataGridViewTextBoxColumn.DataPropertyName = "MenuElegido";
+            this.menuElegidoDataGridViewTextBoxColumn.HeaderText = "MenuElegido";
+            this.menuElegidoDataGridViewTextBoxColumn.Name = "menuElegidoDataGridViewTextBoxColumn";
+            this.menuElegidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // txt_GananciasInternacionales
+            // equipajeDataGridViewTextBoxColumn
             // 
-            this.txt_GananciasInternacionales.Enabled = false;
-            this.txt_GananciasInternacionales.Location = new System.Drawing.Point(360, 236);
-            this.txt_GananciasInternacionales.Name = "txt_GananciasInternacionales";
-            this.txt_GananciasInternacionales.Size = new System.Drawing.Size(307, 23);
-            this.txt_GananciasInternacionales.TabIndex = 7;
-            this.txt_GananciasInternacionales.Visible = false;
+            this.equipajeDataGridViewTextBoxColumn.DataPropertyName = "Equipaje";
+            this.equipajeDataGridViewTextBoxColumn.HeaderText = "Equipaje";
+            this.equipajeDataGridViewTextBoxColumn.Name = "equipajeDataGridViewTextBoxColumn";
+            this.equipajeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // txt_RecaudacionTotal
+            // precioBoletoDataGridViewTextBoxColumn
             // 
-            this.txt_RecaudacionTotal.Enabled = false;
-            this.txt_RecaudacionTotal.Location = new System.Drawing.Point(360, 111);
-            this.txt_RecaudacionTotal.Name = "txt_RecaudacionTotal";
-            this.txt_RecaudacionTotal.Size = new System.Drawing.Size(307, 23);
-            this.txt_RecaudacionTotal.TabIndex = 6;
-            this.txt_RecaudacionTotal.Visible = false;
+            this.precioBoletoDataGridViewTextBoxColumn.DataPropertyName = "PrecioBoleto";
+            this.precioBoletoDataGridViewTextBoxColumn.HeaderText = "PrecioBoleto";
+            this.precioBoletoDataGridViewTextBoxColumn.Name = "precioBoletoDataGridViewTextBoxColumn";
+            this.precioBoletoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // lbl_GananciasInternacionales
+            // bolsoManoDataGridViewCheckBoxColumn
             // 
-            this.lbl_GananciasInternacionales.AutoSize = true;
-            this.lbl_GananciasInternacionales.Location = new System.Drawing.Point(37, 239);
-            this.lbl_GananciasInternacionales.Name = "lbl_GananciasInternacionales";
-            this.lbl_GananciasInternacionales.Size = new System.Drawing.Size(243, 15);
-            this.lbl_GananciasInternacionales.TabIndex = 5;
-            this.lbl_GananciasInternacionales.Text = "Ganancias totales por vuelos internacionales:";
-            this.lbl_GananciasInternacionales.Visible = false;
+            this.bolsoManoDataGridViewCheckBoxColumn.DataPropertyName = "BolsoMano";
+            this.bolsoManoDataGridViewCheckBoxColumn.HeaderText = "BolsoMano";
+            this.bolsoManoDataGridViewCheckBoxColumn.Name = "bolsoManoDataGridViewCheckBoxColumn";
+            this.bolsoManoDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // lbl_GananciasNacionales
+            // cantidadDeVuelosDataGridViewTextBoxColumn
             // 
-            this.lbl_GananciasNacionales.AutoSize = true;
-            this.lbl_GananciasNacionales.Location = new System.Drawing.Point(37, 174);
-            this.lbl_GananciasNacionales.Name = "lbl_GananciasNacionales";
-            this.lbl_GananciasNacionales.Size = new System.Drawing.Size(219, 15);
-            this.lbl_GananciasNacionales.TabIndex = 4;
-            this.lbl_GananciasNacionales.Text = "Ganancias totales por vuelos nacionales:";
-            this.lbl_GananciasNacionales.Visible = false;
+            this.cantidadDeVuelosDataGridViewTextBoxColumn.DataPropertyName = "CantidadDeVuelos";
+            this.cantidadDeVuelosDataGridViewTextBoxColumn.HeaderText = "CantidadDeVuelos";
+            this.cantidadDeVuelosDataGridViewTextBoxColumn.Name = "cantidadDeVuelosDataGridViewTextBoxColumn";
+            this.cantidadDeVuelosDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // lbl_RecaudacionTotal
+            // nombreDataGridViewTextBoxColumn
             // 
-            this.lbl_RecaudacionTotal.AutoSize = true;
-            this.lbl_RecaudacionTotal.Location = new System.Drawing.Point(37, 114);
-            this.lbl_RecaudacionTotal.Name = "lbl_RecaudacionTotal";
-            this.lbl_RecaudacionTotal.Size = new System.Drawing.Size(108, 15);
-            this.lbl_RecaudacionTotal.TabIndex = 3;
-            this.lbl_RecaudacionTotal.Text = "Recaudación total: ";
-            this.lbl_RecaudacionTotal.Visible = false;
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // lbl_Visualizar
+            // apellidoDataGridViewTextBoxColumn
             // 
-            this.lbl_Visualizar.AutoSize = true;
-            this.lbl_Visualizar.Location = new System.Drawing.Point(37, 36);
-            this.lbl_Visualizar.Name = "lbl_Visualizar";
-            this.lbl_Visualizar.Size = new System.Drawing.Size(138, 15);
-            this.lbl_Visualizar.TabIndex = 2;
-            this.lbl_Visualizar.Text = "Elija que desea visualizar:";
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // cmb_Opciones
+            // btn_CerrarVerPasajeros
             // 
-            this.cmb_Opciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Opciones.FormattingEnabled = true;
-            this.cmb_Opciones.Location = new System.Drawing.Point(214, 33);
-            this.cmb_Opciones.Name = "cmb_Opciones";
-            this.cmb_Opciones.Size = new System.Drawing.Size(377, 23);
-            this.cmb_Opciones.TabIndex = 1;
-            this.tip_Ayuda.SetToolTip(this.cmb_Opciones, "Seleccione los datos que desea visualizar en pantalla");
-            this.cmb_Opciones.SelectedIndexChanged += new System.EventHandler(this.cmb_Opciones_SelectedIndexChanged);
-            // 
-            // btn_CerrarPanel
-            // 
-            this.btn_CerrarPanel.Location = new System.Drawing.Point(343, 415);
-            this.btn_CerrarPanel.Name = "btn_CerrarPanel";
-            this.btn_CerrarPanel.Size = new System.Drawing.Size(117, 23);
-            this.btn_CerrarPanel.TabIndex = 0;
-            this.btn_CerrarPanel.Text = "Volver";
-            this.btn_CerrarPanel.UseVisualStyleBackColor = true;
-            this.btn_CerrarPanel.Click += new System.EventHandler(this.btn_CerrarPanel_Click);
+            this.btn_CerrarVerPasajeros.Location = new System.Drawing.Point(359, 414);
+            this.btn_CerrarVerPasajeros.Name = "btn_CerrarVerPasajeros";
+            this.btn_CerrarVerPasajeros.Size = new System.Drawing.Size(115, 23);
+            this.btn_CerrarVerPasajeros.TabIndex = 1;
+            this.btn_CerrarVerPasajeros.Text = "Volver";
+            this.btn_CerrarVerPasajeros.UseVisualStyleBackColor = true;
+            this.btn_CerrarVerPasajeros.Click += new System.EventHandler(this.btn_CerrarVerPasajeros_Click_1);
             // 
             // frm_EstadisticasHistoricas
             // 
@@ -356,10 +581,12 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.pnl_VerPasajeros);
             this.Controls.Add(this.pnl_VerEstadisticas);
             this.Controls.Add(this.btn_VerEstadisticas);
             this.Controls.Add(this.btn_Volver);
             this.Controls.Add(this.dgv_VuelosHistoricos);
+            this.Controls.Add(this.btn_VerPasajeros);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_EstadisticasHistoricas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -367,10 +594,13 @@
             this.Load += new System.EventHandler(this.frm_EstadisticasHistoricas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VuelosHistoricos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pasajeroBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_SegunOpcionElegida)).EndInit();
+            this.pnl_Informacion.ResumeLayout(false);
             this.pnl_VerEstadisticas.ResumeLayout(false);
             this.pnl_VerEstadisticas.PerformLayout();
-            this.pnl_Informacion.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_SegunOpcionElegida)).EndInit();
+            this.pnl_VerPasajeros.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_VerPasajeros)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -391,21 +621,42 @@
         private BindingSource vueloBindingSource;
         private Button btn_Volver;
         private Button btn_VerEstadisticas;
-        private Panel pnl_VerEstadisticas;
+        private ToolTip tip_Ayuda;
+        private BindingSource pasajeroBindingSource;
+        private Button btn_VerPasajeros;
+        private Label lbl_Debito;
+        private TextBox txt_Debito;
+        private Label lbl_Credito;
+        private Label lbl_Efectivo;
+        private TextBox txt_Credito;
+        private TextBox txt_Efectivo;
         private Button btn_CerrarPanel;
-        private TextBox txt_DestinoMasElegido;
-        private Label lbl_DestinoMasElegido;
-        private DataGridView dgv_SegunOpcionElegida;
-        private TextBox txt_GananciasNacionales;
-        private TextBox txt_GananciasInternacionales;
-        private TextBox txt_RecaudacionTotal;
-        private Label lbl_GananciasInternacionales;
-        private Label lbl_GananciasNacionales;
-        private Label lbl_RecaudacionTotal;
-        private Label lbl_Visualizar;
         private ComboBox cmb_Opciones;
+        private Label lbl_Visualizar;
+        private Label lbl_RecaudacionTotal;
+        private Label lbl_GananciasNacionales;
+        private Label lbl_GananciasInternacionales;
+        private TextBox txt_RecaudacionTotal;
+        private TextBox txt_GananciasInternacionales;
+        private TextBox txt_GananciasNacionales;
+        private Label lbl_DestinoMasElegido;
+        private TextBox txt_DestinoMasElegido;
+        private DataGridView dgv_SegunOpcionElegida;
         private Panel pnl_Informacion;
         private RichTextBox rtx_Info;
-        private ToolTip tip_Ayuda;
+        private Panel pnl_VerEstadisticas;
+        private Panel pnl_VerPasajeros;
+        private DataGridView dgv_VerPasajeros;
+        private DataGridViewTextBoxColumn claseDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn edadDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn menuElegidoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn equipajeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn precioBoletoDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn bolsoManoDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn cantidadDeVuelosDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private Button btn_CerrarVerPasajeros;
     }
 }

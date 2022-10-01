@@ -13,6 +13,7 @@ namespace Biblioteca
         public static List<Vuelo> listaVuelos = new List<Vuelo>();
         public static List<Vuelo> listaVuelosFinalizados = new List<Vuelo>();
         public static List<Pasajero> listaPasajeros = new List<Pasajero>();
+        public static List<Pasajero> listaPasajerosFrecuentes = new List<Pasajero>();
         public static Dictionary<int, Empleado> diccEmpleados = new Dictionary<int, Empleado>();
         public static float gananciaEfectivo;
         public static float gananciaCredito;
@@ -27,6 +28,7 @@ namespace Biblioteca
             listaPasajeros = Hardcodeo.InicializarPasajeros(listaPasajeros, diccEmpleados);
             listaVuelos = Hardcodeo.InicializarVuelos(listaAviones, listaVuelos, listaPasajeros);
             listaVuelosFinalizados = Hardcodeo.InicializarHistorialVuelos(listaVuelosFinalizados, listaAviones, listaPasajeros);
+            listaPasajerosFrecuentes = CrearListaClientes();
         }
 
         private static void AgregarVueloFinalizado(Vuelo vuelo)
@@ -144,14 +146,14 @@ namespace Biblioteca
             return total;
         }
 
-        //private static int Comparar(string destino, string destinoVuelo, int contador) 
-        //{
-        //    if (destinoVuelo == destino)
-        //    {
-        //        return contador++;
-        //    }
-        //    return contador;
-        //}
+        private static int Comparar(string destino, Vuelo vuelo)
+        {
+            if (vuelo.Destino.ToString() == destino)
+            {
+                return vuelo.ListaPasajeros.Count();
+            }
+            return 0;
+        }
 
         private static int BuscarDestino(string destino)
         {
@@ -159,19 +161,19 @@ namespace Biblioteca
             //int cantidad = 0;
             foreach (Vuelo vuelo in listaVuelos)
             {
-                //cantidad = Comparar(destino, vuelo.Destino.ToString(), contador);
-                if(destino == vuelo.Destino.ToString())
-                {
-                    contador++;
-                }
+                contador += Comparar(destino, vuelo);
+                //if(destino == vuelo.Destino.ToString())
+                //{
+                //    contador+= vuelo.ListaPasajeros.Count();
+                //}
             }
             foreach (Vuelo vuelo in listaVuelosFinalizados)
             {
-                //cantidad = Comparar(destino, vuelo.Destino.ToString(), contador);
-                if (destino == vuelo.Destino.ToString())
-                {
-                    contador++;
-                }
+                contador += Comparar(destino, vuelo);
+                //if (destino == vuelo.Destino.ToString())
+                //{
+                //    contador += vuelo.ListaPasajeros.Count();
+                //}
             }
             return contador;
         }
@@ -238,10 +240,6 @@ namespace Biblioteca
                 }
                 break;
             }
-            //if (vuelo.ListaPasajeros.Contains(pasajero))
-            //{
-            //    pasajero.CantidadDeVuelos++;
-            //}
         }
 
         public static List<Pasajero> CrearListaClientesPlatino()
@@ -249,14 +247,14 @@ namespace Biblioteca
             List<Pasajero> pasajeroRetorno = new List<Pasajero>();
             int maximo = -1;
 
-            foreach (Pasajero pasajero in CrearListaClientes())
+            foreach (Pasajero pasajero in listaPasajerosFrecuentes)
             {
                 if (pasajero.CantidadDeVuelos > maximo)
                 {
                     maximo = pasajero.CantidadDeVuelos;
                 }
             }
-            foreach (Pasajero pasajero in CrearListaClientes())
+            foreach (Pasajero pasajero in listaPasajerosFrecuentes)
             {
                 if (pasajero.CantidadDeVuelos >= maximo)
                 {
@@ -267,7 +265,7 @@ namespace Biblioteca
             return pasajeroRetorno;
         }
 
-        public static List<Pasajero> CrearListaClientes()
+        private static List<Pasajero> CrearListaClientes()
         {
             List<Pasajero> pasajerosClientes = new List<Pasajero>();
 

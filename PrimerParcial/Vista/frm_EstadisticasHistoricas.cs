@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace Vista
     public partial class frm_EstadisticasHistoricas : Form
     {
         DataTable tabla = new DataTable();
-
+        int index;
         public frm_EstadisticasHistoricas()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace Vista
         {
             dgv_VuelosHistoricos.DataSource = null;
             dgv_VuelosHistoricos.DataSource = Aerolinea.listaVuelosFinalizados;
+            MostrarInformacionCompleta();
+
+            btn_VerPasajeros.Enabled = false;
 
             cmb_Opciones.Items.Add("Recaudaciones"); // agregar lo de medios de pago
             cmb_Opciones.Items.Add("Pasajeros totales");
@@ -54,6 +58,10 @@ namespace Vista
             pnl_VerEstadisticas.Visible = true;
             
         }
+        private void btn_VerPasajeros_Click(object sender, EventArgs e)
+        {
+            pnl_VerPasajeros.Visible = true;
+        }
 
         private void btn_CerrarPanel_Click(object sender, EventArgs e)
         {
@@ -70,6 +78,12 @@ namespace Vista
             txt_GananciasInternacionales.Visible = true;
             txt_GananciasNacionales.Visible = true;
             txt_RecaudacionTotal.Visible = true;
+            txt_Credito.Visible = true;
+            txt_Debito.Visible = true;
+            txt_Efectivo.Visible = true;
+            lbl_Credito.Visible = true;
+            lbl_Debito.Visible = true;
+            lbl_Efectivo.Visible = true;
             dgv_SegunOpcionElegida.Visible = false;
         }
 
@@ -84,11 +98,16 @@ namespace Vista
             txt_GananciasNacionales.Visible = false;
             txt_RecaudacionTotal.Visible = false;
             pnl_Informacion.Visible = false;
+            txt_Credito.Visible = false;
+            txt_Debito.Visible = false;
+            txt_Efectivo.Visible = false;
+            lbl_Credito.Visible = false;
+            lbl_Debito.Visible = false;
+            lbl_Efectivo.Visible = false;
         }
 
         private void MostrarInformacionCompleta()
         {
-            pnl_Informacion.Visible = true;
             rtx_Info.Text = String.Empty;
             rtx_Info.Text = "Empleados:\n";
             foreach(KeyValuePair<int, Empleado> item in Aerolinea.diccEmpleados)
@@ -118,6 +137,9 @@ namespace Vista
             txt_GananciasInternacionales.Text = Aerolinea.CalcularGanancia(false).ToString();
             txt_GananciasNacionales.Text = Aerolinea.CalcularGanancia(true).ToString();
             txt_DestinoMasElegido.Text = Aerolinea.BuscarDestinoMasPopular();
+            txt_Efectivo.Text = Aerolinea.gananciaEfectivo.ToString();
+            txt_Debito.Text = Aerolinea.gananciaDebito.ToString();
+            txt_Credito.Text = Aerolinea.gananciaCredito.ToString();
         }
 
         private void HacerDataGridPorDestinos()
@@ -144,14 +166,14 @@ namespace Vista
                     HacerDataGridPorDestinos();
                     break;
                 case 3:
-                    dgv_SegunOpcionElegida.DataSource = Aerolinea.CrearListaClientes();
+                    dgv_SegunOpcionElegida.DataSource = Aerolinea.listaPasajerosFrecuentes;
                     break;
                 case 4:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaAviones;
                     //dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns["HorasEnVuelo"], ListSortDirection.Descending);
                     break;
                 default:
-                    MostrarInformacionCompleta();
+                    pnl_Informacion.Visible = true;
                     break;
             }
         }
@@ -161,6 +183,26 @@ namespace Vista
             cmb_Opciones.SelectedIndex = -1;
             dgv_SegunOpcionElegida.Visible = false;
             OcultarTodo();
+        }
+
+        private void pnl_VerPasajeros_VisibleChanged(object sender, EventArgs e)
+        {
+            dgv_VerPasajeros.DataSource = null;
+            dgv_VerPasajeros.DataSource = Aerolinea.listaVuelosFinalizados[index].ListaPasajeros;
+        }
+
+        private void dgv_VuelosHistoricos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            index = e.RowIndex;
+            if (index >= 0)
+            {
+                btn_VerPasajeros.Enabled = true;
+            }
+        }
+
+        private void btn_CerrarVerPasajeros_Click_1(object sender, EventArgs e)
+        {
+            pnl_VerPasajeros.Visible = false;
         }
     }
 }

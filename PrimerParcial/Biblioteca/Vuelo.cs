@@ -180,7 +180,7 @@ namespace Biblioteca
         }
         public override string ToString()
         {
-            return "Codigo de Vuelo: " + this.codigoVuelo + "  Matricula avion: " + this.matriculaAvion + "  Recaudado: " + this.recaudado + " Destino: " + this.destino;
+            return "Codigo de Vuelo: " + this.codigoVuelo + "  Matricula avion: " + this.matriculaAvion + "  Recaudado: $" + this.recaudado + " Destino: " + this.destino;
         }
 
         public void RestarAsientosYBodega(string clase, float equipaje)

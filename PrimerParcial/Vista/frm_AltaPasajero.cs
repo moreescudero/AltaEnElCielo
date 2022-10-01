@@ -51,7 +51,7 @@ namespace Vista
 
         private void frm_AltaPasajero_Load(object sender, EventArgs e)
         {
-
+            txt_Dni.MaxLength = 8;
             if (cantidadPasajeros >= 2)
             {
                 pic_PasajeroDos.Visible = true;

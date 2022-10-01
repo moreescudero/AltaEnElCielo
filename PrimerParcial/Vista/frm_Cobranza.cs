@@ -63,7 +63,6 @@ namespace Vista
 
         private void cmb_Provincias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txt_Calle.Clear();
             LimpiarDomicilio();
         }
 
@@ -79,10 +78,11 @@ namespace Vista
             }
         }
 
-        private void cmb_Cuotas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //pagoElegido = ver como fijarse que es lo que se selecciono por index
-        }
+        //private void cmb_Cuotas_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    //pagoElegido = ver como fijarse que es lo que se selecciono por index
+
+        //}
 
         //botones
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -95,6 +95,21 @@ namespace Vista
             foreach (Pasajero pasajero in pasajeros)
             {
                 pasajero.MedioDePago = cmb_MedioDePago.Text;
+            }
+            if (cmb_MedioDePago.Text == "Efectivo")
+            {
+                Aerolinea.gananciaEfectivo += total;
+            }
+            else
+            {
+                if (cmb_MedioDePago.Text == "Tarjeta de crédito")
+                {
+                    Aerolinea.gananciaCredito += total;
+                }
+                else
+                {
+                    Aerolinea.gananciaDebito += total;
+                }
             }
             this.DialogResult = DialogResult.OK;
         }
@@ -122,7 +137,8 @@ namespace Vista
             lbl_VencimientoONumero.Text = "Vencimiento:";
             lbl_Numero.Text = "Numero de la tarjeta:";
             lbl_Titular.Text = "Titular de la tarjeta:";
-
+            txt_VencimientoMesONumero.MaxLength = 2;
+            txt_VencimientoAñoOPiso.MaxLength = 4;
         }
 
         private void MostrarEfectivo()
@@ -140,7 +156,10 @@ namespace Vista
             cmb_SituacionFiscal.Visible = true;
             cmb_Provincias.Visible = true;
             txt_Calle.Visible = true;
-
+            txt_CodSeguridadODepto.Enabled = true;
+            txt_VencimientoMesONumero.MaxLength = 6;
+            txt_VencimientoAñoOPiso.MaxLength = 3;
+            
             CargarProvincias();
         }
 
@@ -193,6 +212,7 @@ namespace Vista
             txt_CodSeguridadODepto.Clear();
             txt_VencimientoMesONumero.Clear();
             txt_DocumentoOCiudad.Clear();
+            txt_Calle.Clear();
         }
 
         private void Limpiar()
@@ -259,20 +279,28 @@ namespace Vista
         private void txt_Numero_KeyPress(object sender, KeyPressEventArgs e)
         {
             ProhibirLetras(e);
-            if (cmb_MedioDePago.SelectedIndex != 2 && txt_Numero.Text != String.Empty)
+            if (txt_Numero.Text != String.Empty)
             {
-                char[] auxiliarNumero = txt_Numero.Text.ToCharArray();
-                if (auxiliarNumero[0] == '4')
+                if (cmb_MedioDePago.SelectedIndex != 2)
                 {
-                    lbl_Acavaunaimagenowo.Text = "visa";
+                    txt_Numero.MaxLength = 16;
+                    char[] auxiliarNumero = txt_Numero.Text.ToCharArray();
+                    if (auxiliarNumero[0] == '4')
+                    {
+                        lbl_Acavaunaimagenowo.Text = "visa";
+                    }
+                    else if (auxiliarNumero[0] == '5')
+                    {
+                        lbl_Acavaunaimagenowo.Text = "mastercard";
+                    }
+                    else if (auxiliarNumero[0] == '3')
+                    {
+                        lbl_Acavaunaimagenowo.Text = "amex";
+                    }
                 }
-                else if (auxiliarNumero[0] == '5')
+                else
                 {
-                    lbl_Acavaunaimagenowo.Text = "mastercard";
-                }
-                else if (auxiliarNumero[0] == '3')
-                {
-                    lbl_Acavaunaimagenowo.Text = "amex";
+                    txt_Numero.MaxLength = 11;
                 }
             }
         }
@@ -287,10 +315,12 @@ namespace Vista
             if(lbl_DocumentoOCiudad.Text == "Documento:")
             {
                 ProhibirLetras(e);
+                txt_DocumentoOCiudad.MaxLength = 8;
             }
             else
             {
                 ProhibirNumeros(e);
+                txt_DocumentoOCiudad.MaxLength = 30;
             }
         }
 
@@ -302,7 +332,7 @@ namespace Vista
         {
             if (txt_VencimientoMesONumero.Text != String.Empty)
             {
-                if (int.Parse(txt_VencimientoMesONumero.Text) >= 32 && lbl_VencimientoONumero.Text == "Vencimiento:")
+                if (lbl_VencimientoONumero.Text == "Vencimiento:" && int.Parse(txt_VencimientoMesONumero.Text) >= 13)
                 {
                     txt_VencimientoMesONumero.Clear();
                 }
