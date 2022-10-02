@@ -73,9 +73,49 @@ namespace Vista.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cielo_dia {
+            get {
+                object obj = ResourceManager.GetObject("cielo dia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cielo_noche {
+            get {
+                object obj = ResourceManager.GetObject("cielo noche", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cielo_tarde {
+            get {
+                object obj = ResourceManager.GetObject("cielo tarde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mastercard_logo {
             get {
                 object obj = ResourceManager.GetObject("mastercard logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_avatar {
+            get {
+                object obj = ResourceManager.GetObject("profile-avatar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

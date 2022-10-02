@@ -74,7 +74,7 @@ namespace Biblioteca
             this.listaPasajeros = listaPasajeros;
             this.llegada = llegada;
             this.duracion = duracion;
-            this.recaudado = Aerolinea.CalcularRecaudado();
+            this.recaudado = Aerolinea.CalcularRecaudado(listaPasajeros);
             this.asientosTuristaDisponibles = asientosTuristaDisponibles;
             this.asientosPremiumDisponibles = asientosPremiumDisponibles;
             this.disponible = disponible;

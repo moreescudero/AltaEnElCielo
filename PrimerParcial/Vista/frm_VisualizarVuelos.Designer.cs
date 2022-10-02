@@ -70,7 +70,7 @@
             // 
             // btn_Salir
             // 
-            this.btn_Salir.Location = new System.Drawing.Point(275, 395);
+            this.btn_Salir.Location = new System.Drawing.Point(276, 355);
             this.btn_Salir.Name = "btn_Salir";
             this.btn_Salir.Size = new System.Drawing.Size(113, 23);
             this.btn_Salir.TabIndex = 0;
@@ -80,7 +80,7 @@
             // 
             // btn_AgregarVuelo
             // 
-            this.btn_AgregarVuelo.Location = new System.Drawing.Point(394, 395);
+            this.btn_AgregarVuelo.Location = new System.Drawing.Point(395, 355);
             this.btn_AgregarVuelo.Name = "btn_AgregarVuelo";
             this.btn_AgregarVuelo.Size = new System.Drawing.Size(113, 23);
             this.btn_AgregarVuelo.TabIndex = 2;
@@ -119,7 +119,7 @@
             this.dgv_VisualizarVuelos.Name = "dgv_VisualizarVuelos";
             this.dgv_VisualizarVuelos.ReadOnly = true;
             this.dgv_VisualizarVuelos.RowTemplate.Height = 25;
-            this.dgv_VisualizarVuelos.Size = new System.Drawing.Size(872, 282);
+            this.dgv_VisualizarVuelos.Size = new System.Drawing.Size(872, 262);
             this.dgv_VisualizarVuelos.TabIndex = 4;
             this.dgv_VisualizarVuelos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_VisualizarVuelos_RowHeaderMouseClick);
             // 
@@ -217,7 +217,7 @@
             // btn_VerPasajeros
             // 
             this.btn_VerPasajeros.Enabled = false;
-            this.btn_VerPasajeros.Location = new System.Drawing.Point(513, 395);
+            this.btn_VerPasajeros.Location = new System.Drawing.Point(514, 355);
             this.btn_VerPasajeros.Name = "btn_VerPasajeros";
             this.btn_VerPasajeros.Size = new System.Drawing.Size(113, 23);
             this.btn_VerPasajeros.TabIndex = 5;
@@ -233,14 +233,14 @@
             this.pnl_VerPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_VerPasajeros.Location = new System.Drawing.Point(0, 0);
             this.pnl_VerPasajeros.Name = "pnl_VerPasajeros";
-            this.pnl_VerPasajeros.Size = new System.Drawing.Size(896, 441);
+            this.pnl_VerPasajeros.Size = new System.Drawing.Size(896, 390);
             this.pnl_VerPasajeros.TabIndex = 6;
             this.pnl_VerPasajeros.Visible = false;
             this.pnl_VerPasajeros.VisibleChanged += new System.EventHandler(this.pnl_VerPasajeros_VisibleChanged);
             // 
             // btn_Volver
             // 
-            this.btn_Volver.Location = new System.Drawing.Point(394, 395);
+            this.btn_Volver.Location = new System.Drawing.Point(395, 355);
             this.btn_Volver.Name = "btn_Volver";
             this.btn_Volver.Size = new System.Drawing.Size(113, 23);
             this.btn_Volver.TabIndex = 1;
@@ -271,7 +271,7 @@
             this.dgv_Pasajeros.Name = "dgv_Pasajeros";
             this.dgv_Pasajeros.ReadOnly = true;
             this.dgv_Pasajeros.RowTemplate.Height = 25;
-            this.dgv_Pasajeros.Size = new System.Drawing.Size(872, 282);
+            this.dgv_Pasajeros.Size = new System.Drawing.Size(872, 262);
             this.dgv_Pasajeros.TabIndex = 0;
             this.tip_Ayuda.SetToolTip(this.dgv_Pasajeros, "Pasajeros del vuelo");
             // 
@@ -339,7 +339,7 @@
             // 
             this.lbl_AgregarVueloCancelado.AutoSize = true;
             this.lbl_AgregarVueloCancelado.ForeColor = System.Drawing.Color.Maroon;
-            this.lbl_AgregarVueloCancelado.Location = new System.Drawing.Point(775, 353);
+            this.lbl_AgregarVueloCancelado.Location = new System.Drawing.Point(775, 333);
             this.lbl_AgregarVueloCancelado.Name = "lbl_AgregarVueloCancelado";
             this.lbl_AgregarVueloCancelado.Size = new System.Drawing.Size(109, 15);
             this.lbl_AgregarVueloCancelado.TabIndex = 7;
@@ -351,7 +351,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Salir;
-            this.ClientSize = new System.Drawing.Size(896, 441);
+            this.ClientSize = new System.Drawing.Size(896, 390);
             this.ControlBox = false;
             this.Controls.Add(this.pnl_VerPasajeros);
             this.Controls.Add(this.btn_VerPasajeros);

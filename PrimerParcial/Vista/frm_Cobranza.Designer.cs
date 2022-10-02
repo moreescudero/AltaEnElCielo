@@ -56,6 +56,7 @@
             this.lbl_Calle = new System.Windows.Forms.Label();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             this.pic_LogoTarjeta = new System.Windows.Forms.PictureBox();
+            this.lbl_VerificarErrores = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LogoTarjeta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +84,7 @@
             // lbl_Numero
             // 
             this.lbl_Numero.AutoSize = true;
+            this.lbl_Numero.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Numero.Location = new System.Drawing.Point(47, 158);
             this.lbl_Numero.Name = "lbl_Numero";
             this.lbl_Numero.Size = new System.Drawing.Size(0, 15);
@@ -109,6 +111,7 @@
             // lbl_VencimientoONumero
             // 
             this.lbl_VencimientoONumero.AutoSize = true;
+            this.lbl_VencimientoONumero.BackColor = System.Drawing.Color.Transparent;
             this.lbl_VencimientoONumero.Location = new System.Drawing.Point(420, 222);
             this.lbl_VencimientoONumero.Name = "lbl_VencimientoONumero";
             this.lbl_VencimientoONumero.Size = new System.Drawing.Size(0, 15);
@@ -117,6 +120,7 @@
             // lbl_Titular
             // 
             this.lbl_Titular.AutoSize = true;
+            this.lbl_Titular.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Titular.Location = new System.Drawing.Point(47, 222);
             this.lbl_Titular.Name = "lbl_Titular";
             this.lbl_Titular.Size = new System.Drawing.Size(0, 15);
@@ -126,7 +130,6 @@
             // 
             this.txt_VencimientoMesONumero.Location = new System.Drawing.Point(430, 240);
             this.txt_VencimientoMesONumero.Name = "txt_VencimientoMesONumero";
-            this.txt_VencimientoMesONumero.PlaceholderText = "mm";
             this.txt_VencimientoMesONumero.Size = new System.Drawing.Size(43, 23);
             this.txt_VencimientoMesONumero.TabIndex = 8;
             this.txt_VencimientoMesONumero.Visible = false;
@@ -155,6 +158,7 @@
             // lbl_CodSeguridadODepto
             // 
             this.lbl_CodSeguridadODepto.AutoSize = true;
+            this.lbl_CodSeguridadODepto.BackColor = System.Drawing.Color.Transparent;
             this.lbl_CodSeguridadODepto.Location = new System.Drawing.Point(591, 222);
             this.lbl_CodSeguridadODepto.Name = "lbl_CodSeguridadODepto";
             this.lbl_CodSeguridadODepto.Size = new System.Drawing.Size(0, 15);
@@ -174,6 +178,7 @@
             // lbl_Cuotas
             // 
             this.lbl_Cuotas.AutoSize = true;
+            this.lbl_Cuotas.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Cuotas.Location = new System.Drawing.Point(47, 324);
             this.lbl_Cuotas.Name = "lbl_Cuotas";
             this.lbl_Cuotas.Size = new System.Drawing.Size(181, 15);
@@ -210,6 +215,7 @@
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 17;
             this.btn_Cancelar.Text = "Cancelar";
+            this.tip_Ayuda.SetToolTip(this.btn_Cancelar, "Volver al menu principal\r\n");
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
@@ -220,6 +226,8 @@
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 18;
             this.btn_Aceptar.Text = "Aceptar";
+            this.tip_Ayuda.SetToolTip(this.btn_Aceptar, "Para poder aceptar se necesita que todos los datos\r\nesten completados y en el for" +
+        "mato correcto");
             this.btn_Aceptar.UseVisualStyleBackColor = true;
             this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
             // 
@@ -248,6 +256,7 @@
             // lbl_Provincias
             // 
             this.lbl_Provincias.AutoSize = true;
+            this.lbl_Provincias.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Provincias.Location = new System.Drawing.Point(259, 101);
             this.lbl_Provincias.Name = "lbl_Provincias";
             this.lbl_Provincias.Size = new System.Drawing.Size(64, 15);
@@ -258,6 +267,7 @@
             // lbl_Barra
             // 
             this.lbl_Barra.AutoSize = true;
+            this.lbl_Barra.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Barra.Location = new System.Drawing.Point(489, 243);
             this.lbl_Barra.Name = "lbl_Barra";
             this.lbl_Barra.Size = new System.Drawing.Size(12, 15);
@@ -269,7 +279,6 @@
             // 
             this.txt_VencimientoAñoOPiso.Location = new System.Drawing.Point(516, 240);
             this.txt_VencimientoAñoOPiso.Name = "txt_VencimientoAñoOPiso";
-            this.txt_VencimientoAñoOPiso.PlaceholderText = "aa";
             this.txt_VencimientoAñoOPiso.Size = new System.Drawing.Size(43, 23);
             this.txt_VencimientoAñoOPiso.TabIndex = 11;
             this.txt_VencimientoAñoOPiso.Visible = false;
@@ -279,6 +288,7 @@
             // lbl_Piso
             // 
             this.lbl_Piso.AutoSize = true;
+            this.lbl_Piso.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Piso.Location = new System.Drawing.Point(516, 222);
             this.lbl_Piso.Name = "lbl_Piso";
             this.lbl_Piso.Size = new System.Drawing.Size(32, 15);
@@ -297,6 +307,7 @@
             // lbl_Calle
             // 
             this.lbl_Calle.AutoSize = true;
+            this.lbl_Calle.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Calle.Location = new System.Drawing.Point(489, 101);
             this.lbl_Calle.Name = "lbl_Calle";
             this.lbl_Calle.Size = new System.Drawing.Size(36, 15);
@@ -316,6 +327,15 @@
             this.pic_LogoTarjeta.TabStop = false;
             this.pic_LogoTarjeta.Visible = false;
             // 
+            // lbl_VerificarErrores
+            // 
+            this.lbl_VerificarErrores.AutoSize = true;
+            this.lbl_VerificarErrores.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_VerificarErrores.Location = new System.Drawing.Point(234, 357);
+            this.lbl_VerificarErrores.Name = "lbl_VerificarErrores";
+            this.lbl_VerificarErrores.Size = new System.Drawing.Size(0, 15);
+            this.lbl_VerificarErrores.TabIndex = 26;
+            // 
             // frm_Cobranza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -323,6 +343,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(715, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_VerificarErrores);
             this.Controls.Add(this.pic_LogoTarjeta);
             this.Controls.Add(this.lbl_Calle);
             this.Controls.Add(this.txt_Calle);
@@ -389,5 +410,6 @@
         private Label lbl_Calle;
         private ToolTip tip_Ayuda;
         private PictureBox pic_LogoTarjeta;
+        private Label lbl_VerificarErrores;
     }
 }

@@ -40,6 +40,8 @@ namespace Vista
             cmb_SituacionFiscal.Items.Add("IVA excento");
             cmb_SituacionFiscal.Items.Add("Monotributista");
             cmb_SituacionFiscal.Items.Add("Responsable inscripto");
+
+            ActualizarBackgroundImage();
         }
 
         //cmb 
@@ -93,29 +95,33 @@ namespace Vista
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
-            foreach (Pasajero pasajero in pasajeros)
+            if (FormCompleto())
             {
-                pasajero.MedioDePago = cmb_MedioDePago.Text;
-            }
-            if (cmb_MedioDePago.Text == "Efectivo")
-            {
-                Aerolinea.gananciaEfectivo += total;
-            }
-            else
-            {
-                if (cmb_MedioDePago.Text == "Tarjeta de crédito")
+                lbl_VerificarErrores.Text = "";
+                foreach (Pasajero pasajero in pasajeros)
                 {
-                    Aerolinea.gananciaCredito += total;
+                    pasajero.MedioDePago = cmb_MedioDePago.Text;
+                }
+                if (cmb_MedioDePago.Text == "Efectivo")
+                {
+                    Aerolinea.gananciaEfectivo += total;
                 }
                 else
                 {
-                    Aerolinea.gananciaDebito += total;
+                    if (cmb_MedioDePago.Text == "Tarjeta de crédito")
+                    {
+                        Aerolinea.gananciaCredito += total;
+                    }
+                    else
+                    {
+                        Aerolinea.gananciaDebito += total;
+                    }
                 }
-            }
-
-            if (FormCompleto())
-            {
                 this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                lbl_VerificarErrores.Text = "Hay datos incorrectos";
             }
         }
 
@@ -172,6 +178,9 @@ namespace Vista
             lbl_Titular.Text = "Titular de la tarjeta:";
             txt_VencimientoMesONumero.MaxLength = 2;
             txt_VencimientoAñoOPiso.MaxLength = 4;
+
+            txt_VencimientoMesONumero.PlaceholderText = "mm";
+            txt_VencimientoAñoOPiso.PlaceholderText = "aaaa";
         }
 
         private void MostrarEfectivo()
@@ -193,6 +202,9 @@ namespace Vista
             txt_VencimientoMesONumero.MaxLength = 6;
             txt_VencimientoAñoOPiso.MaxLength = 3;
             pic_LogoTarjeta.Visible = false;
+
+            txt_VencimientoMesONumero.PlaceholderText = "";
+            txt_VencimientoAñoOPiso.PlaceholderText = "";
 
             CargarProvincias();
         }
@@ -264,7 +276,6 @@ namespace Vista
         {
             cmb_Cuotas.Items.Clear();
             cmb_Cuotas.Items.Add("1 cuota de $" + total);
-            //pagoElegido = total;
             txt_CodSeguridadODepto.MaxLength = 3;
 
             if (tarjeta == "amex")
@@ -292,6 +303,30 @@ namespace Vista
 
             cmb_Cuotas.Items.Add("12 cuotas de $" + total / 12);
         }
+        private void ActualizarBackgroundImage()
+        {
+            DateTime tiempo = DateTime.Now;
+            //DateTime tiempo = DateTime.Parse("23:00:00");
+            DateTime amanecer = DateTime.Parse("06:25:00");
+            DateTime tarde = DateTime.Parse("16:50:00");
+            DateTime noche = DateTime.Parse("18:57:00");
+            if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
+            {
+                this.BackgroundImage = Resources.cielo_noche;
+            }
+            else
+            {
+                if (tiempo.CompareTo(tarde) > 0)
+                {
+                    this.BackgroundImage = Resources.cielo_tarde;
+                }
+                else
+                {
+                    this.BackgroundImage = Resources.cielo_dia;
+                }
+            }
+        }
+
 
         //txt
         private void ProhibirNumeros(KeyPressEventArgs e)

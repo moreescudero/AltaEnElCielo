@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Properties;
 
 namespace Vista
 {
@@ -29,7 +30,7 @@ namespace Vista
             lbl_Bienvenido.Text = "Usuario: " + usuario.Usuario;
             tmr_Fondo.Start();
             SetHora();
-            SetBackgroundImage();
+            ActualizarBackgroundImage();
         }
         private void btn_CerrarSesion_Click(object sender, EventArgs e)
         {
@@ -46,26 +47,26 @@ namespace Vista
             lbl_HoraActual.Text = DateTime.Now.ToShortDateString();
         }
 
-        private void SetBackgroundImage()
+        private void ActualizarBackgroundImage()
         {
             DateTime tiempo = DateTime.Now;
             //DateTime tiempo = DateTime.Parse("23:00:00");
-            DateTime amanecer = DateTime.Parse("06:55:00");
-            DateTime tarde = DateTime.Parse("16:30:00");
-            DateTime noche = DateTime.Parse("18:30:00");
+            DateTime amanecer = DateTime.Parse("06:25:00");
+            DateTime tarde = DateTime.Parse("16:50:00");
+            DateTime noche = DateTime.Parse("18:57:00");
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
-                this.BackgroundImage = Image.FromFile(@"C:\Users\more\Pictures\Cielo noche.jpg");
+                this.BackgroundImage = Resources.cielo_noche;
             }
             else
             {
                 if (tiempo.CompareTo(tarde) > 0)
                 {
-                    this.BackgroundImage = Image.FromFile(@"C:\Users\more\Pictures\Cielo tarde.jpg");
+                    this.BackgroundImage = Resources.cielo_tarde;
                 }
                 else
                 {
-                    this.BackgroundImage = Image.FromFile(@"C:\Users\more\Pictures\Cielo dia.jpg");
+                    this.BackgroundImage = Resources.cielo_dia;
                 }
             }
         }
@@ -73,7 +74,7 @@ namespace Vista
         private void timer1_Tick(object sender, EventArgs e)
         {
             SetHora();
-            SetBackgroundImage();
+            ActualizarBackgroundImage();
         }
 
         private void pic_Vender_Click(object sender, EventArgs e)

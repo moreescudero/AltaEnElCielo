@@ -66,7 +66,7 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(276, 379);
+            this.btn_Cancelar.Location = new System.Drawing.Point(276, 355);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 29;
@@ -76,7 +76,7 @@
             // btn_Aceptar
             // 
             this.btn_Aceptar.Enabled = false;
-            this.btn_Aceptar.Location = new System.Drawing.Point(455, 379);
+            this.btn_Aceptar.Location = new System.Drawing.Point(455, 355);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 28;
@@ -88,7 +88,7 @@
             // 
             this.lbl_Fechas.AutoSize = true;
             this.lbl_Fechas.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Fechas.Location = new System.Drawing.Point(211, 200);
+            this.lbl_Fechas.Location = new System.Drawing.Point(211, 170);
             this.lbl_Fechas.Name = "lbl_Fechas";
             this.lbl_Fechas.Size = new System.Drawing.Size(66, 15);
             this.lbl_Fechas.TabIndex = 26;
@@ -141,7 +141,7 @@
             // cdr_Salida
             // 
             this.cdr_Salida.BackColor = System.Drawing.SystemColors.Window;
-            this.cdr_Salida.Location = new System.Drawing.Point(289, 200);
+            this.cdr_Salida.Location = new System.Drawing.Point(289, 170);
             this.cdr_Salida.MaxDate = new System.DateTime(2024, 9, 30, 0, 0, 0, 0);
             this.cdr_Salida.MaxSelectionCount = 1;
             this.cdr_Salida.MinDate = new System.DateTime(2022, 9, 15, 0, 0, 0, 0);
@@ -222,7 +222,7 @@
             // btn_Continuar
             // 
             this.btn_Continuar.Enabled = false;
-            this.btn_Continuar.Location = new System.Drawing.Point(365, 379);
+            this.btn_Continuar.Location = new System.Drawing.Point(365, 355);
             this.btn_Continuar.Name = "btn_Continuar";
             this.btn_Continuar.Size = new System.Drawing.Size(75, 23);
             this.btn_Continuar.TabIndex = 33;
@@ -344,7 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btn_Cancelar;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 390);
             this.ControlBox = false;
             this.Controls.Add(this.lbl_DenegarAgregarVuelo);
             this.Controls.Add(this.btn_Continuar);

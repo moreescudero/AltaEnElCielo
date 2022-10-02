@@ -93,6 +93,7 @@
             // lbl_Equipaje
             // 
             this.lbl_Equipaje.AutoSize = true;
+            this.lbl_Equipaje.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Equipaje.Location = new System.Drawing.Point(515, 118);
             this.lbl_Equipaje.Name = "lbl_Equipaje";
             this.lbl_Equipaje.Size = new System.Drawing.Size(55, 15);
@@ -102,6 +103,7 @@
             // lbl_Edad
             // 
             this.lbl_Edad.AutoSize = true;
+            this.lbl_Edad.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Edad.Location = new System.Drawing.Point(236, 203);
             this.lbl_Edad.Name = "lbl_Edad";
             this.lbl_Edad.Size = new System.Drawing.Size(36, 15);
@@ -168,6 +170,7 @@
             // txt_Edad
             // 
             this.txt_Edad.Location = new System.Drawing.Point(349, 200);
+            this.txt_Edad.MaxLength = 3;
             this.txt_Edad.Name = "txt_Edad";
             this.txt_Edad.Size = new System.Drawing.Size(100, 23);
             this.txt_Edad.TabIndex = 9;
@@ -178,6 +181,7 @@
             // lbl_CantEquipaje
             // 
             this.lbl_CantEquipaje.AutoSize = true;
+            this.lbl_CantEquipaje.BackColor = System.Drawing.Color.Transparent;
             this.lbl_CantEquipaje.Location = new System.Drawing.Point(515, 74);
             this.lbl_CantEquipaje.Name = "lbl_CantEquipaje";
             this.lbl_CantEquipaje.Size = new System.Drawing.Size(106, 15);
@@ -204,7 +208,7 @@
             // 
             this.lbl_Clase.AutoSize = true;
             this.lbl_Clase.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Clase.Location = new System.Drawing.Point(12, 402);
+            this.lbl_Clase.Location = new System.Drawing.Point(12, 355);
             this.lbl_Clase.Name = "lbl_Clase";
             this.lbl_Clase.Size = new System.Drawing.Size(109, 15);
             this.lbl_Clase.TabIndex = 13;
@@ -213,7 +217,8 @@
             // lbl_Menu
             // 
             this.lbl_Menu.AutoSize = true;
-            this.lbl_Menu.Location = new System.Drawing.Point(237, 253);
+            this.lbl_Menu.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Menu.Location = new System.Drawing.Point(515, 203);
             this.lbl_Menu.Name = "lbl_Menu";
             this.lbl_Menu.Size = new System.Drawing.Size(99, 15);
             this.lbl_Menu.TabIndex = 18;
@@ -221,7 +226,7 @@
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Location = new System.Drawing.Point(654, 398);
+            this.btn_Aceptar.Location = new System.Drawing.Point(657, 355);
             this.btn_Aceptar.Name = "btn_Aceptar";
             this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
             this.btn_Aceptar.TabIndex = 20;
@@ -231,7 +236,7 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(530, 398);
+            this.btn_Cancelar.Location = new System.Drawing.Point(533, 355);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancelar.TabIndex = 21;
@@ -242,7 +247,8 @@
             // lbl_Subtotal
             // 
             this.lbl_Subtotal.AutoSize = true;
-            this.lbl_Subtotal.Location = new System.Drawing.Point(235, 306);
+            this.lbl_Subtotal.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Subtotal.Location = new System.Drawing.Point(234, 257);
             this.lbl_Subtotal.Name = "lbl_Subtotal";
             this.lbl_Subtotal.Size = new System.Drawing.Size(0, 15);
             this.lbl_Subtotal.TabIndex = 22;
@@ -250,7 +256,8 @@
             // lbl_Total
             // 
             this.lbl_Total.AutoSize = true;
-            this.lbl_Total.Location = new System.Drawing.Point(237, 426);
+            this.lbl_Total.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Total.Location = new System.Drawing.Point(236, 363);
             this.lbl_Total.Name = "lbl_Total";
             this.lbl_Total.Size = new System.Drawing.Size(0, 15);
             this.lbl_Total.TabIndex = 23;
@@ -273,10 +280,11 @@
             // 
             // pic_PasajeroUno
             // 
+            this.pic_PasajeroUno.BackColor = System.Drawing.Color.Transparent;
             this.pic_PasajeroUno.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pic_PasajeroUno.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroUno.Image")));
             this.pic_PasajeroUno.InitialImage = null;
-            this.pic_PasajeroUno.Location = new System.Drawing.Point(34, 51);
+            this.pic_PasajeroUno.Location = new System.Drawing.Point(30, 38);
             this.pic_PasajeroUno.Name = "pic_PasajeroUno";
             this.pic_PasajeroUno.Size = new System.Drawing.Size(61, 57);
             this.pic_PasajeroUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -287,11 +295,12 @@
             // 
             // pic_PasajeroCuatro
             // 
+            this.pic_PasajeroCuatro.BackColor = System.Drawing.Color.Transparent;
             this.pic_PasajeroCuatro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pic_PasajeroCuatro.Enabled = false;
             this.pic_PasajeroCuatro.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroCuatro.Image")));
             this.pic_PasajeroCuatro.InitialImage = null;
-            this.pic_PasajeroCuatro.Location = new System.Drawing.Point(34, 307);
+            this.pic_PasajeroCuatro.Location = new System.Drawing.Point(30, 294);
             this.pic_PasajeroCuatro.Name = "pic_PasajeroCuatro";
             this.pic_PasajeroCuatro.Size = new System.Drawing.Size(61, 57);
             this.pic_PasajeroCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -303,11 +312,12 @@
             // 
             // pic_PasajeroTres
             // 
+            this.pic_PasajeroTres.BackColor = System.Drawing.Color.Transparent;
             this.pic_PasajeroTres.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pic_PasajeroTres.Enabled = false;
             this.pic_PasajeroTres.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroTres.Image")));
             this.pic_PasajeroTres.InitialImage = null;
-            this.pic_PasajeroTres.Location = new System.Drawing.Point(34, 222);
+            this.pic_PasajeroTres.Location = new System.Drawing.Point(30, 209);
             this.pic_PasajeroTres.Name = "pic_PasajeroTres";
             this.pic_PasajeroTres.Size = new System.Drawing.Size(61, 57);
             this.pic_PasajeroTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -320,11 +330,12 @@
             // 
             // pic_PasajeroDos
             // 
+            this.pic_PasajeroDos.BackColor = System.Drawing.Color.Transparent;
             this.pic_PasajeroDos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pic_PasajeroDos.Enabled = false;
             this.pic_PasajeroDos.Image = ((System.Drawing.Image)(resources.GetObject("pic_PasajeroDos.Image")));
             this.pic_PasajeroDos.InitialImage = null;
-            this.pic_PasajeroDos.Location = new System.Drawing.Point(34, 137);
+            this.pic_PasajeroDos.Location = new System.Drawing.Point(30, 124);
             this.pic_PasajeroDos.Name = "pic_PasajeroDos";
             this.pic_PasajeroDos.Size = new System.Drawing.Size(61, 57);
             this.pic_PasajeroDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,7 +349,8 @@
             // lbl_BonificacionPorEdad
             // 
             this.lbl_BonificacionPorEdad.AutoSize = true;
-            this.lbl_BonificacionPorEdad.Location = new System.Drawing.Point(237, 369);
+            this.lbl_BonificacionPorEdad.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_BonificacionPorEdad.Location = new System.Drawing.Point(236, 320);
             this.lbl_BonificacionPorEdad.Name = "lbl_BonificacionPorEdad";
             this.lbl_BonificacionPorEdad.Size = new System.Drawing.Size(0, 15);
             this.lbl_BonificacionPorEdad.TabIndex = 29;
@@ -346,6 +358,7 @@
             // lbl_ComoGuardar
             // 
             this.lbl_ComoGuardar.AutoSize = true;
+            this.lbl_ComoGuardar.BackColor = System.Drawing.Color.Transparent;
             this.lbl_ComoGuardar.Location = new System.Drawing.Point(12, 9);
             this.lbl_ComoGuardar.Name = "lbl_ComoGuardar";
             this.lbl_ComoGuardar.Size = new System.Drawing.Size(0, 15);
@@ -355,7 +368,7 @@
             // 
             this.pic_ElegirUno.BackColor = System.Drawing.Color.Transparent;
             this.pic_ElegirUno.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirUno.Image")));
-            this.pic_ElegirUno.Location = new System.Drawing.Point(114, 70);
+            this.pic_ElegirUno.Location = new System.Drawing.Point(110, 57);
             this.pic_ElegirUno.Name = "pic_ElegirUno";
             this.pic_ElegirUno.Size = new System.Drawing.Size(20, 24);
             this.pic_ElegirUno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -366,7 +379,7 @@
             // 
             this.pic_ElegirDos.BackColor = System.Drawing.Color.Transparent;
             this.pic_ElegirDos.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirDos.Image")));
-            this.pic_ElegirDos.Location = new System.Drawing.Point(114, 155);
+            this.pic_ElegirDos.Location = new System.Drawing.Point(110, 142);
             this.pic_ElegirDos.Name = "pic_ElegirDos";
             this.pic_ElegirDos.Size = new System.Drawing.Size(20, 24);
             this.pic_ElegirDos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -378,7 +391,7 @@
             // 
             this.pic_ElegirTres.BackColor = System.Drawing.Color.Transparent;
             this.pic_ElegirTres.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirTres.Image")));
-            this.pic_ElegirTres.Location = new System.Drawing.Point(114, 235);
+            this.pic_ElegirTres.Location = new System.Drawing.Point(110, 222);
             this.pic_ElegirTres.Name = "pic_ElegirTres";
             this.pic_ElegirTres.Size = new System.Drawing.Size(20, 24);
             this.pic_ElegirTres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -390,7 +403,7 @@
             // 
             this.pic_ElegirCuatro.BackColor = System.Drawing.Color.Transparent;
             this.pic_ElegirCuatro.Image = ((System.Drawing.Image)(resources.GetObject("pic_ElegirCuatro.Image")));
-            this.pic_ElegirCuatro.Location = new System.Drawing.Point(114, 325);
+            this.pic_ElegirCuatro.Location = new System.Drawing.Point(110, 312);
             this.pic_ElegirCuatro.Name = "pic_ElegirCuatro";
             this.pic_ElegirCuatro.Size = new System.Drawing.Size(20, 24);
             this.pic_ElegirCuatro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -400,7 +413,7 @@
             // 
             // btn_CargarPasajero
             // 
-            this.btn_CargarPasajero.Location = new System.Drawing.Point(575, 369);
+            this.btn_CargarPasajero.Location = new System.Drawing.Point(578, 326);
             this.btn_CargarPasajero.Name = "btn_CargarPasajero";
             this.btn_CargarPasajero.Size = new System.Drawing.Size(116, 23);
             this.btn_CargarPasajero.TabIndex = 35;
@@ -411,7 +424,8 @@
             // lbl_EstadoCargaPasajero
             // 
             this.lbl_EstadoCargaPasajero.AutoSize = true;
-            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(515, 349);
+            this.lbl_EstadoCargaPasajero.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(514, 305);
             this.lbl_EstadoCargaPasajero.Name = "lbl_EstadoCargaPasajero";
             this.lbl_EstadoCargaPasajero.Size = new System.Drawing.Size(0, 15);
             this.lbl_EstadoCargaPasajero.TabIndex = 36;
@@ -419,7 +433,7 @@
             // lbl_ErrorAlAceptar
             // 
             this.lbl_ErrorAlAceptar.AutoSize = true;
-            this.lbl_ErrorAlAceptar.Location = new System.Drawing.Point(530, 426);
+            this.lbl_ErrorAlAceptar.Location = new System.Drawing.Point(533, 383);
             this.lbl_ErrorAlAceptar.Name = "lbl_ErrorAlAceptar";
             this.lbl_ErrorAlAceptar.Size = new System.Drawing.Size(0, 15);
             this.lbl_ErrorAlAceptar.TabIndex = 37;
@@ -428,25 +442,27 @@
             // 
             this.cmb_Menu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Menu.FormattingEnabled = true;
-            this.cmb_Menu.Location = new System.Drawing.Point(349, 250);
+            this.cmb_Menu.Location = new System.Drawing.Point(627, 200);
             this.cmb_Menu.Name = "cmb_Menu";
-            this.cmb_Menu.Size = new System.Drawing.Size(141, 23);
+            this.cmb_Menu.Size = new System.Drawing.Size(113, 23);
             this.cmb_Menu.TabIndex = 38;
             // 
             // chk_BolsoMano
             // 
             this.chk_BolsoMano.AutoSize = true;
+            this.chk_BolsoMano.BackColor = System.Drawing.Color.Transparent;
             this.chk_BolsoMano.Location = new System.Drawing.Point(628, 155);
             this.chk_BolsoMano.Name = "chk_BolsoMano";
             this.chk_BolsoMano.Size = new System.Drawing.Size(105, 19);
             this.chk_BolsoMano.TabIndex = 39;
             this.chk_BolsoMano.Text = "Bolso de mano";
-            this.chk_BolsoMano.UseVisualStyleBackColor = true;
+            this.chk_BolsoMano.UseVisualStyleBackColor = false;
             // 
             // lbl_Iva
             // 
             this.lbl_Iva.AutoSize = true;
-            this.lbl_Iva.Location = new System.Drawing.Point(236, 334);
+            this.lbl_Iva.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Iva.Location = new System.Drawing.Point(235, 285);
             this.lbl_Iva.Name = "lbl_Iva";
             this.lbl_Iva.Size = new System.Drawing.Size(0, 15);
             this.lbl_Iva.TabIndex = 40;
@@ -454,6 +470,7 @@
             // lbl_EquipajeBodega
             // 
             this.lbl_EquipajeBodega.AutoSize = true;
+            this.lbl_EquipajeBodega.BackColor = System.Drawing.Color.Transparent;
             this.lbl_EquipajeBodega.Location = new System.Drawing.Point(521, 103);
             this.lbl_EquipajeBodega.Name = "lbl_EquipajeBodega";
             this.lbl_EquipajeBodega.Size = new System.Drawing.Size(209, 15);
@@ -473,7 +490,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btn_Cancelar;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 390);
             this.ControlBox = false;
             this.Controls.Add(this.lbl_EquipajeBodega);
             this.Controls.Add(this.lbl_Iva);

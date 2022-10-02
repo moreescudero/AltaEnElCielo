@@ -108,11 +108,11 @@ namespace Biblioteca
             }
         }
 
-        public static float CalcularRecaudado()
+        public static float CalcularRecaudado(List<Pasajero> lista)
         {
             float recaudacion = 0;
 
-            foreach (Pasajero pasajero in listaPasajeros)
+            foreach (Pasajero pasajero in lista)
             {
                 recaudacion += pasajero.PrecioBoleto;
             }

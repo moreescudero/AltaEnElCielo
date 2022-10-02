@@ -9,6 +9,7 @@ using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Properties;
 
 namespace Vista
 {
@@ -70,6 +71,7 @@ namespace Vista
                 }
             }
             txt_CodigoVuelo.Text = Vuelo.GeneradorCodigoVuelo();
+            ActualizarBackgroundImage();
         }
         
         private void MostrarOrigenDestino()
@@ -204,6 +206,30 @@ namespace Vista
             salida = new DateTime(año, mes, dia, hora, 0, 0);
 
             CargarAvionesDisponibles();
+        }
+
+        private void ActualizarBackgroundImage()
+        {
+            DateTime tiempo = DateTime.Now;
+            //DateTime tiempo = DateTime.Parse("23:00:00");
+            DateTime amanecer = DateTime.Parse("06:25:00");
+            DateTime tarde = DateTime.Parse("16:50:00");
+            DateTime noche = DateTime.Parse("18:57:00");
+            if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
+            {
+                this.BackgroundImage = Resources.cielo_noche;
+            }
+            else
+            {
+                if (tiempo.CompareTo(tarde) > 0)
+                {
+                    this.BackgroundImage = Resources.cielo_tarde;
+                }
+                else
+                {
+                    this.BackgroundImage = Resources.cielo_dia;
+                }
+            }
         }
     }
 }

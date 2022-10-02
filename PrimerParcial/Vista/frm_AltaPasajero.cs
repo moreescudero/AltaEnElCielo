@@ -9,6 +9,7 @@ using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Properties;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
@@ -51,6 +52,7 @@ namespace Vista
 
         private void frm_AltaPasajero_Load(object sender, EventArgs e)
         {
+            ActualizarBackgroundImage();
             txt_Dni.MaxLength = 8;
             if (cantidadPasajeros >= 2)
             {
@@ -251,7 +253,7 @@ namespace Vista
         //mis funciones
         private bool VerificarDatosCompletos()
         {
-            if ((nud_CantEquipaje.Value == 0 || (nud_CantEquipaje.Value > 0 && nud_Equipaje.Value > 0)) && txt_Nombre.Text != String.Empty && txt_Apellido.Text != String.Empty && txt_Edad.Text != String.Empty && txt_Dni.Text != String.Empty && cmb_Menu.Text != String.Empty)
+            if ((nud_CantEquipaje.Value == 0 || (nud_CantEquipaje.Value > 0 && nud_Equipaje.Value > 0)) && txt_Nombre.Text != String.Empty && txt_Apellido.Text != String.Empty && txt_Edad.Text != String.Empty && (txt_Dni.Text.Length == 7 || txt_Dni.Text.Length == 8) && cmb_Menu.Text != String.Empty)
             {
                 lbl_EstadoCargaPasajero.Text = String.Empty;
                 if(int.Parse(txt_Edad.Text) > 18)
@@ -272,12 +274,12 @@ namespace Vista
             if (int.Parse(txt_Edad.Text) <= 2)
             {
                 precioTotal = 0;
-                lbl_BonificacionPorEdad.Text = "Descuento por menor de 2 años aplicado: bonificación 100%";
+                lbl_BonificacionPorEdad.Text = "Descuento por menor de 2 años aplicado:\nbonificación 100%";
             }
             else if (int.Parse(txt_Edad.Text) <= 12)
             {
                 precioTotal *= 0.5f;
-                lbl_BonificacionPorEdad.Text = "Descuento por menor de 12 años aplicado: bonificación 50%";
+                lbl_BonificacionPorEdad.Text = "Descuento por menor de 12 años aplicado:\nbonificación 50%";
             }
         }
        
@@ -404,6 +406,31 @@ namespace Vista
             }
             lbl_EstadoCargaPasajero.Text = String.Empty;
             lbl_BonificacionPorEdad.Text = String.Empty;
+        }
+
+        private void ActualizarBackgroundImage()
+        {
+            DateTime tiempo = DateTime.Now;
+            //DateTime tiempo = DateTime.Parse("23:00:00");
+            DateTime amanecer = DateTime.Parse("06:25:00");
+            DateTime tarde = DateTime.Parse("16:50:00");
+            DateTime noche = DateTime.Parse("18:57:00");
+            if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
+            {
+                this.BackgroundImage = Resources.cielo_noche;
+            }
+            else
+            {
+                if (tiempo.CompareTo(tarde) > 0)
+                {
+                    this.BackgroundImage = Resources.cielo_tarde;
+                }
+                else
+                {
+                    this.BackgroundImage = Resources.cielo_dia;
+                }
+
+            }
         }
 
         //visible changed
