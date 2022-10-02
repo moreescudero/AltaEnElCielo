@@ -50,10 +50,98 @@ según medio de pago, etc.
 
 #### Diagrama de clases:
 
-![imagen](Morena.Escudero.PrimerParcial/Diagrama.jpg)
+![imagen](Morena.Escudero.PrimerParcial/Diagrama.png)
 
 #### Justificación técnica:
 
+##### Clases
 
+Se utilizaron 4 clases de instancia: 
+
+* Vuelo contiene una sobrecarga de constructores. 
+
+* Pasajero 
+
+* Empleado 
+
+* Avion
+
+##### Abstracción
+
+Utilizado en todas las clases teniendo en cuenta solo atributos que serán funcionales para el programa. Como por ejemplo en la clase Empleado, derivada de Persona, 
+podría tener el atributo DNI como lo tiene Pasajero, sin embargo no es esencial saber el DNI de un Empleado para la funcionalidad del programa por lo que se descarta como 
+un posible atributo.
+
+##### Clases y métodos estáticos
+
+Se utilizaron 2 clases estáticas: 
+
+* Hardcodeo: utilizada para la simulación de una base de datos en donde se inicializan datos como literales.
+
+* Aerolinea: se inicializan los datos pre-cargados de la clase Hardcodeo y se realiza la mayoría de las funciones principales para el correcto funcionamiento del 
+programa como cálculos de ganancias, creación de clientes, etc. Contiene una sobrecarga de métodos.
+
+A su vez las siguientes clases de instancia contienen métodos estáticos: 
+
+* Vuelo GeneradorCodigoVuelo() genera un código alfanumérico random para que no sea responsabilidad del usuario hacerlo, se muestra en el FrontEnd al agregar un vuelo.
+
+* Pasajero CalcularPrecio(bool, int, string) calcula el precio teniendo en cuenta la duración del vuelo, si el vuelo es nacional o internacional y la clase del pasajero, 
+utilizado desde el formulario AltaPasajero. 
+
+##### Namespace
+
+Utilizado para separar el FrontEnd (Vista) con todos los formularios de Windows del BackEnd (Biblioteca) las clases.
+
+##### Encapsulamiento
+
+Utilizado en todas las clases para ocultar el funcionamiento de los atributos, métodos o de las clases mismas. Utilizo un enumerado para los Destinos, de esa forma es más
+performante a la hora de trabajar con los origenes y los destinos de los vuelos ya que las variables son siempre las mismas.
+
+##### Colecciones
+
+* List: se utilizan colecciones de tipo List<> en su mayoría como atributos estáticos dentro de la clase Aerolinea para 
+
+* Dictionary: se utiliza para crear una colección de empleados, con la Key que es utilizado como un ID se utiliza una función random para la funcionalidad del botón 
+Autocompletar en el Login. 
+
+##### Herencia
+
+Se aplica una relación de herencia en la clase Persona con sus derivadas Empleado y Pasajero que heredan sus atributos (nombre y apellido) y sus propiedades.
+
+##### Polimorfismo
+
+Se utilizó 1 clase abstracta: 
+
+* Persona
+
+La cual contiene el método abstracto Calcular() que sobrescriben sus derivadas con el fin de utilizarlo para calcular el dinero gastado en pasajes en Pasajero y para 
+calcular las comisiones en Empleado.
+
+Se sobrescriben los métodos virtual ToString() en todas las clases de instancia con el propósito principal de mostrar información, GetHashCode() en la clase Pasajero 
+y Equals() en Pasajero y en Vuelo.
 
 #### Propuesta de valor agregado:
+
+Se agregaron los siguientes extra feature:
+
+* Facturación: luego de que se haga el alta de un pasajero o grupo familiar se elige entre los siguientes métodos de cobro:
+
+** Tarjeta de crédito: se pide el ingreso de los datos de la tarjeta y del titular, según el tipo de tarjeta (Visa, Mastercard o American Express) se mostrarán las cuotas
+con y sin interés. Las cuotas que tengan interés informan el recargo que se aplica sobre el precio de el/los pasaje/s.
+
+** Tarjeta de débito: se piden los datos de la tarjeta y del titular de la misma realizando el pago en 1 cuota sin interés.
+
+** Efectivo: se piden datos como la Situación Fiscal, CUIL o CUIT, el domicilio, etc. 
+
+Las ganancias según el método de pago se podrán ver reflejadas en la sección Recaudación dentro de las estadísticas históricas.
+
+* Filtro DNI: al hacer el alta de un pasajero se pide al usuario que el primer dato que se ingrese sea el DNI, esto se pide para que se realice un buscador entre los 
+pasajeros existentes en la "base de datos" de la aerolinea de modo que si se encuentra alguna coincidencia se auto-complete los datos del pasajero como nombre, apellido y 
+edad. 
+
+* Filtro aviones disponibles: en vender vuelo, en el momento en que se ingresa el origen, destino, fecha de salida, clase y cantidad de pasajeros se utilizan los datos 
+de cantidad de pasajeros, clase, origen y destino para hacer una busqueda en la "base de datos" de la aerolinea sobre los vuelos activos y corrobora que la cantidad de 
+asientos disponibles de la clase elegida sea mayor o igual a la cantidad de pasajeros.
+
+* Descuento menores de edad: sólo se pueden vender pasajes a menores de 12 años si están acompañados por un adulto responsable (mayor de 18 años), además se les realiza 
+un descuento del 50% del pasaje y si son menores de 2 años se les realiza un descuento del 100% del pasaje.

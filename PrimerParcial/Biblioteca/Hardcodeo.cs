@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public static class Hardcodeo
+    internal static class Hardcodeo
     {
         public static void InicializarAviones(List<Avion> aviones)
         {

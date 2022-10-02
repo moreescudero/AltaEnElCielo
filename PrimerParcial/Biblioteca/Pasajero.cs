@@ -95,9 +95,9 @@ namespace Biblioteca
             return this.dni;
         }
 
+        //hacer el calculo de todo lo que haya gastado un pasajero en boletos
         public override void Calcular(float precio)
         {
-            //hacer el calculo de todo lo que haya gastado un pasajero en boletos
             this.costoTotalEnBoletos += precio;
         }
 
