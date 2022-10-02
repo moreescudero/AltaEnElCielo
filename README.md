@@ -50,7 +50,7 @@ según medio de pago, etc.
 
 #### Diagrama de clases:
 
-![imagen](Morena.Escudero.Parcial/Diagrama.png)
+![imagen](Morena.Escudero.Parcial/PrimerParcial/Diagrama.png)
 
 #### Justificación técnica:
 
