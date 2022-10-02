@@ -55,7 +55,8 @@
             this.txt_Calle = new System.Windows.Forms.TextBox();
             this.lbl_Calle = new System.Windows.Forms.Label();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
-            this.lbl_Acavaunaimagenowo = new System.Windows.Forms.Label();
+            this.pic_LogoTarjeta = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LogoTarjeta)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_MedioDePago
@@ -148,6 +149,7 @@
             this.txt_Numero.Size = new System.Drawing.Size(214, 23);
             this.txt_Numero.TabIndex = 10;
             this.txt_Numero.Visible = false;
+            this.txt_Numero.TextChanged += new System.EventHandler(this.txt_Numero_TextChanged);
             this.txt_Numero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Numero_KeyPress);
             // 
             // lbl_CodSeguridadODepto
@@ -302,16 +304,17 @@
             this.lbl_Calle.Text = "Calle:";
             this.lbl_Calle.Visible = false;
             // 
-            // lbl_Acavaunaimagenowo
+            // pic_LogoTarjeta
             // 
-            this.lbl_Acavaunaimagenowo.AutoSize = true;
-            this.lbl_Acavaunaimagenowo.Location = new System.Drawing.Point(580, 47);
-            this.lbl_Acavaunaimagenowo.Name = "lbl_Acavaunaimagenowo";
-            this.lbl_Acavaunaimagenowo.Size = new System.Drawing.Size(38, 15);
-            this.lbl_Acavaunaimagenowo.TabIndex = 25;
-            this.lbl_Acavaunaimagenowo.Text = "label1";
-            this.tip_Ayuda.SetToolTip(this.lbl_Acavaunaimagenowo, "Tipo de tarjeta");
-            this.lbl_Acavaunaimagenowo.TextChanged += new System.EventHandler(this.lbl_Acavaunaimagenowo_TextChanged);
+            this.pic_LogoTarjeta.BackColor = System.Drawing.Color.Transparent;
+            this.pic_LogoTarjeta.Image = global::Vista.Properties.Resources.visa_logo;
+            this.pic_LogoTarjeta.Location = new System.Drawing.Point(558, 47);
+            this.pic_LogoTarjeta.Name = "pic_LogoTarjeta";
+            this.pic_LogoTarjeta.Size = new System.Drawing.Size(76, 31);
+            this.pic_LogoTarjeta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_LogoTarjeta.TabIndex = 25;
+            this.pic_LogoTarjeta.TabStop = false;
+            this.pic_LogoTarjeta.Visible = false;
             // 
             // frm_Cobranza
             // 
@@ -320,7 +323,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(715, 411);
             this.ControlBox = false;
-            this.Controls.Add(this.lbl_Acavaunaimagenowo);
+            this.Controls.Add(this.pic_LogoTarjeta);
             this.Controls.Add(this.lbl_Calle);
             this.Controls.Add(this.txt_Calle);
             this.Controls.Add(this.lbl_Piso);
@@ -351,6 +354,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Cobranza";
             this.Load += new System.EventHandler(this.frm_Cobranza_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LogoTarjeta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,6 +388,6 @@
         private TextBox txt_Calle;
         private Label lbl_Calle;
         private ToolTip tip_Ayuda;
-        private Label lbl_Acavaunaimagenowo;
+        private PictureBox pic_LogoTarjeta;
     }
 }

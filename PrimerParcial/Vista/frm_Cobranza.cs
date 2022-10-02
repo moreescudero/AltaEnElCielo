@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Properties;
 
 namespace Vista
 {
     public partial class frm_Cobranza : Form
     {
         float total;
-        float pagoElegido;
+        string? tarjeta;
         List<Pasajero> pasajeros;
         public frm_Cobranza()
         {
@@ -111,10 +112,42 @@ namespace Vista
                     Aerolinea.gananciaDebito += total;
                 }
             }
-            this.DialogResult = DialogResult.OK;
+
+            if (FormCompleto())
+            {
+                this.DialogResult = DialogResult.OK;
+            }
         }
 
         //mis funciones
+
+        private bool ValidarTarjetas()
+        {
+            if (txt_Numero.Text.Length == 16 && txt_VencimientoAñoOPiso.Text.Length == 4 && txt_VencimientoMesONumero.Text.Length >= 2 && (txt_DocumentoOCiudad.Text.Length == 8 || txt_DocumentoOCiudad.Text.Length == 7) && ((cmb_MedioDePago.Text == "Tarjeta de débito") || (cmb_MedioDePago.Text == "Tarjeta de crédito" && ((txt_CodSeguridadODepto.Text.Length == 4 && tarjeta == "amex") || txt_CodSeguridadODepto.Text.Length == 3) && cmb_Cuotas.SelectedIndex > -1)))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool ValidarEfectivo()
+        {
+            if (txt_Numero.Text.Length == 11 && txt_VencimientoAñoOPiso.Text != String.Empty && txt_VencimientoMesONumero.Text != String.Empty && txt_DocumentoOCiudad.Text != String.Empty && txt_Calle.Text != String.Empty && cmb_Provincias.SelectedIndex > -1 && cmb_SituacionFiscal.SelectedIndex > -1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool FormCompleto()
+        {
+            if ((ValidarEfectivo()  || ValidarTarjetas()) && txt_Titular.Text != String.Empty)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void MostrarTarjetas()
         {
             txt_CodSeguridadODepto.Visible = true;
@@ -159,7 +192,8 @@ namespace Vista
             txt_CodSeguridadODepto.Enabled = true;
             txt_VencimientoMesONumero.MaxLength = 6;
             txt_VencimientoAñoOPiso.MaxLength = 3;
-            
+            pic_LogoTarjeta.Visible = false;
+
             CargarProvincias();
         }
 
@@ -226,7 +260,7 @@ namespace Vista
             LimpiarDomicilio();
         }
 
-        private void CargarCuotasSegunTarjeta(string tarjeta)
+        private void CargarCuotasSegunTarjeta()
         {
             cmb_Cuotas.Items.Clear();
             cmb_Cuotas.Items.Add("1 cuota de $" + total);
@@ -279,24 +313,35 @@ namespace Vista
         private void txt_Numero_KeyPress(object sender, KeyPressEventArgs e)
         {
             ProhibirLetras(e);
+            
             if (txt_Numero.Text != String.Empty)
             {
+                Size tamaño = new Size(118, 65);
+                pic_LogoTarjeta.Visible = true;
                 if (cmb_MedioDePago.SelectedIndex != 2)
                 {
                     txt_Numero.MaxLength = 16;
                     char[] auxiliarNumero = txt_Numero.Text.ToCharArray();
                     if (auxiliarNumero[0] == '4')
                     {
-                        lbl_Acavaunaimagenowo.Text = "visa";
+                        tarjeta = "visa";
+                        tamaño.Width = 76;
+                        tamaño.Height = 31;
+                        pic_LogoTarjeta.Image = Resources.visa_logo;
                     }
                     else if (auxiliarNumero[0] == '5')
                     {
-                        lbl_Acavaunaimagenowo.Text = "mastercard";
+                        tarjeta = "mastercard";
+                        tamaño.Width = 92;
+                        tamaño.Height = 61;
+                        pic_LogoTarjeta.Image = Resources.mastercard_logo;
                     }
                     else if (auxiliarNumero[0] == '3')
                     {
-                        lbl_Acavaunaimagenowo.Text = "amex";
+                        tarjeta = "amex";
+                        pic_LogoTarjeta.Image = Resources.amex_logo;
                     }
+                    pic_LogoTarjeta.Size = tamaño;
                 }
                 else
                 {
@@ -346,7 +391,7 @@ namespace Vista
 
         private void txt_VencimientoAñoOPiso_TextChanged(object sender, EventArgs e)
         {
-            if (txt_VencimientoAñoOPiso.Text != String.Empty)
+            if (txt_VencimientoAñoOPiso.Text.Length == 4)
             {
                 if (int.Parse(txt_VencimientoAñoOPiso.Text) < 2022 && lbl_Piso.Visible == false)
                 {
@@ -360,11 +405,16 @@ namespace Vista
             ProhibirLetras(e);
         }
 
-        //lbl que no va a perdurar, va a ser un imageList
-        private void lbl_Acavaunaimagenowo_TextChanged(object sender, EventArgs e)
+        private void txt_Numero_TextChanged(object sender, EventArgs e)
         {
-            CargarCuotasSegunTarjeta(lbl_Acavaunaimagenowo.Text);
+            CargarCuotasSegunTarjeta();
             txt_CodSeguridadODepto.Enabled = true;
+            if(txt_Numero.Text == String.Empty)
+            {
+                pic_LogoTarjeta.Visible = false;
+            }
         }
+
+
     }
 }

@@ -111,7 +111,7 @@ namespace Biblioteca
             vuelos.Add(new Vuelo("VMI938", aviones[3].Matricula,true,EDestinos.Trelew,EDestinos.Corrientes,new DateTime(2022, 12, 2, 4, 0, 0), new DateTime(2022, 12, 2, 7, 0, 0), 3, false, CargarPasajerosAUnVuelo(pasajeros, true, 3), 6, 1, 5, "Disponible", 167));
             vuelos.Add(new Vuelo("DJC453", aviones[5].Matricula,false,EDestinos.Roma,EDestinos.Miami, new DateTime(2022, 12, 22, 10, 15, 0), new DateTime(2022, 12, 22, 19, 15, 0), 9, true, CargarPasajerosAUnVuelo(pasajeros, false, 9), 7, 3, 4, "Disponible", 930));
             vuelos.Add(new Vuelo("TNE411", aviones[3].Matricula,true,EDestinos.Ushuaia,EDestinos.Salta,new DateTime(2022, 10, 30, 6, 45, 0), new DateTime(2022, 10, 30, 10, 45, 0), 4, true, CargarPasajerosAUnVuelo(pasajeros, true, 4), 80, 39, 41, "Disponible", 2663));
-            vuelos.Add(new Vuelo("DNC351", aviones[1].Matricula,false,EDestinos.Miami,EDestinos.Bariloche,new DateTime(2022, 11, 20, 2, 0, 0), new DateTime(2022, 11, 20, 14, 0, 0), 12, false, CargarPasajerosAUnVuelo(pasajeros, false, 12), 12, 9, 3, "Disponible", 998));
+            vuelos.Add(new Vuelo("DNC351", aviones[1].Matricula,false,EDestinos.Miami,EDestinos.BuenosAires,new DateTime(2022, 11, 20, 2, 0, 0), new DateTime(2022, 11, 20, 14, 0, 0), 12, false, CargarPasajerosAUnVuelo(pasajeros, false, 12), 12, 9, 3, "Disponible", 998));
 
             //return vuelos;
         }
