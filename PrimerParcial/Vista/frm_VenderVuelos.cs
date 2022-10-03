@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,9 @@ namespace Vista
             }
             cmb_Clase.Items.Add("Turista"); 
             cmb_Clase.Items.Add("Premium");
+
+            Formulario.Font(this);
+
         }
 
         private void cdr_Salida_DateSelected(object sender, DateRangeEventArgs e)
@@ -91,6 +95,7 @@ namespace Vista
             else
             {
                 this.Show();
+                lbl_DenegarAgregarVuelo.Text = "No se agregó el vuelo";
             }
         }
 
@@ -109,11 +114,18 @@ namespace Vista
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)
         {
             frm_AgregarVuelo agregarVuelo = new frm_AgregarVuelo((EDestinos)Enum.Parse(typeof(EDestinos), cmb_Origen.Text), (EDestinos)Enum.Parse(typeof(EDestinos), cmb_Destino.Text), cdr_Salida.SelectionStart);
+            this.Hide();
             if (agregarVuelo.ShowDialog() == DialogResult.OK)
             {
                 ActualizarDataGrid();
                 lbl_NoHayVuelos.Visible = false;
             }
+            this.Show();
+        }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void dgv_HayVuelo_VisibleChanged(object sender, EventArgs e)
@@ -172,9 +184,26 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
+                lbl_CantPasajeros.ForeColor = Color.White;
+                lbl_Clase.ForeColor = Color.White;
+                lbl_DenegarAgregarVuelo.ForeColor = Color.White;
+                lbl_Destino.ForeColor = Color.White;
+                lbl_Fechas.ForeColor = Color.White;
+                lbl_NoHayVuelos.ForeColor = Color.White;
+                lbl_Origen.ForeColor = Color.White;
+                lbl_Titulo.ForeColor = Color.White;
             }
             else
             {
+                lbl_CantPasajeros.ForeColor = Color.Black;
+                lbl_Clase.ForeColor = Color.Black;
+                lbl_DenegarAgregarVuelo.ForeColor = Color.Black;
+                lbl_Destino.ForeColor = Color.Black;
+                lbl_Fechas.ForeColor = Color.Black;
+                lbl_NoHayVuelos.ForeColor = Color.Black;
+                lbl_Origen.ForeColor = Color.Black;
+                lbl_Titulo.ForeColor = Color.Black;
+
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;
@@ -186,6 +215,5 @@ namespace Vista
 
             }
         }
-
     }
 }

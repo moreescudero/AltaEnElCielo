@@ -54,9 +54,9 @@
             // btn_CerrarSesion
             // 
             this.btn_CerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CerrarSesion.Location = new System.Drawing.Point(278, 316);
+            this.btn_CerrarSesion.Location = new System.Drawing.Point(262, 317);
             this.btn_CerrarSesion.Name = "btn_CerrarSesion";
-            this.btn_CerrarSesion.Size = new System.Drawing.Size(109, 23);
+            this.btn_CerrarSesion.Size = new System.Drawing.Size(132, 23);
             this.btn_CerrarSesion.TabIndex = 0;
             this.btn_CerrarSesion.Text = "Cerrar Sesion";
             this.btn_CerrarSesion.UseVisualStyleBackColor = true;
@@ -80,7 +80,7 @@
             // 
             this.lbl_HoraActual.AutoSize = true;
             this.lbl_HoraActual.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_HoraActual.Location = new System.Drawing.Point(731, 320);
+            this.lbl_HoraActual.Location = new System.Drawing.Point(698, 320);
             this.lbl_HoraActual.Name = "lbl_HoraActual";
             this.lbl_HoraActual.Size = new System.Drawing.Size(0, 15);
             this.lbl_HoraActual.TabIndex = 2;
@@ -104,7 +104,7 @@
             // 
             this.lbl_VisualizarVuelos.AutoSize = true;
             this.lbl_VisualizarVuelos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VisualizarVuelos.Location = new System.Drawing.Point(194, 165);
+            this.lbl_VisualizarVuelos.Location = new System.Drawing.Point(178, 165);
             this.lbl_VisualizarVuelos.Name = "lbl_VisualizarVuelos";
             this.lbl_VisualizarVuelos.Size = new System.Drawing.Size(92, 15);
             this.lbl_VisualizarVuelos.TabIndex = 4;
@@ -129,7 +129,7 @@
             // 
             this.lbl_VenderVuelos.AutoSize = true;
             this.lbl_VenderVuelos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VenderVuelos.Location = new System.Drawing.Point(350, 165);
+            this.lbl_VenderVuelos.Location = new System.Drawing.Point(346, 165);
             this.lbl_VenderVuelos.Name = "lbl_VenderVuelos";
             this.lbl_VenderVuelos.Size = new System.Drawing.Size(80, 15);
             this.lbl_VenderVuelos.TabIndex = 6;
@@ -154,7 +154,7 @@
             // 
             this.lbl_Estadisticas.AutoSize = true;
             this.lbl_Estadisticas.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Estadisticas.Location = new System.Drawing.Point(495, 165);
+            this.lbl_Estadisticas.Location = new System.Drawing.Point(483, 165);
             this.lbl_Estadisticas.Name = "lbl_Estadisticas";
             this.lbl_Estadisticas.Size = new System.Drawing.Size(120, 15);
             this.lbl_Estadisticas.TabIndex = 8;
@@ -174,9 +174,9 @@
             // btn_Salir
             // 
             this.btn_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Salir.Location = new System.Drawing.Point(403, 316);
+            this.btn_Salir.Location = new System.Drawing.Point(414, 317);
             this.btn_Salir.Name = "btn_Salir";
-            this.btn_Salir.Size = new System.Drawing.Size(109, 23);
+            this.btn_Salir.Size = new System.Drawing.Size(132, 23);
             this.btn_Salir.TabIndex = 10;
             this.btn_Salir.Text = "Salir";
             this.btn_Salir.UseVisualStyleBackColor = true;
@@ -214,6 +214,7 @@
             this.Controls.Add(this.lbl_Bienvenido);
             this.Controls.Add(this.btn_CerrarSesion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Menu";

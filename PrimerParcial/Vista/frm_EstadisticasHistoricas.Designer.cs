@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_EstadisticasHistoricas));
             this.dgv_VuelosHistoricos = new System.Windows.Forms.DataGridView();
             this.codigoVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matriculaAvionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,18 +69,19 @@
             this.rtx_Info = new System.Windows.Forms.RichTextBox();
             this.pnl_VerEstadisticas = new System.Windows.Forms.Panel();
             this.pnl_VerPasajeros = new System.Windows.Forms.Panel();
+            this.lbl_TituloPasajeros = new System.Windows.Forms.Label();
             this.btn_CerrarVerPasajeros = new System.Windows.Forms.Button();
             this.dgv_VerPasajeros = new System.Windows.Forms.DataGridView();
-            this.claseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuElegidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioBoletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bolsoManoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.cantidadDeVuelosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.claseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioBoletoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuElegidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bolsoManoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lbl_TituloVuelos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VuelosHistoricos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasajeroBindingSource)).BeginInit();
@@ -110,11 +112,11 @@
             this.hayComidaDataGridViewCheckBoxColumn,
             this.esNacionalDataGridViewCheckBoxColumn});
             this.dgv_VuelosHistoricos.DataSource = this.vueloBindingSource;
-            this.dgv_VuelosHistoricos.Location = new System.Drawing.Point(37, 36);
+            this.dgv_VuelosHistoricos.Location = new System.Drawing.Point(37, 52);
             this.dgv_VuelosHistoricos.Name = "dgv_VuelosHistoricos";
             this.dgv_VuelosHistoricos.ReadOnly = true;
             this.dgv_VuelosHistoricos.RowTemplate.Height = 25;
-            this.dgv_VuelosHistoricos.Size = new System.Drawing.Size(726, 309);
+            this.dgv_VuelosHistoricos.Size = new System.Drawing.Size(726, 293);
             this.dgv_VuelosHistoricos.TabIndex = 0;
             this.dgv_VuelosHistoricos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_VuelosHistoricos_RowHeaderMouseClick);
             // 
@@ -220,7 +222,7 @@
             // 
             this.cmb_Opciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Opciones.FormattingEnabled = true;
-            this.cmb_Opciones.Location = new System.Drawing.Point(214, 33);
+            this.cmb_Opciones.Location = new System.Drawing.Point(244, 33);
             this.cmb_Opciones.Name = "cmb_Opciones";
             this.cmb_Opciones.Size = new System.Drawing.Size(377, 23);
             this.cmb_Opciones.TabIndex = 1;
@@ -453,9 +455,9 @@
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Credito);
             this.pnl_VerEstadisticas.Controls.Add(this.txt_Debito);
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Debito);
-            this.pnl_VerEstadisticas.Location = new System.Drawing.Point(0, 0);
+            this.pnl_VerEstadisticas.Location = new System.Drawing.Point(0, -1);
             this.pnl_VerEstadisticas.Name = "pnl_VerEstadisticas";
-            this.pnl_VerEstadisticas.Size = new System.Drawing.Size(803, 390);
+            this.pnl_VerEstadisticas.Size = new System.Drawing.Size(803, 391);
             this.pnl_VerEstadisticas.TabIndex = 3;
             this.pnl_VerEstadisticas.Visible = false;
             this.pnl_VerEstadisticas.VisibleChanged += new System.EventHandler(this.pnl_VerEstadisticas_VisibleChanged);
@@ -464,6 +466,7 @@
             // 
             this.pnl_VerPasajeros.BackColor = System.Drawing.Color.Transparent;
             this.pnl_VerPasajeros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_VerPasajeros.Controls.Add(this.lbl_TituloPasajeros);
             this.pnl_VerPasajeros.Controls.Add(this.btn_CerrarVerPasajeros);
             this.pnl_VerPasajeros.Controls.Add(this.dgv_VerPasajeros);
             this.pnl_VerPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -473,6 +476,15 @@
             this.pnl_VerPasajeros.TabIndex = 5;
             this.pnl_VerPasajeros.Visible = false;
             this.pnl_VerPasajeros.VisibleChanged += new System.EventHandler(this.pnl_VerPasajeros_VisibleChanged);
+            // 
+            // lbl_TituloPasajeros
+            // 
+            this.lbl_TituloPasajeros.AutoSize = true;
+            this.lbl_TituloPasajeros.Location = new System.Drawing.Point(39, 35);
+            this.lbl_TituloPasajeros.Name = "lbl_TituloPasajeros";
+            this.lbl_TituloPasajeros.Size = new System.Drawing.Size(177, 15);
+            this.lbl_TituloPasajeros.TabIndex = 2;
+            this.lbl_TituloPasajeros.Text = "Pasajeros según el vuelo elegido";
             // 
             // btn_CerrarVerPasajeros
             // 
@@ -493,16 +505,15 @@
             this.dgv_VerPasajeros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_VerPasajeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_VerPasajeros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.claseDataGridViewTextBoxColumn,
-            this.edadDataGridViewTextBoxColumn,
-            this.dniDataGridViewTextBoxColumn,
-            this.menuElegidoDataGridViewTextBoxColumn,
-            this.equipajeDataGridViewTextBoxColumn,
-            this.precioBoletoDataGridViewTextBoxColumn,
-            this.bolsoManoDataGridViewCheckBoxColumn,
-            this.cantidadDeVuelosDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
-            this.apellidoDataGridViewTextBoxColumn});
+            this.apellidoDataGridViewTextBoxColumn,
+            this.dniDataGridViewTextBoxColumn,
+            this.edadDataGridViewTextBoxColumn,
+            this.claseDataGridViewTextBoxColumn,
+            this.precioBoletoDataGridViewTextBoxColumn,
+            this.equipajeDataGridViewTextBoxColumn,
+            this.menuElegidoDataGridViewTextBoxColumn,
+            this.bolsoManoDataGridViewCheckBoxColumn});
             this.dgv_VerPasajeros.DataSource = this.pasajeroBindingSource;
             this.dgv_VerPasajeros.Location = new System.Drawing.Point(37, 75);
             this.dgv_VerPasajeros.Name = "dgv_VerPasajeros";
@@ -510,62 +521,6 @@
             this.dgv_VerPasajeros.RowTemplate.Height = 25;
             this.dgv_VerPasajeros.Size = new System.Drawing.Size(729, 273);
             this.dgv_VerPasajeros.TabIndex = 0;
-            // 
-            // claseDataGridViewTextBoxColumn
-            // 
-            this.claseDataGridViewTextBoxColumn.DataPropertyName = "Clase";
-            this.claseDataGridViewTextBoxColumn.HeaderText = "Clase";
-            this.claseDataGridViewTextBoxColumn.Name = "claseDataGridViewTextBoxColumn";
-            this.claseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // edadDataGridViewTextBoxColumn
-            // 
-            this.edadDataGridViewTextBoxColumn.DataPropertyName = "Edad";
-            this.edadDataGridViewTextBoxColumn.HeaderText = "Edad";
-            this.edadDataGridViewTextBoxColumn.Name = "edadDataGridViewTextBoxColumn";
-            this.edadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dniDataGridViewTextBoxColumn
-            // 
-            this.dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
-            this.dniDataGridViewTextBoxColumn.HeaderText = "Dni";
-            this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
-            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // menuElegidoDataGridViewTextBoxColumn
-            // 
-            this.menuElegidoDataGridViewTextBoxColumn.DataPropertyName = "MenuElegido";
-            this.menuElegidoDataGridViewTextBoxColumn.HeaderText = "MenuElegido";
-            this.menuElegidoDataGridViewTextBoxColumn.Name = "menuElegidoDataGridViewTextBoxColumn";
-            this.menuElegidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // equipajeDataGridViewTextBoxColumn
-            // 
-            this.equipajeDataGridViewTextBoxColumn.DataPropertyName = "Equipaje";
-            this.equipajeDataGridViewTextBoxColumn.HeaderText = "Equipaje";
-            this.equipajeDataGridViewTextBoxColumn.Name = "equipajeDataGridViewTextBoxColumn";
-            this.equipajeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // precioBoletoDataGridViewTextBoxColumn
-            // 
-            this.precioBoletoDataGridViewTextBoxColumn.DataPropertyName = "PrecioBoleto";
-            this.precioBoletoDataGridViewTextBoxColumn.HeaderText = "PrecioBoleto";
-            this.precioBoletoDataGridViewTextBoxColumn.Name = "precioBoletoDataGridViewTextBoxColumn";
-            this.precioBoletoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bolsoManoDataGridViewCheckBoxColumn
-            // 
-            this.bolsoManoDataGridViewCheckBoxColumn.DataPropertyName = "BolsoMano";
-            this.bolsoManoDataGridViewCheckBoxColumn.HeaderText = "BolsoMano";
-            this.bolsoManoDataGridViewCheckBoxColumn.Name = "bolsoManoDataGridViewCheckBoxColumn";
-            this.bolsoManoDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // cantidadDeVuelosDataGridViewTextBoxColumn
-            // 
-            this.cantidadDeVuelosDataGridViewTextBoxColumn.DataPropertyName = "CantidadDeVuelos";
-            this.cantidadDeVuelosDataGridViewTextBoxColumn.HeaderText = "CantidadDeVuelos";
-            this.cantidadDeVuelosDataGridViewTextBoxColumn.Name = "cantidadDeVuelosDataGridViewTextBoxColumn";
-            this.cantidadDeVuelosDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -581,6 +536,65 @@
             this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
             this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // dniDataGridViewTextBoxColumn
+            // 
+            this.dniDataGridViewTextBoxColumn.DataPropertyName = "Dni";
+            this.dniDataGridViewTextBoxColumn.HeaderText = "Dni";
+            this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // edadDataGridViewTextBoxColumn
+            // 
+            this.edadDataGridViewTextBoxColumn.DataPropertyName = "Edad";
+            this.edadDataGridViewTextBoxColumn.HeaderText = "Edad";
+            this.edadDataGridViewTextBoxColumn.Name = "edadDataGridViewTextBoxColumn";
+            this.edadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // claseDataGridViewTextBoxColumn
+            // 
+            this.claseDataGridViewTextBoxColumn.DataPropertyName = "Clase";
+            this.claseDataGridViewTextBoxColumn.HeaderText = "Clase";
+            this.claseDataGridViewTextBoxColumn.Name = "claseDataGridViewTextBoxColumn";
+            this.claseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioBoletoDataGridViewTextBoxColumn
+            // 
+            this.precioBoletoDataGridViewTextBoxColumn.DataPropertyName = "PrecioBoleto";
+            this.precioBoletoDataGridViewTextBoxColumn.HeaderText = "Precio boleto";
+            this.precioBoletoDataGridViewTextBoxColumn.Name = "precioBoletoDataGridViewTextBoxColumn";
+            this.precioBoletoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // equipajeDataGridViewTextBoxColumn
+            // 
+            this.equipajeDataGridViewTextBoxColumn.DataPropertyName = "Equipaje";
+            this.equipajeDataGridViewTextBoxColumn.HeaderText = "Equipaje";
+            this.equipajeDataGridViewTextBoxColumn.Name = "equipajeDataGridViewTextBoxColumn";
+            this.equipajeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // menuElegidoDataGridViewTextBoxColumn
+            // 
+            this.menuElegidoDataGridViewTextBoxColumn.DataPropertyName = "MenuElegido";
+            this.menuElegidoDataGridViewTextBoxColumn.HeaderText = "Menu elegido";
+            this.menuElegidoDataGridViewTextBoxColumn.Name = "menuElegidoDataGridViewTextBoxColumn";
+            this.menuElegidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bolsoManoDataGridViewCheckBoxColumn
+            // 
+            this.bolsoManoDataGridViewCheckBoxColumn.DataPropertyName = "BolsoMano";
+            this.bolsoManoDataGridViewCheckBoxColumn.HeaderText = "Bolso de mano";
+            this.bolsoManoDataGridViewCheckBoxColumn.Name = "bolsoManoDataGridViewCheckBoxColumn";
+            this.bolsoManoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // lbl_TituloVuelos
+            // 
+            this.lbl_TituloVuelos.AutoSize = true;
+            this.lbl_TituloVuelos.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_TituloVuelos.Location = new System.Drawing.Point(37, 21);
+            this.lbl_TituloVuelos.Name = "lbl_TituloVuelos";
+            this.lbl_TituloVuelos.Size = new System.Drawing.Size(101, 15);
+            this.lbl_TituloVuelos.TabIndex = 6;
+            this.lbl_TituloVuelos.Text = "Vuelos finalizados";
+            // 
             // frm_EstadisticasHistoricas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -594,7 +608,9 @@
             this.Controls.Add(this.btn_Volver);
             this.Controls.Add(this.dgv_VuelosHistoricos);
             this.Controls.Add(this.btn_VerPasajeros);
+            this.Controls.Add(this.lbl_TituloVuelos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_EstadisticasHistoricas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_EstadisticasHistoricas";
@@ -607,8 +623,10 @@
             this.pnl_VerEstadisticas.ResumeLayout(false);
             this.pnl_VerEstadisticas.PerformLayout();
             this.pnl_VerPasajeros.ResumeLayout(false);
+            this.pnl_VerPasajeros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VerPasajeros)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -654,16 +672,17 @@
         private Panel pnl_VerEstadisticas;
         private Panel pnl_VerPasajeros;
         private DataGridView dgv_VerPasajeros;
-        private DataGridViewTextBoxColumn claseDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn edadDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn menuElegidoDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn equipajeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn precioBoletoDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn bolsoManoDataGridViewCheckBoxColumn;
-        private DataGridViewTextBoxColumn cantidadDeVuelosDataGridViewTextBoxColumn;
+        private Button btn_CerrarVerPasajeros;
+        private Label lbl_TituloPasajeros;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private Button btn_CerrarVerPasajeros;
+        private DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn edadDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn claseDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn precioBoletoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn equipajeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn menuElegidoDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn bolsoManoDataGridViewCheckBoxColumn;
+        private Label lbl_TituloVuelos;
     }
 }

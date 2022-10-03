@@ -38,15 +38,14 @@
             this.lbl_Hora = new System.Windows.Forms.Label();
             this.tmr_HoraActual = new System.Windows.Forms.Timer(this.components);
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
-            this.pic_Incorrecto = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Incorrecto)).BeginInit();
+            this.lbl_Incorrecto = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(134, 260);
+            this.btn_Cancelar.Location = new System.Drawing.Point(115, 260);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancelar.Size = new System.Drawing.Size(97, 23);
             this.btn_Cancelar.TabIndex = 0;
             this.btn_Cancelar.Text = "Cancelar";
             this.tip_Ayuda.SetToolTip(this.btn_Cancelar, "Cierra el programa");
@@ -55,9 +54,9 @@
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Location = new System.Drawing.Point(349, 260);
+            this.btn_Aceptar.Location = new System.Drawing.Point(352, 260);
             this.btn_Aceptar.Name = "btn_Aceptar";
-            this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Aceptar.Size = new System.Drawing.Size(97, 23);
             this.btn_Aceptar.TabIndex = 1;
             this.btn_Aceptar.Text = "Aceptar";
             this.tip_Ayuda.SetToolTip(this.btn_Aceptar, "Ingresa si el usuario y la contraseña \r\nson correctos");
@@ -96,7 +95,7 @@
             // lbl_Hora
             // 
             this.lbl_Hora.AutoSize = true;
-            this.lbl_Hora.Location = new System.Drawing.Point(472, 386);
+            this.lbl_Hora.Location = new System.Drawing.Point(443, 387);
             this.lbl_Hora.Name = "lbl_Hora";
             this.lbl_Hora.Size = new System.Drawing.Size(0, 15);
             this.lbl_Hora.TabIndex = 5;
@@ -105,17 +104,17 @@
             // 
             this.tmr_HoraActual.Tick += new System.EventHandler(this.tmr_HoraActual_Tick);
             // 
-            // pic_Incorrecto
+            // lbl_Incorrecto
             // 
-            this.pic_Incorrecto.BackColor = System.Drawing.Color.Transparent;
-            this.pic_Incorrecto.Image = ((System.Drawing.Image)(resources.GetObject("pic_Incorrecto.Image")));
-            this.pic_Incorrecto.Location = new System.Drawing.Point(158, 217);
-            this.pic_Incorrecto.Name = "pic_Incorrecto";
-            this.pic_Incorrecto.Size = new System.Drawing.Size(240, 17);
-            this.pic_Incorrecto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Incorrecto.TabIndex = 9;
-            this.pic_Incorrecto.TabStop = false;
-            this.pic_Incorrecto.Visible = false;
+            this.lbl_Incorrecto.AutoSize = true;
+            this.lbl_Incorrecto.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Incorrecto.ForeColor = System.Drawing.Color.Brown;
+            this.lbl_Incorrecto.Location = new System.Drawing.Point(169, 227);
+            this.lbl_Incorrecto.Name = "lbl_Incorrecto";
+            this.lbl_Incorrecto.Size = new System.Drawing.Size(174, 15);
+            this.lbl_Incorrecto.TabIndex = 10;
+            this.lbl_Incorrecto.Text = "usuario o contraseña incorrecto";
+            this.lbl_Incorrecto.Visible = false;
             // 
             // frm_Login
             // 
@@ -124,7 +123,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(564, 429);
             this.ControlBox = false;
-            this.Controls.Add(this.pic_Incorrecto);
+            this.Controls.Add(this.lbl_Incorrecto);
             this.Controls.Add(this.lbl_Hora);
             this.Controls.Add(this.btn_Autocompletar);
             this.Controls.Add(this.txt_Contraseña);
@@ -139,7 +138,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Incorrecto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,6 +153,6 @@
         private Label lbl_Hora;
         private System.Windows.Forms.Timer tmr_HoraActual;
         private ToolTip tip_Ayuda;
-        private PictureBox pic_Incorrecto;
+        private Label lbl_Incorrecto;
     }
 }

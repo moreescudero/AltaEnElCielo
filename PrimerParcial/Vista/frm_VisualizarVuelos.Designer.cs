@@ -48,6 +48,7 @@
             this.esNacionalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_VerPasajeros = new System.Windows.Forms.Button();
             this.pnl_VerPasajeros = new System.Windows.Forms.Panel();
+            this.lbl_TituloPasajeros = new System.Windows.Forms.Label();
             this.btn_Volver = new System.Windows.Forms.Button();
             this.dgv_Pasajeros = new System.Windows.Forms.DataGridView();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +62,7 @@
             this.pasajeroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbl_AgregarVueloCancelado = new System.Windows.Forms.Label();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.lbl_Titulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarVuelos)).BeginInit();
             this.pnl_VerPasajeros.SuspendLayout();
@@ -70,9 +72,9 @@
             // 
             // btn_Salir
             // 
-            this.btn_Salir.Location = new System.Drawing.Point(276, 355);
+            this.btn_Salir.Location = new System.Drawing.Point(223, 355);
             this.btn_Salir.Name = "btn_Salir";
-            this.btn_Salir.Size = new System.Drawing.Size(113, 23);
+            this.btn_Salir.Size = new System.Drawing.Size(147, 23);
             this.btn_Salir.TabIndex = 0;
             this.btn_Salir.Text = "Salir";
             this.btn_Salir.UseVisualStyleBackColor = true;
@@ -80,9 +82,9 @@
             // 
             // btn_AgregarVuelo
             // 
-            this.btn_AgregarVuelo.Location = new System.Drawing.Point(395, 355);
+            this.btn_AgregarVuelo.Location = new System.Drawing.Point(376, 355);
             this.btn_AgregarVuelo.Name = "btn_AgregarVuelo";
-            this.btn_AgregarVuelo.Size = new System.Drawing.Size(113, 23);
+            this.btn_AgregarVuelo.Size = new System.Drawing.Size(147, 23);
             this.btn_AgregarVuelo.TabIndex = 2;
             this.btn_AgregarVuelo.Text = "Agregar Vuelo";
             this.btn_AgregarVuelo.UseVisualStyleBackColor = true;
@@ -217,9 +219,9 @@
             // btn_VerPasajeros
             // 
             this.btn_VerPasajeros.Enabled = false;
-            this.btn_VerPasajeros.Location = new System.Drawing.Point(514, 355);
+            this.btn_VerPasajeros.Location = new System.Drawing.Point(529, 355);
             this.btn_VerPasajeros.Name = "btn_VerPasajeros";
-            this.btn_VerPasajeros.Size = new System.Drawing.Size(113, 23);
+            this.btn_VerPasajeros.Size = new System.Drawing.Size(157, 23);
             this.btn_VerPasajeros.TabIndex = 5;
             this.btn_VerPasajeros.Text = "Ver Pasajeros";
             this.btn_VerPasajeros.UseVisualStyleBackColor = true;
@@ -229,6 +231,7 @@
             // 
             this.pnl_VerPasajeros.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnl_VerPasajeros.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_VerPasajeros.Controls.Add(this.lbl_TituloPasajeros);
             this.pnl_VerPasajeros.Controls.Add(this.btn_Volver);
             this.pnl_VerPasajeros.Controls.Add(this.dgv_Pasajeros);
             this.pnl_VerPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -239,11 +242,20 @@
             this.pnl_VerPasajeros.Visible = false;
             this.pnl_VerPasajeros.VisibleChanged += new System.EventHandler(this.pnl_VerPasajeros_VisibleChanged);
             // 
+            // lbl_TituloPasajeros
+            // 
+            this.lbl_TituloPasajeros.AutoSize = true;
+            this.lbl_TituloPasajeros.Location = new System.Drawing.Point(12, 30);
+            this.lbl_TituloPasajeros.Name = "lbl_TituloPasajeros";
+            this.lbl_TituloPasajeros.Size = new System.Drawing.Size(177, 15);
+            this.lbl_TituloPasajeros.TabIndex = 2;
+            this.lbl_TituloPasajeros.Text = "Pasajeros según el vuelo elegido";
+            // 
             // btn_Volver
             // 
-            this.btn_Volver.Location = new System.Drawing.Point(395, 355);
+            this.btn_Volver.Location = new System.Drawing.Point(390, 355);
             this.btn_Volver.Name = "btn_Volver";
-            this.btn_Volver.Size = new System.Drawing.Size(113, 23);
+            this.btn_Volver.Size = new System.Drawing.Size(133, 23);
             this.btn_Volver.TabIndex = 1;
             this.btn_Volver.Text = "Volver";
             this.tip_Ayuda.SetToolTip(this.btn_Volver, "Agrega un nuevo vuelo");
@@ -348,6 +360,16 @@
             this.lbl_AgregarVueloCancelado.Text = "No se agregó vuelo";
             this.lbl_AgregarVueloCancelado.Visible = false;
             // 
+            // lbl_Titulo
+            // 
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Titulo.Location = new System.Drawing.Point(12, 29);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(82, 15);
+            this.lbl_Titulo.TabIndex = 8;
+            this.lbl_Titulo.Text = "Vuelos activos";
+            // 
             // frm_VisualizarVuelos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -361,6 +383,7 @@
             this.Controls.Add(this.btn_AgregarVuelo);
             this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.lbl_AgregarVueloCancelado);
+            this.Controls.Add(this.lbl_Titulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_VisualizarVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -369,6 +392,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarVuelos)).EndInit();
             this.pnl_VerPasajeros.ResumeLayout(false);
+            this.pnl_VerPasajeros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Pasajeros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pasajeroBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -411,5 +435,7 @@
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;
         private DataGridViewCheckBoxColumn esNacionalDataGridViewCheckBoxColumn;
         private ToolTip tip_Ayuda;
+        private Label lbl_TituloPasajeros;
+        private Label lbl_Titulo;
     }
 }

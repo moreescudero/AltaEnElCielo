@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,8 @@ namespace Vista
             cmb_SituacionFiscal.Items.Add("Responsable inscripto");
 
             ActualizarBackgroundImage();
+
+            Formulario.Font(this);
         }
 
         //cmb 
@@ -123,7 +126,7 @@ namespace Vista
 
         private bool ValidarTarjetas()
         {
-            if (txt_Numero.Text.Length == 16 && txt_VencimientoAñoOPiso.Text.Length == 4 && txt_VencimientoMesONumero.Text.Length >= 2 && (txt_DocumentoOCiudad.Text.Length == 8 || txt_DocumentoOCiudad.Text.Length == 7) && ((cmb_MedioDePago.Text == "Tarjeta de débito") || (cmb_MedioDePago.Text == "Tarjeta de crédito" && ((txt_CodSeguridadODepto.Text.Length == 4 && tarjeta == "amex") || txt_CodSeguridadODepto.Text.Length == 3) && cmb_Cuotas.SelectedIndex > -1)))
+            if (txt_Numero.Text.Length == 16 && txt_VencimientoAñoOPiso.Text.Length == 2 && txt_VencimientoMesONumero.Text.Length >= 2 && (txt_DocumentoOCiudad.Text.Length == 8 || txt_DocumentoOCiudad.Text.Length == 7) && ((cmb_MedioDePago.Text == "Tarjeta de débito") || (cmb_MedioDePago.Text == "Tarjeta de crédito" && ((txt_CodSeguridadODepto.Text.Length == 4 && tarjeta == "amex") || txt_CodSeguridadODepto.Text.Length == 3) && cmb_Cuotas.SelectedIndex > -1)))
             {
                 return true;
             }
@@ -171,10 +174,10 @@ namespace Vista
             lbl_Numero.Text = "Numero de la tarjeta:";
             lbl_Titular.Text = "Titular de la tarjeta:";
             txt_VencimientoMesONumero.MaxLength = 2;
-            txt_VencimientoAñoOPiso.MaxLength = 4;
+            txt_VencimientoAñoOPiso.MaxLength = 2;
 
             txt_VencimientoMesONumero.PlaceholderText = "mm";
-            txt_VencimientoAñoOPiso.PlaceholderText = "aaaa";
+            txt_VencimientoAñoOPiso.PlaceholderText = "aa";
         }
 
         private void MostrarEfectivo()
@@ -307,9 +310,34 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
+                lbl_Barra.ForeColor = Color.White;
+                lbl_Calle.ForeColor = Color.White;
+                lbl_CodSeguridadODepto.ForeColor = Color.White;
+                lbl_Cuotas.ForeColor = Color.White;
+                lbl_DocumentoOCiudad.ForeColor = Color.White;
+                lbl_MedioDePago.ForeColor = Color.White;
+                lbl_Numero.ForeColor = Color.White;
+                lbl_Piso.ForeColor = Color.White;
+                lbl_Provincias.ForeColor = Color.White;
+                lbl_SituacionFiscal.ForeColor = Color.White;
+                lbl_Titular.ForeColor = Color.White;
+                lbl_VencimientoONumero.ForeColor = Color.White;
             }
             else
             {
+                lbl_Barra.ForeColor = Color.Black;
+                lbl_Calle.ForeColor = Color.Black;
+                lbl_CodSeguridadODepto.ForeColor = Color.Black;
+                lbl_Cuotas.ForeColor = Color.Black;
+                lbl_DocumentoOCiudad.ForeColor = Color.Black;
+                lbl_MedioDePago.ForeColor = Color.Black;
+                lbl_Numero.ForeColor = Color.Black;
+                lbl_Piso.ForeColor = Color.Black;
+                lbl_Provincias.ForeColor = Color.Black;
+                lbl_SituacionFiscal.ForeColor = Color.Black;
+                lbl_Titular.ForeColor = Color.Black;
+                lbl_VencimientoONumero.ForeColor = Color.Black;
+
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;
@@ -339,18 +367,17 @@ namespace Vista
             }
         }
 
-        private void txt_Numero_KeyPress(object sender, KeyPressEventArgs e)
+        private void txt_Numero_KeyUp(object sender, KeyEventArgs e)
         {
-            ProhibirLetras(e);
-            
-            if (txt_Numero.Text != String.Empty && cmb_MedioDePago.SelectedIndex != 2)
+            if (txt_Numero.Text != String.Empty)
             {
-                Size tamaño = new Size(118, 65);
-                pic_LogoTarjeta.Visible = true;
                 if (cmb_MedioDePago.SelectedIndex != 2)
                 {
+                    Size tamaño = new Size(118, 65);
+                    pic_LogoTarjeta.Visible = true;
                     txt_Numero.MaxLength = 16;
                     char[] auxiliarNumero = txt_Numero.Text.ToCharArray();
+
                     if (auxiliarNumero[0] == '4')
                     {
                         tarjeta = "visa";
@@ -370,6 +397,10 @@ namespace Vista
                         tarjeta = "amex";
                         pic_LogoTarjeta.Image = Resources.amex_logo;
                     }
+                    else
+                    {
+                        txt_Numero.Clear();
+                    }
                     pic_LogoTarjeta.Size = tamaño;
                 }
                 else
@@ -377,6 +408,11 @@ namespace Vista
                     txt_Numero.MaxLength = 11;
                 }
             }
+        }
+
+        private void txt_Numero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ProhibirLetras(e);
         }
 
         private void txt_Titular_KeyPress(object sender, KeyPressEventArgs e)
@@ -420,9 +456,9 @@ namespace Vista
 
         private void txt_VencimientoAñoOPiso_TextChanged(object sender, EventArgs e)
         {
-            if (txt_VencimientoAñoOPiso.Text.Length == 4)
+            if (txt_VencimientoAñoOPiso.Text.Length == 2)
             {
-                if (int.Parse(txt_VencimientoAñoOPiso.Text) < 2022 && lbl_Piso.Visible == false)
+                if (int.Parse(txt_VencimientoAñoOPiso.Text) < 22 && lbl_Piso.Visible == false)
                 {
                     txt_VencimientoAñoOPiso.Clear();
                 }
@@ -449,7 +485,5 @@ namespace Vista
                 }
             }
         }
-
-
     }
 }

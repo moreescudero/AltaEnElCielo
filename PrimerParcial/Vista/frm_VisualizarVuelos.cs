@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,9 @@ namespace Vista
         {
             ActualizarDataGrid();
             ActualizarBackgroundImage();
-            
+
+            Formulario.Font(this);
+
         }
 
         private void ActualizarDataGrid()
@@ -92,9 +95,16 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
+                lbl_AgregarVueloCancelado.ForeColor = Color.White;
+                lbl_Titulo.ForeColor = Color.White;
+                lbl_TituloPasajeros.ForeColor = Color.White;
             }
             else
             {
+                lbl_AgregarVueloCancelado.ForeColor = Color.Black;
+                lbl_Titulo.ForeColor = Color.Black;
+                lbl_TituloPasajeros.ForeColor = Color.Black;
+
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;

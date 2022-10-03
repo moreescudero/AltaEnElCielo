@@ -19,7 +19,6 @@ namespace Biblioteca
         bool bolsoMano;
         int cantidadDeVuelos;
         string medioDePago;
-        //Empleado usuarioVendedor;
 
         public Pasajero(string nombre, string apellido, int edad, int dni, float equipaje, string clase, string menuElegido, float precioBoleto, bool bolsoMano, Empleado usuarioVendedor) : base(nombre, apellido)
         {

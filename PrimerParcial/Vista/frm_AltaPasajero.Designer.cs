@@ -94,7 +94,7 @@
             // 
             this.lbl_Equipaje.AutoSize = true;
             this.lbl_Equipaje.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Equipaje.Location = new System.Drawing.Point(515, 118);
+            this.lbl_Equipaje.Location = new System.Drawing.Point(488, 118);
             this.lbl_Equipaje.Name = "lbl_Equipaje";
             this.lbl_Equipaje.Size = new System.Drawing.Size(55, 15);
             this.lbl_Equipaje.TabIndex = 1;
@@ -182,7 +182,7 @@
             // 
             this.lbl_CantEquipaje.AutoSize = true;
             this.lbl_CantEquipaje.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_CantEquipaje.Location = new System.Drawing.Point(515, 74);
+            this.lbl_CantEquipaje.Location = new System.Drawing.Point(488, 74);
             this.lbl_CantEquipaje.Name = "lbl_CantEquipaje";
             this.lbl_CantEquipaje.Size = new System.Drawing.Size(106, 15);
             this.lbl_CantEquipaje.TabIndex = 11;
@@ -218,7 +218,7 @@
             // 
             this.lbl_Menu.AutoSize = true;
             this.lbl_Menu.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Menu.Location = new System.Drawing.Point(515, 203);
+            this.lbl_Menu.Location = new System.Drawing.Point(488, 203);
             this.lbl_Menu.Name = "lbl_Menu";
             this.lbl_Menu.Size = new System.Drawing.Size(99, 15);
             this.lbl_Menu.TabIndex = 18;
@@ -425,7 +425,7 @@
             // 
             this.lbl_EstadoCargaPasajero.AutoSize = true;
             this.lbl_EstadoCargaPasajero.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(514, 305);
+            this.lbl_EstadoCargaPasajero.Location = new System.Drawing.Point(512, 285);
             this.lbl_EstadoCargaPasajero.Name = "lbl_EstadoCargaPasajero";
             this.lbl_EstadoCargaPasajero.Size = new System.Drawing.Size(0, 15);
             this.lbl_EstadoCargaPasajero.TabIndex = 36;
@@ -471,7 +471,7 @@
             // 
             this.lbl_EquipajeBodega.AutoSize = true;
             this.lbl_EquipajeBodega.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_EquipajeBodega.Location = new System.Drawing.Point(521, 103);
+            this.lbl_EquipajeBodega.Location = new System.Drawing.Point(494, 103);
             this.lbl_EquipajeBodega.Name = "lbl_EquipajeBodega";
             this.lbl_EquipajeBodega.Size = new System.Drawing.Size(209, 15);
             this.lbl_EquipajeBodega.TabIndex = 42;
@@ -529,6 +529,7 @@
             this.Controls.Add(this.lbl_Equipaje);
             this.Controls.Add(this.lbl_Nombre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AltaPasajero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta Pasajero";

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_VenderVuelos));
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.lbl_Fechas = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.hayComidaDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lbl_DenegarAgregarVuelo = new System.Windows.Forms.Label();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.lbl_Titulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadPasajeros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource1)).BeginInit();
@@ -66,19 +68,20 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(276, 355);
+            this.btn_Cancelar.Location = new System.Drawing.Point(253, 355);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancelar.Size = new System.Drawing.Size(95, 23);
             this.btn_Cancelar.TabIndex = 29;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Aceptar
             // 
             this.btn_Aceptar.Enabled = false;
-            this.btn_Aceptar.Location = new System.Drawing.Point(455, 355);
+            this.btn_Aceptar.Location = new System.Drawing.Point(461, 355);
             this.btn_Aceptar.Name = "btn_Aceptar";
-            this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Aceptar.Size = new System.Drawing.Size(95, 23);
             this.btn_Aceptar.TabIndex = 28;
             this.btn_Aceptar.Text = "Aceptar";
             this.btn_Aceptar.UseVisualStyleBackColor = true;
@@ -88,7 +91,7 @@
             // 
             this.lbl_Fechas.AutoSize = true;
             this.lbl_Fechas.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Fechas.Location = new System.Drawing.Point(211, 170);
+            this.lbl_Fechas.Location = new System.Drawing.Point(193, 170);
             this.lbl_Fechas.Name = "lbl_Fechas";
             this.lbl_Fechas.Size = new System.Drawing.Size(66, 15);
             this.lbl_Fechas.TabIndex = 26;
@@ -98,7 +101,7 @@
             // 
             this.lbl_Clase.AutoSize = true;
             this.lbl_Clase.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Clase.Location = new System.Drawing.Point(475, 130);
+            this.lbl_Clase.Location = new System.Drawing.Point(446, 130);
             this.lbl_Clase.Name = "lbl_Clase";
             this.lbl_Clase.Size = new System.Drawing.Size(41, 15);
             this.lbl_Clase.TabIndex = 24;
@@ -117,7 +120,7 @@
             // 
             this.lbl_CantPasajeros.AutoSize = true;
             this.lbl_CantPasajeros.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_CantPasajeros.Location = new System.Drawing.Point(475, 73);
+            this.lbl_CantPasajeros.Location = new System.Drawing.Point(446, 73);
             this.lbl_CantPasajeros.Name = "lbl_CantPasajeros";
             this.lbl_CantPasajeros.Size = new System.Drawing.Size(110, 15);
             this.lbl_CantPasajeros.TabIndex = 22;
@@ -198,9 +201,9 @@
             // 
             // btn_AgregarVuelo
             // 
-            this.btn_AgregarVuelo.Location = new System.Drawing.Point(642, 269);
+            this.btn_AgregarVuelo.Location = new System.Drawing.Point(612, 288);
             this.btn_AgregarVuelo.Name = "btn_AgregarVuelo";
-            this.btn_AgregarVuelo.Size = new System.Drawing.Size(120, 23);
+            this.btn_AgregarVuelo.Size = new System.Drawing.Size(153, 23);
             this.btn_AgregarVuelo.TabIndex = 31;
             this.btn_AgregarVuelo.Text = "Agregar Vuelo";
             this.tip_Ayuda.SetToolTip(this.btn_AgregarVuelo, "Agrega un vuelo, excepto si la fecha elegida\r\nes menor a dentro de una semana a p" +
@@ -214,7 +217,7 @@
             this.lbl_NoHayVuelos.AutoSize = true;
             this.lbl_NoHayVuelos.BackColor = System.Drawing.Color.Transparent;
             this.lbl_NoHayVuelos.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lbl_NoHayVuelos.Location = new System.Drawing.Point(44, 273);
+            this.lbl_NoHayVuelos.Location = new System.Drawing.Point(47, 292);
             this.lbl_NoHayVuelos.Name = "lbl_NoHayVuelos";
             this.lbl_NoHayVuelos.Size = new System.Drawing.Size(0, 15);
             this.lbl_NoHayVuelos.TabIndex = 32;
@@ -222,9 +225,9 @@
             // btn_Continuar
             // 
             this.btn_Continuar.Enabled = false;
-            this.btn_Continuar.Location = new System.Drawing.Point(365, 355);
+            this.btn_Continuar.Location = new System.Drawing.Point(354, 355);
             this.btn_Continuar.Name = "btn_Continuar";
-            this.btn_Continuar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Continuar.Size = new System.Drawing.Size(95, 23);
             this.btn_Continuar.TabIndex = 33;
             this.btn_Continuar.Text = "Continuar";
             this.tip_Ayuda.SetToolTip(this.btn_Continuar, "Continua para asignar un vuelo al \r\npasajero/grupo familiar ");
@@ -254,7 +257,7 @@
             this.asientosDisponiblesDataGridViewTextBoxColumn,
             this.hayComidaDataGridViewCheckBoxColumn});
             this.dgv_HayVuelo.DataSource = this.vueloBindingSource;
-            this.dgv_HayVuelo.Location = new System.Drawing.Point(30, 30);
+            this.dgv_HayVuelo.Location = new System.Drawing.Point(33, 49);
             this.dgv_HayVuelo.Name = "dgv_HayVuelo";
             this.dgv_HayVuelo.ReadOnly = true;
             this.dgv_HayVuelo.RowTemplate.Height = 25;
@@ -333,10 +336,20 @@
             // lbl_DenegarAgregarVuelo
             // 
             this.lbl_DenegarAgregarVuelo.AutoSize = true;
-            this.lbl_DenegarAgregarVuelo.Location = new System.Drawing.Point(609, 303);
+            this.lbl_DenegarAgregarVuelo.Location = new System.Drawing.Point(612, 322);
             this.lbl_DenegarAgregarVuelo.Name = "lbl_DenegarAgregarVuelo";
             this.lbl_DenegarAgregarVuelo.Size = new System.Drawing.Size(0, 15);
             this.lbl_DenegarAgregarVuelo.TabIndex = 35;
+            // 
+            // lbl_Titulo
+            // 
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Titulo.Location = new System.Drawing.Point(33, 18);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(96, 15);
+            this.lbl_Titulo.TabIndex = 36;
+            this.lbl_Titulo.Text = "Vender un pasaje";
             // 
             // frm_VenderVuelos
             // 
@@ -346,6 +359,7 @@
             this.CancelButton = this.btn_Cancelar;
             this.ClientSize = new System.Drawing.Size(800, 390);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.lbl_DenegarAgregarVuelo);
             this.Controls.Add(this.btn_Continuar);
             this.Controls.Add(this.lbl_NoHayVuelos);
@@ -364,6 +378,7 @@
             this.Controls.Add(this.cmb_Origen);
             this.Controls.Add(this.dgv_HayVuelo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_VenderVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_VenderVuelo";
@@ -409,5 +424,6 @@
         private DataGridViewCheckBoxColumn hayComidaDataGridViewCheckBoxColumn;
         private Label lbl_DenegarAgregarVuelo;
         private ToolTip tip_Ayuda;
+        private Label lbl_Titulo;
     }
 }

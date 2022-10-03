@@ -46,6 +46,7 @@
             this.lbl_HoraDespegue = new System.Windows.Forms.Label();
             this.cmb_Hora = new System.Windows.Forms.ComboBox();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.lbl_Titulo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_AgregarVuelo
@@ -73,7 +74,7 @@
             // 
             this.lbl_Destino.AutoSize = true;
             this.lbl_Destino.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Destino.Location = new System.Drawing.Point(74, 138);
+            this.lbl_Destino.Location = new System.Drawing.Point(61, 139);
             this.lbl_Destino.Name = "lbl_Destino";
             this.lbl_Destino.Size = new System.Drawing.Size(50, 15);
             this.lbl_Destino.TabIndex = 4;
@@ -83,7 +84,7 @@
             // 
             this.lbl_Origen.AutoSize = true;
             this.lbl_Origen.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Origen.Location = new System.Drawing.Point(74, 65);
+            this.lbl_Origen.Location = new System.Drawing.Point(61, 66);
             this.lbl_Origen.Name = "lbl_Origen";
             this.lbl_Origen.Size = new System.Drawing.Size(46, 15);
             this.lbl_Origen.TabIndex = 5;
@@ -93,7 +94,7 @@
             // 
             this.cmb_Origen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Origen.FormattingEnabled = true;
-            this.cmb_Origen.Location = new System.Drawing.Point(177, 62);
+            this.cmb_Origen.Location = new System.Drawing.Point(190, 63);
             this.cmb_Origen.Name = "cmb_Origen";
             this.cmb_Origen.Size = new System.Drawing.Size(121, 23);
             this.cmb_Origen.TabIndex = 6;
@@ -104,7 +105,7 @@
             this.cmb_Destino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Destino.Enabled = false;
             this.cmb_Destino.FormattingEnabled = true;
-            this.cmb_Destino.Location = new System.Drawing.Point(177, 135);
+            this.cmb_Destino.Location = new System.Drawing.Point(190, 136);
             this.cmb_Destino.Name = "cmb_Destino";
             this.cmb_Destino.Size = new System.Drawing.Size(121, 23);
             this.cmb_Destino.TabIndex = 7;
@@ -127,7 +128,7 @@
             this.cmb_Avion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Avion.Enabled = false;
             this.cmb_Avion.FormattingEnabled = true;
-            this.cmb_Avion.Location = new System.Drawing.Point(177, 200);
+            this.cmb_Avion.Location = new System.Drawing.Point(190, 201);
             this.cmb_Avion.Name = "cmb_Avion";
             this.cmb_Avion.Size = new System.Drawing.Size(121, 23);
             this.cmb_Avion.TabIndex = 9;
@@ -138,7 +139,7 @@
             // 
             this.lbl_Avion.AutoSize = true;
             this.lbl_Avion.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Avion.Location = new System.Drawing.Point(74, 208);
+            this.lbl_Avion.Location = new System.Drawing.Point(61, 209);
             this.lbl_Avion.Name = "lbl_Avion";
             this.lbl_Avion.Size = new System.Drawing.Size(41, 15);
             this.lbl_Avion.TabIndex = 10;
@@ -148,17 +149,17 @@
             // 
             this.lbl_AyudaAviones.AutoSize = true;
             this.lbl_AyudaAviones.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_AyudaAviones.Location = new System.Drawing.Point(39, 230);
+            this.lbl_AyudaAviones.Location = new System.Drawing.Point(61, 227);
             this.lbl_AyudaAviones.Name = "lbl_AyudaAviones";
-            this.lbl_AyudaAviones.Size = new System.Drawing.Size(385, 15);
+            this.lbl_AyudaAviones.Size = new System.Drawing.Size(240, 30);
             this.lbl_AyudaAviones.TabIndex = 11;
-            this.lbl_AyudaAviones.Text = "Para que se habiliten los aviones disponibles primero elegir fecha y hora";
+            this.lbl_AyudaAviones.Text = "Para que se habiliten los aviones disponibles\r\n primero elegir fecha y hora";
             // 
             // lbl_CodigoVuelo
             // 
             this.lbl_CodigoVuelo.AutoSize = true;
             this.lbl_CodigoVuelo.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_CodigoVuelo.Location = new System.Drawing.Point(74, 274);
+            this.lbl_CodigoVuelo.Location = new System.Drawing.Point(61, 275);
             this.lbl_CodigoVuelo.Name = "lbl_CodigoVuelo";
             this.lbl_CodigoVuelo.Size = new System.Drawing.Size(97, 15);
             this.lbl_CodigoVuelo.TabIndex = 12;
@@ -167,7 +168,7 @@
             // txt_CodigoVuelo
             // 
             this.txt_CodigoVuelo.Enabled = false;
-            this.txt_CodigoVuelo.Location = new System.Drawing.Point(177, 271);
+            this.txt_CodigoVuelo.Location = new System.Drawing.Point(190, 272);
             this.txt_CodigoVuelo.Name = "txt_CodigoVuelo";
             this.txt_CodigoVuelo.Size = new System.Drawing.Size(121, 23);
             this.txt_CodigoVuelo.TabIndex = 13;
@@ -177,7 +178,7 @@
             // 
             this.lbl_Catering.AutoSize = true;
             this.lbl_Catering.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Catering.Location = new System.Drawing.Point(480, 275);
+            this.lbl_Catering.Location = new System.Drawing.Point(457, 262);
             this.lbl_Catering.Name = "lbl_Catering";
             this.lbl_Catering.Size = new System.Drawing.Size(113, 15);
             this.lbl_Catering.TabIndex = 14;
@@ -187,7 +188,7 @@
             // 
             this.chk_SiHay.AutoSize = true;
             this.chk_SiHay.BackColor = System.Drawing.Color.Transparent;
-            this.chk_SiHay.Location = new System.Drawing.Point(608, 275);
+            this.chk_SiHay.Location = new System.Drawing.Point(608, 262);
             this.chk_SiHay.Name = "chk_SiHay";
             this.chk_SiHay.Size = new System.Drawing.Size(133, 19);
             this.chk_SiHay.TabIndex = 16;
@@ -199,7 +200,7 @@
             // 
             this.lbl_HoraDespegue.AutoSize = true;
             this.lbl_HoraDespegue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_HoraDespegue.Location = new System.Drawing.Point(494, 225);
+            this.lbl_HoraDespegue.Location = new System.Drawing.Point(457, 225);
             this.lbl_HoraDespegue.Name = "lbl_HoraDespegue";
             this.lbl_HoraDespegue.Size = new System.Drawing.Size(90, 15);
             this.lbl_HoraDespegue.TabIndex = 17;
@@ -217,6 +218,16 @@
             this.tip_Ayuda.SetToolTip(this.cmb_Hora, "Selecciona la hora en la que desees que \r\ndespegue el avión");
             this.cmb_Hora.SelectedIndexChanged += new System.EventHandler(this.cmb_Hora_SelectedIndexChanged);
             // 
+            // lbl_Titulo
+            // 
+            this.lbl_Titulo.AutoSize = true;
+            this.lbl_Titulo.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_Titulo.Location = new System.Drawing.Point(39, 19);
+            this.lbl_Titulo.Name = "lbl_Titulo";
+            this.lbl_Titulo.Size = new System.Drawing.Size(98, 15);
+            this.lbl_Titulo.TabIndex = 19;
+            this.lbl_Titulo.Text = "Agregar un vuelo";
+            // 
             // frm_AgregarVuelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -224,6 +235,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 390);
             this.ControlBox = false;
+            this.Controls.Add(this.lbl_Titulo);
             this.Controls.Add(this.cmb_Hora);
             this.Controls.Add(this.lbl_HoraDespegue);
             this.Controls.Add(this.chk_SiHay);
@@ -269,5 +281,6 @@
         private Label lbl_HoraDespegue;
         private ComboBox cmb_Hora;
         private ToolTip tip_Ayuda;
+        private Label lbl_Titulo;
     }
 }

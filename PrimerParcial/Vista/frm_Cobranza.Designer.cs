@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Cobranza));
             this.lbl_MedioDePago = new System.Windows.Forms.Label();
             this.cmb_MedioDePago = new System.Windows.Forms.ComboBox();
             this.lbl_Numero = new System.Windows.Forms.Label();
@@ -154,6 +155,7 @@
             this.txt_Numero.Visible = false;
             this.txt_Numero.TextChanged += new System.EventHandler(this.txt_Numero_TextChanged);
             this.txt_Numero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Numero_KeyPress);
+            this.txt_Numero.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_Numero_KeyUp);
             // 
             // lbl_CodSeguridadODepto
             // 
@@ -371,6 +373,7 @@
             this.Controls.Add(this.cmb_MedioDePago);
             this.Controls.Add(this.lbl_MedioDePago);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Cobranza";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Cobranza";

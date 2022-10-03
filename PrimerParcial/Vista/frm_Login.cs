@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 using Biblioteca;
+using Vista.Properties;
 
 namespace Vista
 {
@@ -24,6 +26,9 @@ namespace Vista
             tmr_HoraActual.Start();
             Aerolinea.InicializarAerolinea();
             Aerolinea.QuitarVuelosFinalizados();
+
+            Formulario.Font(this);
+
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
@@ -34,22 +39,14 @@ namespace Vista
                 if(item.Value.Usuario == txt_Usuario.Text && item.Value.ValidarContraseña(txt_Contraseña.Text))
                 {
                     frm_Menu menu = new frm_Menu(item.Value);
-                    this.Hide();
-                    if(menu.ShowDialog() == DialogResult.OK)
-                    {
-                        this.Show();
-                    }
-                    else
-                    {
-                        this.Close();
-                    }
+                    menu.ShowDialog();
                     break;
                 }
                 contador++;
             }
             if (contador == 4)
             {
-                pic_Incorrecto.Visible = true;
+                lbl_Incorrecto.Visible = true;
             }
         }
 
@@ -74,7 +71,7 @@ namespace Vista
 
         private void txt_Usuario_TextChanged(object sender, EventArgs e)
         {
-            pic_Incorrecto.Visible = false;
+            lbl_Incorrecto.Visible = false;
         }
     }
 }

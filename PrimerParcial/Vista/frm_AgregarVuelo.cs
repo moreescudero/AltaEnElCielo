@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
@@ -59,6 +60,10 @@ namespace Vista
                     cmb_Origen.Items.Add(destino);
                 }
             }
+
+            Formulario.Font(this);
+
+
             for (int i = 0; i < 24; i++)
             {
                 if (i <= 9)
@@ -218,9 +223,28 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
+                lbl_Avion.ForeColor = Color.White;
+                lbl_AyudaAviones.ForeColor = Color.White;
+                lbl_Catering.ForeColor = Color.White;
+                lbl_CodigoVuelo.ForeColor = Color.White;
+                lbl_Destino.ForeColor = Color.White;
+                lbl_HoraDespegue.ForeColor = Color.White;
+                lbl_Origen.ForeColor = Color.White;
+                chk_SiHay.ForeColor = Color.White;
+                lbl_Titulo.ForeColor = Color.White;
             }
             else
             {
+                lbl_Avion.ForeColor = Color.Black;
+                lbl_AyudaAviones.ForeColor = Color.Black;
+                lbl_Catering.ForeColor = Color.Black;
+                lbl_CodigoVuelo.ForeColor = Color.Black;
+                lbl_Destino.ForeColor = Color.Black;
+                lbl_HoraDespegue.ForeColor = Color.Black;
+                lbl_Origen.ForeColor = Color.Black;
+                chk_SiHay.ForeColor = Color.Black;
+                lbl_Titulo.ForeColor = Color.White;
+
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;

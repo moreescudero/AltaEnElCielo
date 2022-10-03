@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.Intrinsics.X86;
 using System.Text;
@@ -58,6 +59,15 @@ namespace Vista
             {
                 pic_PasajeroDos.Visible = true;
             }
+
+            Formulario.Font(this);
+
+            //PrivateFontCollection privateFontCollection = new PrivateFontCollection();
+            //privateFontCollection.AddFontFile("../../../Resources/SuperLegendBoy-4w8Y.ttf");
+            //foreach (Control control in this.Controls)
+            //{
+            //    control.Font = new Font(privateFontCollection.Families[0], 7, FontStyle.Regular);
+            //}
 
             lbl_ComoGuardar.Text = "Presiona el icono del pasajero que deseas ver o cargar sus datos";
 
@@ -193,13 +203,13 @@ namespace Vista
 
                 frm_Cobranza formCobranza = new frm_Cobranza(precioTotal, grupoFamiliar);
                 this.Hide();
-                if(formCobranza.ShowDialog() == DialogResult.Cancel)
+                if(formCobranza.ShowDialog() == DialogResult.OK)
                 {
-                    this.Show();
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
-                    this.Close();
+                    this.Show();
                 }
             }
             else
@@ -213,7 +223,7 @@ namespace Vista
             {
                 if (!banderaAdultoResponsable && int.Parse(txt_Edad.Text) < 12)
                 {
-                    lbl_EstadoCargaPasajero.Text = "No podes cargar un menor de 12 años sin un adulto";
+                    lbl_EstadoCargaPasajero.Text = "No podes cargar un menor \nde 12 años sin un adulto";
                 }
                 else
                 {
@@ -242,7 +252,7 @@ namespace Vista
             }
             else
             {
-                lbl_EstadoCargaPasajero.Text = "Complete todos los datos para cargar un pasajero";
+                lbl_EstadoCargaPasajero.Text = "Complete todos los datos\n para cargar un pasajero";
             }
         }
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -418,9 +428,30 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
+                lbl_Apellido.ForeColor = Color.White;
+                lbl_CantEquipaje.ForeColor = Color.White;
+                lbl_ComoGuardar.ForeColor = Color.White;
+                lbl_Dni.ForeColor = Color.White;
+                lbl_Edad.ForeColor = Color.White;
+                lbl_Equipaje.ForeColor = Color.White;
+                lbl_EquipajeBodega.ForeColor = Color.White;
+                lbl_Kilos.ForeColor = Color.White;
+                lbl_Menu.ForeColor = Color.White;
+                lbl_Nombre.ForeColor = Color.White;
             }
             else
             {
+                lbl_Apellido.ForeColor = Color.Black;
+                lbl_CantEquipaje.ForeColor = Color.Black;
+                lbl_ComoGuardar.ForeColor = Color.Black;
+                lbl_Dni.ForeColor = Color.Black;
+                lbl_Edad.ForeColor = Color.Black;
+                lbl_Equipaje.ForeColor = Color.Black;
+                lbl_EquipajeBodega.ForeColor = Color.Black;
+                lbl_Kilos.ForeColor = Color.Black;
+                lbl_Menu.ForeColor = Color.Black;
+                lbl_Nombre.ForeColor = Color.Black;
+
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;

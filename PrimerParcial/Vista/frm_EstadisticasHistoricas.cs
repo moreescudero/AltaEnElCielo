@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -47,6 +48,8 @@ namespace Vista
             {
                 tabla.Rows.Add(destino, Aerolinea.BuscarRecaudacionPorDestino(destino));
             }
+
+            Formulario.Font(this);
 
         }
 
@@ -217,9 +220,30 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
+                lbl_Credito.ForeColor = Color.White;
+                lbl_Debito.ForeColor = Color.White;
+                lbl_DestinoMasElegido.ForeColor = Color.White;
+                lbl_Efectivo.ForeColor = Color.White;
+                lbl_GananciasInternacionales.ForeColor = Color.White;
+                lbl_GananciasNacionales.ForeColor = Color.White;
+                lbl_RecaudacionTotal.ForeColor = Color.White;
+                lbl_TituloPasajeros.ForeColor = Color.White;
+                lbl_TituloVuelos.ForeColor = Color.White;
+                lbl_Visualizar.ForeColor = Color.White;
             }
             else
             {
+                lbl_Credito.ForeColor = Color.Black;
+                lbl_Debito.ForeColor = Color.Black;
+                lbl_DestinoMasElegido.ForeColor = Color.Black;
+                lbl_Efectivo.ForeColor = Color.Black;
+                lbl_GananciasInternacionales.ForeColor = Color.Black;
+                lbl_GananciasNacionales.ForeColor = Color.Black;
+                lbl_RecaudacionTotal.ForeColor = Color.Black;
+                lbl_TituloPasajeros.ForeColor = Color.Black;
+                lbl_TituloVuelos.ForeColor = Color.Black;
+                lbl_Visualizar.ForeColor = Color.Black;
+
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;
