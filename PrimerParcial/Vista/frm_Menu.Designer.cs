@@ -43,10 +43,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Salir = new System.Windows.Forms.Button();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.pic_Logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_VisualizarVuelos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Vender)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Estadisticas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_CerrarSesion
@@ -64,7 +66,7 @@
             // 
             this.lbl_Bienvenido.AutoSize = true;
             this.lbl_Bienvenido.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Bienvenido.Location = new System.Drawing.Point(368, 42);
+            this.lbl_Bienvenido.Location = new System.Drawing.Point(55, 317);
             this.lbl_Bienvenido.Name = "lbl_Bienvenido";
             this.lbl_Bienvenido.Size = new System.Drawing.Size(0, 15);
             this.lbl_Bienvenido.TabIndex = 1;
@@ -88,10 +90,10 @@
             this.pic_VisualizarVuelos.BackColor = System.Drawing.Color.Transparent;
             this.pic_VisualizarVuelos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
-            this.pic_VisualizarVuelos.Location = new System.Drawing.Point(204, 183);
+            this.pic_VisualizarVuelos.Location = new System.Drawing.Point(188, 165);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
-            this.pic_VisualizarVuelos.Size = new System.Drawing.Size(67, 67);
-            this.pic_VisualizarVuelos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_VisualizarVuelos.Size = new System.Drawing.Size(98, 96);
+            this.pic_VisualizarVuelos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_VisualizarVuelos.TabIndex = 3;
             this.pic_VisualizarVuelos.TabStop = false;
             this.tip_Ayuda.SetToolTip(this.pic_VisualizarVuelos, "Accedes a la lista de todos los \r\nvuelos disponibles y podes agregar un \r\nnuevo v" +
@@ -113,10 +115,10 @@
             this.pic_Vender.BackColor = System.Drawing.Color.Transparent;
             this.pic_Vender.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Vender.Image = ((System.Drawing.Image)(resources.GetObject("pic_Vender.Image")));
-            this.pic_Vender.Location = new System.Drawing.Point(350, 183);
+            this.pic_Vender.Location = new System.Drawing.Point(346, 174);
             this.pic_Vender.Name = "pic_Vender";
-            this.pic_Vender.Size = new System.Drawing.Size(80, 67);
-            this.pic_Vender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Vender.Size = new System.Drawing.Size(84, 75);
+            this.pic_Vender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_Vender.TabIndex = 5;
             this.pic_Vender.TabStop = false;
             this.tip_Ayuda.SetToolTip(this.pic_Vender, "Podes vender pasajes a un grupo familiar y \r\nagregar un vuelo en caso de que el d" +
@@ -138,9 +140,9 @@
             this.pic_Estadisticas.BackColor = System.Drawing.Color.Transparent;
             this.pic_Estadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Estadisticas.Image = ((System.Drawing.Image)(resources.GetObject("pic_Estadisticas.Image")));
-            this.pic_Estadisticas.Location = new System.Drawing.Point(508, 183);
+            this.pic_Estadisticas.Location = new System.Drawing.Point(495, 165);
             this.pic_Estadisticas.Name = "pic_Estadisticas";
-            this.pic_Estadisticas.Size = new System.Drawing.Size(90, 67);
+            this.pic_Estadisticas.Size = new System.Drawing.Size(108, 96);
             this.pic_Estadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Estadisticas.TabIndex = 7;
             this.pic_Estadisticas.TabStop = false;
@@ -162,7 +164,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Vista.Properties.Resources.profile_avatar;
-            this.pictureBox1.Location = new System.Drawing.Point(325, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 304);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(37, 35);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,6 +182,17 @@
             this.btn_Salir.UseVisualStyleBackColor = true;
             this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
             // 
+            // pic_Logo
+            // 
+            this.pic_Logo.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_Logo.Image")));
+            this.pic_Logo.Location = new System.Drawing.Point(205, 12);
+            this.pic_Logo.Name = "pic_Logo";
+            this.pic_Logo.Size = new System.Drawing.Size(375, 121);
+            this.pic_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Logo.TabIndex = 11;
+            this.pic_Logo.TabStop = false;
+            // 
             // frm_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -188,6 +201,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(804, 363);
             this.ControlBox = false;
+            this.Controls.Add(this.pic_Logo);
             this.Controls.Add(this.btn_Salir);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_Estadisticas);
@@ -210,6 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_Vender)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Estadisticas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +245,6 @@
         private PictureBox pictureBox1;
         private Button btn_Salir;
         private ToolTip tip_Ayuda;
+        private PictureBox pic_Logo;
     }
 }

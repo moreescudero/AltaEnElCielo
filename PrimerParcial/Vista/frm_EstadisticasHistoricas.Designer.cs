@@ -433,6 +433,7 @@
             // 
             // pnl_VerEstadisticas
             // 
+            this.pnl_VerEstadisticas.BackColor = System.Drawing.Color.Transparent;
             this.pnl_VerEstadisticas.Controls.Add(this.pnl_Informacion);
             this.pnl_VerEstadisticas.Controls.Add(this.dgv_SegunOpcionElegida);
             this.pnl_VerEstadisticas.Controls.Add(this.txt_DestinoMasElegido);
@@ -461,19 +462,21 @@
             // 
             // pnl_VerPasajeros
             // 
+            this.pnl_VerPasajeros.BackColor = System.Drawing.Color.Transparent;
             this.pnl_VerPasajeros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_VerPasajeros.Controls.Add(this.btn_CerrarVerPasajeros);
             this.pnl_VerPasajeros.Controls.Add(this.dgv_VerPasajeros);
+            this.pnl_VerPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_VerPasajeros.Location = new System.Drawing.Point(0, 0);
             this.pnl_VerPasajeros.Name = "pnl_VerPasajeros";
-            this.pnl_VerPasajeros.Size = new System.Drawing.Size(803, 72);
+            this.pnl_VerPasajeros.Size = new System.Drawing.Size(803, 390);
             this.pnl_VerPasajeros.TabIndex = 5;
             this.pnl_VerPasajeros.Visible = false;
             this.pnl_VerPasajeros.VisibleChanged += new System.EventHandler(this.pnl_VerPasajeros_VisibleChanged);
             // 
             // btn_CerrarVerPasajeros
             // 
-            this.btn_CerrarVerPasajeros.Location = new System.Drawing.Point(359, 414);
+            this.btn_CerrarVerPasajeros.Location = new System.Drawing.Point(359, 354);
             this.btn_CerrarVerPasajeros.Name = "btn_CerrarVerPasajeros";
             this.btn_CerrarVerPasajeros.Size = new System.Drawing.Size(115, 23);
             this.btn_CerrarVerPasajeros.TabIndex = 1;
@@ -505,7 +508,7 @@
             this.dgv_VerPasajeros.Name = "dgv_VerPasajeros";
             this.dgv_VerPasajeros.ReadOnly = true;
             this.dgv_VerPasajeros.RowTemplate.Height = 25;
-            this.dgv_VerPasajeros.Size = new System.Drawing.Size(729, 29);
+            this.dgv_VerPasajeros.Size = new System.Drawing.Size(729, 273);
             this.dgv_VerPasajeros.TabIndex = 0;
             // 
             // claseDataGridViewTextBoxColumn

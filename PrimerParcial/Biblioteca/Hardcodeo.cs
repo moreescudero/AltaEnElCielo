@@ -24,10 +24,10 @@ namespace Biblioteca
 
         public static void InicializarEmpleados(Dictionary<int, Empleado> empleados)
         {
-            empleados.Add(1, new Empleado("more", "escudero", "more", "123"));
-            empleados.Add(2, new Empleado("mati", "barrozo", "mati", "123"));
-            empleados.Add(3, new Empleado("nico", "gil", "nico", "123"));
-            empleados.Add(4, new Empleado("luki", "gaggino", "luki", "123"));
+            empleados.Add(1, new Empleado("More", "Escudero", "more", "123"));
+            empleados.Add(2, new Empleado("Mati", "Barrozo", "mati", "123"));
+            empleados.Add(3, new Empleado("Nico", "Gil", "nico", "123"));
+            empleados.Add(4, new Empleado("Luki", "Gaggino", "luki", "123"));
         }
 
         //pasajeros pero hacer otra lista que sea pasajeros en vuelo

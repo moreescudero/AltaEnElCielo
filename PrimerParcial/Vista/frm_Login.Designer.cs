@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Login));
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_Aceptar = new System.Windows.Forms.Button();
             this.txt_Usuario = new System.Windows.Forms.TextBox();
@@ -36,8 +37,9 @@
             this.btn_Autocompletar = new System.Windows.Forms.Button();
             this.lbl_Hora = new System.Windows.Forms.Label();
             this.tmr_HoraActual = new System.Windows.Forms.Timer(this.components);
-            this.lbl_Incorrecto = new System.Windows.Forms.Label();
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
+            this.pic_Incorrecto = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Incorrecto)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Cancelar
@@ -103,15 +105,17 @@
             // 
             this.tmr_HoraActual.Tick += new System.EventHandler(this.tmr_HoraActual_Tick);
             // 
-            // lbl_Incorrecto
+            // pic_Incorrecto
             // 
-            this.lbl_Incorrecto.AutoSize = true;
-            this.lbl_Incorrecto.Location = new System.Drawing.Point(186, 204);
-            this.lbl_Incorrecto.Name = "lbl_Incorrecto";
-            this.lbl_Incorrecto.Size = new System.Drawing.Size(180, 15);
-            this.lbl_Incorrecto.TabIndex = 8;
-            this.lbl_Incorrecto.Text = "Usuario o contraseña incorrectos";
-            this.lbl_Incorrecto.Visible = false;
+            this.pic_Incorrecto.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Incorrecto.Image = ((System.Drawing.Image)(resources.GetObject("pic_Incorrecto.Image")));
+            this.pic_Incorrecto.Location = new System.Drawing.Point(158, 217);
+            this.pic_Incorrecto.Name = "pic_Incorrecto";
+            this.pic_Incorrecto.Size = new System.Drawing.Size(240, 17);
+            this.pic_Incorrecto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Incorrecto.TabIndex = 9;
+            this.pic_Incorrecto.TabStop = false;
+            this.pic_Incorrecto.Visible = false;
             // 
             // frm_Login
             // 
@@ -120,20 +124,22 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(564, 429);
             this.ControlBox = false;
+            this.Controls.Add(this.pic_Incorrecto);
             this.Controls.Add(this.lbl_Hora);
             this.Controls.Add(this.btn_Autocompletar);
             this.Controls.Add(this.txt_Contraseña);
             this.Controls.Add(this.txt_Usuario);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.btn_Cancelar);
-            this.Controls.Add(this.lbl_Incorrecto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Incorrecto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,7 +154,7 @@
         private Button btn_Autocompletar;
         private Label lbl_Hora;
         private System.Windows.Forms.Timer tmr_HoraActual;
-        private Label lbl_Incorrecto;
         private ToolTip tip_Ayuda;
+        private PictureBox pic_Incorrecto;
     }
 }

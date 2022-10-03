@@ -81,12 +81,6 @@ namespace Vista
             }
         }
 
-        //private void cmb_Cuotas_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    //pagoElegido = ver como fijarse que es lo que se selecciono por index
-
-        //}
-
         //botones
         private void btn_Cancelar_Click(object sender, EventArgs e)
         {
@@ -138,7 +132,7 @@ namespace Vista
 
         private bool ValidarEfectivo()
         {
-            if (txt_Numero.Text.Length == 11 && txt_VencimientoAñoOPiso.Text != String.Empty && txt_VencimientoMesONumero.Text != String.Empty && txt_DocumentoOCiudad.Text != String.Empty && txt_Calle.Text != String.Empty && cmb_Provincias.SelectedIndex > -1 && cmb_SituacionFiscal.SelectedIndex > -1)
+            if (txt_Numero.Text.Length == 11 && txt_VencimientoMesONumero.Text != String.Empty && txt_Calle.Text != String.Empty && cmb_Provincias.SelectedIndex > -1 && cmb_SituacionFiscal.SelectedIndex > -1)
             {
                 return true;
             }
@@ -212,30 +206,30 @@ namespace Vista
         private void CargarProvincias()
         {
             cmb_Provincias.Items.Clear();
-            cmb_Provincias.Items.Add("CABA");
             cmb_Provincias.Items.Add("Buenos Aires");
-            cmb_Provincias.Items.Add("Salta");
-            cmb_Provincias.Items.Add("Jujuy");
-            cmb_Provincias.Items.Add("Formosa");
+            cmb_Provincias.Items.Add("CABA");
+            cmb_Provincias.Items.Add("Catamarca");
             cmb_Provincias.Items.Add("Chaco");
-            cmb_Provincias.Items.Add("Misiones");
+            cmb_Provincias.Items.Add("Chubut");
+            cmb_Provincias.Items.Add("Córdoba");
             cmb_Provincias.Items.Add("Corrientes");
             cmb_Provincias.Items.Add("Entre Rios");
-            cmb_Provincias.Items.Add("Tucuman");
-            cmb_Provincias.Items.Add("Catamarca");
-            cmb_Provincias.Items.Add("La Rioja");
-            cmb_Provincias.Items.Add("San Luis");
-            cmb_Provincias.Items.Add("Córdoba");
-            cmb_Provincias.Items.Add("Mendoza");
-            cmb_Provincias.Items.Add("San Juan");
+            cmb_Provincias.Items.Add("Formosa");
+            cmb_Provincias.Items.Add("Jujuy");
             cmb_Provincias.Items.Add("La Pampa");
-            cmb_Provincias.Items.Add("Santa Fe");
-            cmb_Provincias.Items.Add("Santiago del Estero");
+            cmb_Provincias.Items.Add("La Rioja");
+            cmb_Provincias.Items.Add("Mendoza");
+            cmb_Provincias.Items.Add("Misiones");
             cmb_Provincias.Items.Add("Neuquen");
             cmb_Provincias.Items.Add("Rio Negro");
+            cmb_Provincias.Items.Add("Salta");
+            cmb_Provincias.Items.Add("San Juan");
+            cmb_Provincias.Items.Add("San Luis");
             cmb_Provincias.Items.Add("Santa Cruz");
-            cmb_Provincias.Items.Add("Chubut");
+            cmb_Provincias.Items.Add("Santa Fe");
+            cmb_Provincias.Items.Add("Santiago del Estero");
             cmb_Provincias.Items.Add("Tierra del Fuego");
+            cmb_Provincias.Items.Add("Tucuman");
         }
 
         private void MostrarTarjetaCredito()
@@ -349,7 +343,7 @@ namespace Vista
         {
             ProhibirLetras(e);
             
-            if (txt_Numero.Text != String.Empty)
+            if (txt_Numero.Text != String.Empty && cmb_MedioDePago.SelectedIndex != 2)
             {
                 Size tamaño = new Size(118, 65);
                 pic_LogoTarjeta.Visible = true;
@@ -437,16 +431,22 @@ namespace Vista
 
         private void txt_CodSeguridadODepto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ProhibirLetras(e);
+            if(txt_CodSeguridadODepto.Text != "Depto:")
+            {
+                ProhibirLetras(e);
+            }
         }
 
         private void txt_Numero_TextChanged(object sender, EventArgs e)
         {
-            CargarCuotasSegunTarjeta();
-            txt_CodSeguridadODepto.Enabled = true;
-            if(txt_Numero.Text == String.Empty)
+            if (cmb_MedioDePago.SelectedIndex != 2)
             {
-                pic_LogoTarjeta.Visible = false;
+                CargarCuotasSegunTarjeta();
+                txt_CodSeguridadODepto.Enabled = true;
+                if (txt_Numero.Text == String.Empty)
+                {
+                    pic_LogoTarjeta.Visible = false;
+                }
             }
         }
 

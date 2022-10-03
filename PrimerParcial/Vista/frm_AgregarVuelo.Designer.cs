@@ -72,6 +72,7 @@
             // lbl_Destino
             // 
             this.lbl_Destino.AutoSize = true;
+            this.lbl_Destino.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Destino.Location = new System.Drawing.Point(74, 138);
             this.lbl_Destino.Name = "lbl_Destino";
             this.lbl_Destino.Size = new System.Drawing.Size(50, 15);
@@ -81,6 +82,7 @@
             // lbl_Origen
             // 
             this.lbl_Origen.AutoSize = true;
+            this.lbl_Origen.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Origen.Location = new System.Drawing.Point(74, 65);
             this.lbl_Origen.Name = "lbl_Origen";
             this.lbl_Origen.Size = new System.Drawing.Size(46, 15);
@@ -135,6 +137,7 @@
             // lbl_Avion
             // 
             this.lbl_Avion.AutoSize = true;
+            this.lbl_Avion.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Avion.Location = new System.Drawing.Point(74, 208);
             this.lbl_Avion.Name = "lbl_Avion";
             this.lbl_Avion.Size = new System.Drawing.Size(41, 15);
@@ -144,6 +147,7 @@
             // lbl_AyudaAviones
             // 
             this.lbl_AyudaAviones.AutoSize = true;
+            this.lbl_AyudaAviones.BackColor = System.Drawing.Color.Transparent;
             this.lbl_AyudaAviones.Location = new System.Drawing.Point(39, 230);
             this.lbl_AyudaAviones.Name = "lbl_AyudaAviones";
             this.lbl_AyudaAviones.Size = new System.Drawing.Size(385, 15);
@@ -153,6 +157,7 @@
             // lbl_CodigoVuelo
             // 
             this.lbl_CodigoVuelo.AutoSize = true;
+            this.lbl_CodigoVuelo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_CodigoVuelo.Location = new System.Drawing.Point(74, 274);
             this.lbl_CodigoVuelo.Name = "lbl_CodigoVuelo";
             this.lbl_CodigoVuelo.Size = new System.Drawing.Size(97, 15);
@@ -171,6 +176,7 @@
             // lbl_Catering
             // 
             this.lbl_Catering.AutoSize = true;
+            this.lbl_Catering.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Catering.Location = new System.Drawing.Point(480, 275);
             this.lbl_Catering.Name = "lbl_Catering";
             this.lbl_Catering.Size = new System.Drawing.Size(113, 15);
@@ -180,17 +186,19 @@
             // chk_SiHay
             // 
             this.chk_SiHay.AutoSize = true;
+            this.chk_SiHay.BackColor = System.Drawing.Color.Transparent;
             this.chk_SiHay.Location = new System.Drawing.Point(608, 275);
             this.chk_SiHay.Name = "chk_SiHay";
             this.chk_SiHay.Size = new System.Drawing.Size(133, 19);
             this.chk_SiHay.TabIndex = 16;
             this.chk_SiHay.Text = "Cuenta con catering";
-            this.chk_SiHay.UseVisualStyleBackColor = true;
+            this.chk_SiHay.UseVisualStyleBackColor = false;
             this.chk_SiHay.CheckedChanged += new System.EventHandler(this.chk_SiHay_CheckedChanged);
             // 
             // lbl_HoraDespegue
             // 
             this.lbl_HoraDespegue.AutoSize = true;
+            this.lbl_HoraDespegue.BackColor = System.Drawing.Color.Transparent;
             this.lbl_HoraDespegue.Location = new System.Drawing.Point(494, 225);
             this.lbl_HoraDespegue.Name = "lbl_HoraDespegue";
             this.lbl_HoraDespegue.Size = new System.Drawing.Size(90, 15);

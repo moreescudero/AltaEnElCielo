@@ -83,13 +83,14 @@ namespace Vista
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             frm_AltaPasajero altaPasajero = new frm_AltaPasajero(filtro[index].CodigoVuelo, int.Parse(nud_CantidadPasajeros.Value.ToString()), cmb_Clase.Text, usuario);
+            this.Hide();
             if(altaPasajero.ShowDialog() == DialogResult.OK)
             {
-                this.DialogResult = DialogResult.OK; // alta pasajero se va a encargar de terminar de cargar todo
+                this.DialogResult = DialogResult.OK; 
             }
             else
             {
-                //informar que ocurrio un error en alta pasajeros SIN message box
+                this.Show();
             }
         }
 

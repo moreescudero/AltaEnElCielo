@@ -64,7 +64,7 @@ namespace Biblioteca
             this.duracion = AsignarDuracion();
             this.llegada = CalcularLlegada();
             listaPasajeros = new List<Pasajero>();
-            this.disponible = "disponible";
+            this.disponible = "Disponible";
             this.bodegaDisponible = bodegaDisponible;
         }
 

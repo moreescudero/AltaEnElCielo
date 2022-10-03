@@ -80,21 +80,27 @@ namespace Vista
         private void pic_Vender_Click(object sender, EventArgs e)
         {
             frm_VenderVuelos formVender = new frm_VenderVuelos(usuario);
+            this.Hide();
             formVender.ShowDialog();
+            this.Show();
             formVender.Close();
         }
 
         private void pic_VisualizarVuelos_Click(object sender, EventArgs e)
         {
             frm_VisualizarVuelos formVisualizar = new frm_VisualizarVuelos(Aerolinea.listaVuelos);
+            this.Hide();
             formVisualizar.ShowDialog();
+            this.Show();
             formVisualizar.Close();
         }
 
         private void pic_Estadisticas_Click(object sender, EventArgs e)
         {
             frm_EstadisticasHistoricas formEstadisticas = new frm_EstadisticasHistoricas();
+            this.Hide();
             formEstadisticas.ShowDialog();
+            this.Show();
             formEstadisticas.Close();
         }
 

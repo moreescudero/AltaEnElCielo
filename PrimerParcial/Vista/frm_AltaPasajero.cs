@@ -192,14 +192,15 @@ namespace Vista
                 unVuelo.CambiarANoDisponible();
 
                 frm_Cobranza formCobranza = new frm_Cobranza(precioTotal, grupoFamiliar);
-                formCobranza.ShowDialog();
-                formCobranza.Close();
-                
-
-                //if(formCobranza.DialogResult == DialogResult.OK)
-                //{
-                    this.DialogResult = DialogResult.OK;
-                //}
+                this.Hide();
+                if(formCobranza.ShowDialog() == DialogResult.Cancel)
+                {
+                    this.Show();
+                }
+                else
+                {
+                    this.Close();
+                }
             }
             else
             {
@@ -208,13 +209,13 @@ namespace Vista
         }
         private void btn_CargarPasajero_Click(object sender, EventArgs e)
         {
-            if (!banderaAdultoResponsable && int.Parse(txt_Edad.Text) < 12)
+            if (VerificarDatosCompletos())
             {
-                lbl_EstadoCargaPasajero.Text = "No podes cargar un menor de 12 años sin un adulto";
-            }
-            else
-            {
-                if (VerificarDatosCompletos())
+                if (!banderaAdultoResponsable && int.Parse(txt_Edad.Text) < 12)
+                {
+                    lbl_EstadoCargaPasajero.Text = "No podes cargar un menor de 12 años sin un adulto";
+                }
+                else
                 {
                     CargarImpuestosYTasas();
                     Pasajero pasajero = new Pasajero(txt_Nombre.Text, txt_Apellido.Text, int.Parse(txt_Edad.Text), int.Parse(txt_Dni.Text), (float)nud_Equipaje.Value, clase, cmb_Menu.Text, precioTotal, chk_BolsoMano.Checked, usuario);
@@ -238,11 +239,10 @@ namespace Vista
                         lbl_EstadoCargaPasajero.Text = "Se modifico un pasajero con exito";
                     }
                 }
-                else
-                {
-                    lbl_EstadoCargaPasajero.Text = "Complete todos los datos para cargar un pasajero";
-
-                }
+            }
+            else
+            {
+                lbl_EstadoCargaPasajero.Text = "Complete todos los datos para cargar un pasajero";
             }
         }
         private void btn_Cancelar_Click(object sender, EventArgs e)

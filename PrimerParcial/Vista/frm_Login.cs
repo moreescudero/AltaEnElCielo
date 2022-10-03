@@ -49,7 +49,7 @@ namespace Vista
             }
             if (contador == 4)
             {
-                lbl_Incorrecto.Visible = true;
+                pic_Incorrecto.Visible = true;
             }
         }
 
@@ -74,7 +74,7 @@ namespace Vista
 
         private void txt_Usuario_TextChanged(object sender, EventArgs e)
         {
-            lbl_Incorrecto.Visible = false;
+            pic_Incorrecto.Visible = false;
         }
     }
 }

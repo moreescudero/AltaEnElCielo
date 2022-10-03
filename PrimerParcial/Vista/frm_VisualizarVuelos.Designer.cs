@@ -228,6 +228,7 @@
             // pnl_VerPasajeros
             // 
             this.pnl_VerPasajeros.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnl_VerPasajeros.BackColor = System.Drawing.Color.Transparent;
             this.pnl_VerPasajeros.Controls.Add(this.btn_Volver);
             this.pnl_VerPasajeros.Controls.Add(this.dgv_Pasajeros);
             this.pnl_VerPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -338,7 +339,8 @@
             // lbl_AgregarVueloCancelado
             // 
             this.lbl_AgregarVueloCancelado.AutoSize = true;
-            this.lbl_AgregarVueloCancelado.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_AgregarVueloCancelado.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_AgregarVueloCancelado.ForeColor = System.Drawing.Color.Firebrick;
             this.lbl_AgregarVueloCancelado.Location = new System.Drawing.Point(775, 333);
             this.lbl_AgregarVueloCancelado.Name = "lbl_AgregarVueloCancelado";
             this.lbl_AgregarVueloCancelado.Size = new System.Drawing.Size(109, 15);

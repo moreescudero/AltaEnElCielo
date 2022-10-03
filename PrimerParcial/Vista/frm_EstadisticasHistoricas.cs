@@ -217,25 +217,16 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
-                pnl_VerPasajeros.BackgroundImage = Resources.cielo_noche;
-                pnl_VerEstadisticas.BackgroundImage = Resources.cielo_noche;
-                pnl_Informacion.BackgroundImage = Resources.cielo_noche;
             }
             else
             {
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;
-                    pnl_VerPasajeros.BackgroundImage = Resources.cielo_tarde;
-                    pnl_VerEstadisticas.BackgroundImage = Resources.cielo_tarde;
-                    pnl_Informacion.BackgroundImage = Resources.cielo_tarde;
                 }
                 else
                 {
                     this.BackgroundImage = Resources.cielo_dia;
-                    pnl_VerPasajeros.BackgroundImage = Resources.cielo_dia;
-                    pnl_VerEstadisticas.BackgroundImage = Resources.cielo_dia;
-                    pnl_Informacion.BackgroundImage = Resources.cielo_dia;
                 }
             }
         }
