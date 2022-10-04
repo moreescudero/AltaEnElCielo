@@ -19,7 +19,6 @@ namespace Biblioteca
         public static float gananciaCredito;
         public static float gananciaDebito;
 
-        //List<Equipaje> equipajes;
 
         public static void InicializarAerolinea()
         {
@@ -158,22 +157,14 @@ namespace Biblioteca
         private static int BuscarDestino(string destino)
         {
             int contador = 0;
-            //int cantidad = 0;
+
             foreach (Vuelo vuelo in listaVuelos)
             {
                 contador += Comparar(destino, vuelo);
-                //if(destino == vuelo.Destino.ToString())
-                //{
-                //    contador+= vuelo.ListaPasajeros.Count();
-                //}
             }
             foreach (Vuelo vuelo in listaVuelosFinalizados)
             {
                 contador += Comparar(destino, vuelo);
-                //if (destino == vuelo.Destino.ToString())
-                //{
-                //    contador += vuelo.ListaPasajeros.Count();
-                //}
             }
             return contador;
         }

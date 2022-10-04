@@ -32,11 +32,11 @@ namespace Vista
 
             btn_VerPasajeros.Enabled = false;
 
-            cmb_Opciones.Items.Add("Recaudaciones"); // agregar lo de medios de pago
+            cmb_Opciones.Items.Add("Recaudaciones"); 
             cmb_Opciones.Items.Add("Pasajeros totales");
             cmb_Opciones.Items.Add("Destinos por facturación");
             cmb_Opciones.Items.Add("Pasajeros frecuentes por cantidad de vuelos");
-            cmb_Opciones.Items.Add("Horas de vuelo de cada avión");
+            cmb_Opciones.Items.Add("Información completa de cada avión");
             cmb_Opciones.Items.Add("Informacion completa de la Aerolinea");
 
 
@@ -175,7 +175,6 @@ namespace Vista
                     break;
                 case 4:
                     dgv_SegunOpcionElegida.DataSource = Aerolinea.listaAviones;
-                    //dgv_SegunOpcionElegida.Sort(dgv_SegunOpcionElegida.Columns["HorasEnVuelo"], ListSortDirection.Descending);
                     break;
                 default:
                     pnl_Informacion.Visible = true;

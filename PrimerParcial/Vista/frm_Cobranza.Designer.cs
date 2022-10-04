@@ -215,9 +215,9 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(276, 376);
+            this.btn_Cancelar.Location = new System.Drawing.Point(263, 376);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancelar.Size = new System.Drawing.Size(92, 23);
             this.btn_Cancelar.TabIndex = 17;
             this.btn_Cancelar.Text = "Cancelar";
             this.tip_Ayuda.SetToolTip(this.btn_Cancelar, "Volver al menu principal\r\n");
@@ -226,9 +226,9 @@
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Location = new System.Drawing.Point(357, 376);
+            this.btn_Aceptar.Location = new System.Drawing.Point(361, 376);
             this.btn_Aceptar.Name = "btn_Aceptar";
-            this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Aceptar.Size = new System.Drawing.Size(92, 23);
             this.btn_Aceptar.TabIndex = 18;
             this.btn_Aceptar.Text = "Aceptar";
             this.tip_Ayuda.SetToolTip(this.btn_Aceptar, "Para poder aceptar se necesita que todos los datos\r\nesten completados y en el for" +

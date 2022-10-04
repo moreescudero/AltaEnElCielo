@@ -185,7 +185,7 @@
             // pic_Logo
             // 
             this.pic_Logo.BackColor = System.Drawing.Color.Transparent;
-            this.pic_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pic_Logo.Image")));
+            this.pic_Logo.Image = global::Vista.Properties.Resources.logo_alta_en_el_cielo;
             this.pic_Logo.Location = new System.Drawing.Point(205, 12);
             this.pic_Logo.Name = "pic_Logo";
             this.pic_Logo.Size = new System.Drawing.Size(375, 121);

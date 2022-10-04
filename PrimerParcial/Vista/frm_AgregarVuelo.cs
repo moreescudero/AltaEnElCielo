@@ -101,7 +101,7 @@ namespace Vista
         private void cdr_Salida_DateSelected(object sender, DateRangeEventArgs e)
         {
             string? aux = cdr_Salida.SelectionStart.ToString("g");
-            lbl_AyudaAviones.Visible = false;
+            
             banderaCalendario = true;
             cmb_Hora.Enabled = true;
             salida = DateTime.Parse(aux);
@@ -209,7 +209,7 @@ namespace Vista
             hora = int.Parse(horaStr);
 
             salida = new DateTime(año, mes, dia, hora, 0, 0);
-
+            lbl_AyudaAviones.Visible = false;
             CargarAvionesDisponibles();
         }
 
@@ -243,7 +243,7 @@ namespace Vista
                 lbl_HoraDespegue.ForeColor = Color.Black;
                 lbl_Origen.ForeColor = Color.Black;
                 chk_SiHay.ForeColor = Color.Black;
-                lbl_Titulo.ForeColor = Color.White;
+                lbl_Titulo.ForeColor = Color.Black;
 
                 if (tiempo.CompareTo(tarde) > 0)
                 {

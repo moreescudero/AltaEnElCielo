@@ -123,6 +123,16 @@ namespace Vista.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_alta_en_el_cielo {
+            get {
+                object obj = ResourceManager.GetObject("logo alta en el cielo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mastercard_logo {
             get {
                 object obj = ResourceManager.GetObject("mastercard logo", resourceCulture);

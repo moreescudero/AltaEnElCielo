@@ -62,13 +62,6 @@ namespace Vista
 
             Formulario.Font(this);
 
-            //PrivateFontCollection privateFontCollection = new PrivateFontCollection();
-            //privateFontCollection.AddFontFile("../../../Resources/SuperLegendBoy-4w8Y.ttf");
-            //foreach (Control control in this.Controls)
-            //{
-            //    control.Font = new Font(privateFontCollection.Families[0], 7, FontStyle.Regular);
-            //}
-
             lbl_ComoGuardar.Text = "Presiona el icono del pasajero que deseas ver o cargar sus datos";
 
             if (clase == "Premium")

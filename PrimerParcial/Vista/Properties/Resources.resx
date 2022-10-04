@@ -121,8 +121,8 @@
   <data name="nube" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nube.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="profile-avatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\profile-avatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cielo noche" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cielo noche.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mastercard logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mastercard logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,14 +136,17 @@
   <data name="cielo tarde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cielo tarde.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="compu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\compu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SuperLegendBoy_4w8Y" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SuperLegendBoy-4w8Y.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="profile-avatar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\profile-avatar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cielo dia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cielo dia.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cielo noche" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cielo noche.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="monedita" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monedita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +160,7 @@
   <data name="efectivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\efectivo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="compu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\compu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo alta en el cielo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo alta en el cielo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -44,7 +44,7 @@ namespace Biblioteca
         string? disponible;
         int asientosPremiumDisponibles;
         int asientosTuristaDisponibles;
-        float recaudado; // recaudacion total por pasaje vendido
+        float recaudado; 
         bool hayComida;
         float bodegaDisponible; 
         List<Pasajero> listaPasajeros;
@@ -124,7 +124,6 @@ namespace Biblioteca
         public float Recaudado
         {
             get { return recaudado; }
-            //set { recaudado = value; }
         }
 
         public int Duracion
@@ -135,7 +134,6 @@ namespace Biblioteca
         public List<Pasajero> ListaPasajeros
         {
             get { return listaPasajeros; }
-            //set { listaPasajeros = value; }
         }
 
         public int AsientosDisponibles

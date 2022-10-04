@@ -39,7 +39,6 @@ namespace Biblioteca
 
         public override void Calcular(float precio)
         {
-            //Calcular la comision de cada empleado que es un 1 %
             this.comision += (precio * 0.1f);
         }
     }
