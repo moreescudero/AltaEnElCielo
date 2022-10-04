@@ -141,12 +141,12 @@ Se agregaron los siguientes extra feature:
 
 * Facturación: luego de que se haga el alta de un pasajero o grupo familiar se elige entre los siguientes métodos de cobro:
 
- - Tarjeta de crédito: se pide el ingreso de los datos de la tarjeta y del titular, según el tipo de tarjeta (Visa, Mastercard o American Express) se mostrarán las cuotas
+	- Tarjeta de crédito: se pide el ingreso de los datos de la tarjeta y del titular, según el tipo de tarjeta (Visa, Mastercard o American Express) se mostrarán las cuotas
 con y sin interés. Las cuotas que tengan interés informan el recargo que se aplica sobre el precio de el/los pasaje/s.
 
- - Tarjeta de débito: se piden los datos de la tarjeta y del titular de la misma realizando el pago en 1 cuota sin interés.
+	- Tarjeta de débito: se piden los datos de la tarjeta y del titular de la misma realizando el pago en 1 cuota sin interés.
 
- - Efectivo: se piden datos como la Situación Fiscal, CUIL o CUIT, el domicilio, etc. 
+	- Efectivo: se piden datos como la Situación Fiscal, CUIL o CUIT, el domicilio, etc. 
 
 	Las ganancias según el método de pago se podrán ver reflejadas en la sección Recaudación dentro de las estadísticas históricas.
 
