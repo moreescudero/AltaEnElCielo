@@ -6,7 +6,14 @@
 
 #### Sobre mi:
 
- 
+Mi nombre es Morena, tengo 21 años, empecé la tecnicatura a principios de este año después de salir frustrada de dos carreras de la rama de medicina. Siento que haber 
+programado este programa fue un reto que en la mayoría de sus momentos fue muy divertido, si bien la temática de crear un programa sobre una "Aerolinea" no sonaba como
+algo que me pueda interesar y me preocupaba no poder comprometerme con el diseño como para realizarlo de la manera que me gustaría, pero, con la inspiración de un juego, 
+pude elegir una temática que me iba a gustar. Aun así me puse como limitación no tocar el diseño hasta tener realizado todo lo funcional, me sorprendió haberlo cumplido 
+casi en su totalidad. Haber hecho este parcial me generó por momentos estrés y por otros un orgullo terrible, poder ver mi programa finalizado después de las noches en 
+las que me quedaba codeando por las madrugadas siento que dieron frutos y puedo sentirme segura del trabajo que estoy entregando. Además creo que me ayudó a interiorizar
+muchos conceptos al intentar pensar cómo incorporar los conceptos.
+
 
 #### Resumen:
 
@@ -92,6 +99,10 @@ utilizado desde el formulario AltaPasajero.
 
 Utilizado para separar el FrontEnd (Vista) con todos los formularios de Windows del BackEnd (Biblioteca) las clases.
 
+##### Windows Forms
+
+Se utiliza para realizar toda la interfaz gráfica del programa que utilizará el usuario. 
+
 ##### Encapsulamiento
 
 Utilizado en todas las clases para ocultar el funcionamiento de los atributos, métodos o de las clases mismas. Utilizo un enumerado para los Destinos, de esa forma es más
@@ -120,20 +131,24 @@ calcular las comisiones en Empleado.
 Se sobrescriben los métodos virtual ToString() en todas las clases de instancia con el propósito principal de mostrar información, GetHashCode() en la clase Pasajero 
 y Equals() en Pasajero y en Vuelo.
 
+##### Tipografía agregada
+
+Se agregó un archivo .ttf para agregar una tipografía al programa por motivos de diseño
+
 #### Propuesta de valor agregado:
 
 Se agregaron los siguientes extra feature:
 
 * Facturación: luego de que se haga el alta de un pasajero o grupo familiar se elige entre los siguientes métodos de cobro:
 
-** Tarjeta de crédito: se pide el ingreso de los datos de la tarjeta y del titular, según el tipo de tarjeta (Visa, Mastercard o American Express) se mostrarán las cuotas
+ - Tarjeta de crédito: se pide el ingreso de los datos de la tarjeta y del titular, según el tipo de tarjeta (Visa, Mastercard o American Express) se mostrarán las cuotas
 con y sin interés. Las cuotas que tengan interés informan el recargo que se aplica sobre el precio de el/los pasaje/s.
 
-** Tarjeta de débito: se piden los datos de la tarjeta y del titular de la misma realizando el pago en 1 cuota sin interés.
+ - Tarjeta de débito: se piden los datos de la tarjeta y del titular de la misma realizando el pago en 1 cuota sin interés.
 
-** Efectivo: se piden datos como la Situación Fiscal, CUIL o CUIT, el domicilio, etc. 
+ - Efectivo: se piden datos como la Situación Fiscal, CUIL o CUIT, el domicilio, etc. 
 
-Las ganancias según el método de pago se podrán ver reflejadas en la sección Recaudación dentro de las estadísticas históricas.
+	Las ganancias según el método de pago se podrán ver reflejadas en la sección Recaudación dentro de las estadísticas históricas.
 
 * Filtro DNI: al hacer el alta de un pasajero se pide al usuario que el primer dato que se ingrese sea el DNI, esto se pide para que se realice un buscador entre los 
 pasajeros existentes en la "base de datos" de la aerolinea de modo que si se encuentra alguna coincidencia se auto-complete los datos del pasajero como nombre, apellido y 
@@ -145,3 +160,6 @@ asientos disponibles de la clase elegida sea mayor o igual a la cantidad de pasa
 
 * Descuento menores de edad: sólo se pueden vender pasajes a menores de 12 años si están acompañados por un adulto responsable (mayor de 18 años), además se les realiza 
 un descuento del 50% del pasaje y si son menores de 2 años se les realiza un descuento del 100% del pasaje.
+
+* Comisión de empleados: se agregó la funcionalidad de que según el usuario con el que se ingresó al programa cada vez que venda un pasaje se le asignará un porcentaje de
+comisión que se puede visualizar dentro de las estadísticas históricas como información de cada empleado.
