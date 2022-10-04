@@ -220,10 +220,8 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
-                lbl_Credito.ForeColor = Color.White;
-                lbl_Debito.ForeColor = Color.White;
+                rtx_Info.BackColor = Color.FromArgb(98, 94, 150);
                 lbl_DestinoMasElegido.ForeColor = Color.White;
-                lbl_Efectivo.ForeColor = Color.White;
                 lbl_GananciasInternacionales.ForeColor = Color.White;
                 lbl_GananciasNacionales.ForeColor = Color.White;
                 lbl_RecaudacionTotal.ForeColor = Color.White;
@@ -233,10 +231,7 @@ namespace Vista
             }
             else
             {
-                lbl_Credito.ForeColor = Color.Black;
-                lbl_Debito.ForeColor = Color.Black;
                 lbl_DestinoMasElegido.ForeColor = Color.Black;
-                lbl_Efectivo.ForeColor = Color.Black;
                 lbl_GananciasInternacionales.ForeColor = Color.Black;
                 lbl_GananciasNacionales.ForeColor = Color.Black;
                 lbl_RecaudacionTotal.ForeColor = Color.Black;
@@ -247,10 +242,12 @@ namespace Vista
                 if (tiempo.CompareTo(tarde) > 0)
                 {
                     this.BackgroundImage = Resources.cielo_tarde;
+                    rtx_Info.BackColor = Color.FromArgb(218, 168, 87);
                 }
                 else
                 {
                     this.BackgroundImage = Resources.cielo_dia;
+                    rtx_Info.BackColor = Color.FromArgb(114, 225, 252);
                 }
             }
         }

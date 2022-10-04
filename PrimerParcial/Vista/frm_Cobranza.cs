@@ -52,6 +52,7 @@ namespace Vista
         {
             Limpiar();
             MostrarTarjetas();
+            pic_MedioDePago.Visible = true;
 
             switch (cmb_MedioDePago.SelectedIndex)
             {
@@ -126,7 +127,7 @@ namespace Vista
 
         private bool ValidarTarjetas()
         {
-            if (txt_Numero.Text.Length == 16 && txt_VencimientoAñoOPiso.Text.Length == 2 && txt_VencimientoMesONumero.Text.Length >= 2 && (txt_DocumentoOCiudad.Text.Length == 8 || txt_DocumentoOCiudad.Text.Length == 7) && ((cmb_MedioDePago.Text == "Tarjeta de débito") || (cmb_MedioDePago.Text == "Tarjeta de crédito" && ((txt_CodSeguridadODepto.Text.Length == 4 && tarjeta == "amex") || txt_CodSeguridadODepto.Text.Length == 3) && cmb_Cuotas.SelectedIndex > -1)))
+            if (txt_Numero.Text.Length == 16 && txt_VencimientoAñoOPiso.Text.Length == 2 && ((txt_CodSeguridadODepto.Text.Length == 4 && tarjeta == "amex") || txt_CodSeguridadODepto.Text.Length == 3) && (txt_VencimientoMesONumero.Text.Length == 2 || txt_VencimientoMesONumero.Text.Length == 1) && (txt_DocumentoOCiudad.Text.Length == 8 || txt_DocumentoOCiudad.Text.Length == 7) && ((cmb_MedioDePago.Text == "Tarjeta de débito" && cmb_Cuotas.SelectedIndex == -1) || (cmb_MedioDePago.Text == "Tarjeta de crédito" &&  cmb_Cuotas.SelectedIndex > -1)))
             {
                 return true;
             }
@@ -178,6 +179,11 @@ namespace Vista
 
             txt_VencimientoMesONumero.PlaceholderText = "mm";
             txt_VencimientoAñoOPiso.PlaceholderText = "aa";
+
+
+            Size tamaño = new Size(105,93);
+            pic_MedioDePago.Image = Resources.tarjeta;
+            pic_MedioDePago.Size = tamaño;
         }
 
         private void MostrarEfectivo()
@@ -202,6 +208,10 @@ namespace Vista
 
             txt_VencimientoMesONumero.PlaceholderText = "";
             txt_VencimientoAñoOPiso.PlaceholderText = "";
+
+            Size tamaño = new Size(72, 65);
+            pic_MedioDePago.Image = Resources.efectivo;
+            pic_MedioDePago.Size = tamaño;
 
             CargarProvincias();
         }
@@ -239,14 +249,12 @@ namespace Vista
         {
             lbl_Cuotas.Visible = true;
             cmb_Cuotas.Visible = true;
-            lbl_Barra.Visible = true;
         }
 
         private void MostrarTarjetaDebito()
         {
             lbl_Cuotas.Visible = false;
             cmb_Cuotas.Visible = false;
-            lbl_Barra.Visible = false;
         }
 
         private void LimpiarDomicilio()
@@ -322,6 +330,7 @@ namespace Vista
                 lbl_SituacionFiscal.ForeColor = Color.White;
                 lbl_Titular.ForeColor = Color.White;
                 lbl_VencimientoONumero.ForeColor = Color.White;
+                lbl_ErrorTarjeta.ForeColor = Color.White;
             }
             else
             {
@@ -337,6 +346,7 @@ namespace Vista
                 lbl_SituacionFiscal.ForeColor = Color.Black;
                 lbl_Titular.ForeColor = Color.Black;
                 lbl_VencimientoONumero.ForeColor = Color.Black;
+                lbl_ErrorTarjeta.ForeColor = Color.Black;
 
                 if (tiempo.CompareTo(tarde) > 0)
                 {
@@ -373,6 +383,7 @@ namespace Vista
             {
                 if (cmb_MedioDePago.SelectedIndex != 2)
                 {
+                    lbl_ErrorTarjeta.Visible = false;
                     Size tamaño = new Size(118, 65);
                     pic_LogoTarjeta.Visible = true;
                     txt_Numero.MaxLength = 16;
@@ -400,6 +411,7 @@ namespace Vista
                     else
                     {
                         txt_Numero.Clear();
+                        lbl_ErrorTarjeta.Visible = true;
                     }
                     pic_LogoTarjeta.Size = tamaño;
                 }

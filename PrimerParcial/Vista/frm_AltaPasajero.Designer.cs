@@ -226,9 +226,9 @@
             // 
             // btn_Aceptar
             // 
-            this.btn_Aceptar.Location = new System.Drawing.Point(657, 355);
+            this.btn_Aceptar.Location = new System.Drawing.Point(646, 355);
             this.btn_Aceptar.Name = "btn_Aceptar";
-            this.btn_Aceptar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Aceptar.Size = new System.Drawing.Size(86, 23);
             this.btn_Aceptar.TabIndex = 20;
             this.btn_Aceptar.Text = "Aceptar";
             this.btn_Aceptar.UseVisualStyleBackColor = true;
@@ -238,7 +238,7 @@
             // 
             this.btn_Cancelar.Location = new System.Drawing.Point(533, 355);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancelar.Size = new System.Drawing.Size(88, 23);
             this.btn_Cancelar.TabIndex = 21;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
@@ -413,9 +413,9 @@
             // 
             // btn_CargarPasajero
             // 
-            this.btn_CargarPasajero.Location = new System.Drawing.Point(578, 326);
+            this.btn_CargarPasajero.Location = new System.Drawing.Point(544, 326);
             this.btn_CargarPasajero.Name = "btn_CargarPasajero";
-            this.btn_CargarPasajero.Size = new System.Drawing.Size(116, 23);
+            this.btn_CargarPasajero.Size = new System.Drawing.Size(174, 23);
             this.btn_CargarPasajero.TabIndex = 35;
             this.btn_CargarPasajero.Text = "Cargar Pasajero 1";
             this.btn_CargarPasajero.UseVisualStyleBackColor = true;
@@ -532,7 +532,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AltaPasajero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alta Pasajero";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frm_AltaPasajero_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantEquipaje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Equipaje)).EndInit();

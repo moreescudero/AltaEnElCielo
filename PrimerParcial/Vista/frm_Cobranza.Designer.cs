@@ -58,7 +58,10 @@
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             this.pic_LogoTarjeta = new System.Windows.Forms.PictureBox();
             this.lbl_VerificarErrores = new System.Windows.Forms.Label();
+            this.lbl_ErrorTarjeta = new System.Windows.Forms.Label();
+            this.pic_MedioDePago = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LogoTarjeta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MedioDePago)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_MedioDePago
@@ -113,7 +116,7 @@
             // 
             this.lbl_VencimientoONumero.AutoSize = true;
             this.lbl_VencimientoONumero.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VencimientoONumero.Location = new System.Drawing.Point(420, 222);
+            this.lbl_VencimientoONumero.Location = new System.Drawing.Point(420, 234);
             this.lbl_VencimientoONumero.Name = "lbl_VencimientoONumero";
             this.lbl_VencimientoONumero.Size = new System.Drawing.Size(0, 15);
             this.lbl_VencimientoONumero.TabIndex = 5;
@@ -122,14 +125,14 @@
             // 
             this.lbl_Titular.AutoSize = true;
             this.lbl_Titular.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Titular.Location = new System.Drawing.Point(47, 222);
+            this.lbl_Titular.Location = new System.Drawing.Point(47, 234);
             this.lbl_Titular.Name = "lbl_Titular";
             this.lbl_Titular.Size = new System.Drawing.Size(0, 15);
             this.lbl_Titular.TabIndex = 6;
             // 
             // txt_VencimientoMesONumero
             // 
-            this.txt_VencimientoMesONumero.Location = new System.Drawing.Point(430, 240);
+            this.txt_VencimientoMesONumero.Location = new System.Drawing.Point(430, 252);
             this.txt_VencimientoMesONumero.Name = "txt_VencimientoMesONumero";
             this.txt_VencimientoMesONumero.Size = new System.Drawing.Size(43, 23);
             this.txt_VencimientoMesONumero.TabIndex = 8;
@@ -139,7 +142,7 @@
             // 
             // txt_Titular
             // 
-            this.txt_Titular.Location = new System.Drawing.Point(47, 240);
+            this.txt_Titular.Location = new System.Drawing.Point(47, 252);
             this.txt_Titular.Name = "txt_Titular";
             this.txt_Titular.Size = new System.Drawing.Size(214, 23);
             this.txt_Titular.TabIndex = 9;
@@ -161,14 +164,14 @@
             // 
             this.lbl_CodSeguridadODepto.AutoSize = true;
             this.lbl_CodSeguridadODepto.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_CodSeguridadODepto.Location = new System.Drawing.Point(591, 222);
+            this.lbl_CodSeguridadODepto.Location = new System.Drawing.Point(591, 234);
             this.lbl_CodSeguridadODepto.Name = "lbl_CodSeguridadODepto";
             this.lbl_CodSeguridadODepto.Size = new System.Drawing.Size(0, 15);
             this.lbl_CodSeguridadODepto.TabIndex = 12;
             // 
             // txt_CodSeguridadODepto
             // 
-            this.txt_CodSeguridadODepto.Location = new System.Drawing.Point(591, 240);
+            this.txt_CodSeguridadODepto.Location = new System.Drawing.Point(591, 252);
             this.txt_CodSeguridadODepto.Name = "txt_CodSeguridadODepto";
             this.txt_CodSeguridadODepto.Size = new System.Drawing.Size(43, 23);
             this.txt_CodSeguridadODepto.TabIndex = 13;
@@ -181,7 +184,7 @@
             // 
             this.lbl_Cuotas.AutoSize = true;
             this.lbl_Cuotas.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Cuotas.Location = new System.Drawing.Point(47, 324);
+            this.lbl_Cuotas.Location = new System.Drawing.Point(28, 324);
             this.lbl_Cuotas.Name = "lbl_Cuotas";
             this.lbl_Cuotas.Size = new System.Drawing.Size(181, 15);
             this.lbl_Cuotas.TabIndex = 14;
@@ -192,7 +195,7 @@
             // 
             this.cmb_Cuotas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Cuotas.FormattingEnabled = true;
-            this.cmb_Cuotas.Location = new System.Drawing.Point(234, 321);
+            this.cmb_Cuotas.Location = new System.Drawing.Point(309, 321);
             this.cmb_Cuotas.Name = "cmb_Cuotas";
             this.cmb_Cuotas.Size = new System.Drawing.Size(325, 23);
             this.cmb_Cuotas.TabIndex = 15;
@@ -270,7 +273,7 @@
             // 
             this.lbl_Barra.AutoSize = true;
             this.lbl_Barra.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Barra.Location = new System.Drawing.Point(489, 243);
+            this.lbl_Barra.Location = new System.Drawing.Point(489, 255);
             this.lbl_Barra.Name = "lbl_Barra";
             this.lbl_Barra.Size = new System.Drawing.Size(12, 15);
             this.lbl_Barra.TabIndex = 7;
@@ -279,7 +282,7 @@
             // 
             // txt_VencimientoAñoOPiso
             // 
-            this.txt_VencimientoAñoOPiso.Location = new System.Drawing.Point(516, 240);
+            this.txt_VencimientoAñoOPiso.Location = new System.Drawing.Point(516, 252);
             this.txt_VencimientoAñoOPiso.Name = "txt_VencimientoAñoOPiso";
             this.txt_VencimientoAñoOPiso.Size = new System.Drawing.Size(43, 23);
             this.txt_VencimientoAñoOPiso.TabIndex = 11;
@@ -291,7 +294,7 @@
             // 
             this.lbl_Piso.AutoSize = true;
             this.lbl_Piso.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Piso.Location = new System.Drawing.Point(516, 222);
+            this.lbl_Piso.Location = new System.Drawing.Point(516, 234);
             this.lbl_Piso.Name = "lbl_Piso";
             this.lbl_Piso.Size = new System.Drawing.Size(32, 15);
             this.lbl_Piso.TabIndex = 22;
@@ -338,6 +341,29 @@
             this.lbl_VerificarErrores.Size = new System.Drawing.Size(0, 15);
             this.lbl_VerificarErrores.TabIndex = 26;
             // 
+            // lbl_ErrorTarjeta
+            // 
+            this.lbl_ErrorTarjeta.AutoSize = true;
+            this.lbl_ErrorTarjeta.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ErrorTarjeta.Location = new System.Drawing.Point(12, 202);
+            this.lbl_ErrorTarjeta.Name = "lbl_ErrorTarjeta";
+            this.lbl_ErrorTarjeta.Size = new System.Drawing.Size(208, 15);
+            this.lbl_ErrorTarjeta.TabIndex = 27;
+            this.lbl_ErrorTarjeta.Text = "Error, verifique el numero de su tarjeta";
+            this.lbl_ErrorTarjeta.Visible = false;
+            // 
+            // pic_MedioDePago
+            // 
+            this.pic_MedioDePago.BackColor = System.Drawing.Color.Transparent;
+            this.pic_MedioDePago.Image = global::Vista.Properties.Resources.efectivo;
+            this.pic_MedioDePago.Location = new System.Drawing.Point(45, 23);
+            this.pic_MedioDePago.Name = "pic_MedioDePago";
+            this.pic_MedioDePago.Size = new System.Drawing.Size(72, 65);
+            this.pic_MedioDePago.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_MedioDePago.TabIndex = 28;
+            this.pic_MedioDePago.TabStop = false;
+            this.pic_MedioDePago.Visible = false;
+            // 
             // frm_Cobranza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -345,6 +371,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(715, 411);
             this.ControlBox = false;
+            this.Controls.Add(this.pic_MedioDePago);
+            this.Controls.Add(this.lbl_ErrorTarjeta);
             this.Controls.Add(this.lbl_VerificarErrores);
             this.Controls.Add(this.pic_LogoTarjeta);
             this.Controls.Add(this.lbl_Calle);
@@ -376,9 +404,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Cobranza";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_Cobranza";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frm_Cobranza_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_LogoTarjeta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MedioDePago)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,5 +443,7 @@
         private ToolTip tip_Ayuda;
         private PictureBox pic_LogoTarjeta;
         private Label lbl_VerificarErrores;
+        private Label lbl_ErrorTarjeta;
+        private PictureBox pic_MedioDePago;
     }
 }

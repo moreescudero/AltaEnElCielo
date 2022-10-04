@@ -279,7 +279,7 @@ namespace Biblioteca
                 {
                     SumarVuelosAPasajero(pasajero, vuelo);
                 }
-                if(pasajero.CantidadDeVuelos >= 3)
+                if(pasajero.CantidadDeVuelos >= 2)
                 {
                     pasajerosClientes.Add(pasajero);
                 }

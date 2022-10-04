@@ -15,7 +15,7 @@ namespace Vista
 {
     public partial class frm_Login : Form
     {
-        
+
         public frm_Login()
         {
             InitializeComponent();
@@ -29,17 +29,26 @@ namespace Vista
 
             Formulario.Font(this);
 
+            ActualizarBackColor();
         }
 
         private void btn_Aceptar_Click(object sender, EventArgs e)
         {
             int contador = 0;
-            foreach(KeyValuePair<int,Empleado> item in Aerolinea.diccEmpleados)
+            foreach (KeyValuePair<int, Empleado> item in Aerolinea.diccEmpleados)
             {
-                if(item.Value.Usuario == txt_Usuario.Text && item.Value.ValidarContraseña(txt_Contraseña.Text))
+                if (item.Value.Usuario == txt_Usuario.Text && item.Value.ValidarContraseña(txt_Contraseña.Text))
                 {
                     frm_Menu menu = new frm_Menu(item.Value);
-                    menu.ShowDialog();
+                    this.Hide();
+                    if(menu.ShowDialog() == DialogResult.OK)
+                    {
+                        this.Show();
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
                     break;
                 }
                 contador++;
@@ -72,6 +81,31 @@ namespace Vista
         private void txt_Usuario_TextChanged(object sender, EventArgs e)
         {
             lbl_Incorrecto.Visible = false;
+        }
+
+
+        private void ActualizarBackColor()
+        {
+            DateTime tiempo = DateTime.Now;
+            //DateTime tiempo = DateTime.Parse("23:00:00");
+            DateTime amanecer = DateTime.Parse("06:25:00");
+            DateTime tarde = DateTime.Parse("16:50:00");
+            DateTime noche = DateTime.Parse("18:57:00");
+            if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
+            {
+                this.BackColor = Color.FromArgb(98, 94, 150);
+            }
+            else
+            {
+                if (tiempo.CompareTo(tarde) > 0)
+                {
+                    this.BackColor = Color.FromArgb(218, 168, 87);
+                }
+                else
+                {
+                    this.BackColor = Color.FromArgb(114, 225, 252);
+                }
+            }
         }
     }
 }

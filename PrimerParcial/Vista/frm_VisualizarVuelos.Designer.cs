@@ -352,8 +352,8 @@
             // 
             this.lbl_AgregarVueloCancelado.AutoSize = true;
             this.lbl_AgregarVueloCancelado.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_AgregarVueloCancelado.ForeColor = System.Drawing.Color.Firebrick;
-            this.lbl_AgregarVueloCancelado.Location = new System.Drawing.Point(775, 333);
+            this.lbl_AgregarVueloCancelado.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_AgregarVueloCancelado.Location = new System.Drawing.Point(746, 333);
             this.lbl_AgregarVueloCancelado.Name = "lbl_AgregarVueloCancelado";
             this.lbl_AgregarVueloCancelado.Size = new System.Drawing.Size(109, 15);
             this.lbl_AgregarVueloCancelado.TabIndex = 7;
@@ -387,7 +387,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_VisualizarVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_VisualizarVuelos";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frm_VisualizarVuelos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarVuelos)).EndInit();

@@ -45,7 +45,7 @@ namespace Vista
             if(banderaCalendario && banderaDestinoCargado && banderaOrigenCargado)
             {
                 MostrarOrigenDestino();
-                lbl_AyudaAviones.Visible = false;
+                lbl_AyudaAviones.Text = "Para que se habiliten los aviones disponibles\r\n primero elegir hora";
                 cdr_Salida.SelectionStart = salida;
                 cmb_Origen.Enabled = false;
                 cmb_Destino.Enabled = false;

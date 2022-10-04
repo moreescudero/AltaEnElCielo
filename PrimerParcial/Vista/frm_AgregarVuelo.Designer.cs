@@ -52,9 +52,9 @@
             // btn_AgregarVuelo
             // 
             this.btn_AgregarVuelo.Enabled = false;
-            this.btn_AgregarVuelo.Location = new System.Drawing.Point(420, 352);
+            this.btn_AgregarVuelo.Location = new System.Drawing.Point(401, 355);
             this.btn_AgregarVuelo.Name = "btn_AgregarVuelo";
-            this.btn_AgregarVuelo.Size = new System.Drawing.Size(95, 23);
+            this.btn_AgregarVuelo.Size = new System.Drawing.Size(132, 23);
             this.btn_AgregarVuelo.TabIndex = 0;
             this.btn_AgregarVuelo.Text = "Agregar vuelo";
             this.btn_AgregarVuelo.UseVisualStyleBackColor = true;
@@ -62,9 +62,9 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(302, 352);
+            this.btn_Cancelar.Location = new System.Drawing.Point(263, 355);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(95, 23);
+            this.btn_Cancelar.Size = new System.Drawing.Size(132, 23);
             this.btn_Cancelar.TabIndex = 1;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
             // 
             this.lbl_Catering.AutoSize = true;
             this.lbl_Catering.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Catering.Location = new System.Drawing.Point(457, 262);
+            this.lbl_Catering.Location = new System.Drawing.Point(452, 262);
             this.lbl_Catering.Name = "lbl_Catering";
             this.lbl_Catering.Size = new System.Drawing.Size(113, 15);
             this.lbl_Catering.TabIndex = 14;
@@ -200,7 +200,7 @@
             // 
             this.lbl_HoraDespegue.AutoSize = true;
             this.lbl_HoraDespegue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_HoraDespegue.Location = new System.Drawing.Point(457, 225);
+            this.lbl_HoraDespegue.Location = new System.Drawing.Point(452, 225);
             this.lbl_HoraDespegue.Name = "lbl_HoraDespegue";
             this.lbl_HoraDespegue.Size = new System.Drawing.Size(90, 15);
             this.lbl_HoraDespegue.TabIndex = 17;
@@ -255,7 +255,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frm_AgregarVuelo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AgregarVuelo";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frm_AgregarVuelo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

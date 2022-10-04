@@ -39,6 +39,16 @@
             this.tmr_HoraActual = new System.Windows.Forms.Timer(this.components);
             this.tip_Ayuda = new System.Windows.Forms.ToolTip(this.components);
             this.lbl_Incorrecto = new System.Windows.Forms.Label();
+            this.pic_Nube2 = new System.Windows.Forms.PictureBox();
+            this.pic_Nube1 = new System.Windows.Forms.PictureBox();
+            this.pic_Nube3 = new System.Windows.Forms.PictureBox();
+            this.pic_Nube4 = new System.Windows.Forms.PictureBox();
+            this.pic_Nube5 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube5)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Cancelar
@@ -47,7 +57,7 @@
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(97, 23);
             this.btn_Cancelar.TabIndex = 0;
-            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.Text = "Cerrar";
             this.tip_Ayuda.SetToolTip(this.btn_Cancelar, "Cierra el programa");
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
@@ -116,28 +126,96 @@
             this.lbl_Incorrecto.Text = "usuario o contraseña incorrecto";
             this.lbl_Incorrecto.Visible = false;
             // 
+            // pic_Nube2
+            // 
+            this.pic_Nube2.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Nube2.Image = global::Vista.Properties.Resources.nube;
+            this.pic_Nube2.Location = new System.Drawing.Point(12, 40);
+            this.pic_Nube2.Name = "pic_Nube2";
+            this.pic_Nube2.Size = new System.Drawing.Size(239, 136);
+            this.pic_Nube2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Nube2.TabIndex = 11;
+            this.pic_Nube2.TabStop = false;
+            // 
+            // pic_Nube1
+            // 
+            this.pic_Nube1.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Nube1.Image = global::Vista.Properties.Resources.nube;
+            this.pic_Nube1.Location = new System.Drawing.Point(313, 167);
+            this.pic_Nube1.Name = "pic_Nube1";
+            this.pic_Nube1.Size = new System.Drawing.Size(223, 113);
+            this.pic_Nube1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Nube1.TabIndex = 12;
+            this.pic_Nube1.TabStop = false;
+            // 
+            // pic_Nube3
+            // 
+            this.pic_Nube3.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Nube3.Image = global::Vista.Properties.Resources.nube;
+            this.pic_Nube3.Location = new System.Drawing.Point(221, 311);
+            this.pic_Nube3.Name = "pic_Nube3";
+            this.pic_Nube3.Size = new System.Drawing.Size(182, 91);
+            this.pic_Nube3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Nube3.TabIndex = 13;
+            this.pic_Nube3.TabStop = false;
+            // 
+            // pic_Nube4
+            // 
+            this.pic_Nube4.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Nube4.ErrorImage = null;
+            this.pic_Nube4.Image = global::Vista.Properties.Resources.nube;
+            this.pic_Nube4.InitialImage = null;
+            this.pic_Nube4.Location = new System.Drawing.Point(331, -13);
+            this.pic_Nube4.Name = "pic_Nube4";
+            this.pic_Nube4.Size = new System.Drawing.Size(196, 94);
+            this.pic_Nube4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Nube4.TabIndex = 14;
+            this.pic_Nube4.TabStop = false;
+            // 
+            // pic_Nube5
+            // 
+            this.pic_Nube5.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Nube5.Image = ((System.Drawing.Image)(resources.GetObject("pic_Nube5.Image")));
+            this.pic_Nube5.Location = new System.Drawing.Point(-46, 274);
+            this.pic_Nube5.Name = "pic_Nube5";
+            this.pic_Nube5.Size = new System.Drawing.Size(200, 97);
+            this.pic_Nube5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Nube5.TabIndex = 15;
+            this.pic_Nube5.TabStop = false;
+            // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(564, 429);
             this.ControlBox = false;
+            this.Controls.Add(this.txt_Usuario);
             this.Controls.Add(this.lbl_Incorrecto);
             this.Controls.Add(this.lbl_Hora);
             this.Controls.Add(this.btn_Autocompletar);
             this.Controls.Add(this.txt_Contraseña);
-            this.Controls.Add(this.txt_Usuario);
             this.Controls.Add(this.btn_Aceptar);
             this.Controls.Add(this.btn_Cancelar);
+            this.Controls.Add(this.pic_Nube1);
+            this.Controls.Add(this.pic_Nube3);
+            this.Controls.Add(this.pic_Nube2);
+            this.Controls.Add(this.pic_Nube4);
+            this.Controls.Add(this.pic_Nube5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmLogin";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Nube5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +232,10 @@
         private System.Windows.Forms.Timer tmr_HoraActual;
         private ToolTip tip_Ayuda;
         private Label lbl_Incorrecto;
+        private PictureBox pic_Nube2;
+        private PictureBox pic_Nube1;
+        private PictureBox pic_Nube3;
+        private PictureBox pic_Nube4;
+        private PictureBox pic_Nube5;
     }
 }

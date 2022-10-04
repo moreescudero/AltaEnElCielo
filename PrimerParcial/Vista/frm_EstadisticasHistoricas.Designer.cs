@@ -196,9 +196,9 @@
             // 
             // btn_Volver
             // 
-            this.btn_Volver.Location = new System.Drawing.Point(219, 355);
+            this.btn_Volver.Location = new System.Drawing.Point(161, 355);
             this.btn_Volver.Name = "btn_Volver";
-            this.btn_Volver.Size = new System.Drawing.Size(117, 23);
+            this.btn_Volver.Size = new System.Drawing.Size(156, 23);
             this.btn_Volver.TabIndex = 1;
             this.btn_Volver.Text = "Volver";
             this.btn_Volver.UseVisualStyleBackColor = true;
@@ -206,9 +206,9 @@
             // 
             // btn_VerEstadisticas
             // 
-            this.btn_VerEstadisticas.Location = new System.Drawing.Point(342, 355);
+            this.btn_VerEstadisticas.Location = new System.Drawing.Point(319, 355);
             this.btn_VerEstadisticas.Name = "btn_VerEstadisticas";
-            this.btn_VerEstadisticas.Size = new System.Drawing.Size(117, 23);
+            this.btn_VerEstadisticas.Size = new System.Drawing.Size(156, 23);
             this.btn_VerEstadisticas.TabIndex = 2;
             this.btn_VerEstadisticas.Text = "Ver estadísticas";
             this.btn_VerEstadisticas.UseVisualStyleBackColor = true;
@@ -231,9 +231,9 @@
             // 
             // btn_VerPasajeros
             // 
-            this.btn_VerPasajeros.Location = new System.Drawing.Point(465, 355);
+            this.btn_VerPasajeros.Location = new System.Drawing.Point(481, 355);
             this.btn_VerPasajeros.Name = "btn_VerPasajeros";
-            this.btn_VerPasajeros.Size = new System.Drawing.Size(117, 23);
+            this.btn_VerPasajeros.Size = new System.Drawing.Size(156, 23);
             this.btn_VerPasajeros.TabIndex = 4;
             this.btn_VerPasajeros.Text = "Ver Pasajeros";
             this.btn_VerPasajeros.UseVisualStyleBackColor = true;
@@ -245,9 +245,9 @@
             this.lbl_Debito.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Debito.Location = new System.Drawing.Point(129, 284);
             this.lbl_Debito.Name = "lbl_Debito";
-            this.lbl_Debito.Size = new System.Drawing.Size(164, 15);
+            this.lbl_Debito.Size = new System.Drawing.Size(112, 15);
             this.lbl_Debito.TabIndex = 13;
-            this.lbl_Debito.Text = "Recaudación tarjeta de débito";
+            this.lbl_Debito.Text = "Recaudación débito";
             this.lbl_Debito.Visible = false;
             // 
             // txt_Debito
@@ -265,9 +265,9 @@
             this.lbl_Credito.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Credito.Location = new System.Drawing.Point(323, 284);
             this.lbl_Credito.Name = "lbl_Credito";
-            this.lbl_Credito.Size = new System.Drawing.Size(167, 15);
+            this.lbl_Credito.Size = new System.Drawing.Size(115, 15);
             this.lbl_Credito.TabIndex = 15;
-            this.lbl_Credito.Text = "Recaudación tarjeta de crédito";
+            this.lbl_Credito.Text = "Recaudación crédito";
             this.lbl_Credito.Visible = false;
             // 
             // lbl_Efectivo
@@ -276,9 +276,9 @@
             this.lbl_Efectivo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Efectivo.Location = new System.Drawing.Point(525, 284);
             this.lbl_Efectivo.Name = "lbl_Efectivo";
-            this.lbl_Efectivo.Size = new System.Drawing.Size(143, 15);
+            this.lbl_Efectivo.Size = new System.Drawing.Size(120, 15);
             this.lbl_Efectivo.TabIndex = 16;
-            this.lbl_Efectivo.Text = "Recaudación con efectivo";
+            this.lbl_Efectivo.Text = "Recaudación efectivo";
             this.lbl_Efectivo.Visible = false;
             // 
             // txt_Credito
@@ -301,7 +301,7 @@
             // 
             // btn_CerrarPanel
             // 
-            this.btn_CerrarPanel.Location = new System.Drawing.Point(342, 355);
+            this.btn_CerrarPanel.Location = new System.Drawing.Point(343, 355);
             this.btn_CerrarPanel.Name = "btn_CerrarPanel";
             this.btn_CerrarPanel.Size = new System.Drawing.Size(117, 23);
             this.btn_CerrarPanel.TabIndex = 0;
@@ -323,7 +323,7 @@
             // 
             this.lbl_RecaudacionTotal.AutoSize = true;
             this.lbl_RecaudacionTotal.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_RecaudacionTotal.Location = new System.Drawing.Point(37, 102);
+            this.lbl_RecaudacionTotal.Location = new System.Drawing.Point(26, 102);
             this.lbl_RecaudacionTotal.Name = "lbl_RecaudacionTotal";
             this.lbl_RecaudacionTotal.Size = new System.Drawing.Size(108, 15);
             this.lbl_RecaudacionTotal.TabIndex = 3;
@@ -334,7 +334,7 @@
             // 
             this.lbl_GananciasNacionales.AutoSize = true;
             this.lbl_GananciasNacionales.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_GananciasNacionales.Location = new System.Drawing.Point(37, 143);
+            this.lbl_GananciasNacionales.Location = new System.Drawing.Point(26, 143);
             this.lbl_GananciasNacionales.Name = "lbl_GananciasNacionales";
             this.lbl_GananciasNacionales.Size = new System.Drawing.Size(219, 15);
             this.lbl_GananciasNacionales.TabIndex = 4;
@@ -345,7 +345,7 @@
             // 
             this.lbl_GananciasInternacionales.AutoSize = true;
             this.lbl_GananciasInternacionales.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_GananciasInternacionales.Location = new System.Drawing.Point(37, 190);
+            this.lbl_GananciasInternacionales.Location = new System.Drawing.Point(26, 190);
             this.lbl_GananciasInternacionales.Name = "lbl_GananciasInternacionales";
             this.lbl_GananciasInternacionales.Size = new System.Drawing.Size(243, 15);
             this.lbl_GananciasInternacionales.TabIndex = 5;
@@ -383,7 +383,7 @@
             // 
             this.lbl_DestinoMasElegido.AutoSize = true;
             this.lbl_DestinoMasElegido.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_DestinoMasElegido.Location = new System.Drawing.Point(40, 236);
+            this.lbl_DestinoMasElegido.Location = new System.Drawing.Point(29, 236);
             this.lbl_DestinoMasElegido.Name = "lbl_DestinoMasElegido";
             this.lbl_DestinoMasElegido.Size = new System.Drawing.Size(199, 15);
             this.lbl_DestinoMasElegido.TabIndex = 10;
@@ -406,11 +406,11 @@
             this.dgv_SegunOpcionElegida.AllowUserToResizeRows = false;
             this.dgv_SegunOpcionElegida.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_SegunOpcionElegida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_SegunOpcionElegida.Location = new System.Drawing.Point(40, 75);
+            this.dgv_SegunOpcionElegida.Location = new System.Drawing.Point(26, 75);
             this.dgv_SegunOpcionElegida.Name = "dgv_SegunOpcionElegida";
             this.dgv_SegunOpcionElegida.ReadOnly = true;
             this.dgv_SegunOpcionElegida.RowTemplate.Height = 25;
-            this.dgv_SegunOpcionElegida.Size = new System.Drawing.Size(723, 270);
+            this.dgv_SegunOpcionElegida.Size = new System.Drawing.Size(750, 259);
             this.dgv_SegunOpcionElegida.TabIndex = 9;
             this.dgv_SegunOpcionElegida.Visible = false;
             // 
@@ -419,17 +419,17 @@
             this.pnl_Informacion.Controls.Add(this.rtx_Info);
             this.pnl_Informacion.Location = new System.Drawing.Point(0, 75);
             this.pnl_Informacion.Name = "pnl_Informacion";
-            this.pnl_Informacion.Size = new System.Drawing.Size(800, 274);
+            this.pnl_Informacion.Size = new System.Drawing.Size(800, 259);
             this.pnl_Informacion.TabIndex = 12;
             // 
             // rtx_Info
             // 
-            this.rtx_Info.BackColor = System.Drawing.Color.Silver;
+            this.rtx_Info.BackColor = System.Drawing.SystemColors.Control;
             this.rtx_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtx_Info.Location = new System.Drawing.Point(40, 3);
             this.rtx_Info.Name = "rtx_Info";
             this.rtx_Info.ReadOnly = true;
-            this.rtx_Info.Size = new System.Drawing.Size(726, 267);
+            this.rtx_Info.Size = new System.Drawing.Size(726, 247);
             this.rtx_Info.TabIndex = 0;
             this.rtx_Info.Text = "";
             // 
@@ -437,6 +437,7 @@
             // 
             this.pnl_VerEstadisticas.BackColor = System.Drawing.Color.Transparent;
             this.pnl_VerEstadisticas.Controls.Add(this.pnl_Informacion);
+            this.pnl_VerEstadisticas.Controls.Add(this.btn_CerrarPanel);
             this.pnl_VerEstadisticas.Controls.Add(this.dgv_SegunOpcionElegida);
             this.pnl_VerEstadisticas.Controls.Add(this.txt_DestinoMasElegido);
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_DestinoMasElegido);
@@ -448,16 +449,16 @@
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_RecaudacionTotal);
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Visualizar);
             this.pnl_VerEstadisticas.Controls.Add(this.cmb_Opciones);
-            this.pnl_VerEstadisticas.Controls.Add(this.btn_CerrarPanel);
             this.pnl_VerEstadisticas.Controls.Add(this.txt_Efectivo);
             this.pnl_VerEstadisticas.Controls.Add(this.txt_Credito);
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Efectivo);
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Credito);
             this.pnl_VerEstadisticas.Controls.Add(this.txt_Debito);
             this.pnl_VerEstadisticas.Controls.Add(this.lbl_Debito);
-            this.pnl_VerEstadisticas.Location = new System.Drawing.Point(0, -1);
+            this.pnl_VerEstadisticas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_VerEstadisticas.Location = new System.Drawing.Point(0, 0);
             this.pnl_VerEstadisticas.Name = "pnl_VerEstadisticas";
-            this.pnl_VerEstadisticas.Size = new System.Drawing.Size(803, 391);
+            this.pnl_VerEstadisticas.Size = new System.Drawing.Size(803, 390);
             this.pnl_VerEstadisticas.TabIndex = 3;
             this.pnl_VerEstadisticas.Visible = false;
             this.pnl_VerEstadisticas.VisibleChanged += new System.EventHandler(this.pnl_VerEstadisticas_VisibleChanged);
@@ -469,7 +470,6 @@
             this.pnl_VerPasajeros.Controls.Add(this.lbl_TituloPasajeros);
             this.pnl_VerPasajeros.Controls.Add(this.btn_CerrarVerPasajeros);
             this.pnl_VerPasajeros.Controls.Add(this.dgv_VerPasajeros);
-            this.pnl_VerPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_VerPasajeros.Location = new System.Drawing.Point(0, 0);
             this.pnl_VerPasajeros.Name = "pnl_VerPasajeros";
             this.pnl_VerPasajeros.Size = new System.Drawing.Size(803, 390);
@@ -488,7 +488,7 @@
             // 
             // btn_CerrarVerPasajeros
             // 
-            this.btn_CerrarVerPasajeros.Location = new System.Drawing.Point(359, 354);
+            this.btn_CerrarVerPasajeros.Location = new System.Drawing.Point(342, 354);
             this.btn_CerrarVerPasajeros.Name = "btn_CerrarVerPasajeros";
             this.btn_CerrarVerPasajeros.Size = new System.Drawing.Size(115, 23);
             this.btn_CerrarVerPasajeros.TabIndex = 1;
@@ -613,7 +613,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_EstadisticasHistoricas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_EstadisticasHistoricas";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frm_EstadisticasHistoricas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VuelosHistoricos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).EndInit();

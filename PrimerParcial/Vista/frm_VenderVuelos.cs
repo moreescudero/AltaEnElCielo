@@ -95,7 +95,7 @@ namespace Vista
             else
             {
                 this.Show();
-                lbl_DenegarAgregarVuelo.Text = "No se agregó el vuelo";
+                lbl_DenegarAgregarVuelo.Text = "No se agregó el pasajero";
             }
         }
 
@@ -119,6 +119,10 @@ namespace Vista
             {
                 ActualizarDataGrid();
                 lbl_NoHayVuelos.Visible = false;
+            }
+            else
+            {
+                lbl_DenegarAgregarVuelo.Text = "No se agregó el vuelo";
             }
             this.Show();
         }
@@ -186,10 +190,8 @@ namespace Vista
                 this.BackgroundImage = Resources.cielo_noche;
                 lbl_CantPasajeros.ForeColor = Color.White;
                 lbl_Clase.ForeColor = Color.White;
-                lbl_DenegarAgregarVuelo.ForeColor = Color.White;
                 lbl_Destino.ForeColor = Color.White;
                 lbl_Fechas.ForeColor = Color.White;
-                lbl_NoHayVuelos.ForeColor = Color.White;
                 lbl_Origen.ForeColor = Color.White;
                 lbl_Titulo.ForeColor = Color.White;
             }
@@ -197,10 +199,8 @@ namespace Vista
             {
                 lbl_CantPasajeros.ForeColor = Color.Black;
                 lbl_Clase.ForeColor = Color.Black;
-                lbl_DenegarAgregarVuelo.ForeColor = Color.Black;
                 lbl_Destino.ForeColor = Color.Black;
                 lbl_Fechas.ForeColor = Color.Black;
-                lbl_NoHayVuelos.ForeColor = Color.Black;
                 lbl_Origen.ForeColor = Color.Black;
                 lbl_Titulo.ForeColor = Color.Black;
 

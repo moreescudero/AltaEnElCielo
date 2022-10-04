@@ -234,10 +234,10 @@ namespace Vista
                     {
                         total += precioTotal;
                         grupoFamiliar.Add(pasajero);
-                        lbl_Subtotal.Text = "Precio de 1 pasaje: $ " + precio;
-                        lbl_Iva.Text = "Impuestos y tasas: $ " + impuestos + "\nImpuesto PAIS: $" + impuestoPais;
+                        lbl_Subtotal.Text = "Precio de 1 pasaje: $ " + precio.ToString();
+                        lbl_Iva.Text = "Impuestos y tasas: $ " + impuestos.ToString() + "\nImpuesto PAIS: $" + impuestoPais.ToString();
                         //Bruto + Impuestos = Neto
-                        lbl_Total.Text = "Total: $ " + total;
+                        lbl_Total.Text = "Total: $ " + total.ToString();
                         lbl_EstadoCargaPasajero.Text = "Se cargo un pasajero con exito";
                         LevantarBanderas();
                         ActivarImagenes();
@@ -428,6 +428,7 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
+                chk_BolsoMano.ForeColor = Color.White;
                 lbl_Apellido.ForeColor = Color.White;
                 lbl_CantEquipaje.ForeColor = Color.White;
                 lbl_ComoGuardar.ForeColor = Color.White;
@@ -441,6 +442,7 @@ namespace Vista
             }
             else
             {
+                chk_BolsoMano.ForeColor = Color.Black;
                 lbl_Apellido.ForeColor = Color.Black;
                 lbl_CantEquipaje.ForeColor = Color.Black;
                 lbl_ComoGuardar.ForeColor = Color.Black;

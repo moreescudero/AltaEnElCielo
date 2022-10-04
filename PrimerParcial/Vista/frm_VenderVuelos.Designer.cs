@@ -216,7 +216,7 @@
             // 
             this.lbl_NoHayVuelos.AutoSize = true;
             this.lbl_NoHayVuelos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_NoHayVuelos.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.lbl_NoHayVuelos.ForeColor = System.Drawing.Color.Black;
             this.lbl_NoHayVuelos.Location = new System.Drawing.Point(47, 292);
             this.lbl_NoHayVuelos.Name = "lbl_NoHayVuelos";
             this.lbl_NoHayVuelos.Size = new System.Drawing.Size(0, 15);
@@ -336,7 +336,8 @@
             // lbl_DenegarAgregarVuelo
             // 
             this.lbl_DenegarAgregarVuelo.AutoSize = true;
-            this.lbl_DenegarAgregarVuelo.Location = new System.Drawing.Point(612, 322);
+            this.lbl_DenegarAgregarVuelo.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_DenegarAgregarVuelo.Location = new System.Drawing.Point(579, 317);
             this.lbl_DenegarAgregarVuelo.Name = "lbl_DenegarAgregarVuelo";
             this.lbl_DenegarAgregarVuelo.Size = new System.Drawing.Size(0, 15);
             this.lbl_DenegarAgregarVuelo.TabIndex = 35;
@@ -381,7 +382,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_VenderVuelos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_VenderVuelo";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frm_VenderVuelos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud_CantidadPasajeros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vueloBindingSource)).EndInit();

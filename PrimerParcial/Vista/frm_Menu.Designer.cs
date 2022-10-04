@@ -90,7 +90,7 @@
             this.pic_VisualizarVuelos.BackColor = System.Drawing.Color.Transparent;
             this.pic_VisualizarVuelos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
-            this.pic_VisualizarVuelos.Location = new System.Drawing.Point(188, 165);
+            this.pic_VisualizarVuelos.Location = new System.Drawing.Point(205, 165);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
             this.pic_VisualizarVuelos.Size = new System.Drawing.Size(98, 96);
             this.pic_VisualizarVuelos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -104,7 +104,7 @@
             // 
             this.lbl_VisualizarVuelos.AutoSize = true;
             this.lbl_VisualizarVuelos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VisualizarVuelos.Location = new System.Drawing.Point(178, 165);
+            this.lbl_VisualizarVuelos.Location = new System.Drawing.Point(195, 165);
             this.lbl_VisualizarVuelos.Name = "lbl_VisualizarVuelos";
             this.lbl_VisualizarVuelos.Size = new System.Drawing.Size(92, 15);
             this.lbl_VisualizarVuelos.TabIndex = 4;
@@ -115,7 +115,7 @@
             this.pic_Vender.BackColor = System.Drawing.Color.Transparent;
             this.pic_Vender.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Vender.Image = ((System.Drawing.Image)(resources.GetObject("pic_Vender.Image")));
-            this.pic_Vender.Location = new System.Drawing.Point(346, 174);
+            this.pic_Vender.Location = new System.Drawing.Point(360, 174);
             this.pic_Vender.Name = "pic_Vender";
             this.pic_Vender.Size = new System.Drawing.Size(84, 75);
             this.pic_Vender.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -129,7 +129,7 @@
             // 
             this.lbl_VenderVuelos.AutoSize = true;
             this.lbl_VenderVuelos.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_VenderVuelos.Location = new System.Drawing.Point(346, 165);
+            this.lbl_VenderVuelos.Location = new System.Drawing.Point(357, 165);
             this.lbl_VenderVuelos.Name = "lbl_VenderVuelos";
             this.lbl_VenderVuelos.Size = new System.Drawing.Size(80, 15);
             this.lbl_VenderVuelos.TabIndex = 6;
@@ -140,7 +140,7 @@
             this.pic_Estadisticas.BackColor = System.Drawing.Color.Transparent;
             this.pic_Estadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_Estadisticas.Image = ((System.Drawing.Image)(resources.GetObject("pic_Estadisticas.Image")));
-            this.pic_Estadisticas.Location = new System.Drawing.Point(495, 165);
+            this.pic_Estadisticas.Location = new System.Drawing.Point(497, 165);
             this.pic_Estadisticas.Name = "pic_Estadisticas";
             this.pic_Estadisticas.Size = new System.Drawing.Size(108, 96);
             this.pic_Estadisticas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -154,7 +154,7 @@
             // 
             this.lbl_Estadisticas.AutoSize = true;
             this.lbl_Estadisticas.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Estadisticas.Location = new System.Drawing.Point(483, 165);
+            this.lbl_Estadisticas.Location = new System.Drawing.Point(473, 165);
             this.lbl_Estadisticas.Name = "lbl_Estadisticas";
             this.lbl_Estadisticas.Size = new System.Drawing.Size(120, 15);
             this.lbl_Estadisticas.TabIndex = 8;
@@ -198,7 +198,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(804, 363);
             this.ControlBox = false;
             this.Controls.Add(this.pic_Logo);
@@ -219,7 +219,7 @@
             this.MinimizeBox = false;
             this.Name = "frm_Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menu Principal";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frm_Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_VisualizarVuelos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Vender)).EndInit();

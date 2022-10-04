@@ -44,6 +44,7 @@ namespace Vista
         private void btn_AgregarVuelo_Click(object sender, EventArgs e)
         {
             frm_AgregarVuelo agregarVuelo = new frm_AgregarVuelo();
+            this.Hide();
             if(agregarVuelo.ShowDialog() == DialogResult.OK)
             {
                 ActualizarDataGrid();
@@ -52,6 +53,7 @@ namespace Vista
             {
                 lbl_AgregarVueloCancelado.Visible = true;
             }
+            this.Show();
         }
         private void btn_Salir_Click(object sender, EventArgs e)
         {
@@ -95,13 +97,11 @@ namespace Vista
             if (tiempo.CompareTo(noche) > 0 || tiempo.CompareTo(amanecer) < 0)
             {
                 this.BackgroundImage = Resources.cielo_noche;
-                lbl_AgregarVueloCancelado.ForeColor = Color.White;
                 lbl_Titulo.ForeColor = Color.White;
                 lbl_TituloPasajeros.ForeColor = Color.White;
             }
             else
             {
-                lbl_AgregarVueloCancelado.ForeColor = Color.Black;
                 lbl_Titulo.ForeColor = Color.Black;
                 lbl_TituloPasajeros.ForeColor = Color.Black;
 
