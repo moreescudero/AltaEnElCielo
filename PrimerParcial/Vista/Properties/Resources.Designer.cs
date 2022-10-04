@@ -103,6 +103,16 @@ namespace Vista.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap compu {
+            get {
+                object obj = ResourceManager.GetObject("compu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap efectivo {
             get {
                 object obj = ResourceManager.GetObject("efectivo", resourceCulture);
@@ -116,6 +126,26 @@ namespace Vista.Properties {
         internal static System.Drawing.Bitmap mastercard_logo {
             get {
                 object obj = ResourceManager.GetObject("mastercard logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap monedita {
+            get {
+                object obj = ResourceManager.GetObject("monedita", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mundito {
+            get {
+                object obj = ResourceManager.GetObject("mundito", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

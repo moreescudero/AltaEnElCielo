@@ -89,7 +89,7 @@
             // 
             this.pic_VisualizarVuelos.BackColor = System.Drawing.Color.Transparent;
             this.pic_VisualizarVuelos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_VisualizarVuelos.Image = ((System.Drawing.Image)(resources.GetObject("pic_VisualizarVuelos.Image")));
+            this.pic_VisualizarVuelos.Image = global::Vista.Properties.Resources.mundito;
             this.pic_VisualizarVuelos.Location = new System.Drawing.Point(205, 165);
             this.pic_VisualizarVuelos.Name = "pic_VisualizarVuelos";
             this.pic_VisualizarVuelos.Size = new System.Drawing.Size(98, 96);
@@ -114,7 +114,7 @@
             // 
             this.pic_Vender.BackColor = System.Drawing.Color.Transparent;
             this.pic_Vender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_Vender.Image = ((System.Drawing.Image)(resources.GetObject("pic_Vender.Image")));
+            this.pic_Vender.Image = global::Vista.Properties.Resources.monedita;
             this.pic_Vender.Location = new System.Drawing.Point(360, 174);
             this.pic_Vender.Name = "pic_Vender";
             this.pic_Vender.Size = new System.Drawing.Size(84, 75);
@@ -139,7 +139,7 @@
             // 
             this.pic_Estadisticas.BackColor = System.Drawing.Color.Transparent;
             this.pic_Estadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pic_Estadisticas.Image = ((System.Drawing.Image)(resources.GetObject("pic_Estadisticas.Image")));
+            this.pic_Estadisticas.Image = global::Vista.Properties.Resources.compu;
             this.pic_Estadisticas.Location = new System.Drawing.Point(497, 165);
             this.pic_Estadisticas.Name = "pic_Estadisticas";
             this.pic_Estadisticas.Size = new System.Drawing.Size(108, 96);
