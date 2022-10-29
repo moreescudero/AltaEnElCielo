@@ -217,14 +217,15 @@ namespace Entidades
 
         public string? CantarTruco(Usuario jugador, string? mensaje)
         {
-            foreach (Carta item in jugador.Cartas)
+            Random rnd = new Random();
+            int random = rnd.Next(1,3);
+            //foreach (Carta item in jugador.Cartas)
+            //{
+            if (random == 1)
             {
-                if ((int)item.Valor < 6)
-                {
-                    jugador.CantoTruco = true;
-                    break;
-                }
+                jugador.CantoTruco = true;
             }
+            //}
             return mensaje;
         }
 

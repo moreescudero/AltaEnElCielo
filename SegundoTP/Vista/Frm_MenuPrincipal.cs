@@ -20,9 +20,7 @@ namespace Vista
 
         private void btn_AbirSala_Click(object sender, EventArgs e)
         {
-            Partida partida = new Partida(Conexion.ObtenerUsuarios(), DateTime.Now);
-
-            Frm_Sala frm_Sala = new Frm_Sala(partida);
+            Frm_Sala frm_Sala = new Frm_Sala();
             frm_Sala.ShowDialog();
         }
     }
