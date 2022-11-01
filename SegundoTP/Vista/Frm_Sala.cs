@@ -52,7 +52,7 @@ namespace Vista
 
         private void Frm_Sala_Load(object sender, EventArgs e)
         {
-            presentador.AbarajarYRepartir();
+            presentador.delTerminarVuelta();
         }
 
         private void btn_Comenzar_Click(object sender, EventArgs e)
@@ -62,26 +62,26 @@ namespace Vista
 
         private void tmr_Partida_Tick(object sender, EventArgs e)
         {
-            segundos = segundos.AddSeconds(1);
-            int segundosInt = int.Parse(segundos.ToString("ss"));
-            if (segundosInt % 2 == 0)
+            //segundos = segundos.AddSeconds(1);
+            //int segundosInt = int.Parse(segundos.ToString("ss"));
+            //if (segundosInt % 2 == 0)
+            //{
+            if (terminoVuelta)
             {
-                if (terminoVuelta)
+                LimpiarVuelta();
+            }
+            else
+            {
+                if (hayEnvido)
                 {
-                    LimpiarVuelta();
+                    presentador.JugarEnvido();
                 }
                 else
                 {
-                    if (hayEnvido)
-                    {
-                        presentador.JugarEnvido();
-                    }
-                    else
-                    {
-                        presentador.Jugar();
-                    }
+                    presentador.Jugar();
                 }
             }
+            //}
         }
 
         public void FrenarTimer()
@@ -89,7 +89,7 @@ namespace Vista
             tmr_Partida.Stop();
         }
 
-        public void LimpiarVuelta() //se puede usar delegados para LimpiarVuelta, finalizarVuelta y AbarajarYRepartir
+        public void LimpiarVuelta() 
         {
             envidoJug1 = 0;
             envidoJug2 = 0;
@@ -101,7 +101,6 @@ namespace Vista
             decirEnvido = false;
             seContestoTruco = false;
             terminoVuelta = false;
-            presentador.AbarajarYRepartir();
 
             lbl_CartasJugador1.Text = String.Empty;
             lbl_CartasJugador2.Text = String.Empty;

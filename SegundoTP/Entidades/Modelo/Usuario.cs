@@ -40,7 +40,7 @@ namespace Entidades.Modelo
 
         public string? NombreUsuario { get { return nombreUsuario; } } 
         public int Id { get { return id; } } 
-        public bool EsMano { get { return EsMano; } set { EsMano = value; } } 
+        public bool EsMano { get { return esMano; } set { esMano = value; } } 
         public bool CantoEnvido { get { return cantoEnvido; } set { cantoEnvido = value; } } 
         public bool CantoTruco { get { return cantoTruco; } set { cantoTruco = value; } } 
         public bool CantoRetruco { get { return cantoRetruco; } set { cantoRetruco = value; } } 

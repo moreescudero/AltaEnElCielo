@@ -99,7 +99,7 @@
             // 
             // tmr_Partida
             // 
-            this.tmr_Partida.Interval = 1000;
+            this.tmr_Partida.Interval = 2000;
             this.tmr_Partida.Tick += new System.EventHandler(this.tmr_Partida_Tick);
             // 
             // lbl_Ganador

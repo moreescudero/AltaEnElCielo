@@ -12,14 +12,20 @@ namespace Entidades.Modelo
         List<Usuario> jugadores = new List<Usuario>();
         DateTime fecha;
         string ganador;
-        //public event UsarMazo 
+        public event Action<List<Carta>> eventoMazo; 
 
-        public Partida(string ganador, DateTime fecha)
+        public Partida ()
+        {
+            eventoMazo = Barajar;
+            eventoMazo += Repartir;
+        }
+
+        public Partida(string ganador, DateTime fecha) : this ()
         {
             this.ganador = ganador;
             this.fecha = fecha;
         }
-        public Partida(List<Usuario> jugadores, DateTime fecha)
+        public Partida(List<Usuario> jugadores, DateTime fecha) : this()
         {
             this.jugadores = jugadores;
             this.fecha = fecha;
@@ -46,8 +52,14 @@ namespace Entidades.Modelo
             get { return jugadores[1].NombreUsuario; }
         }
 
+        public void ActivarEvento()
+        {
+            Mazo mazoAux = Serializador<Mazo>.LeerJSon("mazo.json");
+            List<Carta> mazo = mazoAux.Mazos;
+            eventoMazo(mazo);
+        }
 
-        public void Abarajar(List<Carta> mazo)
+        public void Barajar(List<Carta> mazo)
         {
             List<Carta> mazoMezclado = new List<Carta>();
             Random rnd = new Random();
@@ -59,8 +71,11 @@ namespace Entidades.Modelo
                 mazoMezclado.Add(mazo[indice]);
                 mazo.RemoveAt(indice);
             }
-
-            mazo = mazoMezclado;
+            mazo.Clear();
+            for (int i = 0; i < 6; i++)
+            {
+                mazo.Add(mazoMezclado[i]);
+            }
         }
 
         public void Repartir(List<Carta> mazo)
@@ -95,13 +110,20 @@ namespace Entidades.Modelo
             }
             for (int i = 0; i < jugador.Cartas.Count; i++)
             {
-                if (cartaElegida is null || cartaElegida.Valor > jugador.Cartas[i].Valor || gana || cartaContrincante is null)
+                if (cartaContrincante is null || cartaElegida is null || (cartaContrincante is not null && gana))
                 {
-                    cartaElegida = jugador.Cartas[i];
+                    if (cartaElegida is null || cartaElegida.Valor > jugador.Cartas[i].Valor)
+                    {
+                        cartaElegida = jugador.Cartas[i];
+                        if (cartaContrincante is not null && cartaElegida.Valor < cartaContrincante.Valor)
+                        {
+                            break;
+                        }
+                    }
                 }
-                else if (cartaContrincante is not null)
+                else if (cartaContrincante is not null && !gana)
                 {
-                    if (!gana && cartaElegida.Valor < jugador.Cartas[i].Valor)
+                    if (cartaElegida.Valor < jugador.Cartas[i].Valor)
                     {
                         cartaElegida = jugador.Cartas[i];
                     }
@@ -151,6 +173,8 @@ namespace Entidades.Modelo
                             jugadores[1].ManosGanadas++;
                         }
                     }
+                    jugadores[0].CartaJugada = null;
+                    jugadores[1].CartaJugada = null;
                 }
             }
         }
@@ -214,13 +238,13 @@ namespace Entidades.Modelo
 
         public string? DeterminarGanadorEnvido(int jugadorUno, int jugadorDos)
         {
-            string retorno;
-            if (jugadorUno > jugadorDos)
+            string retorno = "";
+            if (jugadorUno > jugadorDos || (jugadores[0].EsMano && jugadorUno == jugadorDos))
             {
                 jugadores[0].PuntosPartida += 2;
                 retorno = "Jugador 1 ganó envido";
             }
-            else
+            else if (jugadorUno < jugadorDos || (jugadores[1].EsMano && jugadorUno == jugadorDos))
             {
                 jugadores[1].PuntosPartida += 2;
                 retorno = "Jugador 2 ganó envido";
