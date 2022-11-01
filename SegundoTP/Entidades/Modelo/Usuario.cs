@@ -14,6 +14,7 @@ namespace Entidades.Modelo
         List<Carta> cartas;
         List<Carta> cartasJugadas;
         Carta cartaJugada;
+        bool esMano = false;
         bool cantoEnvido = false;
         bool cantoTruco = false;
         bool cantoRetruco = false;
@@ -31,82 +32,27 @@ namespace Entidades.Modelo
             cartas = new List<Carta>();
             cartasJugadas = new List<Carta>();
         }
-
-        public string? NombreUsuario
+        public Usuario(int id, string? nombreUsuario, string? contraseña, int partidasGanadas, int partidasPerdidas) : this(id, nombreUsuario, contraseña)
         {
-            get { return nombreUsuario; }
+            this.partidasPerdidas = partidasPerdidas;
+            this.partidasGanadas = partidasGanadas;
         }
 
-        public int Id
-        {
-            get { return id; }
-        }
-
-        public bool CantoEnvido
-        {
-            get { return cantoEnvido; }
-            set { cantoEnvido = value; }
-        }
-
-        public bool CantoTruco
-        {
-            get { return cantoTruco; }
-            set { cantoTruco = value; }
-        }
-
-        public bool CantoRetruco
-        {
-            get { return cantoRetruco; }
-            set { cantoRetruco = value; }
-        }
-
-        public bool CantoQuieroVale4
-        {
-            get { return cantoQuieroVale4; }
-            set { cantoQuieroVale4 = value; }
-        }
-
-        public List<Carta> Cartas
-        {
-            get { return cartas; }
-            set { cartas = value; }
-        }
-
-        public List<Carta> CartasJugadas
-        {
-            get { return cartasJugadas; }
-            set { cartasJugadas = value; }
-        }
-
-        public Carta CartaJugada
-        {
-            get { return cartaJugada; }
-            set { cartaJugada = value; }
-        }
-
-        public int ManosGanadas
-        {
-            get { return manosGanadas; }
-            set { manosGanadas = value; }
-        }
-
-        public int PuntosPartida
-        {
-            get { return puntosPartida; }
-            set { puntosPartida = value; }
-        }
-
-        public int PartidasGanadas
-        {
-            get { return partidasGanadas; }
-            set { partidasGanadas = value; }
-        }
-
-        public int PartidasPerdidas
-        {
-            get { return partidasPerdidas; }
-            set { partidasPerdidas = value; }
-        }
+        public string? NombreUsuario { get { return nombreUsuario; } } 
+        public int Id { get { return id; } } 
+        public bool EsMano { get { return EsMano; } set { EsMano = value; } } 
+        public bool CantoEnvido { get { return cantoEnvido; } set { cantoEnvido = value; } } 
+        public bool CantoTruco { get { return cantoTruco; } set { cantoTruco = value; } } 
+        public bool CantoRetruco { get { return cantoRetruco; } set { cantoRetruco = value; } } 
+        public bool CantoQuieroVale4 { get { return cantoQuieroVale4; } set { cantoQuieroVale4 = value; } } 
+        public List<Carta> Cartas { get { return cartas; } set { cartas = value; } } 
+        public List<Carta> CartasJugadas { get { return cartasJugadas; } set { cartasJugadas = value; } } 
+        public Carta CartaJugada { get { return cartaJugada; } set { cartaJugada = value; } } 
+        public int ManosGanadas { get { return manosGanadas; } set { manosGanadas = value; } } 
+        public int PuntosPartida { get { return puntosPartida; } set { puntosPartida = value; } } 
+        public int PartidasGanadas { get { return partidasGanadas; } set { partidasGanadas = value; } } 
+        public int PartidasPerdidas { get { return partidasPerdidas; } set { partidasPerdidas = value; } }
+         
 
         public bool ComprobarContraseña(string? contraseñaIngresada)
         {
@@ -115,6 +61,24 @@ namespace Entidades.Modelo
                 return true;
             }
             return false;
+        }
+
+        public void TerminarVuelta()
+        {
+            cartas.Clear();
+            cartasJugadas.Clear();
+            manosGanadas = 0;
+            cartaJugada = null;
+            cantoEnvido = false;
+            cantoTruco = false;
+            cantoRetruco = false;
+            cantoQuieroVale4 = false;
+        }
+
+        public void TerminarPartida()
+        {
+            puntosPartida = 0;
+            esMano = false;
         }
 
     }

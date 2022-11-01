@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace Entidades.Modelo
         List<Usuario> jugadores = new List<Usuario>();
         DateTime fecha;
         string ganador;
+        //public event UsarMazo 
 
         public Partida(string ganador, DateTime fecha)
         {
@@ -45,7 +47,7 @@ namespace Entidades.Modelo
         }
 
 
-        public List<Carta> Abarajar(List<Carta> mazo)
+        public void Abarajar(List<Carta> mazo)
         {
             List<Carta> mazoMezclado = new List<Carta>();
             Random rnd = new Random();
@@ -58,7 +60,7 @@ namespace Entidades.Modelo
                 mazo.RemoveAt(indice);
             }
 
-            return mazoMezclado;
+            mazo = mazoMezclado;
         }
 
         public void Repartir(List<Carta> mazo)
@@ -283,14 +285,7 @@ namespace Entidades.Modelo
         {
             foreach (Usuario jugador in jugadores)
             {
-                jugador.Cartas.Clear();
-                jugador.CartasJugadas.Clear();
-                jugador.ManosGanadas = 0;
-                jugador.CartaJugada = null;
-                jugador.CantoEnvido = false;
-                jugador.CantoTruco = false;
-                jugador.CantoRetruco = false;
-                jugador.CantoQuieroVale4 = false;
+                jugador.TerminarVuelta();
             }
         }
 
@@ -299,7 +294,7 @@ namespace Entidades.Modelo
             FinalizarVuelta();
             foreach (Usuario jugador in jugadores)
             {
-                jugador.PuntosPartida = 0;
+                jugador.TerminarPartida();
             }
 
         }
