@@ -173,8 +173,8 @@ namespace Entidades.Modelo
                             jugadores[1].ManosGanadas++;
                         }
                     }
-                    jugadores[0].CartaJugada = null;
-                    jugadores[1].CartaJugada = null;
+                    //jugadores[0].CartaJugada = null;
+                    //jugadores[1].CartaJugada = null;
                 }
             }
         }
@@ -299,7 +299,7 @@ namespace Entidades.Modelo
             {
                 return true;
             }
-            else
+            else 
             {
                 return false;
             }
@@ -307,20 +307,13 @@ namespace Entidades.Modelo
 
         public void FinalizarVuelta()
         {
-            foreach (Usuario jugador in jugadores)
-            {
-                jugador.TerminarVuelta();
-            }
+            jugadores.ForEach((x) => x.TerminarVuelta());
         }
 
         public void FinalizarPartida()
         {
             FinalizarVuelta();
-            foreach (Usuario jugador in jugadores)
-            {
-                jugador.TerminarPartida();
-            }
-
+            jugadores.ForEach((x) => x.TerminarPartida());
         }
     }
 }

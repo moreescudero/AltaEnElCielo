@@ -66,21 +66,21 @@ namespace Vista
             //int segundosInt = int.Parse(segundos.ToString("ss"));
             //if (segundosInt % 2 == 0)
             //{
-            if (terminoVuelta)
+            //if (terminoVuelta)
+            //{
+            //    LimpiarVuelta();
+            //}
+            //else
+            //{
+            if (hayEnvido)
             {
-                LimpiarVuelta();
+                presentador.JugarEnvido();
             }
             else
             {
-                if (hayEnvido)
-                {
-                    presentador.JugarEnvido();
-                }
-                else
-                {
-                    presentador.Jugar();
-                }
+                presentador.Jugar();
             }
+            //}
             //}
         }
 
