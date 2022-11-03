@@ -41,6 +41,7 @@
             this.lbl_PuntosJug2 = new System.Windows.Forms.Label();
             this.lbl_ChatJug1 = new System.Windows.Forms.Label();
             this.lbl_ChatJug2 = new System.Windows.Forms.Label();
+            this.rtx_ChatJugadores = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btn_Comenzar
@@ -99,57 +100,70 @@
             // 
             // tmr_Partida
             // 
-            this.tmr_Partida.Interval = 2000;
+            this.tmr_Partida.Interval = 3000;
             this.tmr_Partida.Tick += new System.EventHandler(this.tmr_Partida_Tick);
             // 
             // lbl_Ganador
             // 
             this.lbl_Ganador.AutoSize = true;
-            this.lbl_Ganador.Location = new System.Drawing.Point(549, 166);
+            this.lbl_Ganador.Location = new System.Drawing.Point(32, 154);
             this.lbl_Ganador.Name = "lbl_Ganador";
-            this.lbl_Ganador.Size = new System.Drawing.Size(38, 15);
+            this.lbl_Ganador.Size = new System.Drawing.Size(51, 15);
             this.lbl_Ganador.TabIndex = 6;
-            this.lbl_Ganador.Text = "label1";
+            this.lbl_Ganador.Text = "ganador";
             // 
             // lbl_PuntosJug1
             // 
             this.lbl_PuntosJug1.AutoSize = true;
-            this.lbl_PuntosJug1.Location = new System.Drawing.Point(549, 290);
+            this.lbl_PuntosJug1.Location = new System.Drawing.Point(32, 278);
             this.lbl_PuntosJug1.Name = "lbl_PuntosJug1";
-            this.lbl_PuntosJug1.Size = new System.Drawing.Size(38, 15);
+            this.lbl_PuntosJug1.Size = new System.Drawing.Size(13, 15);
             this.lbl_PuntosJug1.TabIndex = 7;
-            this.lbl_PuntosJug1.Text = "label1";
+            this.lbl_PuntosJug1.Text = "0";
             // 
             // lbl_PuntosJug2
             // 
             this.lbl_PuntosJug2.AutoSize = true;
-            this.lbl_PuntosJug2.Location = new System.Drawing.Point(549, 50);
+            this.lbl_PuntosJug2.Location = new System.Drawing.Point(32, 38);
             this.lbl_PuntosJug2.Name = "lbl_PuntosJug2";
-            this.lbl_PuntosJug2.Size = new System.Drawing.Size(38, 15);
+            this.lbl_PuntosJug2.Size = new System.Drawing.Size(13, 15);
             this.lbl_PuntosJug2.TabIndex = 8;
-            this.lbl_PuntosJug2.Text = "label1";
+            this.lbl_PuntosJug2.Text = "0";
             // 
             // lbl_ChatJug1
             // 
             this.lbl_ChatJug1.AutoSize = true;
-            this.lbl_ChatJug1.Location = new System.Drawing.Point(70, 257);
+            this.lbl_ChatJug1.Location = new System.Drawing.Point(91, 238);
             this.lbl_ChatJug1.Name = "lbl_ChatJug1";
-            this.lbl_ChatJug1.Size = new System.Drawing.Size(0, 15);
+            this.lbl_ChatJug1.Size = new System.Drawing.Size(43, 15);
             this.lbl_ChatJug1.TabIndex = 9;
+            this.lbl_ChatJug1.Text = "asdasd";
             // 
             // lbl_ChatJug2
             // 
             this.lbl_ChatJug2.AutoSize = true;
-            this.lbl_ChatJug2.Location = new System.Drawing.Point(70, 97);
+            this.lbl_ChatJug2.Location = new System.Drawing.Point(91, 78);
             this.lbl_ChatJug2.Name = "lbl_ChatJug2";
-            this.lbl_ChatJug2.Size = new System.Drawing.Size(0, 15);
+            this.lbl_ChatJug2.Size = new System.Drawing.Size(43, 15);
             this.lbl_ChatJug2.TabIndex = 10;
+            this.lbl_ChatJug2.Text = "asdasd";
+            // 
+            // rtx_ChatJugadores
+            // 
+            this.rtx_ChatJugadores.Location = new System.Drawing.Point(512, 38);
+            this.rtx_ChatJugadores.Name = "rtx_ChatJugadores";
+            this.rtx_ChatJugadores.ReadOnly = true;
+            this.rtx_ChatJugadores.Size = new System.Drawing.Size(239, 298);
+            this.rtx_ChatJugadores.TabIndex = 11;
+            this.rtx_ChatJugadores.Text = "";
+            this.rtx_ChatJugadores.TextChanged += new System.EventHandler(this.rtx_ChatJugadores_TextChanged);
             // 
             // Frm_Sala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rtx_ChatJugadores);
             this.Controls.Add(this.lbl_ChatJug2);
             this.Controls.Add(this.lbl_ChatJug1);
             this.Controls.Add(this.lbl_PuntosJug2);
@@ -183,5 +197,6 @@
         private Label lbl_PuntosJug2;
         private Label lbl_ChatJug1;
         private Label lbl_ChatJug2;
+        private RichTextBox rtx_ChatJugadores;
     }
 }

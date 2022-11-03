@@ -8,9 +8,10 @@ namespace Entidades.Presentador
 {
     public interface ISala
     {
-        string? ChatJug1 { get; set; }
-        string? ChatJug2 { get; set; }
+        //string? ChatJug1 { get; set; }
+        //string? ChatJug2 { get; set; }
         string? Ganador { get; set; }
+        string? Chat { get; set; }
         string? PuntosJug1 { get; set; }
         string? PuntosJug2 { get; set; }
         string? CartasJug1 { get; set; }

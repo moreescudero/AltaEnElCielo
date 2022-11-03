@@ -25,6 +25,7 @@ namespace Vista
         bool decirEnvido = false;
         bool seContestoTruco = false;
         bool terminoVuelta = false;
+        bool gano = false;
 
         public Frm_Sala ()
         {
@@ -32,8 +33,9 @@ namespace Vista
             presentador = new PresentadorSala(this);
         }
         
-        public string? ChatJug1 { get { return lbl_ChatJug1.Text; } set { lbl_ChatJug1.Text = value; } }
-        public string? ChatJug2 { get { return lbl_ChatJug2.Text; } set { lbl_ChatJug2.Text = value; } }
+        public string? Chat { get { return rtx_ChatJugadores.Text; } set { rtx_ChatJugadores.Text = value; } }
+        //public string? ChatJug1 { get { return lbl_ChatJug1.Text; } set { lbl_ChatJug1.Text = value; } }
+        //public string? ChatJug2 { get { return lbl_ChatJug2.Text; } set { lbl_ChatJug2.Text = value; } }
         public string? Ganador { get { return lbl_Ganador.Text; } set { lbl_Ganador.Text = value; } }
         public string? PuntosJug1 { get { return lbl_PuntosJug1.Text; } set { lbl_PuntosJug1.Text = value; } }
         public string? PuntosJug2 { get { return lbl_PuntosJug2.Text; } set { lbl_PuntosJug2.Text = value; } }
@@ -72,6 +74,7 @@ namespace Vista
             //}
             //else
             //{
+
             if (hayEnvido)
             {
                 presentador.JugarEnvido();
@@ -112,6 +115,12 @@ namespace Vista
         private void btn_Volver_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void rtx_ChatJugadores_TextChanged(object sender, EventArgs e)
+        {
+            rtx_ChatJugadores.SelectionStart = rtx_ChatJugadores.Text.Length;
+            rtx_ChatJugadores.ScrollToCaret();
         }
     }
 }

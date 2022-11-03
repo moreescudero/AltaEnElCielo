@@ -11,7 +11,7 @@ namespace Entidades.Presentador
     {
         IMenuPrincipal menu;
         public static List<Usuario> usuarios;
-        List<Usuario> jugadores;
+        //List<Usuario> jugadores;
         Usuario usuarioActivo;
 
         public PresentadorMenuPrincipal (IMenuPrincipal menu)
@@ -28,33 +28,7 @@ namespace Entidades.Presentador
 
         public void CargarDataGrid()
         {
-            //menu.HabilitarBotonAbrirSala = false;
             menu.CargarDgv(usuarios);
         }
-
-        //public void CargarUsuarios(int indiceJugador)
-        //{
-        //    if(jugadores.Count < 3)
-        //    {
-        //        Usuario usuarioElegido = usuarios[indiceJugador];
-        //        if(!jugadores.Contains(usuarioElegido))
-        //        {
-        //            jugadores.Add(usuarioElegido);
-        //            menu.UsuariosCargados = "Se cargó al jugador " + usuarioElegido.NombreUsuario + " a la partida";
-        //            if(jugadores.Count == 2)
-        //            {
-        //                menu.HabilitarBotonAbrirSala = true;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            throw new Exception("Ya elegiste este usuario");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        throw new Exception("No podes cargar más de 2 jugadores");
-        //    }
-        //}
     }
 }

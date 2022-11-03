@@ -56,7 +56,14 @@ namespace Entidades.Modelo
         {
             Mazo mazoAux = Serializador<Mazo>.LeerJSon("mazo.json");
             List<Carta> mazo = mazoAux.Mazos;
-            eventoMazo(mazo);
+            try
+            {
+                eventoMazo(mazo);
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         public void Barajar(List<Carta> mazo)
@@ -80,23 +87,40 @@ namespace Entidades.Modelo
 
         public void Repartir(List<Carta> mazo)
         {
-            for (int i = 0; i < mazo.Count; i++)
+            bool exito = false;
+            do
             {
-                if (i < 3)
+                try
                 {
-                    jugadores[0].Cartas.Add(mazo[i]);
+                    for (int i = 0; i < mazo.Count; i++)
+                    {
+                        if (i < 3)
+                        {
+                            jugadores[0].Cartas.Add(mazo[i]);
+                        }
+                        else
+                        {
+                            jugadores[1].Cartas.Add(mazo[i]);
+                        }
+                    }
+                    exito = true;
                 }
-                else
-                {
-                    jugadores[1].Cartas.Add(mazo[i]);
+                catch (ArgumentOutOfRangeException)
+                { // AASDASDAFAKNLFVMDSLCMA 
+                    jugadores[1].Cartas = new List<Carta>();
+                    exito = false;
                 }
-            }
+            } while (!exito);
         }
 
         private Carta? TirarCarta(Usuario jugador, Carta cartaContrincante)
         {
             Carta? cartaElegida = null;
             bool gana = false;
+            if(jugadores[0].Cartas.Count == jugadores[1].Cartas.Count)
+            {
+                cartaContrincante = null;
+            }
             if (cartaContrincante is not null)
             {
                 for (int i = 0; i < jugador.Cartas.Count; i++)
@@ -142,39 +166,34 @@ namespace Entidades.Modelo
 
         public void SumarPunto()
         {
-            if (jugadores[0].Cartas.Count == jugadores[1].Cartas.Count)
+            if (jugadores[0].CartaJugada is not null && jugadores[1].CartaJugada is not null)
             {
-                if (jugadores[0].CartaJugada is not null && jugadores[1].CartaJugada is not null)
+                if (jugadores[0].CartaJugada.Valor < jugadores[1].CartaJugada.Valor)
                 {
-                    if (jugadores[0].CartaJugada.Valor < jugadores[1].CartaJugada.Valor)
+                    jugadores[0].ManosGanadas++;
+                }
+                else if (jugadores[0].CartaJugada.Valor > jugadores[1].CartaJugada.Valor)
+                {
+                    jugadores[1].ManosGanadas++;
+                }
+                else
+                {
+                    if (jugadores[0].CartasJugadas.Count > 0 && jugadores[1].CartasJugadas.Count > 0)
                     {
-                        jugadores[0].ManosGanadas++;
-                    }
-                    else if (jugadores[0].CartaJugada.Valor > jugadores[1].CartaJugada.Valor)
-                    {
-                        jugadores[1].ManosGanadas++;
-                    }
-                    else
-                    {
-                        if (jugadores[0].CartasJugadas.Count > 0 && jugadores[1].CartasJugadas.Count > 0)
+                        if (jugadores[0].CartasJugadas[0].Valor < jugadores[1].CartasJugadas[0].Valor)
                         {
-                            if (jugadores[0].CartasJugadas[0].Valor < jugadores[1].CartasJugadas[0].Valor)
-                            {
-                                jugadores[0].ManosGanadas++;
-                            }
-                            else
-                            {
-                                jugadores[1].ManosGanadas++;
-                            }
+                            jugadores[0].ManosGanadas++;
                         }
                         else
                         {
-                            jugadores[0].ManosGanadas++;
                             jugadores[1].ManosGanadas++;
                         }
                     }
-                    //jugadores[0].CartaJugada = null;
-                    //jugadores[1].CartaJugada = null;
+                    else
+                    {
+                        jugadores[0].ManosGanadas++;
+                        jugadores[1].ManosGanadas++;
+                    }
                 }
             }
         }

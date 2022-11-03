@@ -10,7 +10,7 @@ namespace Entidades.Presentador
     public class PresentadorLogin
     {
         ILogin login;
-        public static List<Usuario> usuarios;
+        public static List<Usuario> usuarios = new List<Usuario>();
         public static Usuario usuarioActivo;
 
         public PresentadorLogin (ILogin login)
