@@ -32,22 +32,23 @@ namespace Entidades.Presentador
         private void AsignarJugadoresRandom()
         {
             Random rnd = new Random();
-            
-            for (int i = 0; i < PresentadorMenuPrincipal.usuarios.Count(); i++)
+            do
             {
-                if (jugadores.Count < 3)
+                //if (jugadores.Count < 3)
+                //{
+                int indice = rnd.Next(0, PresentadorMenuPrincipal.usuarios.Count());
+                if (!jugadores.Contains(PresentadorMenuPrincipal.usuarios[indice]))
                 {
-                    int indice = rnd.Next(0, PresentadorMenuPrincipal.usuarios.Count());
-                    if (!jugadores.Contains(PresentadorMenuPrincipal.usuarios[indice]))
-                    {
-                        jugadores.Add(PresentadorMenuPrincipal.usuarios[indice]);
-                    }
+                    jugadores.Add(PresentadorMenuPrincipal.usuarios[indice]);
                 }
-                else
-                {
-                    break;
-                }
-            }
+                //}
+                //else
+                //{
+                //    break;
+                //}
+            } while (jugadores.Count < 2);
+            sala.UsuarioJugador1 = jugadores[0].NombreUsuario;
+            sala.UsuarioJugador2 = jugadores[1].NombreUsuario;
         }
 
         public void JugarEnvido()
@@ -62,7 +63,7 @@ namespace Entidades.Presentador
                         sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
                         chatJug1 = "Envido";
                     }
-                    else // no tiene sentido
+                    else 
                     {
                         sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
                     }
@@ -75,7 +76,7 @@ namespace Entidades.Presentador
                         sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
                         chatJug2 = "Envido";
                     }
-                    else // no tiene sentido
+                    else 
                     {
                         sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
                     }
@@ -208,7 +209,7 @@ namespace Entidades.Presentador
                             chatJug2 = CantarTruco(jugadores[1]);
                             if (chatJug2 != String.Empty)
                             {
-                                sala.Chat += jugadores[0].NombreUsuario + ": " + chatJug2 + "\n";
+                                sala.Chat += jugadores[1].NombreUsuario + ": " + chatJug2 + "\n";
                             }
                         }
                         Carta cartaJugada = partida.Jugar(jugadores[1], jugadores[0].CartaJugada);
@@ -220,7 +221,7 @@ namespace Entidades.Presentador
                 {
                     ContestarTruco();
                 }
-                if (jugadores[0].Cartas.Count == jugadores[1].Cartas.Count)
+                if (jugadores[0].Cartas.Count == jugadores[1].Cartas.Count && !gano)
                 {
                     partida.SumarPunto();
                 }
@@ -262,7 +263,7 @@ namespace Entidades.Presentador
             else if(jugadores[1].CantoTruco && !jugadores[0].CantoTruco)
             {
                 chatJug1 = partida.ContestarTruco(jugadores[0]);
-                sala.Chat += jugadores[1].NombreUsuario + ": " + chatJug1 + "\n";
+                sala.Chat += jugadores[0].NombreUsuario + ": " + chatJug1 + "\n";
                 if (chatJug1 == "No quiero")
                 {
                     Ganar(1, 0, "Gano jugador 2", "Felicidades jugador 2, ganaste!");

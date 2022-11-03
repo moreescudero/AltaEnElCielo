@@ -56,14 +56,8 @@ namespace Entidades.Modelo
         {
             Mazo mazoAux = Serializador<Mazo>.LeerJSon("mazo.json");
             List<Carta> mazo = mazoAux.Mazos;
-            try
-            {
-                eventoMazo(mazo);
-            }
-            catch(Exception ex)
-            {
-
-            }
+            eventoMazo(mazo);
+            
         }
 
         public void Barajar(List<Carta> mazo)
@@ -87,30 +81,30 @@ namespace Entidades.Modelo
 
         public void Repartir(List<Carta> mazo)
         {
-            bool exito = false;
-            do
+            //bool exito = false;
+            //do
+            //{
+            //    try
+            //    {
+            for (int i = 0; i < mazo.Count; i++)
             {
-                try
+                if (i < 3)
                 {
-                    for (int i = 0; i < mazo.Count; i++)
-                    {
-                        if (i < 3)
-                        {
-                            jugadores[0].Cartas.Add(mazo[i]);
-                        }
-                        else
-                        {
-                            jugadores[1].Cartas.Add(mazo[i]);
-                        }
-                    }
-                    exito = true;
+                    jugadores[0].Cartas.Add(mazo[i]);
                 }
-                catch (ArgumentOutOfRangeException)
-                { // AASDASDAFAKNLFVMDSLCMA 
-                    jugadores[1].Cartas = new List<Carta>();
-                    exito = false;
+                else
+                {
+                    jugadores[1].Cartas.Add(mazo[i]);
                 }
-            } while (!exito);
+            }
+                    //exito = true;
+            //    }
+            //    catch (ArgumentOutOfRangeException)
+            //    { 
+            //        jugadores[1].Cartas = new List<Carta>();
+            //        exito = false;
+            //    }
+            //} while (!exito);
         }
 
         private Carta? TirarCarta(Usuario jugador, Carta cartaContrincante)

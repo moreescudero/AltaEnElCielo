@@ -10,6 +10,8 @@ namespace Entidades.Presentador
     {
         //string? ChatJug1 { get; set; }
         //string? ChatJug2 { get; set; }
+        string? UsuarioJugador1 { set; }
+        string? UsuarioJugador2 { set; }
         string? Ganador { get; set; }
         string? Chat { get; set; }
         string? PuntosJug1 { get; set; }

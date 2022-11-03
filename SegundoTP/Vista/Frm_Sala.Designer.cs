@@ -106,7 +106,7 @@
             // lbl_Ganador
             // 
             this.lbl_Ganador.AutoSize = true;
-            this.lbl_Ganador.Location = new System.Drawing.Point(32, 154);
+            this.lbl_Ganador.Location = new System.Drawing.Point(32, 180);
             this.lbl_Ganador.Name = "lbl_Ganador";
             this.lbl_Ganador.Size = new System.Drawing.Size(51, 15);
             this.lbl_Ganador.TabIndex = 6;
@@ -115,7 +115,7 @@
             // lbl_PuntosJug1
             // 
             this.lbl_PuntosJug1.AutoSize = true;
-            this.lbl_PuntosJug1.Location = new System.Drawing.Point(32, 278);
+            this.lbl_PuntosJug1.Location = new System.Drawing.Point(32, 304);
             this.lbl_PuntosJug1.Name = "lbl_PuntosJug1";
             this.lbl_PuntosJug1.Size = new System.Drawing.Size(13, 15);
             this.lbl_PuntosJug1.TabIndex = 7;
@@ -124,7 +124,7 @@
             // lbl_PuntosJug2
             // 
             this.lbl_PuntosJug2.AutoSize = true;
-            this.lbl_PuntosJug2.Location = new System.Drawing.Point(32, 38);
+            this.lbl_PuntosJug2.Location = new System.Drawing.Point(32, 64);
             this.lbl_PuntosJug2.Name = "lbl_PuntosJug2";
             this.lbl_PuntosJug2.Size = new System.Drawing.Size(13, 15);
             this.lbl_PuntosJug2.TabIndex = 8;
@@ -133,7 +133,7 @@
             // lbl_ChatJug1
             // 
             this.lbl_ChatJug1.AutoSize = true;
-            this.lbl_ChatJug1.Location = new System.Drawing.Point(91, 238);
+            this.lbl_ChatJug1.Location = new System.Drawing.Point(91, 264);
             this.lbl_ChatJug1.Name = "lbl_ChatJug1";
             this.lbl_ChatJug1.Size = new System.Drawing.Size(43, 15);
             this.lbl_ChatJug1.TabIndex = 9;
@@ -142,7 +142,7 @@
             // lbl_ChatJug2
             // 
             this.lbl_ChatJug2.AutoSize = true;
-            this.lbl_ChatJug2.Location = new System.Drawing.Point(91, 78);
+            this.lbl_ChatJug2.Location = new System.Drawing.Point(68, 107);
             this.lbl_ChatJug2.Name = "lbl_ChatJug2";
             this.lbl_ChatJug2.Size = new System.Drawing.Size(43, 15);
             this.lbl_ChatJug2.TabIndex = 10;

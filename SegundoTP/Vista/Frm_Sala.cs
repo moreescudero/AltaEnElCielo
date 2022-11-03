@@ -33,6 +33,8 @@ namespace Vista
             presentador = new PresentadorSala(this);
         }
         
+        public string? UsuarioJugador1 { set { lbl_Jugador1.Text = value; } }
+        public string? UsuarioJugador2 { set { lbl_Jugador2.Text = value; } }
         public string? Chat { get { return rtx_ChatJugadores.Text; } set { rtx_ChatJugadores.Text = value; } }
         //public string? ChatJug1 { get { return lbl_ChatJug1.Text; } set { lbl_ChatJug1.Text = value; } }
         //public string? ChatJug2 { get { return lbl_ChatJug2.Text; } set { lbl_ChatJug2.Text = value; } }
@@ -64,17 +66,6 @@ namespace Vista
 
         private void tmr_Partida_Tick(object sender, EventArgs e)
         {
-            //segundos = segundos.AddSeconds(1);
-            //int segundosInt = int.Parse(segundos.ToString("ss"));
-            //if (segundosInt % 2 == 0)
-            //{
-            //if (terminoVuelta)
-            //{
-            //    LimpiarVuelta();
-            //}
-            //else
-            //{
-
             if (hayEnvido)
             {
                 presentador.JugarEnvido();
@@ -83,8 +74,6 @@ namespace Vista
             {
                 presentador.Jugar();
             }
-            //}
-            //}
         }
 
         public void FrenarTimer()
