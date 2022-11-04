@@ -360,11 +360,13 @@ namespace Entidades.Modelo
             {
                 jugadores[0].PartidasGanadas++;
                 ganador = jugadores[0].NombreUsuario;
+                jugadores[1].PartidasPerdidas++;
             }
             else
             {
                 jugadores[1].PartidasGanadas++;
                 ganador = jugadores[1].NombreUsuario;
+                jugadores[0].PartidasPerdidas++;
             }
         }
 

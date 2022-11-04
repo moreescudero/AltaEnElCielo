@@ -86,5 +86,33 @@ namespace Entidades.Modelo
 
         }
 
+        public static void ModificarUsuarios(List<Usuario> usuarios)
+        {
+            try
+            {
+                connection.Open();
+
+                foreach (Usuario usuario in usuarios)
+                {
+                    Comando("update Usuarios set PartidasGanadas = @PartidasGanadas, PartidasPerdidas = @PartidasPerdidas where Id = @Id");
+
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@PartidasGanadas", usuario.PartidasGanadas);
+                    command.Parameters.AddWithValue("@PartidasPerdidas", usuario.PartidasPerdidas);
+                    command.Parameters.AddWithValue("@Id", usuario.Id);
+
+                    command.ExecuteNonQuery();
+                }
+
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ocurrio un error al guardar usuarios");
+            }
+        }
     }
 }

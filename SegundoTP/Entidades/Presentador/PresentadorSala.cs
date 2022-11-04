@@ -55,28 +55,37 @@ namespace Entidades.Presentador
                 if (jugadores[0].EsMano)
                 {
                     VerificarEnvido(0, 1);
-                    if(jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
-                    {
-                        sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
-                        chatJug1 = "Envido";
-                    }
-                    else 
-                    {
-                        sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
-                    }
+                    //if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
+                    //{
+                    //    sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
+                    //    chatJug1 = "Envido";
+                    //}
+                    //else if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
+                    //{
+                    //    sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
+                    //}
                 }
                 else if (jugadores[1].EsMano)
                 {
                     VerificarEnvido(1, 0);
-                    if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
-                    {
-                        sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
-                        chatJug2 = "Envido";
-                    }
-                    else 
-                    {
-                        sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
-                    }
+                    //if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
+                    //{
+                    //    sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
+                    //    chatJug2 = "Envido";
+                    //}
+                    //else if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
+                    //{
+                    //    sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
+                    //}
+                }
+                if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
+                {
+                    sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
+                    chatJug1 = "Envido";
+                }
+                else if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
+                {
+                    sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
                 }
             }
             else if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido && chatJug2 == String.Empty)

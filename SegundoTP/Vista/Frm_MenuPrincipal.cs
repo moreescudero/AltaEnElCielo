@@ -43,6 +43,7 @@ namespace Vista
         {
             Frm_Sala frm_Sala = new Frm_Sala();
             frm_Sala.ShowDialog();
+            presentador.CargarDataGrid();
         }
 
         private void dgv_JugadoresDisponibles_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)

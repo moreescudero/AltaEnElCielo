@@ -47,5 +47,18 @@ namespace Entidades.Presentador
         {
             menu.CargarDgv(usuarios);
         }
+
+        public void GuardarInfoUsuarios()
+        {
+            try
+            {
+                ConexionUsuarios.ModificarUsuarios(usuarios);
+            }
+            catch (Exception ex)
+            {
+                menu.HabilitarPanel = true;
+                menu.ErrorPanel = ex.Message;
+            }             
+        }
     }
 }
