@@ -10,7 +10,9 @@ namespace Entidades.Presentador
     {
         string? Bienvenido { get; set; }
         string? UsuariosCargados { get; set; }
+        string? ErrorPanel { set; }
         bool HabilitarBotonAbrirSala { get; set; }
+        bool HabilitarPanel { set; }
 
         void CargarDgv(Object fuente);
     }

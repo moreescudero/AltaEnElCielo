@@ -41,13 +41,17 @@
             this.lbl_BienvenidoJugador = new System.Windows.Forms.Label();
             this.lbl_UsuariosCargados = new System.Windows.Forms.Label();
             this.dgv_Salas = new System.Windows.Forms.DataGridView();
-            this.partidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.JugadorUno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JugadorDos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partidaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pnl_ErrorPartidas = new System.Windows.Forms.Panel();
+            this.btn_Volver = new System.Windows.Forms.Button();
+            this.lbl_ErrorPartidasBaseDeDatos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_JugadoresDisponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Salas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
+            this.pnl_ErrorPartidas.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_JugadoresDisponibles
@@ -168,10 +172,6 @@
             this.dgv_Salas.Size = new System.Drawing.Size(307, 273);
             this.dgv_Salas.TabIndex = 6;
             // 
-            // partidaBindingSource
-            // 
-            this.partidaBindingSource.DataSource = typeof(Entidades.Modelo.Partida);
-            // 
             // JugadorUno
             // 
             this.JugadorUno.DataPropertyName = "JugadorUno";
@@ -186,11 +186,45 @@
             this.JugadorDos.Name = "JugadorDos";
             this.JugadorDos.ReadOnly = true;
             // 
+            // partidaBindingSource
+            // 
+            this.partidaBindingSource.DataSource = typeof(Entidades.Modelo.Partida);
+            // 
+            // pnl_ErrorPartidas
+            // 
+            this.pnl_ErrorPartidas.Controls.Add(this.btn_Volver);
+            this.pnl_ErrorPartidas.Controls.Add(this.lbl_ErrorPartidasBaseDeDatos);
+            this.pnl_ErrorPartidas.Location = new System.Drawing.Point(296, 162);
+            this.pnl_ErrorPartidas.Name = "pnl_ErrorPartidas";
+            this.pnl_ErrorPartidas.Size = new System.Drawing.Size(255, 100);
+            this.pnl_ErrorPartidas.TabIndex = 7;
+            this.pnl_ErrorPartidas.Visible = false;
+            // 
+            // btn_Volver
+            // 
+            this.btn_Volver.Location = new System.Drawing.Point(90, 74);
+            this.btn_Volver.Name = "btn_Volver";
+            this.btn_Volver.Size = new System.Drawing.Size(75, 23);
+            this.btn_Volver.TabIndex = 1;
+            this.btn_Volver.Text = "ok";
+            this.btn_Volver.UseVisualStyleBackColor = true;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
+            // 
+            // lbl_ErrorPartidasBaseDeDatos
+            // 
+            this.lbl_ErrorPartidasBaseDeDatos.AutoSize = true;
+            this.lbl_ErrorPartidasBaseDeDatos.Location = new System.Drawing.Point(11, 40);
+            this.lbl_ErrorPartidasBaseDeDatos.Name = "lbl_ErrorPartidasBaseDeDatos";
+            this.lbl_ErrorPartidasBaseDeDatos.Size = new System.Drawing.Size(38, 15);
+            this.lbl_ErrorPartidasBaseDeDatos.TabIndex = 0;
+            this.lbl_ErrorPartidasBaseDeDatos.Text = "label1";
+            // 
             // Frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnl_ErrorPartidas);
             this.Controls.Add(this.dgv_Salas);
             this.Controls.Add(this.lbl_UsuariosCargados);
             this.Controls.Add(this.lbl_BienvenidoJugador);
@@ -200,11 +234,14 @@
             this.Controls.Add(this.dgv_JugadoresDisponibles);
             this.Name = "Frm_MenuPrincipal";
             this.Text = "Frm_MenuPrincipal";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_MenuPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.Frm_MenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_JugadoresDisponibles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Salas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).EndInit();
+            this.pnl_ErrorPartidas.ResumeLayout(false);
+            this.pnl_ErrorPartidas.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +264,8 @@
         private BindingSource partidaBindingSource;
         private DataGridViewTextBoxColumn JugadorUno;
         private DataGridViewTextBoxColumn JugadorDos;
+        private Panel pnl_ErrorPartidas;
+        private Label lbl_ErrorPartidasBaseDeDatos;
+        private Button btn_Volver;
     }
 }

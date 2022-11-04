@@ -47,6 +47,7 @@
             this.txt_Contraseña.PlaceholderText = "Ingrese contraseña";
             this.txt_Contraseña.Size = new System.Drawing.Size(121, 23);
             this.txt_Contraseña.TabIndex = 1;
+            this.txt_Contraseña.TextChanged += new System.EventHandler(this.txt_Contraseña_TextChanged);
             // 
             // txt_Usuario
             // 
@@ -55,6 +56,7 @@
             this.txt_Usuario.PlaceholderText = "Ingrese usuario";
             this.txt_Usuario.Size = new System.Drawing.Size(121, 23);
             this.txt_Usuario.TabIndex = 0;
+            this.txt_Usuario.TextChanged += new System.EventHandler(this.txt_Usuario_TextChanged);
             // 
             // btn_Salir
             // 

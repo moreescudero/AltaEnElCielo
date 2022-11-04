@@ -28,6 +28,8 @@ namespace Vista
         public string? Bienvenido { get { return lbl_BienvenidoJugador.Text; } set { lbl_BienvenidoJugador.Text = value; } }    
         public string? UsuariosCargados { get { return lbl_UsuariosCargados.Text; } set { lbl_UsuariosCargados.Text = value; } }
         public bool HabilitarBotonAbrirSala { get { return btn_AbirSala.Enabled; } set { btn_AbirSala.Enabled = value; } }
+        public bool HabilitarPanel { set { pnl_ErrorPartidas.Enabled = value; } }
+        public string? ErrorPanel { set { lbl_ErrorPartidasBaseDeDatos.Text = value; } }
 
         private void Frm_MenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -69,6 +71,16 @@ namespace Vista
         {
             dgv_JugadoresDisponibles.DataSource = null;
             dgv_JugadoresDisponibles.DataSource = fuente;
+        }
+
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            pnl_ErrorPartidas.Enabled = false;
+        }
+
+        private void Frm_MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

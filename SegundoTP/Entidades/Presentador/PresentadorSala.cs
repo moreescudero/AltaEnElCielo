@@ -13,6 +13,7 @@ namespace Entidades.Presentador
         Partida partida;
         List<Usuario> jugadores = new List<Usuario>();
         public Action delTerminarVuelta;
+        public Action delTerminarPartida;
         string chatJug1 = String.Empty;
         string chatJug2 = String.Empty;
         bool gano;
@@ -22,11 +23,14 @@ namespace Entidades.Presentador
         {
             this.sala = sala;
             AsignarJugadoresRandom();
-            partida = new Partida(jugadores, DateTime.Now);
+            partida = new Partida(0, jugadores, DateTime.Now); // no se deberia crear acá
             jugadores[0].EsMano = true;
             delTerminarVuelta = sala.LimpiarVuelta;
             delTerminarVuelta += partida.FinalizarVuelta;
-            delTerminarVuelta += partida.ActivarEvento;
+            delTerminarVuelta += partida.ActivarEventoMazo;
+            delTerminarPartida = sala.FrenarTimer;
+            delTerminarPartida += partida.ActivarEventoFinalizarPartida;
+            delTerminarPartida += AgregarPartida;
         }
 
         private void AsignarJugadoresRandom()
@@ -34,18 +38,11 @@ namespace Entidades.Presentador
             Random rnd = new Random();
             do
             {
-                //if (jugadores.Count < 3)
-                //{
                 int indice = rnd.Next(0, PresentadorMenuPrincipal.usuarios.Count());
                 if (!jugadores.Contains(PresentadorMenuPrincipal.usuarios[indice]))
                 {
                     jugadores.Add(PresentadorMenuPrincipal.usuarios[indice]);
                 }
-                //}
-                //else
-                //{
-                //    break;
-                //}
             } while (jugadores.Count < 2);
             sala.UsuarioJugador1 = jugadores[0].NombreUsuario;
             sala.UsuarioJugador2 = jugadores[1].NombreUsuario;
@@ -151,7 +148,7 @@ namespace Entidades.Presentador
             sala.EnvidoJug1 = partida.DecirEnvido(jugadores[0]);
             sala.Chat += jugadores[0].NombreUsuario + ": " + sala.EnvidoJug1.ToString() + "\n";
             sala.EnvidoJug2 = partida.DecirEnvido(jugadores[1]);
-            sala.Chat += jugadores[1].NombreUsuario + ": " + sala.EnvidoJug2.ToString() + "\n\n";
+            sala.Chat += jugadores[1].NombreUsuario + ": " + sala.EnvidoJug2.ToString() + "\n";
             sala.Ganador = partida.DeterminarGanadorEnvido(sala.EnvidoJug1, sala.EnvidoJug2);
 
             if (sala.Ganador == "Jugador 1 ganó envido")
@@ -303,7 +300,7 @@ namespace Entidades.Presentador
             if (jugadores[indice].PuntosPartida >= 15)
             {
                 sala.Ganador = mensajeGanadorPartida;
-                sala.FrenarTimer();
+                delTerminarPartida();
             }
             else
             {
@@ -320,6 +317,7 @@ namespace Entidades.Presentador
                 chatJug1 = String.Empty;
                 chatJug2 = String.Empty;
                 sala.Ganador = mensajeGanador;
+                sala.Chat += "\n\n";
                 gano = true;
             }
         }
@@ -347,6 +345,18 @@ namespace Entidades.Presentador
                 }
             }
             
+        }
+
+        private void AgregarPartida()
+        {
+            try
+            {
+                ConexionPartidas.AgregarPartida(partida);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

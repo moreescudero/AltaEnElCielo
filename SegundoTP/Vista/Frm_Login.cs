@@ -73,12 +73,24 @@ namespace Vista
             }
             else
             {
-                if(txt_Usuario.Text != String.Empty && txt_Contraseña.Text != String.Empty)
+                if(txt_Usuario.Text != String.Empty && txt_Contraseña.Text != String.Empty && presentador.ComprobarNombreUsuarioUnico(txt_Usuario.Text))
                 {
                     if(presentador.AgregarUsuario())
                     {
                         Ingresar();
                     }
+                }
+                else if(!presentador.ComprobarNombreUsuarioUnico(txt_Usuario.Text))
+                {
+                    lbl_UsuarioIncorrecto.Text = "Nombre de usuario ya existe";
+                }
+                else if(txt_Usuario.Text == String.Empty)
+                {
+                    lbl_UsuarioIncorrecto.Text = "Usuario no puede ser un campo vacio";
+                }
+                else
+                {
+                    lbl_ContraseñaIncorrecta.Text = "Contraseña no puede ser un campo vacio";
                 }
             }
         }
@@ -103,6 +115,25 @@ namespace Vista
             {
                 txt_Contraseña.PlaceholderText = "*";
             }
+        }
+
+        public void Limpiar()
+        {
+            if (lbl_UsuarioIncorrecto.Text != String.Empty || lbl_ContraseñaIncorrecta.Text != String.Empty)
+            {
+                lbl_UsuarioIncorrecto.Text = String.Empty;
+                lbl_ContraseñaIncorrecta.Text = String.Empty;
+            }
+        }
+
+        private void txt_Usuario_TextChanged(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void txt_Contraseña_TextChanged(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

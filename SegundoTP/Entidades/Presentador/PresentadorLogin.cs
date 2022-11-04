@@ -21,6 +21,7 @@ namespace Entidades.Presentador
 
         public void IntentarIngresar()
         {
+            int contador = 0;
             try
             {
                 foreach (Usuario usuario in usuarios)
@@ -31,14 +32,26 @@ namespace Entidades.Presentador
                         login.IngresarAlMenuPrincipal();
                         break;
                     }
-                    else if (usuarios.Last() == usuario)
+                    else if(usuario.NombreUsuario != login.NombreUsuario)
                     {
-                        throw new Exception("contraseña incorrecta");
+                        contador++;
                     }
-                    //if(usuario.NombreUsuario != txt_Usuario.Text)
+                    //else if (usuarios.Last() == usuario)
                     //{
-                    //    throw new Exception("usuario incorrecto");
+                    //    throw new Exception("contraseña incorrecta");
                     //}
+                    ////if(usuario.NombreUsuario != txt_Usuario.Text)
+                    ////{
+                    ////    throw new Exception("usuario incorrecto");
+                    ////}
+                }
+                if(contador == usuarios.Count)
+                {
+                    throw new Exception("nombre de usuario incorrecto");
+                }
+                else if(contador == (usuarios.Count - 1))
+                {
+                    throw new Exception("contraseña incorrecta");
                 }
             }
             catch (Exception ex)
@@ -47,7 +60,7 @@ namespace Entidades.Presentador
                 {
                     login.ContraseñaIncorrecta = ex.Message;
                 }
-                if (ex.Message == "usuario incorrecto")
+                if (ex.Message == "nombre de usuario incorrecto")
                 {
                     login.UsuarioIncorrecto = ex.Message;
                 }
@@ -70,12 +83,24 @@ namespace Entidades.Presentador
         {
             try
             {
-                usuarios = Conexion.ObtenerUsuarios();
+                usuarios = ConexionUsuarios.ObtenerUsuarios();
             }
             catch (Exception ex)
             {
                 login.ContraseñaIncorrecta = ex.Message;
             }
+        }
+
+        public bool ComprobarNombreUsuarioUnico(string nombreUsuario)
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                if(usuario.NombreUsuario == nombreUsuario)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public bool AgregarUsuario()
@@ -87,7 +112,7 @@ namespace Entidades.Presentador
             {
                 try
                 {
-                    Conexion.AgregarUsuario(usuario, login.Contraseña);
+                    ConexionUsuarios.AgregarUsuario(usuario, login.Contraseña);
                     usuarios.Add(usuario);
                     agregoUsuario = true;
                 }

@@ -15,5 +15,6 @@ namespace Entidades.Presentador
 
         void IngresarAlMenuPrincipal();
         void Ingresar();
+        void Limpiar();
     }
 }

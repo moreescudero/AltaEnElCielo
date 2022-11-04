@@ -9,23 +9,32 @@ namespace Entidades.Modelo
 {
     public class Partida
     {
+        int id;
+        bool activa = true;
         List<Usuario> jugadores = new List<Usuario>();
         DateTime fecha;
-        string ganador;
+        string? ganador;
         public event Action<List<Carta>> eventoMazo; 
+        public event Action eventoFinalizarPartida; 
 
-        public Partida ()
+        public Partida (int id)
         {
+            this.id = id;
+            activa = true;
             eventoMazo = Barajar;
             eventoMazo += Repartir;
+            eventoFinalizarPartida = FinalizarVuelta;
+            eventoFinalizarPartida += AsignarPuntos;
+            eventoFinalizarPartida += FinalizarPartida;
         }
 
-        public Partida(string ganador, DateTime fecha) : this ()
+        public Partida(int id,  string ganador, DateTime fecha) : this (id)
         {
+            activa = false;
             this.ganador = ganador;
             this.fecha = fecha;
         }
-        public Partida(List<Usuario> jugadores, DateTime fecha) : this()
+        public Partida(int id, List<Usuario> jugadores, DateTime fecha) : this(id)
         {
             this.jugadores = jugadores;
             this.fecha = fecha;
@@ -36,10 +45,16 @@ namespace Entidades.Modelo
             get { return jugadores; }
         }
 
-        public string Ganador
+        public string? Ganador
         {
             get { return ganador; }
             set { ganador = value; }
+        }
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
         }
 
         public string? JugadorUno
@@ -52,12 +67,23 @@ namespace Entidades.Modelo
             get { return jugadores[1].NombreUsuario; }
         }
 
-        public void ActivarEvento()
+        public bool Activa
+        {
+            get { return activa; }
+            set { activa = value; }
+        }
+
+        public void ActivarEventoMazo()
         {
             Mazo mazoAux = Serializador<Mazo>.LeerJSon("mazo.json");
             List<Carta> mazo = mazoAux.Mazos;
             eventoMazo(mazo);
             
+        }
+
+        public void ActivarEventoFinalizarPartida()
+        {
+            eventoFinalizarPartida();
         }
 
         public void Barajar(List<Carta> mazo)
@@ -279,10 +305,20 @@ namespace Entidades.Modelo
             return mensaje;
         }
 
-        public string? ContestarTruco(Usuario jugador)
+        public string ContestarTruco(Usuario jugador)
         {
-            string? mensaje = "";
+            string mensaje = "";
+            List<Carta> cartasTotales = new List<Carta>();
             foreach (Carta item in jugador.Cartas)
+            {
+                cartasTotales.Add(item);
+            }
+            foreach (Carta item in jugador.CartasJugadas)
+            {
+                cartasTotales.Add(item);
+            }
+
+            foreach (Carta item in cartasTotales)
             {
                 if ((int)item.Valor < 6)
                 {
@@ -318,6 +354,20 @@ namespace Entidades.Modelo
             }
         }
 
+        private void AsignarPuntos()
+        {
+            if (jugadores[0].PuntosPartida > jugadores[1].PuntosPartida)
+            {
+                jugadores[0].PartidasGanadas++;
+                ganador = jugadores[0].NombreUsuario;
+            }
+            else
+            {
+                jugadores[1].PartidasGanadas++;
+                ganador = jugadores[1].NombreUsuario;
+            }
+        }
+
         public void FinalizarVuelta()
         {
             jugadores.ForEach((x) => x.TerminarVuelta());
@@ -325,7 +375,8 @@ namespace Entidades.Modelo
 
         public void FinalizarPartida()
         {
-            FinalizarVuelta();
+            //FinalizarVuelta();
+            //AsignarPuntos();
             jugadores.ForEach((x) => x.TerminarPartida());
         }
     }
