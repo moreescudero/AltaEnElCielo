@@ -73,6 +73,10 @@ namespace Entidades.Modelo
             set { activa = value; }
         }
 
+        /// <summary>
+        /// deserializa el mazo de cartas y activa el evento eventoMazo para que se pueda acceder 
+        /// desde el presentador
+        /// </summary>
         public void ActivarEventoMazo()
         {
             Mazo mazoAux = Serializador<Mazo>.LeerJSon("mazo.json");
@@ -81,11 +85,18 @@ namespace Entidades.Modelo
             
         }
 
+        /// <summary>
+        /// activa el evento eventoFinalizarPartida para que se pueda acceder desde el presentador
+        /// </summary>
         public void ActivarEventoFinalizarPartida()
         {
             eventoFinalizarPartida();
         }
 
+        /// <summary>
+        /// "mezcla el mazo" eligiendo 6 cartas aleatorias
+        /// </summary>
+        /// <param name="mazo"></param>
         public void Barajar(List<Carta> mazo)
         {
             List<Carta> mazoMezclado = new List<Carta>();
@@ -105,13 +116,12 @@ namespace Entidades.Modelo
             }
         }
 
+        /// <summary>
+        /// reparte 3 cartas a cada jugador
+        /// </summary>
+        /// <param name="mazo"></param>
         public void Repartir(List<Carta> mazo)
         {
-            //bool exito = false;
-            //do
-            //{
-            //    try
-            //    {
             for (int i = 0; i < mazo.Count; i++)
             {
                 if (i < 3)
@@ -123,16 +133,16 @@ namespace Entidades.Modelo
                     jugadores[1].Cartas.Add(mazo[i]);
                 }
             }
-                    //exito = true;
-            //    }
-            //    catch (ArgumentOutOfRangeException)
-            //    { 
-            //        jugadores[1].Cartas = new List<Carta>();
-            //        exito = false;
-            //    }
-            //} while (!exito);
         }
 
+        /// <summary>
+        /// elige cuál es la carta más conveniente de tirar teniendo en cuenta si todavía no se tiraron cartas que 
+        /// el jugador juegue su mejor carta, si el contrincante ya tiró una carta entonces toma en cuenta si
+        /// tiene alguna carta que pueda ganarle y la tira, sino tira la de menor valor
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <param name="cartaContrincante"></param>
+        /// <returns></returns>
         private Carta? TirarCarta(Usuario jugador, Carta cartaContrincante)
         {
             Carta? cartaElegida = null;
@@ -176,6 +186,13 @@ namespace Entidades.Modelo
             return cartaElegida;
         }
 
+        /// <summary>
+        /// llama a un método, remueve la carta elegida de las cartas que tiene el jugador en mano y la 
+        /// agrega a las cartas en mesa
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <param name="cartaContrincante"></param>
+        /// <returns></returns>
         public Carta Jugar(Usuario jugador, Carta cartaContrincante)
         {
             jugador.CartaJugada = TirarCarta(jugador, cartaContrincante);
@@ -184,6 +201,9 @@ namespace Entidades.Modelo
             return jugador.CartaJugada;
         }
 
+        /// <summary>
+        /// suma manos ganadas cuando los dos jugadores tiraron una carta cada uno 
+        /// </summary>
         public void SumarPunto()
         {
             if (jugadores[0].CartaJugada is not null && jugadores[1].CartaJugada is not null)
@@ -218,6 +238,11 @@ namespace Entidades.Modelo
             }
         }
 
+        /// <summary>
+        /// busca que el jugador tenga dos cartas del mismo palo
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <returns></returns>
         public bool CantarEnvido(Usuario jugador)
         {
             for (int i = 0; i < jugador.Cartas.Count; i++)
@@ -233,6 +258,13 @@ namespace Entidades.Modelo
             return false;
         }
 
+
+        /// <summary>
+        /// devuelve la cantidad de envido que tiene un jugador, teniendo en cuenta si había alguna 
+        /// carta de número superior a 9 o si ambas eran ese tipo de cartas. 
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <returns></returns>
         public int DecirEnvido(Usuario jugador)
         {
             int envido = 0;
@@ -275,36 +307,36 @@ namespace Entidades.Modelo
             return envido;
         }
 
+
+        /// <summary>
+        /// Determina el ganador del envido según quien haya ganado en numero o, si empataron, según quién 
+        /// es mano
+        /// </summary>
+        /// <param name="jugadorUno"></param>
+        /// <param name="jugadorDos"></param>
+        /// <returns></returns>
         public string? DeterminarGanadorEnvido(int jugadorUno, int jugadorDos)
         {
             string retorno = "";
             if (jugadorUno > jugadorDos || (jugadores[0].EsMano && jugadorUno == jugadorDos))
             {
                 jugadores[0].PuntosPartida += 2;
-                retorno = "Jugador 1 ganó envido";
+                retorno = jugadores[0].NombreUsuario + " ganó envido";
             }
             else if (jugadorUno < jugadorDos || (jugadores[1].EsMano && jugadorUno == jugadorDos))
             {
                 jugadores[1].PuntosPartida += 2;
-                retorno = "Jugador 2 ganó envido";
+                retorno = jugadores[1].NombreUsuario + " ganó envido";
             }
             return retorno;
         }
 
-        public string? CantarTruco(Usuario jugador, string? mensaje)
-        {
-            Random rnd = new Random();
-            int random = rnd.Next(1, 3);
-            //foreach (Carta item in jugador.Cartas)
-            //{
-            if (random == 1)
-            {
-                jugador.CantoTruco = true;
-            }
-            //}
-            return mensaje;
-        }
-
+        /// <summary>
+        /// determina si quiere o no quiere truco según si en el total de cartas que tiene el jugador
+        /// tiene por lo menos una carta mayor a un 2
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <returns></returns>
         public string ContestarTruco(Usuario jugador)
         {
             string mensaje = "";
@@ -334,6 +366,11 @@ namespace Entidades.Modelo
             return mensaje;
         }
 
+        /// <summary>
+        /// asigna el turno segun quien no haya tirado una carta o quien haya ganado la mano y
+        /// debe tirar una carta
+        /// </summary>
+        /// <returns></returns>
         public bool AsignarTurno()
         {
             if (jugadores[1].CartaJugada is not null && jugadores[0].CartaJugada is not null)
@@ -354,6 +391,10 @@ namespace Entidades.Modelo
             }
         }
 
+        /// <summary>
+        /// según quién haya ganado la partida le agrega una partida ganada y al perdedor le agrega
+        /// una partida perdida
+        /// </summary>
         private void AsignarPuntos()
         {
             if (jugadores[0].PuntosPartida > jugadores[1].PuntosPartida)
@@ -370,11 +411,17 @@ namespace Entidades.Modelo
             }
         }
 
+        /// <summary>
+        /// setea todos los atributos de los jugadores para volver a jugar una vuelta
+        /// </summary>
         public void FinalizarVuelta()
         {
             jugadores.ForEach((x) => x.TerminarVuelta());
         }
 
+        /// <summary>
+        /// setea todos los atributos de los jugadores para volver a jugar una partida
+        /// </summary>
         public void FinalizarPartida()
         {
             //FinalizarVuelta();

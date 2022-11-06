@@ -53,7 +53,11 @@ namespace Entidades.Modelo
         public int PartidasGanadas { get { return partidasGanadas; } set { partidasGanadas = value; } } 
         public int PartidasPerdidas { get { return partidasPerdidas; } set { partidasPerdidas = value; } }
          
-
+        /// <summary>
+        /// comprueva si la contraseña ingresada es igual a la contraseña del usuario
+        /// </summary>
+        /// <param name="contraseñaIngresada"></param>
+        /// <returns></returns>
         public bool ComprobarContraseña(string? contraseñaIngresada)
         {
             if (contraseña == contraseñaIngresada)
@@ -63,6 +67,9 @@ namespace Entidades.Modelo
             return false;
         }
 
+        /// <summary>
+        /// setea todos los atributos del usuario para que pueda jugar una nueva vuelta
+        /// </summary>
         public void TerminarVuelta()
         {
             cartas.Clear();
@@ -75,6 +82,9 @@ namespace Entidades.Modelo
             cantoQuieroVale4 = false;
         }
 
+        /// <summary>
+        /// setea los atributos del usuario para que pueda jugar una nueva partida
+        /// </summary>
         public void TerminarPartida()
         {
             puntosPartida = 0;

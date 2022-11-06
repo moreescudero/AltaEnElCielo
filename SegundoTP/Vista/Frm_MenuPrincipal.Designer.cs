@@ -61,6 +61,7 @@
             this.dgv_JugadoresDisponibles.AllowUserToResizeRows = false;
             this.dgv_JugadoresDisponibles.AutoGenerateColumns = false;
             this.dgv_JugadoresDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_JugadoresDisponibles.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_JugadoresDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_JugadoresDisponibles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -126,6 +127,7 @@
             this.btn_AgregarSala.TabIndex = 2;
             this.btn_AgregarSala.Text = "Agregar Sala";
             this.btn_AgregarSala.UseVisualStyleBackColor = true;
+            this.btn_AgregarSala.Click += new System.EventHandler(this.btn_AgregarSala_Click);
             // 
             // btn_Estadistica
             // 
@@ -135,6 +137,7 @@
             this.btn_Estadistica.TabIndex = 3;
             this.btn_Estadistica.Text = "Estadistica";
             this.btn_Estadistica.UseVisualStyleBackColor = true;
+            this.btn_Estadistica.Click += new System.EventHandler(this.btn_Estadistica_Click);
             // 
             // lbl_BienvenidoJugador
             // 

@@ -41,6 +41,7 @@ namespace Vista
 
         private void btn_AbirSala_Click(object sender, EventArgs e)
         {
+            //cuando haga multihilo este boton va a abrir segun partida existente en el dgv
             Frm_Sala frm_Sala = new Frm_Sala();
             frm_Sala.ShowDialog();
             presentador.CargarDataGrid();
@@ -81,7 +82,17 @@ namespace Vista
 
         private void Frm_MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
         {
+            presentador.GuardarInfoUsuarios();
+        }
 
+        private void btn_Estadistica_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_AgregarSala_Click(object sender, EventArgs e)
+        {
+            //jugar contra la máquina 
         }
     }
 }

@@ -57,11 +57,12 @@ namespace Vista
         private void Frm_Sala_Load(object sender, EventArgs e)
         {
             presentador.delTerminarVuelta();
+            tmr_Partida.Start();
         }
 
         private void btn_Comenzar_Click(object sender, EventArgs e)
         {
-            tmr_Partida.Start();
+
         }
 
         private void tmr_Partida_Tick(object sender, EventArgs e)

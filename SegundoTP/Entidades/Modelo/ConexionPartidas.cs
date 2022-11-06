@@ -28,6 +28,11 @@ namespace Entidades.Modelo
             command.CommandText = mensaje;
         }
 
+        /// <summary>
+        /// obtiene las partidas de la base de datos
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static List<Partida> ObtenerPartidas()
         {
             try
@@ -61,6 +66,11 @@ namespace Entidades.Modelo
             }
         }
 
+        /// <summary>
+        /// agrega una partida a la base de datos
+        /// </summary>
+        /// <param name="partida"></param>
+        /// <exception cref="Exception"></exception>
         public static void AgregarPartida(Partida partida)
         {
             try

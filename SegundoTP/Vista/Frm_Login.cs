@@ -109,11 +109,11 @@ namespace Vista
         {
             if (chk_MostrarContraseña.Checked)
             {
-                txt_Contraseña.PlaceholderText = String.Empty;
+                txt_Contraseña.PasswordChar = '\0';
             }
             else
             {
-                txt_Contraseña.PlaceholderText = "*";
+                txt_Contraseña.PasswordChar = '*';
             }
         }
 

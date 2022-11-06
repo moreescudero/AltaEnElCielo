@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btn_Comenzar = new System.Windows.Forms.Button();
             this.btn_Volver = new System.Windows.Forms.Button();
             this.lbl_Jugador2 = new System.Windows.Forms.Label();
             this.lbl_Jugador1 = new System.Windows.Forms.Label();
@@ -44,19 +43,9 @@
             this.rtx_ChatJugadores = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // btn_Comenzar
-            // 
-            this.btn_Comenzar.Location = new System.Drawing.Point(460, 402);
-            this.btn_Comenzar.Name = "btn_Comenzar";
-            this.btn_Comenzar.Size = new System.Drawing.Size(75, 23);
-            this.btn_Comenzar.TabIndex = 0;
-            this.btn_Comenzar.Text = "Comenzar";
-            this.btn_Comenzar.UseVisualStyleBackColor = true;
-            this.btn_Comenzar.Click += new System.EventHandler(this.btn_Comenzar_Click);
-            // 
             // btn_Volver
             // 
-            this.btn_Volver.Location = new System.Drawing.Point(328, 402);
+            this.btn_Volver.Location = new System.Drawing.Point(363, 404);
             this.btn_Volver.Name = "btn_Volver";
             this.btn_Volver.Size = new System.Drawing.Size(75, 23);
             this.btn_Volver.TabIndex = 1;
@@ -100,7 +89,7 @@
             // 
             // tmr_Partida
             // 
-            this.tmr_Partida.Interval = 3000;
+            this.tmr_Partida.Interval = 1000;
             this.tmr_Partida.Tick += new System.EventHandler(this.tmr_Partida_Tick);
             // 
             // lbl_Ganador
@@ -174,7 +163,6 @@
             this.Controls.Add(this.lbl_Jugador1);
             this.Controls.Add(this.lbl_Jugador2);
             this.Controls.Add(this.btn_Volver);
-            this.Controls.Add(this.btn_Comenzar);
             this.Name = "Frm_Sala";
             this.Text = "Sala";
             this.Load += new System.EventHandler(this.Frm_Sala_Load);
@@ -184,8 +172,6 @@
         }
 
         #endregion
-
-        private Button btn_Comenzar;
         private Button btn_Volver;
         private Label lbl_Jugador2;
         private Label lbl_Jugador1;

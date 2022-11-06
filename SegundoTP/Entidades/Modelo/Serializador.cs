@@ -17,6 +17,11 @@ namespace Entidades.Modelo
             ruta = @"./Archivos-Serializador";
         }
 
+        /// <summary>
+        /// serializa un tipo de dato genértico en un archivo
+        /// </summary>
+        /// <param name="dato"></param>
+        /// <param name="archivo"></param>
         public static void EscribirJSon(T dato, string archivo)
         {
             string completa = ruta + @"/" + archivo;
@@ -34,6 +39,11 @@ namespace Entidades.Modelo
             File.WriteAllText(completa, objetoJSon);
         }
 
+        /// <summary>
+        /// deserealiza un archivo en un tipo de dato genérico
+        /// </summary>
+        /// <param name="archivo"></param>
+        /// <returns></returns>
         public static T LeerJSon(string archivo)
         {
             T datos = default;

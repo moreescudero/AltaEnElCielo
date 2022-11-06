@@ -23,6 +23,11 @@ namespace Entidades.Modelo
             command.CommandText = mensaje;
         }
 
+        /// <summary>
+        /// Obtiene los usuarios de la base de datos
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static List<Usuario> ObtenerUsuarios()
         {
             try
@@ -58,6 +63,12 @@ namespace Entidades.Modelo
             }
         }
 
+        /// <summary>
+        /// agrega un usuario a la base de datos
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="contraseña"></param>
+        /// <exception cref="Exception"></exception>
         public static void AgregarUsuario(Usuario usuario, string contraseña)
         {
             try
@@ -86,6 +97,11 @@ namespace Entidades.Modelo
 
         }
 
+        /// <summary>
+        /// modifica los usuarios de la base de datos
+        /// </summary>
+        /// <param name="usuarios"></param>
+        /// <exception cref="Exception"></exception>
         public static void ModificarUsuarios(List<Usuario> usuarios)
         {
             try

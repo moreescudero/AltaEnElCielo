@@ -13,7 +13,7 @@ namespace Entidades.Presentador
         List<Partida> partidas;
         public static List<Usuario> usuarios;
         //List<Usuario> jugadores;
-        Usuario usuarioActivo;
+        public static Usuario usuarioActivo;
 
         public PresentadorMenuPrincipal (IMenuPrincipal menu)
         {
@@ -23,6 +23,9 @@ namespace Entidades.Presentador
             usuarios = PresentadorLogin.usuarios;
         }
 
+        /// <summary>
+        /// Obtiene las partidas de la base de datos
+        /// </summary>
         public void ObtenerPartidas()
         {
             try
@@ -38,16 +41,26 @@ namespace Entidades.Presentador
             //se deberian crear automaticamente entre 2 y 4 partidas para simular que ya exista gente jugando
         }
 
+        /// <summary>
+        /// muestra el usuario del jugador activo en un label 
+        /// </summary>
         public void MostrarJugadorActivo()
         {
             menu.Bienvenido += usuarioActivo.NombreUsuario;
         }
 
+        /// <summary>
+        /// carga el datagridview con la lista de usuarios con mas cantidad de partidas ganadas
+        /// </summary>
         public void CargarDataGrid()
         {
+            // que en este dgv se muestren los usuarios con más cantidad de partidas ganadas
             menu.CargarDgv(usuarios);
         }
 
+        /// <summary>
+        /// actualiza la informacion de los usuarios (partidas ganadas y perdidas) en la base de datos 
+        /// </summary>
         public void GuardarInfoUsuarios()
         {
             try

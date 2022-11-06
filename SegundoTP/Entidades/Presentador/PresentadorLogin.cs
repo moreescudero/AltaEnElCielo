@@ -19,6 +19,24 @@ namespace Entidades.Presentador
             ObtenerUsuarios();
         }
 
+        /// <summary>
+        /// obtiene los usuarios de la base de datos
+        /// </summary>
+        private void ObtenerUsuarios()
+        {
+            try
+            {
+                usuarios = ConexionUsuarios.ObtenerUsuarios();
+            }
+            catch (Exception ex)
+            {
+                login.ContraseñaIncorrecta = ex.Message;
+            }
+        }
+
+        /// <summary>
+        /// intenta ingresar al menu principal si el usuario y la contraseña son correctas
+        /// </summary>
         public void IntentarIngresar()
         {
             int contador = 0;
@@ -36,14 +54,6 @@ namespace Entidades.Presentador
                     {
                         contador++;
                     }
-                    //else if (usuarios.Last() == usuario)
-                    //{
-                    //    throw new Exception("contraseña incorrecta");
-                    //}
-                    ////if(usuario.NombreUsuario != txt_Usuario.Text)
-                    ////{
-                    ////    throw new Exception("usuario incorrecto");
-                    ////}
                 }
                 if(contador == usuarios.Count)
                 {
@@ -67,30 +77,11 @@ namespace Entidades.Presentador
             }
         }
 
-        private int ObtenerUltimoID()
-        {
-            foreach(Usuario usuario in usuarios)
-            {
-                if(usuarios.Last() == usuario)
-                {
-                    return usuario.Id;
-                }
-            }
-            return -1;
-        }
-
-        private void ObtenerUsuarios()
-        {
-            try
-            {
-                usuarios = ConexionUsuarios.ObtenerUsuarios();
-            }
-            catch (Exception ex)
-            {
-                login.ContraseñaIncorrecta = ex.Message;
-            }
-        }
-
+        /// <summary>
+        /// comprueba que el nombre de usuario no exista en la base de datos
+        /// </summary>
+        /// <param name="nombreUsuario"></param>
+        /// <returns></returns>
         public bool ComprobarNombreUsuarioUnico(string nombreUsuario)
         {
             foreach (Usuario usuario in usuarios)
@@ -103,24 +94,48 @@ namespace Entidades.Presentador
             return true;
         }
 
+        /// <summary>
+        /// Obtiene el ultimo ID de los usuarios
+        /// </summary>
+        /// <returns></returns>
+        private int ObtenerUltimoID()
+        {
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuarios.Last() == usuario)
+                {
+                    return usuario.Id;
+                }
+            }
+            return -1;
+        }
+
+        /// <summary>
+        /// Agrega un usuario a la base de datos 
+        /// </summary>
+        /// <returns></returns>
         public bool AgregarUsuario()
         {
             bool agregoUsuario = false;
             int id = ObtenerUltimoID() + 1;
-            Usuario usuario = new Usuario(id, login.NombreUsuario, login.Contraseña);
-            if (!usuarios.Contains(usuario))
+            if (id > 0)
             {
-                try
+                Usuario usuario = new Usuario(id, login.NombreUsuario, login.Contraseña);
+                if (!usuarios.Contains(usuario))
                 {
-                    ConexionUsuarios.AgregarUsuario(usuario, login.Contraseña);
-                    usuarios.Add(usuario);
-                    agregoUsuario = true;
-                }
-                catch(Exception ex)
-                {
-                    login.ContraseñaIncorrecta = ex.Message;
+                    try
+                    {
+                        ConexionUsuarios.AgregarUsuario(usuario, login.Contraseña);
+                        usuarios.Add(usuario);
+                        agregoUsuario = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        login.ContraseñaIncorrecta = ex.Message;
+                    }
                 }
             }
+
             return agregoUsuario;
         }
     }

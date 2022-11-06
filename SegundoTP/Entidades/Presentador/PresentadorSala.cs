@@ -17,6 +17,7 @@ namespace Entidades.Presentador
         string chatJug1 = String.Empty;
         string chatJug2 = String.Empty;
         bool gano;
+        bool contesto;
         int puntos;
 
         public PresentadorSala (ISala sala)
@@ -33,13 +34,16 @@ namespace Entidades.Presentador
             delTerminarPartida += AgregarPartida;
         }
 
+        /// <summary>
+        /// asigna 2 jugadores random disponibles a excepción del usuario activo
+        /// </summary>
         private void AsignarJugadoresRandom()
         {
             Random rnd = new Random();
             do
             {
                 int indice = rnd.Next(0, PresentadorMenuPrincipal.usuarios.Count());
-                if (!jugadores.Contains(PresentadorMenuPrincipal.usuarios[indice]))
+                if (!jugadores.Contains(PresentadorMenuPrincipal.usuarios[indice]) && PresentadorMenuPrincipal.usuarios[indice] != PresentadorMenuPrincipal.usuarioActivo)
                 {
                     jugadores.Add(PresentadorMenuPrincipal.usuarios[indice]);
                 }
@@ -48,6 +52,9 @@ namespace Entidades.Presentador
             sala.UsuarioJugador2 = jugadores[1].NombreUsuario;
         }
 
+        /// <summary>
+        /// los jugadores cantan envido si es que pueden hacerlo, si es así se responden si quieren o no
+        /// </summary>
         public void JugarEnvido()
         {
             if (!jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
@@ -55,28 +62,10 @@ namespace Entidades.Presentador
                 if (jugadores[0].EsMano)
                 {
                     VerificarEnvido(0, 1);
-                    //if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
-                    //{
-                    //    sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
-                    //    chatJug1 = "Envido";
-                    //}
-                    //else if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
-                    //{
-                    //    sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
-                    //}
                 }
                 else if (jugadores[1].EsMano)
                 {
                     VerificarEnvido(1, 0);
-                    //if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
-                    //{
-                    //    sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
-                    //    chatJug2 = "Envido";
-                    //}
-                    //else if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
-                    //{
-                    //    sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
-                    //}
                 }
                 if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
                 {
@@ -137,6 +126,12 @@ namespace Entidades.Presentador
             }
         }
 
+        /// <summary>
+        /// si del método partida.CantarEnvido vuelve un true el jugador indicado canta envido, sino dejarán pasar
+        /// el turno para que el otro jugador decida si cantarlo o no
+        /// </summary>
+        /// <param name="indice"></param>
+        /// <param name="indiceOtroJug"></param>
         private void VerificarEnvido(int indice, int indiceOtroJug)
         {
             if (partida.CantarEnvido(jugadores[indice]))
@@ -152,6 +147,11 @@ namespace Entidades.Presentador
                 sala.HayEnvido = false;
             }
         }
+
+        /// <summary>
+        /// se llama al método que suma la cantidad de envido de cada jugador y luego al que los compara, 
+        /// se muestran los puntos sumados 
+        /// </summary>
         private void DecirCantEnvido()
         {
             sala.EnvidoJug1 = partida.DecirEnvido(jugadores[0]);
@@ -177,8 +177,14 @@ namespace Entidades.Presentador
 
         }
 
+        /// <summary>
+        /// los jugadores deciden si cantar truco o no (de cantarlo el otro jugador debe contestarle), tiran
+        /// cartas en la mesa y se suman los puntos en cada mano para determinar cuándo un jugador gana, luego 
+        /// de cada vuelta se invoca un delegado que setee los atributos necesarios para continuar jugando 
+        /// </summary>
         public void Jugar()
         {
+            contesto = false;
             if (!gano)
             {
                 if (!sala.SeCantoTruco && !sala.SeContestoTruco || sala.SeCantoTruco && sala.SeContestoTruco)
@@ -187,11 +193,11 @@ namespace Entidades.Presentador
                     {
                         if (jugadores[0].ManosGanadas == 2)
                         {
-                            Ganar(0, 1, "Gano jugador 1", "Felicidades jugador 1, ganaste!");
+                            Ganar(0, 1, "Ganó " + jugadores[0].NombreUsuario, "Felicidades " + jugadores[0].NombreUsuario + ", ganaste!");
                         }
                         else
                         {
-                            Ganar(1, 0, "Gano jugador 2", "Felicidades jugador 2, ganaste!");
+                            Ganar(1, 0, "Ganó " + jugadores[1].NombreUsuario, "Felicidades  " + jugadores[1].NombreUsuario + ", ganaste!");
                         }
                         return;
                     }
@@ -225,9 +231,10 @@ namespace Entidades.Presentador
                 }
                 else if (sala.SeCantoTruco && !sala.SeContestoTruco)
                 {
+                    contesto = true;
                     ContestarTruco();
                 }
-                if (jugadores[0].Cartas.Count == jugadores[1].Cartas.Count && !gano)
+                if (jugadores[0].Cartas.Count == jugadores[1].Cartas.Count && !contesto)
                 {
                     partida.SumarPunto();
                 }
@@ -239,7 +246,12 @@ namespace Entidades.Presentador
             }
         }
 
-        public string? CantarTruco(Usuario jugador)
+        /// <summary>
+        /// determina aleatoriamente si el jugador va a cantar truco o no
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <returns></returns>
+        private string? CantarTruco(Usuario jugador)
         {
             string? retorno = String.Empty;
             Random rnd = new Random();
@@ -253,16 +265,19 @@ namespace Entidades.Presentador
             return retorno;
         }
 
-        public void ContestarTruco()
+        /// <summary>
+        /// llama un método para determinar si quiere jugar truco o no, si no quiere se finaliza la partida
+        /// </summary>
+        private void ContestarTruco()
         {
             sala.SeContestoTruco = true;
             if (jugadores[0].CantoTruco && !jugadores[1].CantoTruco)
             {
                 chatJug2 = partida.ContestarTruco(jugadores[1]);
                 sala.Chat += jugadores[1].NombreUsuario + ": " + chatJug2  + "\n";
-                if (chatJug2 == "No quiero")
+                if (chatJug2 == "No quiero" && chatJug1 == "Truco")
                 {
-                    Ganar(0, 1, "Gano jugador 1", "Felicidades jugador 1, ganaste!");
+                    Ganar(0, 1, "Ganó " + jugadores[0].NombreUsuario, "Felicidades " + jugadores[0].NombreUsuario + ", ganaste!");
                     return;
                 }
             }
@@ -270,15 +285,25 @@ namespace Entidades.Presentador
             {
                 chatJug1 = partida.ContestarTruco(jugadores[0]);
                 sala.Chat += jugadores[0].NombreUsuario + ": " + chatJug1 + "\n";
-                if (chatJug1 == "No quiero")
+                if (chatJug1 == "No quiero" && chatJug2 == "Truco")
                 {
-                    Ganar(1, 0, "Gano jugador 2", "Felicidades jugador 2, ganaste!");
+                    Ganar(1, 0, "Ganó " + jugadores[1].NombreUsuario, "Felicidades " + jugadores[1].NombreUsuario +", ganaste!");
                     return;
                 }
             }
         }
 
-        public void Ganar(int indice, int indiceOtroJug, string mensajeGanador, string mensajeGanadorPartida)
+        /// <summary>
+        /// se suman los puntos de la partida (si quisieron envido muestra todas las cartas en la mesa) y se
+        /// invierten los bool de qué jugador es mano 
+        /// si los puntos son superiores o iguales a 15 se finaliza la partida mostrando el ganador e invocando 
+        /// un delegado que setee todo nuevamente para volver a jugar otra partida correctamente
+        /// </summary>
+        /// <param name="indice"></param>
+        /// <param name="indiceOtroJug"></param>
+        /// <param name="mensajeGanador"></param>
+        /// <param name="mensajeGanadorPartida"></param>
+        private void Ganar(int indice, int indiceOtroJug, string mensajeGanador, string mensajeGanadorPartida)
         {
             //if (jugadores[indice].ManosGanadas == 2 || jugadores[indice].CantoTruco && !jugadores[indiceOtroJug].CantoTruco)
             //{
@@ -306,7 +331,7 @@ namespace Entidades.Presentador
             {
                 sala.PuntosJug2 = puntos.ToString();
             }
-            if (jugadores[indice].PuntosPartida >= 15)
+            if (jugadores[indice].PuntosPartida > 14)
             {
                 sala.Ganador = mensajeGanadorPartida;
                 delTerminarPartida();
@@ -331,31 +356,38 @@ namespace Entidades.Presentador
             }
         }
 
-        public void MostrarCartas()
+        /// <summary>
+        /// si la carta aun no se jugó la muestra en mesa
+        /// </summary>
+        /// <param name="indice"></param>
+        /// <param name="carta"></param>
+        private void Mostrar(int indice, Carta carta)
+        {
+            if (!jugadores[indice].CartasJugadas.Contains(carta))
+            {
+                sala.CartasJug1 += carta.Numero + " " + carta.Palo + " ";
+            }
+        }
+
+        /// <summary>
+        /// muestra las cartas que no fueron jugadas en mesa para mostrar el envido
+        /// </summary>
+        private void MostrarCartas()
         {
             if (jugadores[0].Cartas.Count > 0)
             {
-                foreach (Carta carta in jugadores[0].Cartas)
-                {
-                    if (!jugadores[0].CartasJugadas.Contains(carta))
-                    {
-                        sala.CartasJug1 += carta.Numero + " " + carta.Palo + " ";
-                    }
-                }
+                jugadores[0].Cartas.ForEach( (x) => Mostrar(0, x) );
             }
             if (jugadores[1].Cartas.Count > 0)
             {
-                foreach (Carta carta in jugadores[1].Cartas)
-                {
-                    if (!jugadores[1].CartasJugadas.Contains(carta))
-                    {
-                        sala.CartasJug2 += carta.Numero + " " + carta.Palo + " ";
-                    }
-                }
+                jugadores[1].Cartas.ForEach((x) => Mostrar(1, x));
             }
             
         }
 
+        /// <summary>
+        /// agrega la partida a la base de datos
+        /// </summary>
         private void AgregarPartida()
         {
             try
