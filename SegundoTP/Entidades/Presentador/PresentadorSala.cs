@@ -32,6 +32,7 @@ namespace Entidades.Presentador
             delTerminarPartida = sala.FrenarTimer;
             delTerminarPartida += partida.ActivarEventoFinalizarPartida;
             delTerminarPartida += AgregarPartida;
+            delTerminarPartida += sala.GuardarPartida;
         }
 
         /// <summary>
@@ -193,11 +194,11 @@ namespace Entidades.Presentador
                     {
                         if (jugadores[0].ManosGanadas == 2)
                         {
-                            Ganar(0, 1, "Ganó " + jugadores[0].NombreUsuario, "Felicidades " + jugadores[0].NombreUsuario + ", ganaste!");
+                            Ganar(0, 1);
                         }
                         else
                         {
-                            Ganar(1, 0, "Ganó " + jugadores[1].NombreUsuario, "Felicidades  " + jugadores[1].NombreUsuario + ", ganaste!");
+                            Ganar(1, 0);
                         }
                         return;
                     }
@@ -212,7 +213,7 @@ namespace Entidades.Presentador
                             }
                         }
                         Carta cartaJugada = partida.Jugar(jugadores[0], jugadores[1].CartaJugada);
-                        sala.CartasJug1 += cartaJugada.Numero + " " + cartaJugada.Palo + " - ";
+                        sala.CartasJug1 += cartaJugada.Numero + " " + cartaJugada.Palo + "  ";
                     }
                     else if ((jugadores[1].EsMano && !jugadores[0].EsMano && sala.PrimeraMano) || jugadores[1].Cartas.Count > 0 || jugadores[0].CantoTruco && !sala.SeContestoTruco)
                     {
@@ -225,7 +226,7 @@ namespace Entidades.Presentador
                             }
                         }
                         Carta cartaJugada = partida.Jugar(jugadores[1], jugadores[0].CartaJugada);
-                        sala.CartasJug2 += cartaJugada.Numero + " " + cartaJugada.Palo + " - ";
+                        sala.CartasJug2 += cartaJugada.Numero + " " + cartaJugada.Palo + "  ";
                     }
                     sala.PrimeraMano = false;
                 }
@@ -277,7 +278,7 @@ namespace Entidades.Presentador
                 sala.Chat += jugadores[1].NombreUsuario + ": " + chatJug2  + "\n";
                 if (chatJug2 == "No quiero" && chatJug1 == "Truco")
                 {
-                    Ganar(0, 1, "Ganó " + jugadores[0].NombreUsuario, "Felicidades " + jugadores[0].NombreUsuario + ", ganaste!");
+                    Ganar(0, 1);
                     return;
                 }
             }
@@ -287,7 +288,7 @@ namespace Entidades.Presentador
                 sala.Chat += jugadores[0].NombreUsuario + ": " + chatJug1 + "\n";
                 if (chatJug1 == "No quiero" && chatJug2 == "Truco")
                 {
-                    Ganar(1, 0, "Ganó " + jugadores[1].NombreUsuario, "Felicidades " + jugadores[1].NombreUsuario +", ganaste!");
+                    Ganar(1, 0);
                     return;
                 }
             }
@@ -303,7 +304,7 @@ namespace Entidades.Presentador
         /// <param name="indiceOtroJug"></param>
         /// <param name="mensajeGanador"></param>
         /// <param name="mensajeGanadorPartida"></param>
-        private void Ganar(int indice, int indiceOtroJug, string mensajeGanador, string mensajeGanadorPartida)
+        private void Ganar(int indice, int indiceOtroJug)
         {
             //if (jugadores[indice].ManosGanadas == 2 || jugadores[indice].CantoTruco && !jugadores[indiceOtroJug].CantoTruco)
             //{
@@ -333,7 +334,14 @@ namespace Entidades.Presentador
             }
             if (jugadores[indice].PuntosPartida > 14)
             {
-                sala.Ganador = mensajeGanadorPartida;
+                sala.Chat += jugadores[indice].NombreUsuario + " ganó la partida!";
+                sala.Ganador = "Felicidades " + jugadores[indice].NombreUsuario + ", ganaste!";
+                delTerminarPartida();
+            }
+            else if (jugadores[indiceOtroJug].PuntosPartida > 14)
+            {
+                sala.Chat += jugadores[indiceOtroJug].NombreUsuario + " ganó la partida!";
+                sala.Ganador = "Felicidades " + jugadores[indiceOtroJug].NombreUsuario + ", ganaste!";
                 delTerminarPartida();
             }
             else
@@ -350,7 +358,9 @@ namespace Entidades.Presentador
                 }
                 chatJug1 = String.Empty;
                 chatJug2 = String.Empty;
-                sala.Ganador = mensajeGanador;
+                string? mensaje = "Ganó " + jugadores[indice].NombreUsuario;
+                sala.Chat += mensaje;
+                sala.Ganador = mensaje;
                 sala.Chat += "\n\n";
                 gano = true;
             }
@@ -365,7 +375,14 @@ namespace Entidades.Presentador
         {
             if (!jugadores[indice].CartasJugadas.Contains(carta))
             {
-                sala.CartasJug1 += carta.Numero + " " + carta.Palo + " ";
+                if(indice == 1)
+                {
+                    sala.CartasJug1 += carta.Numero + " " + carta.Palo + " ";
+                }
+                else
+                {
+                    sala.CartasJug2 += carta.Numero + " " + carta.Palo + " ";
+                }
             }
         }
 

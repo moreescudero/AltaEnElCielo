@@ -31,7 +31,7 @@ namespace Entidades.Presentador
 
         void FrenarTimer();
         void LimpiarVuelta();
-
+        void GuardarPartida();
 
     }
 }

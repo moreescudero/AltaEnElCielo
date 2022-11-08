@@ -52,7 +52,7 @@ namespace Entidades.Modelo
 
             if (!Directory.Exists(ruta))
             {
-                Directory.CreateDirectory(ruta);
+                Directory.CreateDirectory(ruta); // no tiene sentido que lo cree si lo tiene que leer
             }
 
             JsonSerializerOptions opcion = new JsonSerializerOptions()

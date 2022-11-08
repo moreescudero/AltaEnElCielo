@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades.Modelo;
 using Entidades.Presentador;
 
 namespace Vista
@@ -60,11 +61,6 @@ namespace Vista
             tmr_Partida.Start();
         }
 
-        private void btn_Comenzar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tmr_Partida_Tick(object sender, EventArgs e)
         {
             if (hayEnvido)
@@ -77,11 +73,43 @@ namespace Vista
             }
         }
 
+        /// <summary>
+        /// Detiene el timer una vez que la partida terminó
+        /// </summary>
         public void FrenarTimer()
         {
             tmr_Partida.Stop();
         }
 
+        /// <summary>
+        /// Guarda el chat de la partida en un archivo txt
+        /// </summary>
+        public void GuardarPartida()
+        {
+            DialogResult dr = MessageBox.Show("¿Desea guardar el chat de la partida?", "Guardar partida", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+                //ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, "ChatPartida");
+                FolderBrowserDialog buscarCarpeta = new FolderBrowserDialog();
+                try
+                {
+                    if (buscarCarpeta.ShowDialog() == DialogResult.OK)
+                    {
+                        ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, buscarCarpeta.SelectedPath, "Partida");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ocurrio un error");
+                }
+            }
+
+            this.DialogResult = DialogResult.OK;
+        }
+
+        /// <summary>
+        /// Vuelve a setear todos los atributos para poder jugar nuevamente otra vuelta
+        /// </summary>
         public void LimpiarVuelta() 
         {
             envidoJug1 = 0;

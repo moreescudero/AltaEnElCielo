@@ -15,14 +15,13 @@ namespace Vista
     public partial class Frm_MenuPrincipal : Form, IMenuPrincipal
     {
         PresentadorMenuPrincipal presentador;
-        //bool jugadorUnoElegido = false;
-        //bool jugadorDosElegido = false;
-
+        List<Task> listaTareas;
 
         public Frm_MenuPrincipal()
         {
             InitializeComponent();
             presentador = new PresentadorMenuPrincipal(this);
+            listaTareas = new List<Task>();
         }
 
         public string? Bienvenido { get { return lbl_BienvenidoJugador.Text; } set { lbl_BienvenidoJugador.Text = value; } }    
@@ -33,17 +32,24 @@ namespace Vista
 
         private void Frm_MenuPrincipal_Load(object sender, EventArgs e)
         {
-            //jugadorUnoElegido = false;
-            //jugadorDosElegido = false;
             presentador.MostrarJugadorActivo();
             presentador.CargarDataGrid();
         }
 
-        private void btn_AbirSala_Click(object sender, EventArgs e)
+        private async void btn_AbirSala_Click(object sender, EventArgs e)
         {
             //cuando haga multihilo este boton va a abrir segun partida existente en el dgv
-            Frm_Sala frm_Sala = new Frm_Sala();
-            frm_Sala.ShowDialog();
+            //Frm_Sala frm_Sala = new Frm_Sala();
+            //frm_Sala.ShowDialog();
+            //presentador.CargarDataGrid();
+
+            listaTareas.Add(new Task(() =>
+            {
+                Frm_Sala frm_sala = new Frm_Sala();
+                frm_sala.ShowDialog();
+            }
+            ));
+            await CrearPartida();
             presentador.CargarDataGrid();
         }
 
@@ -69,10 +75,19 @@ namespace Vista
             ////}
         }
 
+        /// <summary>
+        /// Carga el DataGridView según el objeto que le pasa el presentador como parámetro
+        /// </summary>
+        /// <param name="fuente"></param>
         public void CargarDgv(Object fuente)
         {
             dgv_JugadoresDisponibles.DataSource = null;
             dgv_JugadoresDisponibles.DataSource = fuente;
+        }
+
+        public async Task CrearPartida()
+        {
+            listaTareas.Last().Start();
         }
 
         private void btn_Volver_Click(object sender, EventArgs e)
@@ -85,9 +100,13 @@ namespace Vista
             presentador.GuardarInfoUsuarios();
         }
 
+
         private void btn_Estadistica_Click(object sender, EventArgs e)
         {
-
+            Frm_Estadistica frm_Estadistica = new Frm_Estadistica();
+            this.Hide();
+            frm_Estadistica.ShowDialog();
+            this.Show();
         }
 
         private void btn_AgregarSala_Click(object sender, EventArgs e)

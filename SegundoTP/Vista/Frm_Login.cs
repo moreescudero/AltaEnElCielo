@@ -33,6 +33,9 @@ namespace Vista
             //}
         }
 
+        /// <summary>
+        /// Vuelve a setear todo el formulario para hacer el log in
+        /// </summary>
         public void Ingresar()
         {
             creaUnUsuario = false;
@@ -57,6 +60,9 @@ namespace Vista
             }
         }
 
+        /// <summary>
+        /// Ingresa al menu principal
+        /// </summary>
         public void IngresarAlMenuPrincipal()
         {
             Frm_MenuPrincipal frm_MenuPrincipal = new Frm_MenuPrincipal();
@@ -117,6 +123,9 @@ namespace Vista
             }
         }
 
+        /// <summary>
+        /// Limpia los labels de errores
+        /// </summary>
         public void Limpiar()
         {
             if (lbl_UsuarioIncorrecto.Text != String.Empty || lbl_ContraseñaIncorrecta.Text != String.Empty)
