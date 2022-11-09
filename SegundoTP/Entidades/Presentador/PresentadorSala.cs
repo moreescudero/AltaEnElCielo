@@ -103,11 +103,22 @@ namespace Entidades.Presentador
                 else if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
                 {
                     sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
+                    chatJug2 = "Envido";
+                }
+                else if (jugadores[0].CantoFaltaEnvido && !jugadores[1].CantoFaltaEnvido)
+                {
+                    sala.Chat += jugadores[0].NombreUsuario + ": Falta envido\n";
+                    chatJug1 = "Falta envido";
+                }
+                else if (!jugadores[0].CantoFaltaEnvido && jugadores[1].CantoFaltaEnvido)
+                {
+                    sala.Chat += jugadores[1].NombreUsuario + ": Falta envido\n";
+                    chatJug2 = "Falta envido";
                 }
             }
-            else if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido && chatJug2 == String.Empty)
+            else if (((jugadores[0].CantoFaltaEnvido && !jugadores[1].CantoFaltaEnvido) || (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)) && chatJug2 == String.Empty)
             {
-                if (partida.CantarEnvido(jugadores[1]))
+                if (partida.CantarEnvido(jugadores[1]) && (jugadores[0].CantoEnvido || (jugadores[0].CantoFaltaEnvido && partida.DecirEnvido(jugadores[1]) >= 28)))
                 {
                     sala.Chat += jugadores[1].NombreUsuario + ": Quiero \n";
                     chatJug2 = "Quiero";
@@ -123,7 +134,7 @@ namespace Entidades.Presentador
             }
             else if (!jugadores[0].CantoEnvido && jugadores[1].CantoEnvido && chatJug1 == String.Empty)
             {
-                if (partida.CantarEnvido(jugadores[0]))
+                if (partida.CantarEnvido(jugadores[0]) && (jugadores[1].CantoEnvido || (jugadores[1].CantoFaltaEnvido && partida.DecirEnvido(jugadores[0]) >= 28)))
                 {
                     sala.Chat += jugadores[0].NombreUsuario + ": Quiero \n";
                     chatJug1 = "Quiero";
@@ -162,13 +173,30 @@ namespace Entidades.Presentador
         /// <param name="indiceOtroJug"></param>
         private void VerificarEnvido(int indice, int indiceOtroJug)
         {
+            Random rnd = new Random();
+            int random = rnd.Next(1, 3);
+
             if (partida.CantarEnvido(jugadores[indice]))
             {
-                jugadores[indice].CantoEnvido = true;
+                if (partida.DecirEnvido(jugadores[indice]) >= 28 && random == 1)
+                {
+                    jugadores[indice].CantoFaltaEnvido = true;
+                }
+                else
+                {
+                    jugadores[indice].CantoEnvido = true;
+                }
             }
             else if (partida.CantarEnvido(jugadores[indiceOtroJug]))
             {
-                jugadores[indiceOtroJug].CantoEnvido = true;
+                if (partida.DecirEnvido(jugadores[indiceOtroJug]) >= 28 && random == 1)
+                {
+                    jugadores[indiceOtroJug].CantoFaltaEnvido = true;
+                }
+                else
+                {
+                    jugadores[indiceOtroJug].CantoEnvido = true;
+                }
             }
             else
             {
@@ -201,7 +229,21 @@ namespace Entidades.Presentador
                 sala.PuntosJug2 = puntos.ToString();
             }
 
-            sala.HayEnvido = false;
+            if (jugadores[0].PuntosPartida >= 15 || jugadores[1].PuntosPartida >= 15)
+            {
+                if (jugadores[0].PuntosPartida >= 15)
+                {
+                    Ganar(0, 1);
+                }
+                else
+                {
+                    Ganar(1, 0);
+                }
+            }
+            else
+            {
+                sala.HayEnvido = false;
+            }    
 
         }
 
@@ -333,8 +375,6 @@ namespace Entidades.Presentador
         /// <param name="mensajeGanadorPartida"></param>
         private void Ganar(int indice, int indiceOtroJug)
         {
-            //if (jugadores[indice].ManosGanadas == 2 || jugadores[indice].CantoTruco && !jugadores[indiceOtroJug].CantoTruco)
-            //{
             if (jugadores[indice].CantoTruco && jugadores[indiceOtroJug].CantoTruco)
             {
                 jugadores[indice].PuntosPartida += 2;
@@ -345,7 +385,7 @@ namespace Entidades.Presentador
             }
             puntos = jugadores[indice].PuntosPartida;
 
-            //}
+
             if (sala.DecirEnvido)
             {
                 MostrarCartas();
@@ -365,12 +405,12 @@ namespace Entidades.Presentador
                 sala.Ganador = "Felicidades " + jugadores[indice].NombreUsuario + ", ganaste!";
                 delTerminarPartida();
             }
-            else if (jugadores[indiceOtroJug].PuntosPartida > 14)
-            {
-                sala.Chat += jugadores[indiceOtroJug].NombreUsuario + " ganó la partida!";
-                sala.Ganador = "Felicidades " + jugadores[indiceOtroJug].NombreUsuario + ", ganaste!";
-                delTerminarPartida();
-            }
+            //else if (jugadores[indiceOtroJug].PuntosPartida > 14)
+            //{
+            //    sala.Chat += jugadores[indiceOtroJug].NombreUsuario + " ganó la partida!";
+            //    sala.Ganador = "Felicidades " + jugadores[indiceOtroJug].NombreUsuario + ", ganaste!";
+            //    delTerminarPartida();
+            //}
             else
             {
                 if (jugadores[indice].EsMano && !jugadores[indiceOtroJug].EsMano)
@@ -393,38 +433,31 @@ namespace Entidades.Presentador
             }
         }
 
-        /// <summary>
-        /// si la carta aun no se jugó la muestra en mesa
-        /// </summary>
-        /// <param name="indice"></param>
-        /// <param name="carta"></param>
-        private void Mostrar(int indice, Carta carta)
-        {
-            if (!jugadores[indice].CartasJugadas.Contains(carta))
-            {
-                if(indice == 0)
-                {
-                    sala.CartasJug1 += carta.Numero + " " + carta.Palo + " ";
-                }
-                else
-                {
-                    sala.CartasJug2 += carta.Numero + " " + carta.Palo + " ";
-                }
-            }
-        }
 
         /// <summary>
-        /// muestra las cartas que no fueron jugadas en mesa para mostrar el envido
+        /// muestra las cartas que no fueron jugadas en mesa para demostrar el envido
         /// </summary>
         private void MostrarCartas()
         {
             if (jugadores[0].Cartas.Count > 0)
             {
-                jugadores[0].Cartas.ForEach( (x) => Mostrar(0, x) );
+                jugadores[0].Cartas.ForEach( (x) =>
+                {
+                    if (!jugadores[0].CartasJugadas.Contains(x))
+                    {
+                        sala.CartasJug1 += x.Numero + " " + x.Palo + " ";
+                    }
+                });
             }
             if (jugadores[1].Cartas.Count > 0)
             {
-                jugadores[1].Cartas.ForEach((x) => Mostrar(1, x));
+                jugadores[1].Cartas.ForEach((x) =>
+                {
+                    if (!jugadores[1].CartasJugadas.Contains(x))
+                    {
+                        sala.CartasJug2 += x.Numero + " " + x.Palo + " ";
+                    }
+                });
             }
             
         }

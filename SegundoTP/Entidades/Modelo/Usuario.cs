@@ -16,6 +16,7 @@ namespace Entidades.Modelo
         Carta cartaJugada;
         bool esMano = false;
         bool cantoEnvido = false;
+        bool cantoFaltaEnvido = false;
         bool cantoTruco = false;
         bool cantoRetruco = false;
         bool cantoQuieroVale4 = false;
@@ -43,6 +44,7 @@ namespace Entidades.Modelo
         public int Id { get { return id; } } 
         public bool EsMano { get { return esMano; } set { esMano = value; } } 
         public bool CantoEnvido { get { return cantoEnvido; } set { cantoEnvido = value; } } 
+        public bool CantoFaltaEnvido { get { return cantoFaltaEnvido; } set { cantoFaltaEnvido = value; } } 
         public bool CantoTruco { get { return cantoTruco; } set { cantoTruco = value; } } 
         public bool CantoRetruco { get { return cantoRetruco; } set { cantoRetruco = value; } } 
         public bool CantoQuieroVale4 { get { return cantoQuieroVale4; } set { cantoQuieroVale4 = value; } } 
@@ -79,6 +81,7 @@ namespace Entidades.Modelo
             manosGanadas = 0;
             cartaJugada = null;
             cantoEnvido = false;
+            cantoFaltaEnvido = false;
             cantoTruco = false;
             cantoRetruco = false;
             cantoQuieroVale4 = false;

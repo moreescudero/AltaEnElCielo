@@ -26,7 +26,7 @@ namespace Vista
         bool decirEnvido = false;
         bool seContestoTruco = false;
         bool terminoVuelta = false;
-        bool gano = false;
+        //bool gano = false;
 
         public Frm_Sala ()
         {

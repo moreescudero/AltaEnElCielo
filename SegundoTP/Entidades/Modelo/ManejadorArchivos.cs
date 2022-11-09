@@ -42,7 +42,6 @@ namespace Entidades.Modelo
             {
                 throw new Exception("Error en el archivo " + completa);
             }
-            return false;
         }
 
         /// <summary>

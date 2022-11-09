@@ -36,17 +36,23 @@ namespace Entidades_Deberia
 
         //}
 
-        [DataRow(30, 20)]
-        [DataRow(24, 22)]
-        [DataRow(26, 26)]
-        [TestMethod]
-        public void DeterminarGanadorEnvido_DeberiaGanarJug1(int jug1, int jug2)
+        private List<Usuario> CrearPartidaPrueba()
         {
             List<Usuario> jugadores = new List<Usuario>()
             {
                 new Usuario (0, "jug1", "test"),
                 new Usuario (0, "jug2", "test")
             };
+            return jugadores;
+        }
+
+        [DataRow(30, 20)]
+        [DataRow(24, 22)]
+        [DataRow(26, 26)]
+        [TestMethod]
+        public void DeterminarGanadorEnvido_DeberiaGanarJug1(int jug1, int jug2)
+        {
+            List<Usuario> jugadores = CrearPartidaPrueba();
             Partida partida = new Partida(0, jugadores, DateTime.Now);
             jugadores[0].EsMano = true;
 
@@ -66,11 +72,7 @@ namespace Entidades_Deberia
         [TestMethod]
         public void DeterminarGanadorEnvido_DeberiaGanarJug2(int jug1, int jug2)
         {
-            List<Usuario> jugadores = new List<Usuario>()
-            {
-                new Usuario (0, "jug1", "test"),
-                new Usuario (0, "jug2", "test")
-            };
+            List<Usuario> jugadores = CrearPartidaPrueba();
             Partida partida = new Partida(0, jugadores, DateTime.Now);
             jugadores[1].EsMano = true;
 
@@ -82,6 +84,45 @@ namespace Entidades_Deberia
             Assert.AreNotEqual(jugadores[0].NombreUsuario + " ganó envido", ganador);
             Assert.AreEqual(0, jugadores[0].PuntosPartida);
         }
+        
+        [DataRow(25, 30)]
+        [DataRow(26, 24)]
+        [TestMethod]
+        public void DeterminarGanadorEnvido_Deberia(int jug1, int jug2)
+        {
+            List<Usuario> jugadores = CrearPartidaPrueba();
+            Partida partida = new Partida(0, jugadores, DateTime.Now);
 
+            string? ganador = partida.DeterminarGanadorEnvido(jug1, jug2);
+
+            Assert.IsNotNull(ganador);
+            Assert.IsTrue(jugadores[1].NombreUsuario + " ganó envido" == ganador || jugadores[0].NombreUsuario + " ganó envido" == ganador);
+            Assert.IsTrue(2 == jugadores[1].PuntosPartida && jugadores[0].PuntosPartida == 0 || 2 == jugadores[0].PuntosPartida && jugadores[1].PuntosPartida == 0);
+        }
+
+        [TestMethod]
+        public void AsignarTurno_Deberia() // faltan más unit testing pero necesito pasar las cartas como datarow
+        {
+            List<Usuario> jugadores = CrearPartidaPrueba();
+            Partida partida = new Partida(0, jugadores, DateTime.Now);
+
+            bool EsTurnoDeJug2 = partida.AsignarTurno();
+
+            Assert.IsTrue(EsTurnoDeJug2);
+        }
+
+        //[DataRow (15,13)]
+        //[DataRow (14,16)]
+        //[TestMethod]
+        //public void AsignarPuntos_Deberia(int jug1, int jug2)
+        //{
+        //    List<Usuario> jugadores = CrearPartidaPrueba();
+        //    Partida partida = new Partida(0, jugadores, DateTime.Now);
+        //    jugadores[0].PuntosPartida = jug1;
+        //    jugadores[1].PuntosPartida = jug2;
+
+        //    partida.AsignarPuntos();
+
+        //}
     }
 }
