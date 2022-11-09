@@ -83,7 +83,6 @@ namespace Entidades.Modelo
             Mazo mazoAux = Serializador<Mazo>.LeerJSon("mazo.json");
             List<Carta> mazo = mazoAux.Mazos;
             eventoMazo(mazo);
-            
         }
 
         /// <summary>
