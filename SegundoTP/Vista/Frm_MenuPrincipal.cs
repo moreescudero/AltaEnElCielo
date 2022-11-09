@@ -16,6 +16,8 @@ namespace Vista
     {
         PresentadorMenuPrincipal presentador;
         List<Task> listaTareas;
+        int indice;
+        //Object obj;
 
         public Frm_MenuPrincipal()
         {
@@ -33,7 +35,8 @@ namespace Vista
         private void Frm_MenuPrincipal_Load(object sender, EventArgs e)
         {
             presentador.MostrarJugadorActivo();
-            presentador.CargarDataGrid();
+            presentador.CargarDataGridUsuarios();
+            tmr_Partidas.Start();
         }
 
         private async void btn_AbirSala_Click(object sender, EventArgs e)
@@ -45,12 +48,12 @@ namespace Vista
 
             listaTareas.Add(new Task(() =>
             {
-                Frm_Sala frm_sala = new Frm_Sala();
+                Frm_Sala frm_sala = new Frm_Sala(presentador.DevolverPartidaElegida(indice));
                 frm_sala.ShowDialog();
             }
             ));
             await CrearPartida();
-            presentador.CargarDataGrid();
+            presentador.CargarDataGridUsuarios();
         }
 
         private void dgv_JugadoresDisponibles_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -79,10 +82,16 @@ namespace Vista
         /// Carga el DataGridView según el objeto que le pasa el presentador como parámetro
         /// </summary>
         /// <param name="fuente"></param>
-        public void CargarDgv(Object fuente)
+        public void CargarDgvUsuarios(Object fuente)
         {
             dgv_JugadoresDisponibles.DataSource = null;
             dgv_JugadoresDisponibles.DataSource = fuente;
+        }
+        
+        public void CargarDgvPartidas(Object fuente)
+        {
+            dgv_Salas.DataSource = null;
+            dgv_Salas.DataSource = fuente;
         }
 
         public async Task CrearPartida()
@@ -100,18 +109,32 @@ namespace Vista
             presentador.GuardarInfoUsuarios();
         }
 
-
         private void btn_Estadistica_Click(object sender, EventArgs e)
         {
-            Frm_Estadistica frm_Estadistica = new Frm_Estadistica();
+            Frm_Partida frm_Estadistica = new Frm_Partida();
             this.Hide();
             frm_Estadistica.ShowDialog();
             this.Show();
         }
 
-        private void btn_AgregarSala_Click(object sender, EventArgs e)
+        private void btn_CrearSala_Click(object sender, EventArgs e)
         {
             //jugar contra la máquina 
+        }
+
+        private void dgv_Salas_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                indice = e.RowIndex;
+                btn_AbirSala.Enabled = true;
+            }
+        }
+
+        private void tmr_Partidas_Tick(object sender, EventArgs e)
+        {
+            btn_AbirSala.Enabled = false;
+            presentador.CargarDataGridPartidas();
         }
     }
 }

@@ -31,7 +31,10 @@ namespace Vista
         public Frm_Sala ()
         {
             InitializeComponent();
-            presentador = new PresentadorSala(this);
+        }
+        public Frm_Sala (Object obj) : this ()
+        {
+            presentador = new PresentadorSala(this, obj);
         }
         
         public string? UsuarioJugador1 { set { lbl_Jugador1.Text = value; } }
@@ -89,19 +92,33 @@ namespace Vista
             DialogResult dr = MessageBox.Show("¿Desea guardar el chat de la partida?", "Guardar partida", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                //ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, "ChatPartida");
-                FolderBrowserDialog buscarCarpeta = new FolderBrowserDialog();
                 try
                 {
-                    if (buscarCarpeta.ShowDialog() == DialogResult.OK)
-                    {
-                        ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, buscarCarpeta.SelectedPath, "Partida");
-                    }
+                    ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, "Partida");
                 }
-                catch (Exception)
+                catch(Exception)
                 {
                     MessageBox.Show("Ocurrio un error");
                 }
+                //using (FolderBrowserDialog elegirCarpeta = new FolderBrowserDialog())
+                //{
+                //    if(elegirCarpeta.ShowDialog() == DialogResult.OK)
+                //    {
+                //        ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, "Partida");
+                //    }
+                //}
+                //FolderBrowserDialog buscarCarpeta = new FolderBrowserDialog();
+                //try
+                //{
+                //    if (buscarCarpeta.ShowDialog() == DialogResult.OK)
+                //    {
+                //        ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, buscarCarpeta.SelectedPath, "Partida");
+                //    }
+                //}
+                //catch (Exception)
+                //{
+                //    MessageBox.Show("Ocurrio un error");
+                //}
             }
 
             this.DialogResult = DialogResult.OK;

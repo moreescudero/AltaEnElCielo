@@ -3,20 +3,20 @@ using System.Data;
 
 namespace Entidades.Modelo
 {
-    public static class ConexionUsuarios
+    public class ConexionUsuarios
     {
-        static string stringConnection;
-        static SqlConnection connection;
-        static SqlCommand command;
+        string stringConnection;
+        SqlConnection connection;
+        SqlCommand command;
 
-        static ConexionUsuarios()
+        public ConexionUsuarios()
         {
             stringConnection = @"Data Source = 192.168.0.163 ; Initial Catalog = truco ; User ID = more ; Password = segtp ;";
             connection = new SqlConnection(stringConnection);
             command = new SqlCommand();
         }
 
-        private static void Comando(string mensaje)
+        private void Comando(string mensaje)
         {
             command.Connection = connection;
             command.CommandType = CommandType.Text;
@@ -28,7 +28,7 @@ namespace Entidades.Modelo
         /// </summary>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static List<Usuario> ObtenerUsuarios()
+        public List<Usuario> ObtenerUsuarios()
         {
             try
             {
@@ -69,7 +69,7 @@ namespace Entidades.Modelo
         /// <param name="usuario"></param>
         /// <param name="contraseña"></param>
         /// <exception cref="Exception"></exception>
-        public static void AgregarUsuario(Usuario usuario, string contraseña)
+        public void AgregarUsuario(Usuario usuario, string contraseña)
         {
             try
             {
@@ -102,7 +102,7 @@ namespace Entidades.Modelo
         /// </summary>
         /// <param name="usuarios"></param>
         /// <exception cref="Exception"></exception>
-        public static void ModificarUsuarios(List<Usuario> usuarios)
+        public void ModificarUsuarios(List<Usuario> usuarios)
         {
             try
             {

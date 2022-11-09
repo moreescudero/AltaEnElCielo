@@ -36,7 +36,7 @@
             this.PartidasPerdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuarioBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_AbirSala = new System.Windows.Forms.Button();
-            this.btn_AgregarSala = new System.Windows.Forms.Button();
+            this.btn_CrearSala = new System.Windows.Forms.Button();
             this.btn_Estadistica = new System.Windows.Forms.Button();
             this.lbl_BienvenidoJugador = new System.Windows.Forms.Label();
             this.lbl_UsuariosCargados = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.pnl_ErrorPartidas = new System.Windows.Forms.Panel();
             this.btn_Volver = new System.Windows.Forms.Button();
             this.lbl_ErrorPartidasBaseDeDatos = new System.Windows.Forms.Label();
+            this.tmr_Partidas = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_JugadoresDisponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Salas)).BeginInit();
@@ -75,7 +76,6 @@
             this.dgv_JugadoresDisponibles.RowTemplate.Height = 25;
             this.dgv_JugadoresDisponibles.Size = new System.Drawing.Size(667, 129);
             this.dgv_JugadoresDisponibles.TabIndex = 0;
-            this.dgv_JugadoresDisponibles.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_JugadoresDisponibles_RowHeaderMouseClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -111,6 +111,7 @@
             // 
             // btn_AbirSala
             // 
+            this.btn_AbirSala.Enabled = false;
             this.btn_AbirSala.Location = new System.Drawing.Point(109, 105);
             this.btn_AbirSala.Name = "btn_AbirSala";
             this.btn_AbirSala.Size = new System.Drawing.Size(99, 23);
@@ -119,15 +120,15 @@
             this.btn_AbirSala.UseVisualStyleBackColor = true;
             this.btn_AbirSala.Click += new System.EventHandler(this.btn_AbirSala_Click);
             // 
-            // btn_AgregarSala
+            // btn_CrearSala
             // 
-            this.btn_AgregarSala.Location = new System.Drawing.Point(109, 177);
-            this.btn_AgregarSala.Name = "btn_AgregarSala";
-            this.btn_AgregarSala.Size = new System.Drawing.Size(99, 23);
-            this.btn_AgregarSala.TabIndex = 2;
-            this.btn_AgregarSala.Text = "Agregar Sala";
-            this.btn_AgregarSala.UseVisualStyleBackColor = true;
-            this.btn_AgregarSala.Click += new System.EventHandler(this.btn_AgregarSala_Click);
+            this.btn_CrearSala.Location = new System.Drawing.Point(109, 177);
+            this.btn_CrearSala.Name = "btn_CrearSala";
+            this.btn_CrearSala.Size = new System.Drawing.Size(99, 23);
+            this.btn_CrearSala.TabIndex = 2;
+            this.btn_CrearSala.Text = "Crear Sala";
+            this.btn_CrearSala.UseVisualStyleBackColor = true;
+            this.btn_CrearSala.Click += new System.EventHandler(this.btn_CrearSala_Click);
             // 
             // btn_Estadistica
             // 
@@ -174,6 +175,7 @@
             this.dgv_Salas.RowTemplate.Height = 25;
             this.dgv_Salas.Size = new System.Drawing.Size(307, 273);
             this.dgv_Salas.TabIndex = 6;
+            this.dgv_Salas.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_Salas_RowHeaderMouseClick);
             // 
             // JugadorUno
             // 
@@ -222,6 +224,11 @@
             this.lbl_ErrorPartidasBaseDeDatos.TabIndex = 0;
             this.lbl_ErrorPartidasBaseDeDatos.Text = "label1";
             // 
+            // tmr_Partidas
+            // 
+            this.tmr_Partidas.Interval = 2000;
+            this.tmr_Partidas.Tick += new System.EventHandler(this.tmr_Partidas_Tick);
+            // 
             // Frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -232,7 +239,7 @@
             this.Controls.Add(this.lbl_UsuariosCargados);
             this.Controls.Add(this.lbl_BienvenidoJugador);
             this.Controls.Add(this.btn_Estadistica);
-            this.Controls.Add(this.btn_AgregarSala);
+            this.Controls.Add(this.btn_CrearSala);
             this.Controls.Add(this.btn_AbirSala);
             this.Controls.Add(this.dgv_JugadoresDisponibles);
             this.Name = "Frm_MenuPrincipal";
@@ -254,7 +261,7 @@
 
         private DataGridView dgv_JugadoresDisponibles;
         private Button btn_AbirSala;
-        private Button btn_AgregarSala;
+        private Button btn_CrearSala;
         private Button btn_Estadistica;
         private BindingSource usuarioBindingSource;
         private Label lbl_BienvenidoJugador;
@@ -270,5 +277,6 @@
         private Panel pnl_ErrorPartidas;
         private Label lbl_ErrorPartidasBaseDeDatos;
         private Button btn_Volver;
+        private System.Windows.Forms.Timer tmr_Partidas;
     }
 }

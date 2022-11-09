@@ -7,10 +7,10 @@ using Entidades.Modelo;
 
 namespace Entidades.Presentador
 {
-    public class PresentadorSala
+    public class PresentadorSala 
     {
         ISala sala;
-        Partida partida;
+        Partida? partida;
         List<Usuario> jugadores = new List<Usuario>();
         public Action delTerminarVuelta;
         public Action delTerminarPartida;
@@ -20,38 +20,65 @@ namespace Entidades.Presentador
         bool contesto;
         int puntos;
 
-        public PresentadorSala (ISala sala)
+
+        //public PresentadorSala (ISala sala) 
+        //{
+        //    this.sala = sala;
+        //    AsignarJugadoresRandom();
+        //    partida = new Partida(0, jugadores, DateTime.Now); // no se deberia crear acá
+        //    jugadores[0].EsMano = true;
+        //    delTerminarVuelta = sala.LimpiarVuelta;
+        //    delTerminarVuelta += partida.FinalizarVuelta;
+        //    delTerminarVuelta += partida.ActivarEventoMazo;
+        //    delTerminarPartida = sala.FrenarTimer;
+        //    delTerminarPartida += partida.ActivarEventoFinalizarPartida;
+        //    delTerminarPartida += AgregarPartida;
+        //    delTerminarPartida += sala.GuardarPartida;
+        //}
+
+        public PresentadorSala (ISala sala, Object partida)
         {
             this.sala = sala;
-            AsignarJugadoresRandom();
-            partida = new Partida(0, jugadores, DateTime.Now); // no se deberia crear acá
-            jugadores[0].EsMano = true;
-            delTerminarVuelta = sala.LimpiarVuelta;
-            delTerminarVuelta += partida.FinalizarVuelta;
-            delTerminarVuelta += partida.ActivarEventoMazo;
-            delTerminarPartida = sala.FrenarTimer;
-            delTerminarPartida += partida.ActivarEventoFinalizarPartida;
-            delTerminarPartida += AgregarPartida;
-            delTerminarPartida += sala.GuardarPartida;
+            this.partida = partida as Partida;
+            if(this.partida is not null)
+            {
+                Asignar();
+            }
         }
 
-        /// <summary>
-        /// asigna 2 jugadores random disponibles a excepción del usuario activo
-        /// </summary>
-        private void AsignarJugadoresRandom()
+        private void Asignar()
         {
-            Random rnd = new Random();
-            do
-            {
-                int indice = rnd.Next(0, PresentadorMenuPrincipal.usuarios.Count());
-                if (!jugadores.Contains(PresentadorMenuPrincipal.usuarios[indice]) && PresentadorMenuPrincipal.usuarios[indice] != PresentadorMenuPrincipal.usuarioActivo)
-                {
-                    jugadores.Add(PresentadorMenuPrincipal.usuarios[indice]);
-                }
-            } while (jugadores.Count < 2);
+            jugadores = this.partida.Jugadores;
+            jugadores[0].EsMano = true;
+            delTerminarVuelta = sala.LimpiarVuelta;
+            delTerminarVuelta += this.partida.FinalizarVuelta;
+            delTerminarVuelta += this.partida.ActivarEventoMazo;
+            delTerminarPartida = sala.FrenarTimer;
+            delTerminarPartida += this.partida.ActivarEventoFinalizarPartida;
+            delTerminarPartida += AgregarPartida;
+            delTerminarPartida += sala.GuardarPartida;
             sala.UsuarioJugador1 = jugadores[0].NombreUsuario;
             sala.UsuarioJugador2 = jugadores[1].NombreUsuario;
         }
+
+        ///// <summary>
+        ///// asigna 2 jugadores random disponibles a excepción del usuario activo y quienes se encuentren en otro partida
+        ///// </summary>
+        //private void AsignarJugadoresRandom()
+        //{
+        //    Random rnd = new Random();
+        //    do
+        //    {
+        //        int indice = rnd.Next(0, PresentadorMenuPrincipal.usuarios.Count());
+        //        Usuario usuario = PresentadorMenuPrincipal.usuarios[indice];
+        //        if (!jugadores.Contains(usuario) && usuario != PresentadorMenuPrincipal.usuarioActivo && !usuario.EstaJugando)
+        //        {
+        //            jugadores.Add(PresentadorMenuPrincipal.usuarios[indice]);
+        //        }
+        //    } while (jugadores.Count < 2);
+        //    sala.UsuarioJugador1 = jugadores[0].NombreUsuario;
+        //    sala.UsuarioJugador2 = jugadores[1].NombreUsuario;
+        //}
 
         /// <summary>
         /// los jugadores cantan envido si es que pueden hacerlo, si es así se responden si quieren o no
@@ -375,7 +402,7 @@ namespace Entidades.Presentador
         {
             if (!jugadores[indice].CartasJugadas.Contains(carta))
             {
-                if(indice == 1)
+                if(indice == 0)
                 {
                     sala.CartasJug1 += carta.Numero + " " + carta.Palo + " ";
                 }
@@ -409,7 +436,8 @@ namespace Entidades.Presentador
         {
             try
             {
-                ConexionPartidas.AgregarPartida(partida);
+                ConexionPartidas conexionPartidas = new ConexionPartidas();
+                conexionPartidas.AgregarPartida(partida);
             }
             catch (Exception ex)
             {

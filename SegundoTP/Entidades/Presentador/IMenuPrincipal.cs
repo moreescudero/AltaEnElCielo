@@ -14,6 +14,8 @@ namespace Entidades.Presentador
         bool HabilitarBotonAbrirSala { get; set; }
         bool HabilitarPanel { set; }
 
-        void CargarDgv(Object fuente);
+        Task CrearPartida();
+        void CargarDgvUsuarios(Object fuente);
+        void CargarDgvPartidas(Object fuente);
     }
 }

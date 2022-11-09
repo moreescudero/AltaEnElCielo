@@ -38,6 +38,7 @@ namespace Entidades.Modelo
         {
             this.jugadores = jugadores;
             this.fecha = fecha;
+            jugadores.ForEach((x) => x.EstaJugando = true);
         }
 
         public List<Usuario> Jugadores
@@ -403,7 +404,7 @@ namespace Entidades.Modelo
                 ganador = jugadores[0].NombreUsuario;
                 jugadores[1].PartidasPerdidas++;
             }
-            else
+            else if(jugadores[0].PuntosPartida < jugadores[1].PuntosPartida)
             {
                 jugadores[1].PartidasGanadas++;
                 ganador = jugadores[1].NombreUsuario;

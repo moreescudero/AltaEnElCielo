@@ -26,7 +26,8 @@ namespace Entidades.Presentador
         {
             try
             {
-                usuarios = ConexionUsuarios.ObtenerUsuarios();
+                ConexionUsuarios conexionUsuarios = new ConexionUsuarios();
+                usuarios = conexionUsuarios.ObtenerUsuarios();
             }
             catch (Exception ex)
             {
@@ -125,7 +126,8 @@ namespace Entidades.Presentador
                 {
                     try
                     {
-                        ConexionUsuarios.AgregarUsuario(usuario, login.Contraseña);
+                        ConexionUsuarios conexionUsuarios = new ConexionUsuarios();
+                        conexionUsuarios.AgregarUsuario(usuario, login.Contraseña);
                         usuarios.Add(usuario);
                         agregoUsuario = true;
                     }

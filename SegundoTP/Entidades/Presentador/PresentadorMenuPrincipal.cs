@@ -21,6 +21,7 @@ namespace Entidades.Presentador
             ObtenerPartidas();
             usuarioActivo = PresentadorLogin.usuarioActivo;
             usuarios = PresentadorLogin.usuarios;
+            partidas = new List<Partida>();
         }
 
         /// <summary>
@@ -30,7 +31,8 @@ namespace Entidades.Presentador
         {
             try
             {
-                partidas = ConexionPartidas.ObtenerPartidas(); 
+                ConexionPartidas conexionPartidas = new ConexionPartidas();
+                partidas = conexionPartidas.ObtenerPartidas(); 
             }
             catch(Exception ex)
             {
@@ -52,10 +54,30 @@ namespace Entidades.Presentador
         /// <summary>
         /// carga el datagridview con la lista de usuarios con mas cantidad de partidas ganadas
         /// </summary>
-        public void CargarDataGrid()
+        public void CargarDataGridUsuarios()
         {
             // que en este dgv se muestren los usuarios con más cantidad de partidas ganadas
-            menu.CargarDgv(usuarios);
+            menu.CargarDgvUsuarios(usuarios);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void CargarDataGridPartidas()
+        {
+            if(partidas.Count > 0)
+            {
+                partidas.ForEach((x) => x.ActivarEventoFinalizarPartida());
+                partidas.Clear();
+            }
+
+            Random rnd = new Random();
+            int tope = rnd.Next(1, 5);
+            for (int i = 0; i < 3; i++)
+            {
+                partidas.Add(new Partida(0, AsignarJugadoresRandom(), DateTime.Now));
+            }
+            menu.CargarDgvPartidas(partidas);
         }
 
         /// <summary>
@@ -65,7 +87,8 @@ namespace Entidades.Presentador
         {
             try
             {
-                ConexionUsuarios.ModificarUsuarios(usuarios);
+                ConexionUsuarios conexionUsuarios = new ConexionUsuarios();
+                conexionUsuarios.ModificarUsuarios(usuarios);
             }
             catch (Exception ex)
             {
@@ -74,6 +97,33 @@ namespace Entidades.Presentador
             }             
         }
 
+        /// <summary>
+        /// asigna 2 jugadores random disponibles a excepción del usuario activo y quienes se encuentren en otro partida
+        /// </summary>
+        private List<Usuario> AsignarJugadoresRandom()
+        {
+            List<Usuario> jugadores = new List<Usuario>();
+            Random rnd = new Random();
+            do
+            {
+                int indice = rnd.Next(0, usuarios.Count());
+                Usuario usuario =usuarios[indice];
+                if (!jugadores.Contains(usuario) && usuario != usuarioActivo && !usuario.EstaJugando)
+                {
+                    jugadores.Add(usuarios[indice]);
+                }
+            } while (jugadores.Count < 2);
+
+            return jugadores;
+        }
+
+        public Partida DevolverPartidaElegida(int indice)
+        {
+            Partida partida = partidas[indice];
+            partidas.Remove(partida);
+
+            return partida;
+        }
 
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Frm_Estadisticas : Form
+    public partial class Frm_Partida : Form
     {
-        public Frm_Estadisticas()
+        public Frm_Partida()
         {
             InitializeComponent();
         }

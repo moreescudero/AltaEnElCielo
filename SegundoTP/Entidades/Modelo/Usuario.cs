@@ -23,6 +23,7 @@ namespace Entidades.Modelo
         int manosGanadas;
         int partidasGanadas;
         int partidasPerdidas;
+        bool estaJugando = false;
 
         public Usuario(int id, string? nombreUsuario, string? contraseña)
         {
@@ -52,6 +53,7 @@ namespace Entidades.Modelo
         public int PuntosPartida { get { return puntosPartida; } set { puntosPartida = value; } } 
         public int PartidasGanadas { get { return partidasGanadas; } set { partidasGanadas = value; } } 
         public int PartidasPerdidas { get { return partidasPerdidas; } set { partidasPerdidas = value; } }
+        public bool EstaJugando { get { return estaJugando; } set { estaJugando = value; } }
          
         /// <summary>
         /// comprueva si la contraseña ingresada es igual a la contraseña del usuario
@@ -89,6 +91,7 @@ namespace Entidades.Modelo
         {
             puntosPartida = 0;
             esMano = false;
+            estaJugando = false;
         }
 
     }

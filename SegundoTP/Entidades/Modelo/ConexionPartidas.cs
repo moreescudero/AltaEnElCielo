@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace Entidades.Modelo
 {
-    public static class ConexionPartidas
+    public class ConexionPartidas
     {
-        static string stringConnection;
-        static SqlConnection connection;
-        static SqlCommand command;
+        string stringConnection;
+        SqlConnection connection;
+        SqlCommand command;
 
-        static ConexionPartidas()
+        public ConexionPartidas()
         {
             stringConnection = @"Data Source = 192.168.0.163 ; Initial Catalog = truco ; User ID = more ; Password = segtp ;";
             connection = new SqlConnection(stringConnection);
             command = new SqlCommand();
         }
 
-        private static void Comando(string mensaje)
+        private void Comando(string mensaje)
         {
             command.Connection = connection;
             command.CommandType = CommandType.Text;
@@ -33,7 +33,7 @@ namespace Entidades.Modelo
         /// </summary>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static List<Partida> ObtenerPartidas()
+        public List<Partida> ObtenerPartidas()
         {
             try
             {
@@ -71,7 +71,7 @@ namespace Entidades.Modelo
         /// </summary>
         /// <param name="partida"></param>
         /// <exception cref="Exception"></exception>
-        public static void AgregarPartida(Partida partida)
+        public void AgregarPartida(Partida partida)
         {
             try
             {

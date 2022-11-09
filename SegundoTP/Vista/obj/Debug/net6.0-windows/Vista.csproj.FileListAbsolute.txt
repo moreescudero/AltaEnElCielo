@@ -55,4 +55,4 @@ C:\Users\more\Desktop\Morena.Escudero.Parcial\SegundoTP\Vista\obj\Debug\net6.0-w
 C:\Users\more\Desktop\Morena.Escudero.Parcial\SegundoTP\Vista\obj\Debug\net6.0-windows\Vista.genruntimeconfig.cache
 C:\Users\more\Desktop\Morena.Escudero.Parcial\SegundoTP\Vista\obj\Debug\net6.0-windows\ref\Vista.dll
 C:\Users\more\Desktop\Morena.Escudero.Parcial\SegundoTP\Vista\obj\Debug\net6.0-windows\Vista.Frm_Estadistica.resources
-C:\Users\more\Desktop\Morena.Escudero.Parcial\SegundoTP\Vista\obj\Debug\net6.0-windows\Vista.Frm_Estadisticas.resources
+C:\Users\more\Desktop\Morena.Escudero.Parcial\SegundoTP\Vista\obj\Debug\net6.0-windows\Vista.Frm_Partida.resources
