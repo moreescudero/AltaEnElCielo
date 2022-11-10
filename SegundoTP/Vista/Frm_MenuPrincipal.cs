@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Entidades.Modelo;
 using Entidades.Presentador;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,15 @@ namespace Vista
             presentador.MostrarJugadorActivo();
             presentador.CargarDataGridUsuarios();
             tmr_Partidas.Start();
+            try
+            {
+                rtx_Reglas.Text = ManejadorArchivos.LeerArchivo(@"./Reglas", "reglas.txt");
+            }
+            catch (Exception ex)
+            {
+                pnl_ErrorPartidas.Visible = true;
+                lbl_ErrorPartidasBaseDeDatos.Text = ex.Message;
+            }
         }
 
         private async void btn_AbirSala_Click(object sender, EventArgs e)
@@ -135,6 +145,18 @@ namespace Vista
         {
             btn_AbirSala.Enabled = false;
             presentador.CargarDataGridPartidas();
+        }
+
+        private void btn_Reglas_Click(object sender, EventArgs e)
+        {
+            if (!pnl_Reglas.Visible)
+            {
+                pnl_Reglas.Visible = true;
+            }
+            else
+            {
+                pnl_Reglas.Visible = false;
+            }
         }
     }
 }

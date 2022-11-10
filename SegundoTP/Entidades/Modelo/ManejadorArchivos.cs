@@ -12,8 +12,7 @@ namespace Entidades.Modelo
 
         static ManejadorArchivos()
         {
-            ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //consigue la ruta desde cualquier pc
-            ruta += @"/Partida"; //la carpeta
+
         }
 
         /// <summary>
@@ -25,6 +24,8 @@ namespace Entidades.Modelo
         /// <exception cref="Exception"></exception>
         public static bool EscribirArchivo(string? mensaje, /*string? archivo,*/ string? nombre)
         {
+            string? ruta = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //consigue la ruta desde cualquier pc
+            ruta += @"/Partida"; //la carpeta
             string? completa = ruta + @"/" + nombre + ".txt";
             try
             {
@@ -49,7 +50,7 @@ namespace Entidades.Modelo
         /// </summary>
         /// <param name="archivo"></param>
         /// <returns></returns>
-        private static string BuscarArchivo(string? archivo)
+        private static string BuscarArchivo(string? archivo, string? ruta)
         {
             string[] archivos = Directory.GetFiles(ruta); 
 
@@ -69,13 +70,13 @@ namespace Entidades.Modelo
         /// <param name="archivo"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static string? LeerArchivo(string? archivo)
+        public static string? LeerArchivo(string? ruta, string? archivo)
         {
             string? datos = "";
 
             if (Directory.Exists(ruta))
             {
-                string? completa = BuscarArchivo(archivo);
+                string? completa = BuscarArchivo(archivo, ruta);
                 if(completa is not null)
                 {
                     using (StreamReader sr = new StreamReader(completa))

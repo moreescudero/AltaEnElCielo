@@ -48,11 +48,15 @@
             this.btn_Volver = new System.Windows.Forms.Button();
             this.lbl_ErrorPartidasBaseDeDatos = new System.Windows.Forms.Label();
             this.tmr_Partidas = new System.Windows.Forms.Timer(this.components);
+            this.btn_Reglas = new System.Windows.Forms.Button();
+            this.pnl_Reglas = new System.Windows.Forms.Panel();
+            this.rtx_Reglas = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_JugadoresDisponibles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuarioBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Salas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).BeginInit();
             this.pnl_ErrorPartidas.SuspendLayout();
+            this.pnl_Reglas.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgv_JugadoresDisponibles
@@ -229,11 +233,41 @@
             this.tmr_Partidas.Interval = 3500;
             this.tmr_Partidas.Tick += new System.EventHandler(this.tmr_Partidas_Tick);
             // 
+            // btn_Reglas
+            // 
+            this.btn_Reglas.Location = new System.Drawing.Point(734, 12);
+            this.btn_Reglas.Name = "btn_Reglas";
+            this.btn_Reglas.Size = new System.Drawing.Size(54, 28);
+            this.btn_Reglas.TabIndex = 8;
+            this.btn_Reglas.Text = "Reglas";
+            this.btn_Reglas.UseVisualStyleBackColor = true;
+            this.btn_Reglas.Click += new System.EventHandler(this.btn_Reglas_Click);
+            // 
+            // pnl_Reglas
+            // 
+            this.pnl_Reglas.Controls.Add(this.rtx_Reglas);
+            this.pnl_Reglas.Location = new System.Drawing.Point(62, 48);
+            this.pnl_Reglas.Name = "pnl_Reglas";
+            this.pnl_Reglas.Size = new System.Drawing.Size(667, 326);
+            this.pnl_Reglas.TabIndex = 9;
+            this.pnl_Reglas.Visible = false;
+            // 
+            // rtx_Reglas
+            // 
+            this.rtx_Reglas.Location = new System.Drawing.Point(46, 27);
+            this.rtx_Reglas.Name = "rtx_Reglas";
+            this.rtx_Reglas.ReadOnly = true;
+            this.rtx_Reglas.Size = new System.Drawing.Size(577, 277);
+            this.rtx_Reglas.TabIndex = 0;
+            this.rtx_Reglas.Text = "";
+            // 
             // Frm_MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnl_Reglas);
+            this.Controls.Add(this.btn_Reglas);
             this.Controls.Add(this.pnl_ErrorPartidas);
             this.Controls.Add(this.dgv_Salas);
             this.Controls.Add(this.lbl_UsuariosCargados);
@@ -252,6 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.partidaBindingSource)).EndInit();
             this.pnl_ErrorPartidas.ResumeLayout(false);
             this.pnl_ErrorPartidas.PerformLayout();
+            this.pnl_Reglas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +313,8 @@
         private Label lbl_ErrorPartidasBaseDeDatos;
         private Button btn_Volver;
         private System.Windows.Forms.Timer tmr_Partidas;
+        private Button btn_Reglas;
+        private Panel pnl_Reglas;
+        private RichTextBox rtx_Reglas;
     }
 }

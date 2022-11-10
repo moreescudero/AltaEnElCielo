@@ -135,7 +135,7 @@ namespace Entidades.Presentador
                     sala.PuntosJug1 = puntos.ToString();
                 }
             }
-            else if (!jugadores[0].CantoEnvido && jugadores[1].CantoEnvido && chatJug1 == String.Empty)
+            else if (((jugadores[1].CantoFaltaEnvido && !jugadores[0].CantoFaltaEnvido) || (!jugadores[0].CantoEnvido && jugadores[1].CantoEnvido)) && chatJug1 == String.Empty)
             {
                 if (partida.CantarEnvido(jugadores[0]) && (jugadores[1].CantoEnvido || (jugadores[1].CantoFaltaEnvido && partida.DecirEnvido(jugadores[0]) >= 28)))
                 {
@@ -408,12 +408,12 @@ namespace Entidades.Presentador
                 sala.Ganador = "Felicidades " + jugadores[indice].NombreUsuario + ", ganaste!";
                 delTerminarPartida();
             }
-            //else if (jugadores[indiceOtroJug].PuntosPartida > 14)
-            //{
-            //    sala.Chat += jugadores[indiceOtroJug].NombreUsuario + " ganó la partida!";
-            //    sala.Ganador = "Felicidades " + jugadores[indiceOtroJug].NombreUsuario + ", ganaste!";
-            //    delTerminarPartida();
-            //}
+            else if (jugadores[indiceOtroJug].PuntosPartida > 14)
+            {
+                sala.Chat += jugadores[indiceOtroJug].NombreUsuario + " ganó la partida!";
+                sala.Ganador = "Felicidades " + jugadores[indiceOtroJug].NombreUsuario + ", ganaste!";
+                delTerminarPartida();
+            }
             else
             {
                 if (jugadores[indice].EsMano && !jugadores[indiceOtroJug].EsMano)
