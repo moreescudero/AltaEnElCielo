@@ -226,7 +226,7 @@
             // 
             // tmr_Partidas
             // 
-            this.tmr_Partidas.Interval = 2000;
+            this.tmr_Partidas.Interval = 3500;
             this.tmr_Partidas.Tick += new System.EventHandler(this.tmr_Partidas_Tick);
             // 
             // Frm_MenuPrincipal

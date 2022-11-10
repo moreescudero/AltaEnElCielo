@@ -320,7 +320,7 @@ namespace Entidades.Modelo
             string retorno = "";
             if (jugadorUno > jugadorDos || (jugadores[0].EsMano && jugadorUno == jugadorDos))
             {
-                if (jugadores[0].CantoEnvido || jugadores[0].CantoEnvido)
+                if (jugadores[0].CantoEnvido || jugadores[1].CantoEnvido)
                 {
                     jugadores[0].PuntosPartida += 2;
                     retorno = jugadores[0].NombreUsuario + " ganó envido";
@@ -329,13 +329,22 @@ namespace Entidades.Modelo
                 {
                     int puntos = 15 - jugadores[1].PuntosPartida;
                     jugadores[0].PuntosPartida += puntos;
-                    retorno 
+                    retorno = jugadores[0].NombreUsuario + " ganó falta envido";
                 }
             }
             else if (jugadorUno < jugadorDos || (jugadores[1].EsMano && jugadorUno == jugadorDos))
             {
-                jugadores[1].PuntosPartida += 2;
-                retorno = jugadores[1].NombreUsuario + " ganó envido";
+                if (jugadores[0].CantoEnvido || jugadores[1].CantoEnvido)
+                {
+                    jugadores[1].PuntosPartida += 2;
+                    retorno = jugadores[1].NombreUsuario + " ganó envido";
+                }
+                else if (jugadores[0].CantoFaltaEnvido || jugadores[1].CantoFaltaEnvido)
+                {
+                    int puntos = 15 - jugadores[0].PuntosPartida;
+                    jugadores[1].PuntosPartida += puntos;
+                    retorno = jugadores[1].NombreUsuario + " ganó falta envido";
+                }
             }
             return retorno;
         }

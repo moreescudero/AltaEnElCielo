@@ -85,7 +85,7 @@ namespace Entidades.Presentador
         /// </summary>
         public void JugarEnvido()
         {
-            if (!jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
+            if ((!jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido) && (!jugadores[0].CantoFaltaEnvido && !jugadores[1].CantoFaltaEnvido))
             {
                 if (jugadores[0].EsMano)
                 {
@@ -95,25 +95,28 @@ namespace Entidades.Presentador
                 {
                     VerificarEnvido(1, 0);
                 }
-                if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
+                if (sala.HayEnvido)
                 {
-                    sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
-                    chatJug1 = "Envido";
-                }
-                else if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
-                {
-                    sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
-                    chatJug2 = "Envido";
-                }
-                else if (jugadores[0].CantoFaltaEnvido && !jugadores[1].CantoFaltaEnvido)
-                {
-                    sala.Chat += jugadores[0].NombreUsuario + ": Falta envido\n";
-                    chatJug1 = "Falta envido";
-                }
-                else if (!jugadores[0].CantoFaltaEnvido && jugadores[1].CantoFaltaEnvido)
-                {
-                    sala.Chat += jugadores[1].NombreUsuario + ": Falta envido\n";
-                    chatJug2 = "Falta envido";
+                    if (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)
+                    {
+                        sala.Chat += jugadores[0].NombreUsuario + ": Envido\n";
+                        chatJug1 = "Envido";
+                    }
+                    else if (jugadores[1].CantoEnvido && !jugadores[0].CantoEnvido)
+                    {
+                        sala.Chat += jugadores[1].NombreUsuario + ": Envido\n";
+                        chatJug2 = "Envido";
+                    }
+                    else if (jugadores[0].CantoFaltaEnvido && !jugadores[1].CantoFaltaEnvido)
+                    {
+                        sala.Chat += jugadores[0].NombreUsuario + ": Falta envido\n";
+                        chatJug1 = "Falta envido";
+                    }
+                    else if (!jugadores[0].CantoFaltaEnvido && jugadores[1].CantoFaltaEnvido)
+                    {
+                        sala.Chat += jugadores[1].NombreUsuario + ": Falta envido\n";
+                        chatJug2 = "Falta envido";
+                    }
                 }
             }
             else if (((jugadores[0].CantoFaltaEnvido && !jugadores[1].CantoFaltaEnvido) || (jugadores[0].CantoEnvido && !jugadores[1].CantoEnvido)) && chatJug2 == String.Empty)
@@ -173,12 +176,12 @@ namespace Entidades.Presentador
         /// <param name="indiceOtroJug"></param>
         private void VerificarEnvido(int indice, int indiceOtroJug)
         {
-            Random rnd = new Random();
-            int random = rnd.Next(1, 3);
+            //Random rnd = new Random();
+            //int random = rnd.Next(1, 3);
 
             if (partida.CantarEnvido(jugadores[indice]))
             {
-                if (partida.DecirEnvido(jugadores[indice]) >= 28 && random == 1)
+                if (partida.DecirEnvido(jugadores[indice]) >= 28/* && random == 1*/)
                 {
                     jugadores[indice].CantoFaltaEnvido = true;
                 }
@@ -189,7 +192,7 @@ namespace Entidades.Presentador
             }
             else if (partida.CantarEnvido(jugadores[indiceOtroJug]))
             {
-                if (partida.DecirEnvido(jugadores[indiceOtroJug]) >= 28 && random == 1)
+                if (partida.DecirEnvido(jugadores[indiceOtroJug]) >= 28/* && random == 1*/)
                 {
                     jugadores[indiceOtroJug].CantoFaltaEnvido = true;
                 }
