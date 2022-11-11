@@ -21,6 +21,7 @@ namespace Entidades.Presentador
         int puntos;
 
 
+
         //public PresentadorSala (ISala sala) 
         //{
         //    this.sala = sala;
