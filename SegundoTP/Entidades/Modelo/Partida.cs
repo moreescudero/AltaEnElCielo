@@ -41,6 +41,12 @@ namespace Entidades.Modelo
             jugadores.ForEach((x) => x.EstaJugando = true);
         }
 
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         public List<Usuario> Jugadores
         {
             get { return jugadores; }

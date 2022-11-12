@@ -71,6 +71,8 @@ namespace Entidades.Modelo
             return false;
         }
 
+
+
         /// <summary>
         /// setea todos los atributos del usuario para que pueda jugar una nueva vuelta
         /// </summary>

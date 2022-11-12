@@ -10,53 +10,53 @@ namespace Entidades_Deberia
     [TestClass]
     public class Partida_Deberia
     {
-        private List<Carta> EscribirMazo()
-        {
-            List<Carta> mazo = new List<Carta>();
+        //private List<Carta> EscribirMazo()
+        //{
+        //    List<Carta> mazo = new List<Carta>();
 
-            mazo.Add(new Carta(1, "espada", EValores.AnchoEspada));
-            mazo.Add(new Carta(2, "espada", EValores.Dos));
-            mazo.Add(new Carta(3, "espada", EValores.Tres));
-            mazo.Add(new Carta(4, "espada", EValores.Cuatro));
-            mazo.Add(new Carta(5, "espada", EValores.Cinco));
-            mazo.Add(new Carta(6, "espada", EValores.Seis));
-            mazo.Add(new Carta(7, "espada", EValores.SieteEspada));
-            mazo.Add(new Carta(10, "espada", EValores.Diez));
-            mazo.Add(new Carta(11, "espada", EValores.Once));
-            mazo.Add(new Carta(12, "espada", EValores.Doce));
-            mazo.Add(new Carta(1,"oro", EValores.Uno));
-            mazo.Add(new Carta(2, "oro", EValores.Dos));
-            mazo.Add(new Carta(3, "oro", EValores.Tres));
-            mazo.Add(new Carta(4, "oro", EValores.Cuatro));
-            mazo.Add(new Carta(5, "oro", EValores.Cinco));
-            mazo.Add(new Carta(6, "oro", EValores.Seis));
-            mazo.Add(new Carta(7, "oro", EValores.SieteOro));
-            mazo.Add(new Carta(10, "oro", EValores.Diez));
-            mazo.Add(new Carta(11, "oro", EValores.Once));
-            mazo.Add(new Carta(12, "oro", EValores.Doce));
-            mazo.Add(new Carta(1, "copa", EValores.Uno));
-            mazo.Add(new Carta(2, "copa", EValores.Dos));
-            mazo.Add(new Carta(3, "copa", EValores.Tres));
-            mazo.Add(new Carta(4, "copa", EValores.Cuatro));
-            mazo.Add(new Carta(5, "copa", EValores.Cinco));
-            mazo.Add(new Carta(6, "copa", EValores.Seis));
-            mazo.Add(new Carta(7, "copa", EValores.Siete));
-            mazo.Add(new Carta(10, "copa", EValores.Diez));
-            mazo.Add(new Carta(11, "copa", EValores.Once));
-            mazo.Add(new Carta(12, "copa", EValores.Doce));
-            mazo.Add(new Carta(1, "basto", EValores.AnchoBasto));
-            mazo.Add(new Carta(2, "basto", EValores.Dos));
-            mazo.Add(new Carta(3, "basto", EValores.Tres));
-            mazo.Add(new Carta(4, "basto", EValores.Cuatro));
-            mazo.Add(new Carta(5, "basto", EValores.Cinco));
-            mazo.Add(new Carta(6, "basto", EValores.Seis));
-            mazo.Add(new Carta(7, "basto", EValores.Siete));
-            mazo.Add(new Carta(10, "basto", EValores.Diez));
-            mazo.Add(new Carta(11, "basto", EValores.Once));
-            mazo.Add(new Carta(12, "basto", EValores.Doce));
+        //    mazo.Add(new Carta(1, "espada", EValores.AnchoEspada));
+        //    mazo.Add(new Carta(2, "espada", EValores.Dos));
+        //    mazo.Add(new Carta(3, "espada", EValores.Tres));
+        //    mazo.Add(new Carta(4, "espada", EValores.Cuatro));
+        //    mazo.Add(new Carta(5, "espada", EValores.Cinco));
+        //    mazo.Add(new Carta(6, "espada", EValores.Seis));
+        //    mazo.Add(new Carta(7, "espada", EValores.SieteEspada));
+        //    mazo.Add(new Carta(10, "espada", EValores.Diez));
+        //    mazo.Add(new Carta(11, "espada", EValores.Once));
+        //    mazo.Add(new Carta(12, "espada", EValores.Doce));
+        //    mazo.Add(new Carta(1,"oro", EValores.Uno));
+        //    mazo.Add(new Carta(2, "oro", EValores.Dos));
+        //    mazo.Add(new Carta(3, "oro", EValores.Tres));
+        //    mazo.Add(new Carta(4, "oro", EValores.Cuatro));
+        //    mazo.Add(new Carta(5, "oro", EValores.Cinco));
+        //    mazo.Add(new Carta(6, "oro", EValores.Seis));
+        //    mazo.Add(new Carta(7, "oro", EValores.SieteOro));
+        //    mazo.Add(new Carta(10, "oro", EValores.Diez));
+        //    mazo.Add(new Carta(11, "oro", EValores.Once));
+        //    mazo.Add(new Carta(12, "oro", EValores.Doce));
+        //    mazo.Add(new Carta(1, "copa", EValores.Uno));
+        //    mazo.Add(new Carta(2, "copa", EValores.Dos));
+        //    mazo.Add(new Carta(3, "copa", EValores.Tres));
+        //    mazo.Add(new Carta(4, "copa", EValores.Cuatro));
+        //    mazo.Add(new Carta(5, "copa", EValores.Cinco));
+        //    mazo.Add(new Carta(6, "copa", EValores.Seis));
+        //    mazo.Add(new Carta(7, "copa", EValores.Siete));
+        //    mazo.Add(new Carta(10, "copa", EValores.Diez));
+        //    mazo.Add(new Carta(11, "copa", EValores.Once));
+        //    mazo.Add(new Carta(12, "copa", EValores.Doce));
+        //    mazo.Add(new Carta(1, "basto", EValores.AnchoBasto));
+        //    mazo.Add(new Carta(2, "basto", EValores.Dos));
+        //    mazo.Add(new Carta(3, "basto", EValores.Tres));
+        //    mazo.Add(new Carta(4, "basto", EValores.Cuatro));
+        //    mazo.Add(new Carta(5, "basto", EValores.Cinco));
+        //    mazo.Add(new Carta(6, "basto", EValores.Seis));
+        //    mazo.Add(new Carta(7, "basto", EValores.Siete));
+        //    mazo.Add(new Carta(10, "basto", EValores.Diez));
+        //    mazo.Add(new Carta(11, "basto", EValores.Once));
+        //    mazo.Add(new Carta(12, "basto", EValores.Doce));
 
-            return mazo;
-        }
+        //    return mazo;
+        //}
 
         [TestMethod]
         public void Barajar_Deberia()
@@ -74,12 +74,13 @@ namespace Entidades_Deberia
             Assert.IsNotNull(listaMazo);
         }
 
-        //[DataRow ()]
-        //[TestMethod]
-        //public void Repartir_Deberia()
-        //{
-
-        //}
+        [DataRow()]
+        [TestMethod]
+        public void Repartir_Deberia()
+        {
+            Mazo mazo = Serializador<Mazo>.LeerJSon("mazo.json"); //me tira excepcion por no encontrar el archivo
+            List<Carta> listaMazo = mazo.Mazos;
+        }
 
         //[TestMethod] //no se como pasar un objeto para que pueda ser nulo
         //public void TirarCarta_Deberia()

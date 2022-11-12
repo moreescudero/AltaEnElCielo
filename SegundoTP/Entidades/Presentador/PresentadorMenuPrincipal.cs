@@ -24,6 +24,18 @@ namespace Entidades.Presentador
             partidas = new List<Partida>();
         }
 
+        private int ObtenerUltimoID()
+        {
+            foreach (Partida partida in partidas)
+            {
+                if(partidas.Last() == partida)
+                {
+                    return partida.Id;
+                }
+            }
+            return -1;
+        }
+
         /// <summary>
         /// Obtiene las partidas de la base de datos
         /// </summary>
@@ -120,6 +132,7 @@ namespace Entidades.Presentador
         public Partida DevolverPartidaElegida(int indice)
         {
             Partida partida = partidas[indice];
+            partida.Id = (ObtenerUltimoID() + 1);
             partidas.Remove(partida);
 
             return partida;

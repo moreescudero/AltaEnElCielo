@@ -14,24 +14,24 @@ namespace Entidades.Presentador
         string? UsuarioJugador2 { set; }
         string? Ganador { get; set; }
         string? Chat { get; set; }
-        string? PuntosJug1 { get; set; }
-        string? PuntosJug2 { get; set; }
+        string? PuntosJug1 {/* get;*/ set; }
+        string? PuntosJug2 { /*get;*/ set; }
         string? CartasJug1 { get; set; }
         string? CartasJug2 { get; set; }
-        int EnvidoJug1 { get; set; }
-        int EnvidoJug2 { get; set; }
-        bool PrimeraMano { get; set; }
+        //int EnvidoJug1 { get; set; }
+        //int EnvidoJug2 { get; set; }
+        //bool PrimeraMano { get; set; }
         bool HayEnvido { get; set; }
-        bool SeCantoTruco { get; set; }
-        bool SeCantoRetruco { get; set; }
-        bool SeCantoQuieroVale4 { get; set; }
-        bool DecirEnvido { get; set; }
-        bool SeContestoTruco { get; set; }
-        bool TerminoVuelta { get; set; }
+        //bool SeCantoTruco { get; set; }
+        //bool SeCantoRetruco { get; set; }
+        //bool SeCantoQuieroVale4 { get; set; }
+        //bool DecirEnvido { get; set; }
+        //bool SeContestoTruco { get; set; }
+        //bool TerminoVuelta { get; set; }
 
         void FrenarTimer();
         void LimpiarVuelta();
-        void GuardarPartida();
+        void GuardarPartida(string? ganador);
 
     }
 }

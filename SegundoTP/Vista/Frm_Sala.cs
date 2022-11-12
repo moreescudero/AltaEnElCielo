@@ -16,16 +16,8 @@ namespace Vista
     {
         DateTime segundos;
         PresentadorSala presentador;
-        int envidoJug1;
-        int envidoJug2;
-        bool primeraMano = true;
         bool hayEnvido = true;
-        bool seCantoTruco = false;
-        bool seCantoRetruco = false;
-        bool seCantoQuieroVale4 = false;
-        bool decirEnvido = false;
-        bool seContestoTruco = false;
-        bool terminoVuelta = false;
+
         //bool gano = false;
 
         public Frm_Sala ()
@@ -43,20 +35,20 @@ namespace Vista
         //public string? ChatJug1 { get { return lbl_ChatJug1.Text; } set { lbl_ChatJug1.Text = value; } }
         //public string? ChatJug2 { get { return lbl_ChatJug2.Text; } set { lbl_ChatJug2.Text = value; } }
         public string? Ganador { get { return lbl_Ganador.Text; } set { lbl_Ganador.Text = value; } }
-        public string? PuntosJug1 { get { return lbl_PuntosJug1.Text; } set { lbl_PuntosJug1.Text = value; } }
-        public string? PuntosJug2 { get { return lbl_PuntosJug2.Text; } set { lbl_PuntosJug2.Text = value; } }
-        public string? CartasJug1 { get { return lbl_CartasJugador1.Text;} set { lbl_CartasJugador1.Text = value; } }
-        public string? CartasJug2 { get { return lbl_CartasJugador2.Text;} set { lbl_CartasJugador2.Text = value; } }
-        public int EnvidoJug1 { get { return envidoJug1; } set { envidoJug1 = value; } }
-        public int EnvidoJug2 { get { return envidoJug2; } set { envidoJug2 = value; } }
-        public bool PrimeraMano { get { return primeraMano; } set { primeraMano = value; } }
+        public string? PuntosJug1 {/* get { return lbl_PuntosJug1.Text; }*/ set { lbl_PuntosJug1.Text = value; } }
+        public string? PuntosJug2 {/* get { return lbl_PuntosJug2.Text; }*/ set { lbl_PuntosJug2.Text = value; } }
+        public string? CartasJug1 { get { return lbl_CartasJugador1.Text; } set { lbl_CartasJugador1.Text = value; } }
+        public string? CartasJug2 { get { return lbl_CartasJugador2.Text; } set { lbl_CartasJugador2.Text = value; } }
+        //public int EnvidoJug1 { get { return envidoJug1; } set { envidoJug1 = value; } }
+        //public int EnvidoJug2 { get { return envidoJug2; } set { envidoJug2 = value; } }
+        //public bool PrimeraMano { get { return primeraMano; } set { primeraMano = value; } }
         public bool HayEnvido { get { return hayEnvido; } set { hayEnvido = value; } }
-        public bool SeCantoTruco { get { return seCantoTruco; } set { seCantoTruco = value; } }
-        public bool SeCantoRetruco { get { return seCantoRetruco; } set { seCantoRetruco = value; } }
-        public bool SeCantoQuieroVale4 { get { return seCantoQuieroVale4; } set { seCantoQuieroVale4 = value; } }
-        public bool DecirEnvido { get { return decirEnvido; } set { decirEnvido = value; } }
-        public bool SeContestoTruco { get { return seContestoTruco; } set { seContestoTruco = value; } }
-        public bool TerminoVuelta { get { return terminoVuelta; } set { terminoVuelta = value; } }
+        //public bool SeCantoTruco { get { return seCantoTruco; } set { seCantoTruco = value; } }
+        //public bool SeCantoRetruco { get { return seCantoRetruco; } set { seCantoRetruco = value; } }
+        //public bool SeCantoQuieroVale4 { get { return seCantoQuieroVale4; } set { seCantoQuieroVale4 = value; } }
+        //public bool DecirEnvido { get { return decirEnvido; } set { decirEnvido = value; } }
+        //public bool SeContestoTruco { get { return seContestoTruco; } set { seContestoTruco = value; } }
+        //public bool TerminoVuelta { get { return terminoVuelta; } set { terminoVuelta = value; } }
 
         private void Frm_Sala_Load(object sender, EventArgs e)
         {
@@ -87,14 +79,14 @@ namespace Vista
         /// <summary>
         /// Guarda el chat de la partida en un archivo txt
         /// </summary>
-        public void GuardarPartida()
+        public void GuardarPartida(string? ganador)
         {
             DialogResult dr = MessageBox.Show("¿Desea guardar el chat de la partida?", "Guardar partida", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
                 try
                 {
-                    ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, "Partida");
+                    ManejadorArchivos.EscribirArchivo(rtx_ChatJugadores.Text, "Partida " + ganador);
                 }
                 catch(Exception)
                 {
@@ -127,18 +119,9 @@ namespace Vista
         /// <summary>
         /// Vuelve a setear todos los atributos para poder jugar nuevamente otra vuelta
         /// </summary>
-        public void LimpiarVuelta() 
+        public void LimpiarVuelta()
         {
-            envidoJug1 = 0;
-            envidoJug2 = 0;
-            primeraMano = true;
             hayEnvido = true;
-            seCantoTruco = false;
-            seCantoRetruco = false;
-            seCantoQuieroVale4 = false;
-            decirEnvido = false;
-            seContestoTruco = false;
-            terminoVuelta = false;
 
             lbl_CartasJugador1.Text = String.Empty;
             lbl_CartasJugador2.Text = String.Empty;
