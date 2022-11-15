@@ -58,13 +58,20 @@ namespace Vista
 
         private void tmr_Partida_Tick(object sender, EventArgs e)
         {
-            if (hayEnvido)
+            try
             {
-                presentador.JugarEnvido();
+                if (hayEnvido)
+                {
+                    presentador.JugarEnvido();
+                }
+                else
+                {
+                    presentador.Jugar();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                presentador.Jugar();
+                MessageBox.Show(ex.Message);
             }
         }
 

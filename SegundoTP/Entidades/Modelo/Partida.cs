@@ -215,16 +215,23 @@ namespace Entidades.Modelo
         /// <returns></returns>
         public Carta Jugar(Usuario jugador, Carta cartaContrincante)
         {
-            jugador.CartaJugada = TirarCarta(jugador, cartaContrincante);
-            jugador.Cartas.Remove(jugador.CartaJugada);
-            jugador.CartasJugadas.Add(jugador.CartaJugada);
-            return jugador.CartaJugada;
+            try
+            {
+                jugador.CartaJugada = TirarCarta(jugador, cartaContrincante);
+                jugador.Cartas.Remove(jugador.CartaJugada);
+                jugador.CartasJugadas.Add(jugador.CartaJugada);
+                return jugador.CartaJugada;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new ArgumentOutOfRangeException("Existen datos nulos");
+            }
         }
 
         /// <summary>
         /// suma manos ganadas cuando los dos jugadores tiraron una carta cada uno 
         /// </summary>
-        public void SumarPunto()
+        public void SumarMano()
         {
             if (jugadores[0].CartaJugada is not null && jugadores[1].CartaJugada is not null)
             {

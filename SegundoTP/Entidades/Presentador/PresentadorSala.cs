@@ -251,65 +251,72 @@ namespace Entidades.Presentador
         /// </summary>
         public void Jugar()
         {
-            contesto = false;
-            if (!gano)
+            try
             {
-                if (!seCantoTruco && !seContestoTruco || seCantoTruco && seContestoTruco)
+                contesto = false;
+                if (!gano)
                 {
-                    if ((jugadores[0].ManosGanadas == 2 || jugadores[1].ManosGanadas == 2) && jugadores[0].Cartas.Count == jugadores[1].Cartas.Count)
+                    if (!seCantoTruco && !seContestoTruco || seCantoTruco && seContestoTruco)
                     {
-                        if (jugadores[0].ManosGanadas == 2)
+                        if ((jugadores[0].ManosGanadas == 2 || jugadores[1].ManosGanadas == 2) && jugadores[0].Cartas.Count == jugadores[1].Cartas.Count)
                         {
-                            Ganar(0, 1);
-                        }
-                        else
-                        {
-                            Ganar(1, 0);
-                        }
-                        return;
-                    }
-                    else if (((jugadores[0].EsMano && !jugadores[1].EsMano && primeraMano) || !partida.AsignarTurno() && jugadores[0].Cartas.Count == jugadores[1].Cartas.Count || jugadores[0].Cartas.Count > jugadores[1].Cartas.Count) && jugadores[0].Cartas.Count > 0)
-                    {
-                        if (!seCantoTruco)
-                        {
-                            chatJug1 = CantarTruco(jugadores[0]);
-                            if (chatJug1 != String.Empty)
+                            if (jugadores[0].ManosGanadas == 2)
                             {
-                                sala.Chat += jugadores[0].NombreUsuario + ": " + chatJug1 +"\n";
+                                Ganar(0, 1);
                             }
-                        }
-                        Carta cartaJugada = partida.Jugar(jugadores[0], jugadores[1].CartaJugada);
-                        sala.CartasJug1 += cartaJugada.Numero + " " + cartaJugada.Palo + "  ";
-                    }
-                    else if ((jugadores[1].EsMano && !jugadores[0].EsMano && primeraMano) || jugadores[1].Cartas.Count > 0 || jugadores[0].CantoTruco && !seContestoTruco)
-                    {
-                        if (!seCantoTruco)
-                        {
-                            chatJug2 = CantarTruco(jugadores[1]);
-                            if (chatJug2 != String.Empty)
+                            else
                             {
-                                sala.Chat += jugadores[1].NombreUsuario + ": " + chatJug2 + "\n";
+                                Ganar(1, 0);
                             }
+                            return;
                         }
-                        Carta cartaJugada = partida.Jugar(jugadores[1], jugadores[0].CartaJugada);
-                        sala.CartasJug2 += cartaJugada.Numero + " " + cartaJugada.Palo + "  ";
+                        else if (((jugadores[0].EsMano && !jugadores[1].EsMano && primeraMano) || !partida.AsignarTurno() && jugadores[0].Cartas.Count == jugadores[1].Cartas.Count || jugadores[0].Cartas.Count > jugadores[1].Cartas.Count) && jugadores[0].Cartas.Count > 0)
+                        {
+                            if (!seCantoTruco)
+                            {
+                                chatJug1 = CantarTruco(jugadores[0]);
+                                if (chatJug1 != String.Empty)
+                                {
+                                    sala.Chat += jugadores[0].NombreUsuario + ": " + chatJug1 + "\n";
+                                }
+                            }
+                            Carta cartaJugada = partida.Jugar(jugadores[0], jugadores[1].CartaJugada);
+                            sala.CartasJug1 += cartaJugada.Numero + " " + cartaJugada.Palo + "  ";
+                        }
+                        else if ((jugadores[1].EsMano && !jugadores[0].EsMano && primeraMano) || jugadores[1].Cartas.Count > 0 || jugadores[0].CantoTruco && !seContestoTruco)
+                        {
+                            if (!seCantoTruco)
+                            {
+                                chatJug2 = CantarTruco(jugadores[1]);
+                                if (chatJug2 != String.Empty)
+                                {
+                                    sala.Chat += jugadores[1].NombreUsuario + ": " + chatJug2 + "\n";
+                                }
+                            }
+                            Carta cartaJugada = partida.Jugar(jugadores[1], jugadores[0].CartaJugada);
+                            sala.CartasJug2 += cartaJugada.Numero + " " + cartaJugada.Palo + "  ";
+                        }
+                        primeraMano = false;
                     }
-                    primeraMano = false;
+                    else if (seCantoTruco && !seContestoTruco)
+                    {
+                        contesto = true;
+                        ContestarTruco();
+                    }
+                    if (jugadores[0].Cartas.Count == jugadores[1].Cartas.Count && !contesto)
+                    {
+                        partida.SumarMano();
+                    }
                 }
-                else if (seCantoTruco && !seContestoTruco)
+                else
                 {
-                    contesto = true;
-                    ContestarTruco();
-                }
-                if (jugadores[0].Cartas.Count == jugadores[1].Cartas.Count && !contesto)
-                {
-                    partida.SumarPunto();
+                    delTerminarVuelta();
+                    gano = false;
                 }
             }
-            else
+            catch (Exception ex)
             {
-                delTerminarVuelta();
-                gano = false;
+                throw new Exception(ex.Message);
             }
         }
 
