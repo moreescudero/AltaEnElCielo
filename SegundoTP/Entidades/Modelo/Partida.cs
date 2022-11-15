@@ -105,20 +105,27 @@ namespace Entidades.Modelo
         /// <param name="mazo"></param>
         public void Barajar(List<Carta> mazo)
         {
-            List<Carta> mazoMezclado = new List<Carta>();
-            Random rnd = new Random();
-            int indice;
+            if (mazo is not null)
+            {
+                List<Carta> mazoMezclado = new List<Carta>();
+                Random rnd = new Random();
+                int indice;
 
-            for (int i = 0; i < 6; i++)
-            {
-                indice = rnd.Next(0, mazo.Count());
-                mazoMezclado.Add(mazo[indice]);
-                mazo.RemoveAt(indice);
+                for (int i = 0; i < 6; i++)
+                {
+                    indice = rnd.Next(0, mazo.Count());
+                    mazoMezclado.Add(mazo[indice]);
+                    mazo.RemoveAt(indice);
+                }
+                mazo.Clear();
+                for (int i = 0; i < 6; i++)
+                {
+                    mazo.Add(mazoMezclado[i]);
+                }
             }
-            mazo.Clear();
-            for (int i = 0; i < 6; i++)
+            else
             {
-                mazo.Add(mazoMezclado[i]);
+                throw new NullReferenceException("Mazo no cargado");
             }
         }
 
@@ -128,16 +135,23 @@ namespace Entidades.Modelo
         /// <param name="mazo"></param>
         public void Repartir(List<Carta> mazo)
         {
-            for (int i = 0; i < mazo.Count; i++)
+            if (mazo is not null)
             {
-                if (i < 3)
+                for (int i = 0; i < 6; i++)
                 {
-                    jugadores[0].Cartas.Add(mazo[i]);
+                    if (i < 3)
+                    {
+                        jugadores[0].Cartas.Add(mazo[i]);
+                    }
+                    else
+                    {
+                        jugadores[1].Cartas.Add(mazo[i]);
+                    }
                 }
-                else
-                {
-                    jugadores[1].Cartas.Add(mazo[i]);
-                }
+            }
+            else
+            {
+                throw new NullReferenceException("Mazo no cargado");
             }
         }
 

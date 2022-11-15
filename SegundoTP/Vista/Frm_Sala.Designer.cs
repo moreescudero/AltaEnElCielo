@@ -139,10 +139,10 @@
             // 
             // rtx_ChatJugadores
             // 
-            this.rtx_ChatJugadores.Location = new System.Drawing.Point(512, 38);
+            this.rtx_ChatJugadores.Location = new System.Drawing.Point(499, 38);
             this.rtx_ChatJugadores.Name = "rtx_ChatJugadores";
             this.rtx_ChatJugadores.ReadOnly = true;
-            this.rtx_ChatJugadores.Size = new System.Drawing.Size(239, 298);
+            this.rtx_ChatJugadores.Size = new System.Drawing.Size(252, 258);
             this.rtx_ChatJugadores.TabIndex = 11;
             this.rtx_ChatJugadores.Text = "";
             this.rtx_ChatJugadores.TextChanged += new System.EventHandler(this.rtx_ChatJugadores_TextChanged);
@@ -151,6 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.rtx_ChatJugadores);
             this.Controls.Add(this.lbl_ChatJug2);
@@ -163,6 +164,7 @@
             this.Controls.Add(this.lbl_Jugador1);
             this.Controls.Add(this.lbl_Jugador2);
             this.Controls.Add(this.btn_Volver);
+            this.DoubleBuffered = true;
             this.Name = "Frm_Sala";
             this.Text = "Sala";
             this.Load += new System.EventHandler(this.Frm_Sala_Load);

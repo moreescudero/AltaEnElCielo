@@ -12,6 +12,18 @@ namespace Entidades_Deberia
     {
 
         [TestMethod]
+        public void ActivarEventoMazo_Deberia()
+        {
+            Partida partida = new Partida(0, DevolverJugadoresPrueba(), DateTime.Now);
+
+            partida.ActivarEventoMazo();
+
+            Assert.IsNotNull(partida.Jugadores[0].Cartas);
+            Assert.IsNotNull(partida.Jugadores[1].Cartas);
+            Assert.IsTrue(partida.Jugadores[0].Cartas.Count == 3 && partida.Jugadores[0].Cartas.Count == 3);
+        }
+
+        [TestMethod]
         public void Barajar_Deberia()
         {
             Mazo mazo = Serializador<Mazo>.LeerJSon("mazo.json"); 
@@ -24,7 +36,6 @@ namespace Entidades_Deberia
             Assert.IsNotNull(listaMazo);
         }
 
-        [DataRow()]
         [TestMethod]
         public void Repartir_Deberia()
         {
@@ -38,11 +49,77 @@ namespace Entidades_Deberia
             Assert.IsTrue(partida.Jugadores[0].Cartas.Count == 3 && partida.Jugadores[1].Cartas.Count == 3);
         }
 
-        //[TestMethod] //no se como pasar un objeto para que pueda ser nulo
-        //public void TirarCarta_Deberia()
-        //{
+        [ExpectedException (typeof(NullReferenceException))]
+        [TestMethod]
+        public void Barajar_Fallo()
+        {
+            //Mazo mazo = Serializador<Mazo>.LeerJSon("mazo.json"); 
+            List<Carta> listaMazo = null;
+            Partida partida = new Partida(0);
 
-        //}
+            partida.Barajar(listaMazo);
+
+            //Assert.IsFalse(listaMazo.Count == 6);
+            //Assert.IsNull(listaMazo);
+        }
+
+        [ExpectedException(typeof(NullReferenceException))]
+        [TestMethod]
+        public void Repartir_Fallo()
+        {
+            //Mazo mazo = Serializador<Mazo>.LeerJSon("mazo.json"); 
+            List<Carta> listaMazo = null;
+            Partida partida = new Partida(0, DevolverJugadoresPrueba(), DateTime.Now);
+
+            //partida.Barajar(listaMazo);
+            partida.Repartir(listaMazo);
+
+            //Assert.IsFalse(partida.Jugadores[0].Cartas.Count == 3 && partida.Jugadores[1].Cartas.Count == 3);
+            //Assert.IsNull(listaMazo);
+        }
+
+        [TestMethod] 
+        public void Jugar_DeberiaJug1TirarSuMejorCarta()
+        {
+            Partida partida = new Partida(0, DevolverJugadoresPrueba(), DateTime.Now);
+            partida.ActivarEventoMazo();
+            Carta? carta = null;
+            for (int i = 0; i < partida.Jugadores[0].Cartas.Count; i++)
+            {
+                if (carta is null || carta.Valor > partida.Jugadores[0].Cartas[i].Valor)
+                {
+                    carta = partida.Jugadores[0].Cartas[i];
+                }
+            }
+
+            Carta cartaTirada = partida.Jugar(partida.Jugadores[0], null);
+
+            Assert.AreEqual(carta.Valor, cartaTirada.Valor);
+            Assert.IsTrue(partida.Jugadores[0].Cartas.Count == 2 && partida.Jugadores[0].CartasJugadas.Count == 1 && partida.Jugadores[0].CartaJugada is not null);
+        }
+        
+        [TestMethod] 
+        public void Jugar_DeberiaJug2TirarSuMejorCarta()
+        {
+            Partida partida = new Partida(0, DevolverJugadoresPrueba(), DateTime.Now);
+            partida.ActivarEventoMazo();
+            Carta? carta = null;
+            for (int i = 0; i < partida.Jugadores[1].Cartas.Count; i++)
+            {
+                if (carta is null || carta.Valor > partida.Jugadores[1].Cartas[i].Valor)
+                {
+                    carta = partida.Jugadores[1].Cartas[i];
+                }
+            }
+
+            Carta cartaTirada = partida.Jugar(partida.Jugadores[1], null);
+
+            Assert.AreEqual(carta.Valor, cartaTirada.Valor); 
+            Assert.IsTrue(partida.Jugadores[1].Cartas.Count == 2 && partida.Jugadores[1].CartasJugadas.Count == 1 && partida.Jugadores[1].CartaJugada is not null);
+        }
+
+        //[TestMethod]
+        //public void Jugar_DeberiaJug2Ganar
 
         private List<Usuario> DevolverJugadoresPrueba()
         {
@@ -63,6 +140,9 @@ namespace Entidades_Deberia
             List<Usuario> jugadores = DevolverJugadoresPrueba();
             Partida partida = new Partida(0, jugadores, DateTime.Now);
             jugadores[0].EsMano = true;
+            jugadores[0].CantoEnvido = true;
+            jugadores[1].CantoEnvido = true;
+
 
             string? ganador = partida.DeterminarGanadorEnvido(jug1, jug2);
 
@@ -83,6 +163,8 @@ namespace Entidades_Deberia
             List<Usuario> jugadores = DevolverJugadoresPrueba();
             Partida partida = new Partida(0, jugadores, DateTime.Now);
             jugadores[1].EsMano = true;
+            jugadores[1].CantoEnvido = true;
+            jugadores[0].CantoEnvido = true;
 
             string? ganador = partida.DeterminarGanadorEnvido(jug1, jug2);
 
@@ -100,6 +182,8 @@ namespace Entidades_Deberia
         {
             List<Usuario> jugadores = DevolverJugadoresPrueba();
             Partida partida = new Partida(0, jugadores, DateTime.Now);
+            jugadores[0].CantoEnvido = true;
+            jugadores[1].CantoEnvido = true;
 
             string? ganador = partida.DeterminarGanadorEnvido(jug1, jug2);
 
@@ -109,15 +193,58 @@ namespace Entidades_Deberia
         }
 
         [TestMethod]
-        public void AsignarTurno_Deberia() // faltan más unit testing pero necesito pasar las cartas como datarow
+        public void AsignarTurno_DeberiaDarleElTurnoAlJug2() 
         {
             List<Usuario> jugadores = DevolverJugadoresPrueba();
             Partida partida = new Partida(0, jugadores, DateTime.Now);
 
             bool EsTurnoDeJug2 = partida.AsignarTurno();
 
-            Assert.IsTrue(EsTurnoDeJug2);
+            Assert.IsTrue(EsTurnoDeJug2 && jugadores[1].CartaJugada is null && jugadores[0].CartaJugada is null);
         }
+        
+        [TestMethod]
+        public void AsignarTurno_DeberiaDarleElTurnoAlJug2ConCartas() 
+        {
+            List<Usuario> jugadores = DevolverJugadoresPrueba();
+            Partida partida = new Partida(0, jugadores, DateTime.Now);
+            jugadores[1].CartaJugada = new Carta(1, "espada", EValores.AnchoEspada);
+            jugadores[0].CartaJugada = new Carta(3, "basto", EValores.Tres);
+
+            bool EsTurnoDeJug2 = partida.AsignarTurno();
+
+            Assert.IsTrue(EsTurnoDeJug2);
+            Assert.IsNotNull(jugadores[0].CartaJugada);
+            Assert.IsNotNull(jugadores[1].CartaJugada);
+        }
+
+        [TestMethod]
+        public void AsignarTurno_DeberiaDarleElTurnoAlJug1() 
+        {
+            List<Usuario> jugadores = DevolverJugadoresPrueba();
+            Partida partida = new Partida(0, jugadores, DateTime.Now);
+            jugadores[1].CartaJugada = new Carta(1, "espada", EValores.AnchoEspada);
+
+            bool EsTurnoDeJug2 = partida.AsignarTurno();
+
+            Assert.IsFalse(EsTurnoDeJug2 && jugadores[0].CartaJugada is null);
+        }
+
+        [TestMethod]
+        public void AsignarTurno_DeberiaDarleElTurnoAlJug1ConCartas()
+        {
+            List<Usuario> jugadores = DevolverJugadoresPrueba();
+            Partida partida = new Partida(0, jugadores, DateTime.Now);
+            jugadores[0].CartaJugada = new Carta(7, "espada", EValores.SieteEspada);
+            jugadores[1].CartaJugada = new Carta(2, "basto", EValores.Dos);
+
+            bool EsTurnoDeJug2 = partida.AsignarTurno();
+
+            Assert.IsFalse(EsTurnoDeJug2);
+            Assert.IsNotNull(jugadores[0].CartaJugada);
+            Assert.IsNotNull(jugadores[1].CartaJugada);
+        }
+
 
         //[DataRow (15,13)]
         //[DataRow (14,16)]
